@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/demos/styles/essentia-colors.css">
+    <link rel="stylesheet" type="text/css" href="/demos/styles/demos.css">
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -69,137 +71,77 @@
     </header>
     
     <div class="ui divider" style="height: 0.1rem; width: 1px"></div>
-    <div class="ui container" id="tabular-card-menu">
-      <div class="ui top attached big tabular menu">
-        <a class="item active" data-tab="demos">Demo Apps</a>
-        <a class="item" data-tab="starter-code">Interactive code examples</a>
-      </div>
-      <div class="ui active bottom attached tab segment" data-tab="demos">
-        <div class="ui four column doubling stackable grid link cards">
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/melspectrogram-rt/" class="image" target="_blank">
-                  <img src='./demos/screenshots/melspectrogram-rt.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/melspectrogram-rt/" class="header" target="_blank">
-                    Melspectrogram (Real-time)
-                  </a>
-                </div>
-              </div>
+    <div class="ui container grid" id="tabular-card-menu">
+      <div class="four wide column">
+        <div class="ui vertical tabular menu">
+          <div class="item">
+            <div class="header">Demo Apps</div>
+            <div class="menu" id="demo-tabs-menu">
+              <a data-tab="melspectrogram-rt" class="active item">
+                Melspectrogram (Real-time)
+              </a>
+              <a data-tab="rms-rt" class="item">
+                RMS (Real-time)
+              </a>
+              <a data-tab="pitchmelodia-rt" class="item">
+                Pitch Melodia (Real-time)
+              </a>
+              <a data-tab="onsets" class="item">
+                Onset Detection
+              </a>
+              <a data-tab="autotagging-rt" class="item">
+                Music Autotagging (Real-time)
+              </a>
+              <a data-tab="mood-classifiers" class="item">
+                Mood Classification plus Key & BPM
+              </a>
+              <a data-tab="hpcp-chroma-rt" class="item">
+                HPCP Chroma (Real-time)
+              </a>
+              <a href="https://essentia.upf.edu/essentiajs-discogs/" class="item">
+                Discogs Genre Autotagging (Real-time)
+              </a>
+  
             </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/rms-rt/" class="image" target="_blank">
-                  <img src='./demos/screenshots/rms-rt.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/rms-rt/" class="header" target="_blank">
-                    RMS (Real-time)
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="item">
+            <div class="header">Code Snippets</div>
+            <div class="menu" id="code-tabs-menu">
+              <a data-tab="glitch-melspectrogram" class="item">
+                Melspectrogram
+              </a>
+              <a data-tab="glitch-pitch-melodia" class="item">
+                Pitch Melodia 
+              </a>
+              <a data-tab="glitch-hpcp-chroma" class="item">
+                HPCP Chroma
+              </a>
+              <a data-tab="glitch-autotagging" class="item">
+                Music Autotagging 
+              </a>
             </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/pitchyinfft-rt/" class="image" target="_blank">
-                  <img src='./demos/screenshots/pitchyinfft-rt.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/pitchyinfft-rt/" class="header" target="_blank">
-                    Pitch Melodia (Real-time)
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/onsets/public/" class="image" target="_blank">
-                  <img src='./demos/screenshots/onsets.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/onsets/public/" class="header" target="_blank">
-                    Onset Detection
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/autotagging-rt/" class="image" target="_blank">
-                  <img src='./demos/screenshots/autotagging-rt.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/autotagging-rt/" class="header" target="_blank">
-                    Music Autotagging (Real-time)
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/mood-classifiers/" class="image" target="_blank">
-                  <img src='./demos/screenshots/mood-classifiers.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/mood-classifiers/" class="header" target="_blank">
-                    Mood Classification plus Key & BPM
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="./demos/hpcp-chroma-rt/" class="image" target="_blank">
-                  <img src='./demos/screenshots/hpcp-chroma-rt.png'></img>
-                </a>
-                <div class="content">
-                  <a href="./demos/hpcp-chroma-rt/" class="header" target="_blank">
-                    HPCP Chroma (Real-time)
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui fluid card">
-                <a href="https://essentia.upf.edu/essentiajs-discogs/" class="image" target="_blank">
-                  <img src='./demos/screenshots/discogs-autotagging.png'></img>
-                </a>
-                <div class="content">
-                  <a href="https://essentia.upf.edu/essentiajs-discogs/" class="header" target="_blank">
-                    Discogs Genre Autotagging (Real-time)
-                  </a>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
       </div>
-      <div class="ui bottom attached tab segment" data-tab="starter-code">
-        <div class="ui vertical large fluid basic buttons">
-          <a href="https://glitch.com/edit/#!/essentiajs-melspectrogram" class="ui button" target="_blank">
-            <p class="code-example-name" data-html="<iframe src='https://glitch.com/edit/#!/essentiajs-melspectrogram' frameborder='0'></iframe>">
-              Melspectrogram
-            </p>
-            <p class="glitch-link">glitch.com<i class="external alternate icon"></i></p>
-          </a>
-          <a href="https://glitch.com/edit/#!/essentiajs-pitchmelodia" class="ui button" target="_blank">
-            <p class="code-example-name" data-html="<iframe src='https://glitch.com/edit/#!/essentiajs-pitchmelodia' frameborder='0'></iframe>">
-              Pitch Melodia 
-            </p>
-            <p class="glitch-link">glitch.com<i class="external alternate icon"></i></p>
-          </a>
-          <a href="https://glitch.com/edit/#!/essentiajs-hpcpc-chroma" class="ui button" target="_blank">
-            <p class="code-example-name" data-html="<iframe src='https://glitch.com/edit/#!/essentiajs-hpcpc-chroma' frameborder='0'></iframe>">
-              HPCP Chroma
-            </p>
-            <p class="glitch-link">glitch.com<i class="external alternate icon"></i></p>
-          </a>
-          <a href="https://glitch.com/edit/#!/essentiajs-models-workers-non-rt" class="ui button" target="_blank">
-            <p class="code-example-name" data-html="<iframe src='https://glitch.com/edit/#!/essentiajs-models-workers-non-rt' frameborder='0'></iframe>">
-              Music Autotagging 
-            </p>
-            <p class="glitch-link">glitch.com<i class="external alternate icon"></i></p>
-          </a>
+      <div class="twelve wide stretched column">
+        <div class="ui active tab segment" data-tab="melspectrogram-rt"></div>
+        <div class="ui tab segment" data-tab="rms-rt"></div>
+        <div class="ui tab segment" data-tab="pitchmelodia-rt"></div>
+        <div class="ui tab segment" data-tab="onsets"></div>
+        <div class="ui tab segment" data-tab="mood-classifiers"></div>
+        <div class="ui tab segment" data-tab="hpcp-chroma-rt"></div>
+        
+        <div class="ui tab segment" data-tab="glitch-melspectrogram">
+          <a href="https://glitch.com/edit/#!/essentiajs-melspectrogram">see on glitch</a>
+        </div>
+        <div class="ui tab segment" data-tab="glitch-pitch-melodia" >
+          <a href="https://glitch.com/edit/#!/essentiajs-pitchmelodia"></a>
+        </div>
+        <div class="ui tab segment" data-tab="glitch-hpcp-chroma">
+          <a href="https://glitch.com/edit/#!/essentiajs-hpcpc-chroma"></a>
+        </div>
+        <div class="ui tab segment" data-tab="glitch-autotagging">
+          <a href="https://glitch.com/edit/#!/essentiajs-models-workers-non-rt"></a>
         </div>
       </div>
     </div>
@@ -217,13 +159,43 @@
   </body>
 
   <script>
+    async function handleTabLoad(path, params, historyEvent) {
+      const currentUrl = location.href;
+      // early return checks
+      if (path.includes("glitch")) return;
+      if (!currentUrl.includes("#")) return;
+      console.log('checks cleared');
+
+      // configure request path
+      let correctedPath = path;
+      if (path == "onsets") correctedPath = "onsets/public";
+
+      const hashlessUrl = currentUrl.split("#")[0];
+      const reqUrl = new URL(`demos/${correctedPath}/index.html`, hashlessUrl);
+      console.log('path configured', reqUrl);
+
+      // retrieve index.html
+      const resp = await fetch(reqUrl);
+      const htmlText = await resp.text();
+      console.log('request successfull', htmlText);
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, "text/html");
+
+      console.log($(`.tab.segment[data-tab="${path}"]`))
+      $(`.tab.segment[data-tab="${path}"]`).empty().append(doc.body.innerHTML);
+      // are associated resources loaded with html (js, css, etc)?
+        // may have to load whole demo into iframe
+    }
+
     $(document).ready(function () {
-      $('.ui.menu .item').tab({
+      $('.tabular .menu .item').tab({
+        auto: false,
         history: true,
-        historyType: 'hash'
-      });
-      $('p.code-example-name').popup({
-        position: 'right center'
+        historyType: 'hash',
+        // context: "parent",
+        cache: false, // temporary?
+        onLoad: handleTabLoad
       });
     })
   </script>
