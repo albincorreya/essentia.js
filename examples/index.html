@@ -83,7 +83,7 @@
               <a data-tab="rms-rt" class="item">
                 RMS (Real-time)
               </a>
-              <a data-tab="pitchmelodia-rt" class="item">
+              <a data-tab="pitchyinfft-rt" class="item">
                 Pitch Melodia (Real-time)
               </a>
               <a data-tab="onsets" class="item">
@@ -126,8 +126,9 @@
       <div class="twelve wide stretched column">
         <div class="ui active tab segment" data-tab="melspectrogram-rt"></div>
         <div class="ui tab segment" data-tab="rms-rt"></div>
-        <div class="ui tab segment" data-tab="pitchmelodia-rt"></div>
+        <div class="ui tab segment" data-tab="pitchyinfft-rt"></div>
         <div class="ui tab segment" data-tab="onsets"></div>
+        <div class="ui tab segment" data-tab="autotagging-rt"></div>
         <div class="ui tab segment" data-tab="mood-classifiers"></div>
         <div class="ui tab segment" data-tab="hpcp-chroma-rt"></div>
         
@@ -186,6 +187,7 @@
       $(`.tab.segment[data-tab="${path}"]`).empty().append(doc.body.innerHTML);
       // are associated resources loaded with html (js, css, etc)?
         // may have to load whole demo into iframe
+      console.log('handleTabLoad done!');
     }
 
     $(document).ready(function () {
