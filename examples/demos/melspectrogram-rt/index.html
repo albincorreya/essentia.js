@@ -53,7 +53,6 @@
                         });
                 }
             </script>
-            <script src="./ringbuf.js/index.js"></script> <!-- by Paul Adenot, repo: https://github.com/padenot/ringbuf.js -->
             <script>
             (function() {
                 let AudioContext;
@@ -77,9 +76,6 @@
                 let melspectrogramNode;
                 let analyserNode;
                 let melspectrumBuffer;
-
-                // Shared data with AudioWorkletGlobalScope
-                let audioReader;
 
                 const fontColor = "#6c6c6c";
 
@@ -285,9 +281,7 @@
 
                         let codeForProcessorModule = ["https://cdn.jsdelivr.net/npm/essentia.js@0.1.3/dist/essentia-wasm.umd.js",
                         "https://cdn.jsdelivr.net/npm/essentia.js@0.1.3/dist/essentia.js-extractor.umd.js", 
-                        "melspectrogram-processor.js",
-                        "https://unpkg.com/ringbuf.js@0.1.0/dist/index.js"];
-
+                        "melspectrogram-processor.js"];
                         // inject Essentia.js code into AudioWorkletGlobalScope context, then setup audio graph and start animation
                         URLFromFiles(codeForProcessorModule)
                         .then((concatenatedCode) => {
@@ -432,7 +426,6 @@
                 }
 
                 $(document).ready(function() {
-                    // check for SharedArrayBuffer support:
                     plot.init();
                     axes.init();
                     // add event listeners to ui objects
