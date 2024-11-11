@@ -1,4 +1,5 @@
 // Sample EssentiaNodeFactory design pattern
+import processorUrl from "./essentia-worklet-processor.js?url";
 
 function URLFromFiles(files) {
   const promises = files
@@ -17,7 +18,7 @@ function URLFromFiles(files) {
 
 const workletProcessorCode = ["https://cdn.jsdelivr.net/npm/essentia.js@0.1.0/dist/essentia-wasm.module.js", 
                               "https://cdn.jsdelivr.net/npm/essentia.js@0.1.0/dist/essentia.js-core.es.js", 
-                              "essentia-worklet-processor.js"];
+                              processorUrl];
 
 export async function createEssentiaNode (context) {
   class EssentiaNode extends AudioWorkletNode {
@@ -28,7 +29,7 @@ export async function createEssentiaNode (context) {
     }
   }
   try {
-    let concatenatedCode = await URLFromFiles(workletProcessorCode)
+    let concatenatedCode = await URLFromFiles(workletProcessorCode);
     await context.audioWorklet.addModule(concatenatedCode);
   } catch(e) {
     console.log(e);

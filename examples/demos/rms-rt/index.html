@@ -11,9 +11,8 @@
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script src="/demos/rms-rt/mic-toggle-button.js"></script>
+    <script src="/demos/rms-rt/mic-toggle-button.js" type="module"></script>
     <script type="module">
-
       import { createEssentiaNode } from "./essentia-worklet-node.js";
 
       let audioContext;
@@ -130,51 +129,15 @@
       }
     </script>
 
-    <header class="ui header" style="background-color: var(--footer-header-dark-blue); margin-top: 0;">
-      <div class="ui container">
-        <a href="https://github.com/MTG/essentia.js">
-          <object data="/demos/assets/essentiajs-logo-4.0.svg" type="image/svg+xml" width="230" height="50"></object>
-        </a>
-      </div>
-    </header>
-
     <main class="ui container">
-      <h1 class="ui center aligned huge dividing header">
-        RMS Level
-      </h1>
-      <div class="ui centered row" style="font-size: 2rem;">
-        <span class="">
+      <div class="ui two column centered row">
+        <span class="ui column">
           <mic-toggle-button></mic-toggle-button>
         </span>
-        <span id="rms" class="">
+        <span id="rms" class="ui column">
           <span id="rms-value">0</span> <span>dBFS</span>
         </span>
       </div>
     </main>
-    
-    <footer style="background-color: var(--footer-header-dark-blue);">
-      <div class="ui container">
-        <div class="ui grid">
-          <a target="_blank" href="//essentia.upf.edu" class="ui left floated column">
-            <img id="logo" src="/demos/assets/essentia_logo.svg" alt="MTG Logo"
-              style="margin-left: 40px; height: 70px;">
-          </a>
-          <a target="_blank" href="https://www.upf.edu/web/mtg" class="ui left floated column">
-            <img src="/demos/assets/MTG_RGB_logo-02.svg" alt="mtg logo"
-                style="height: 70px;">
-          </a>
-  
-          <div class="ui three wide right floated column">
-            <div class="ui content" style="color: white;">
-              using
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet" style="color: #ededed; text-decoration: underline solid;">AudioWorklets</a>
-            </div>
-            <a href="https://github.com/MTG/essentia.js/tree/dev/examples/rms-rt" target="_blank" class="ui small button">
-              See code on GitHub<i class="right github icon"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
