@@ -18,12 +18,12 @@
         <div class="ui container">
             <div class="ui padded grid centered">
                 <div class="one column centered row">
-                    <button id="recordButton" class="ui red basic big button" role="switch">
+                    <button id="melspectrogram-record-button" class="ui red basic big button" role="switch">
                         Mic &nbsp;&nbsp;<i class="microphone icon"></i>
                     </button>
                 </div>
                 <canvas
-                    id="axesDiv"
+                    id="melspectrogram-axes-div"
                     class="ui centered"
                     style="width: 800px; height: 388px;"
                 ></canvas>
@@ -53,8 +53,7 @@
                         });
                 }
             </script>
-            <script>
-            (function() {
+            <script type="module">
                 let AudioContext;
                 // global var for web audio API AudioContext
                 let audioCtx;
@@ -101,7 +100,7 @@
                         this.canvas.style.width = `${this.layoutWidth}px`;
                         this.canvas.style.height = `${this.layoutHeight}px`;
                         this.canvas.style.backgroundColor = 'transparent';
-                        this.ctx = this.canvas.getContext('2d');
+                        this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
                     },
                     resetState: function () {
                         this.cursor = 0;
@@ -119,7 +118,7 @@
 
                 // Axes Settings
                 const axes = {
-                    canvas: document.getElementById('axesDiv'),
+                    canvas: document.getElementById('melspectrogram-axes-div'),
                     xOffset: plot.offset-1,
                     yOffset: plot.offset+1.5,
                     tickWidth: 6,
@@ -281,7 +280,7 @@
 
                         let codeForProcessorModule = ["https://cdn.jsdelivr.net/npm/essentia.js@0.1.3/dist/essentia-wasm.umd.js",
                         "https://cdn.jsdelivr.net/npm/essentia.js@0.1.3/dist/essentia.js-extractor.umd.js", 
-                        "melspectrogram-processor.js"];
+                        "/demos/melspectrogram-rt/melspectrogram-processor.js"];
                         // inject Essentia.js code into AudioWorkletGlobalScope context, then setup audio graph and start animation
                         URLFromFiles(codeForProcessorModule)
                         .then((concatenatedCode) => {
@@ -296,9 +295,9 @@
                         })
 
                         // set button to stop
-                        $("#recordButton").addClass("recording");
-                        $("#recordButton").html('Stop &nbsp;&nbsp;<i class="stop icon"></i>');
-                        $("#recordButton").prop("disabled", false);
+                        $("#melspectrogram-record-button").addClass("recording");
+                        $("#melspectrogram-record-button").html('Stop &nbsp;&nbsp;<i class="stop icon"></i>');
+                        $("#melspectrogram-record-button").prop("disabled", false);
                     } else {
                         throw "Mic stream not active";
                     }
@@ -411,8 +410,8 @@
                     
                     audioCtx.close().then(function() {
                         // manage button state
-                        $("#recordButton").removeClass("recording");
-                        $("#recordButton").html('Mic &nbsp;&nbsp;<i class="microphone icon"></i>');
+                        $("#melspectrogram-record-button").removeClass("recording");
+                        $("#melspectrogram-record-button").html('Mic &nbsp;&nbsp;<i class="microphone icon"></i>');
                         
                         // disconnect nodes
                         mic.disconnect();
@@ -429,9 +428,8 @@
                     plot.init();
                     axes.init();
                     // add event listeners to ui objects
-                    $("#recordButton").on('click', onRecordClickHandler);
+                    $("#melspectrogram-record-button").on('click', onRecordClickHandler);
                 });
-            })();
             </script>
         </div>
     </body>

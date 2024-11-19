@@ -7,16 +7,6 @@
 //   // console.info("borderWidth: ", logRMS);
 //   return logRMS * 8; // max 6 pixels wide
 // }
-let AudioContext;
-// global var for web audio API AudioContext
-let audioCtx;
-
-try {
-    AudioContext = window.AudioContext || window.webkitAudioContext;
-    audioCtx = new AudioContext();
-} catch (e) {
-    throw "Could not instantiate AudioContext: " + e.message;
-}
 
 // assuming FPS = 60Hz
 const REFRESH_RATE = 1000/60; // milliseconds
@@ -224,9 +214,10 @@ const PITCH_CLASS_COLORS = {
   'B': 'hsl(180, 25%, 50%)'
 };
 
-const CONFIDENCE_ARRAY = Array(NUM_ANALYSIS_FRAMES).fill(0);
 const RMS_ARRAY = Array(NUM_ANALYSIS_FRAMES).fill(0);
-let rms_pointer = RMS_ARRAY;
+let rmsPointer = {
+  value: RMS_ARRAY
+};
 
 function getPitchScale() {
   let freq = 440 * Math.pow(SEMITONE_RATIO, -33); // find C2 in 440 tuning
@@ -277,7 +268,7 @@ function setColorGradient(ctx) {
 
   const canvasCtx = ctx.chart.ctx;
   let gradient = canvasCtx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
-  const transparency = rms_pointer;
+  const transparency = rmsPointer.value;
 
   const dataSize = ctx.dataset.data.length;
   const stops = Array.from(Array(dataSize).keys()).map(i => i/dataSize); // normalized (0 - 1) gradient stops positions
@@ -287,3 +278,5 @@ function setColorGradient(ctx) {
 
   return gradient;
 }
+
+export { DATA, OPTIONS, NUM_ANALYSIS_FRAMES, AXES_PITCHES, RMS_ARRAY, rmsPointer, getTimeLabels };

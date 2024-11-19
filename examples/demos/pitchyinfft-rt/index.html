@@ -18,21 +18,17 @@
         <div class="ui container">
             <div class="ui padded grid centered">
                 <div class="one column centered row">
-                    <button id="recordButton" class="ui red basic big button" role="switch">
+                    <button id="pitchfft-record-button" class="ui red basic big button" role="switch">
                         Mic &nbsp;&nbsp;
                         <i class="microphone icon"></i>
                     </button>
                 </div>
                 <canvas
-                    id="axesDiv"
+                    id="pitchfft-axes-div"
                     class="ui centered"
                     style="width: 800px; height: 388px;"
                 ></canvas>
             </div>
-            
-            <script>
-                exports = {};
-            </script>
             <script>
                 // From a series of URL to js files, get an object URL that can be loaded in an
                 // AudioWorklet. This is useful to be able to use multiple files (utils, data
@@ -53,13 +49,12 @@
                         return URL.createObjectURL(blob);
                         });
                 }
-            </script>
-            <script src="https://unpkg.com/ringbuf.js@0.1.0/dist/index.js" crossorigin="anonymous"></script> <!-- by Paul Adenot, repo: https://github.com/padenot/ringbuf.js -->
-            <script type="text/javascript" src="resources/chartConfig.js"></script>
-            
-            <script>
-            (function() {
+            </script>            
+            <script type="module">
+                import { DATA, OPTIONS, NUM_ANALYSIS_FRAMES, AXES_PITCHES, RMS_ARRAY, rmsPointer, getTimeLabels } from "./resources/chartConfig.js";
+                    
                 let bufferSize = 8192;
+                const audioCtx = new AudioContext();
                 // global var getUserMedia mic stream
                 let gumStream;
                 // global audio node variables
@@ -70,13 +65,12 @@
 
                 // Visualization objects
                 let animationId;
-                let canvas = document.getElementById("axesDiv");
+                let canvas = document.getElementById("pitchfft-axes-div");
                 let pitchAccum = [];
                 let rmsAccum = [];
 
                 // console.log("before chart creation");
                 // console.log(RMS_ARRAY);
-                // console.log(CONFIDENCE_ARRAY);
                 let pitchChart = new Chart(canvas.getContext("2d"), {
                     "data": DATA,
                     "options": OPTIONS
@@ -89,7 +83,7 @@
                 }
 
                 function resetChartData() {
-                    rms_pointer = RMS_ARRAY;
+                    rmsPointer.value = RMS_ARRAY;
                     pitchChart.data.labels = getTimeLabels(NUM_ANALYSIS_FRAMES);
                     pitchChart.data.datasets[0].data = Array(NUM_ANALYSIS_FRAMES).fill(100);
                     pitchChart.data.datasets[1].data = Array(NUM_ANALYSIS_FRAMES).fill(AXES_PITCHES[0]);
@@ -139,8 +133,7 @@
 
                         let codeForProcessorModule = ["https://cdn.jsdelivr.net/npm/essentia.js@0.1.3/dist/essentia-wasm.umd.js", 
                                                     "https://cdn.jsdelivr.net/npm/essentia.js@0.1.3/dist/essentia.js-core.umd.js", 
-                                                    "pitchyinfft-processor.js", 
-                                                    "https://unpkg.com/ringbuf.js@0.1.0/dist/index.js"];
+                                                    "/demos/pitchyinfft-rt/pitchyinfft-processor.js"];
 
                         // inject Essentia.js code into AudioWorkletGlobalScope context, then setup audio graph and start animation
                         URLFromFiles(codeForProcessorModule)
@@ -156,9 +149,9 @@
                         })
 
                         // set button to stop
-                        $("#recordButton").addClass("recording");
-                        $("#recordButton").html('Stop &nbsp;&nbsp;<i class="stop icon"></i>');
-                        $("#recordButton").prop("disabled", false);
+                        $("#pitchfft-record-button").addClass("recording");
+                        $("#pitchfft-record-button").html('Stop &nbsp;&nbsp;<i class="stop icon"></i>');
+                        $("#pitchfft-record-button").prop("disabled", false);
                     } else {
                         throw "Mic stream not active";
                     }
@@ -192,8 +185,6 @@
 
                     analyserNode.getFloatTimeDomainData(pitchBuffer);
 
-                    CONFIDENCE_ARRAY.push(pitchBuffer[1]);
-                    CONFIDENCE_ARRAY.shift();
                     const logRMS = 1 + Math.log10(pitchBuffer[2] + Number.MIN_VALUE) * 0.5;
                     rmsAccum.push(logRMS);
                     RMS_ARRAY.push(logRMS);
@@ -208,7 +199,7 @@
                 }
 
                 function drawFullPitchContour() {
-                    rms_pointer = rmsAccum;
+                    rmsPointer.value = rmsAccum;
                     pitchChart.data.datasets[0].data = pitchAccum;
                     pitchChart.data.datasets[1].data = Array(pitchAccum.length).fill(AXES_PITCHES[0]);
                     pitchChart.data.datasets[2].data = Array(pitchAccum.length).fill(AXES_PITCHES.slice(-1)[0]);
@@ -233,8 +224,8 @@
                     
                     audioCtx.close().then(function() {
                         // manage button state
-                        $("#recordButton").removeClass("recording");
-                        $("#recordButton").html('Mic &nbsp;&nbsp;<i class="microphone icon"></i>');
+                        $("#pitchfft-record-button").removeClass("recording");
+                        $("#pitchfft-record-button").html('Mic &nbsp;&nbsp;<i class="microphone icon"></i>');
                         
                         // disconnect nodes
                         mic.disconnect();
@@ -250,9 +241,8 @@
 
                 $(document).ready(function() {
                     // add event listeners to ui objects
-                    $("#recordButton").on('click', onRecordClickHandler);
+                    $("#pitchfft-record-button").on('click', onRecordClickHandler);
                 });
-            })();
             </script>
 
         </div>
