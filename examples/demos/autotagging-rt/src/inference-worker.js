@@ -1,5 +1,5 @@
-importScripts('./lib/tf.min.3.5.0.js');
-importScripts('./lib/essentia.js-model.js');
+importScripts('/demos/autotagging-rt/src/lib/tf.min.3.5.0.js');
+importScripts('/demos/autotagging-rt/src/lib/essentia.js-model.js');
 
 const modelURL = '../data/msd-musicnn-1/model.json';
 let model = new EssentiaModel.TensorflowMusiCNN(tf, modelURL);

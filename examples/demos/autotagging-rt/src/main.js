@@ -27,7 +27,7 @@ async function createAudioProcessor(audioContext) {
         await audioContext.resume();
         // let url = await URLFromFile("./src/feature-extract-processor.js");
         // let url = './build/processor.js';
-        let url = './src/feature-extract-processor.js';
+        let url = '/demos/autotagging-rt/src/feature-extract-processor.js';
         await audioContext.audioWorklet.addModule(url);
     } catch(e) {
         console.log('There was an error loading the worklet processor:\n', e);
@@ -38,7 +38,7 @@ async function createAudioProcessor(audioContext) {
 }
 
 function createInferenceWorker() {
-    inferenceWorker = new Worker('./src/inference-worker.js');
+    inferenceWorker = new Worker('/demos/autotagging-rt/src/inference-worker.js');
     inferenceWorker.onmessage = function listenToWorker(msg) {
         if (msg.data.port) {
             // listen out for port transfer
