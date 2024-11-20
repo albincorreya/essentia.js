@@ -11,23 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
 
-    <header class="ui header" style="background-color: var(--footer-header-dark-blue); margin-top: 0;">
-      <div class="ui container grid">
-        <div class="ui eight column row">
-          <div class="ui left floated column">
-            <a href="https://github.com/MTG/essentia.js">
-              <object data="/demos/assets/essentiajs-logo-4.0.svg" type="image/svg+xml" width="230" height="50"></object>
-            </a>
-          </div> 
-          <div class="ui right floated column">
-            <button class="ui right floated small button">
-              <a href="https://github.com/MTG/essentia.js/tree/dev/examples/hpcp-chroma-rt/" target="_blank">Code<i class="right github icon"></i></a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-
     <main class="ui container">
       <h1 class="ui center aligned huge dividing header">
         HPCP Chroma
@@ -50,25 +33,9 @@
         ></canvas>
       </div>
     </main>
-  
-    <footer style="background-color: var(--footer-header-dark-blue);">
-      <div class="ui container">
-        <div class="ui grid">
-          <a target="_blank" href="//essentia.upf.edu" class="ui four wide column">
-            <img id="logo" src="/demos/assets/essentia_logo.svg" alt="MTG Logo"
-              style="margin-left: 40px; height: 70px;">
-          </a>
-          <a target="_blank" href="https://www.upf.edu/web/mtg" class="ui four wide column">
-            <img src="/demos/assets/MTG_RGB_logo-02.svg" alt="mtg logo"
-                style="height: 70px;">
-          </a>
-        </div>
-      </div>
-    </footer>
 
-    <script src="./chartConfig.js"></script>
-
-    <script>
+    <script type="module">
+      import { KEYS, PITCH_CLASS_COLORS, CHART_CONFIG } from "/demos/hpcp-chroma-rt/chartConfig.js";
       // global var to load essentia.js core instance
       let essentiaExtractor;
       let isEssentiaInstance = false;
@@ -203,6 +170,7 @@
 
       $(document).ready(function() {
         // create essentia plot instance
+        const canvas = document.getElementById("chroma-chart");
         chromaChart = new Chart(canvas.getContext('2d'), CHART_CONFIG);
 
         // add event listeners to ui objects

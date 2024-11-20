@@ -15,7 +15,6 @@ const PITCH_CLASS_COLORS = {
     'B': 180
 };
 
-const canvas = document.getElementById("chroma-chart");
 
 const CHART_CONFIG = {
     type: 'polarArea',
@@ -73,3 +72,5 @@ const CHART_CONFIG = {
         }
     }
 }
+
+export { KEYS, PITCH_CLASS_COLORS, CHART_CONFIG };
