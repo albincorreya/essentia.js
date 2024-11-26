@@ -3,6 +3,7 @@
     <body>
         <script src="/demos/autotagging-rt/src/explanation-modal.js"></script>
         <script src="/demos/autotagging-rt/src/mic-toggle-button.js"></script>
+        <script src="/demos/autotagging-rt/src/tagviz-component.js"></script>
         <div class="container">
             <explanation-modal title="Before you start..." main-text="Note that the autotagging model used in this demo was trained on clean digital audio files. As such, it is not designed to work with potentially noisy microphone capture of playback through speakers. You can use a virtual microphone to achieve the best results." button-text="Dismiss">
             </explanation-modal>
@@ -35,26 +36,6 @@
                 <div id="matrix"></div>
             </div>
         </div>
-        <script src="/demos/autotagging-rt/src/tagviz-component.js"></script>
-        <script>
-            const container = document.querySelector('#matrix');
-
-            // get emojis
-            fetch('/demos/autotagging-rt/data/tag-emojis.json')
-            .then(resp => resp.json())
-            .then(emojis => createTagVisualisers(emojis))
-            
-            function createTagVisualisers(emojis) {
-                for (tag in emojis) {
-                    const vizElem = document.createElement('music-tag-viz');
-                    vizElem.setAttribute('name', tag);
-                    vizElem.setAttribute('icon', emojis[tag]);
-                    container.appendChild(vizElem);
-                }
-            }
-
-        </script>
-        <script src="/demos/autotagging-rt/src/utils.js" defer></script>
-        <script src="/demos/autotagging-rt/src/main.js" defer></script>
+        <script src="/demos/autotagging-rt/src/main.js" type="module"></script>
     </body>
 </html>

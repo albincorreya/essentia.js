@@ -1,3 +1,5 @@
+import { createTagVisualisers, PredictionStore } from "/demos/autotagging-rt/src/utils.js";
+
 const toggleAudio = document.getElementById('toggle-audio');
 const audioCtxOptions = {
     sampleRate: 16000
@@ -171,6 +173,8 @@ function resetTagVisualizers() {
 
 
 function main() {
+    createTagVisualisers();
+
     try {
         AudioContext = window.AudioContext || window.webkitAudioContext;
         audioCtx = new AudioContext(audioCtxOptions);

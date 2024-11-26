@@ -1,3 +1,15 @@
+import { GENRE_EMOJIS } from "/demos/autotagging-rt/data/tag-emojis.js";
+
+function createTagVisualisers() {
+    const container = document.querySelector('#matrix');
+    for (let tag in GENRE_EMOJIS) {
+        const vizElem = document.createElement('music-tag-viz');
+        vizElem.setAttribute('name', tag);
+        vizElem.setAttribute('icon', GENRE_EMOJIS[tag]);
+        container.appendChild(vizElem);
+    }
+}
+
 class PredictionStore {
     constructor() {
         this.reset();
@@ -28,3 +40,5 @@ class PredictionStore {
         return averages;
     }
 }
+
+export { createTagVisualisers, PredictionStore };

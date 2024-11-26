@@ -1,4 +1,4 @@
-{   
+export const GENRE_EMOJIS = {   
     "rock": "🥁 🎸 🎤", 
     "pop": "🎤 🥤 🌟", 
     "alternative": "👯 👽", 
