@@ -343,9 +343,12 @@ def parse_to_typescript(algorithm_name):
 	default_params_object = list()
 	default_params_object.append(f"  private readonly defaultParams: {algo_param_type} = {{")
 
-	constructor_configure_param_arg = f"params: {algo_param_type}"
 
 	# parse parameter variables
+	# TODO: check if algo has no parameters at all!
+	has_params = len(doc_dict['parameters']) > 0
+	constructor_configure_param_arg = f"params: {algo_param_type}" if has_params else ""
+
 	for param in doc_dict['parameters']:
 
 		# gather vec params for #updateParams checks
@@ -391,8 +394,9 @@ def parse_to_typescript(algorithm_name):
 	classname_line = f"class {algorithm_name} {{"
 	algorithm_class_body.append(classname_line)
 	algorithm_class_body.append("  private algoInstance: any;")
-	algorithm_class_body.extend(default_params_object)
-	algorithm_class_body.append(f"  private params: {algo_param_type} = {{ ...this.defaultParams }};")
+	if has_params:
+		algorithm_class_body.extend(default_params_object)
+		algorithm_class_body.append(f"  private params: {algo_param_type} = {{ ...this.defaultParams }};")
 
 	internal_config_param_list = ', '.join(internal_instance_arg_list)
 	
@@ -406,7 +410,7 @@ def parse_to_typescript(algorithm_name):
 	]
 	algorithm_class_body.extend(constructor_comment)
 	algorithm_class_body.append(f"  constructor({constructor_configure_param_arg}) {{")
-	algorithm_class_body.append("    this.updateParams(params);")
+	if has_params: algorithm_class_body.append("    this.updateParams(params);")
 	algorithm_class_body.append(f"    this.algoInstance = new {wasm_backend_var}.{algorithm_name}({internal_config_param_list});")
 	algorithm_class_body.append("  }")
 
@@ -421,7 +425,7 @@ def parse_to_typescript(algorithm_name):
 	]
 	algorithm_class_body.extend(configure_comment)
 	algorithm_class_body.append(f"  configure({constructor_configure_param_arg}) {{")		
-	algorithm_class_body.append("    this.updateParams(params);")
+	if has_params: algorithm_class_body.append("    this.updateParams(params);")
 	algorithm_class_body.append(f"    this.algoInstance.configure({internal_config_param_list});")
 	algorithm_class_body.append("  }")
 
@@ -455,12 +459,13 @@ def parse_to_typescript(algorithm_name):
 	algorithm_class_body.append("  }")
 
 	# private params update method
-	algorithm_class_body.append(f"  private updateParams({constructor_configure_param_arg}) {{")
-	if converted_params_check_list:
-		algorithm_class_body.extend(converted_params_check_list)
-	
-	algorithm_class_body.append("    this.params = { ...this.defaultParams, ...params };")
-	algorithm_class_body.append("  }")
+	if has_params:
+		algorithm_class_body.append(f"  private updateParams({constructor_configure_param_arg}) {{")
+		if converted_params_check_list:
+			algorithm_class_body.extend(converted_params_check_list)
+		
+		algorithm_class_body.append("    this.params = { ...this.defaultParams, ...params };")
+		algorithm_class_body.append("  }")
 
 	# Close the class definition
 	algorithm_class_body.append("}")

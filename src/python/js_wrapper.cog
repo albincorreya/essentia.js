@@ -20,7 +20,7 @@
 
 // NOTE: The following code snippets are machine generated. Do not edit.
 
-import * as paramTypes from "./param_types.ts";
+import * as paramTypes from "./param_types";
 
 let wasmBackend: any;
 

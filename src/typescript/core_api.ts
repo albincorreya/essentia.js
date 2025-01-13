@@ -20,7 +20,7 @@
 
 // NOTE: The following code snippets are machine generated. Do not edit.
 
-import * as paramTypes from "./param_types.ts";
+import * as paramTypes from "./param_types";
 
 let wasmBackend: any;
 
@@ -258,16 +258,12 @@ class LoudnessEBUR128 {
 */
 class AfterMaxToBeforeMaxEnergyRatio {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio = {
-  };
-  private params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio} [params]
   */
-  constructor(params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.AfterMaxToBeforeMaxEnergyRatio();
   }
   /**
@@ -276,8 +272,7 @@ class AfterMaxToBeforeMaxEnergyRatio {
    * @param {paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio} [params]
    * @memberof AfterMaxToBeforeMaxEnergyRatio
   */
-  configure(params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -297,9 +292,6 @@ class AfterMaxToBeforeMaxEnergyRatio {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -1101,16 +1093,12 @@ Note: histogram vector contains occurance frequency for each bpm value, 0-th ele
 */
 class BpmHistogramDescriptors {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsBpmHistogramDescriptors = {
-  };
-  private params: paramTypes.ParamsBpmHistogramDescriptors = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsBpmHistogramDescriptors} [params]
   */
-  constructor(params: paramTypes.ParamsBpmHistogramDescriptors) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.BpmHistogramDescriptors();
   }
   /**
@@ -1119,8 +1107,7 @@ class BpmHistogramDescriptors {
    * @param {paramTypes.ParamsBpmHistogramDescriptors} [params]
    * @memberof BpmHistogramDescriptors
   */
-  configure(params: paramTypes.ParamsBpmHistogramDescriptors) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -1140,9 +1127,6 @@ class BpmHistogramDescriptors {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsBpmHistogramDescriptors) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -1315,16 +1299,12 @@ Note:
 */
 class ChordsDescriptors {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsChordsDescriptors = {
-  };
-  private params: paramTypes.ParamsChordsDescriptors = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsChordsDescriptors} [params]
   */
-  constructor(params: paramTypes.ParamsChordsDescriptors) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.ChordsDescriptors();
   }
   /**
@@ -1333,8 +1313,7 @@ class ChordsDescriptors {
    * @param {paramTypes.ParamsChordsDescriptors} [params]
    * @memberof ChordsDescriptors
   */
-  configure(params: paramTypes.ParamsChordsDescriptors) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -1356,9 +1335,6 @@ class ChordsDescriptors {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsChordsDescriptors) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -1770,16 +1746,12 @@ class CoverSongSimilarity {
 */
 class Crest {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsCrest = {
-  };
-  private params: paramTypes.ParamsCrest = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsCrest} [params]
   */
-  constructor(params: paramTypes.ParamsCrest) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Crest();
   }
   /**
@@ -1788,8 +1760,7 @@ class Crest {
    * @param {paramTypes.ParamsCrest} [params]
    * @memberof Crest
   */
-  configure(params: paramTypes.ParamsCrest) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -1809,9 +1780,6 @@ class Crest {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsCrest) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -2222,16 +2190,12 @@ class Decrease {
 */
 class Derivative {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsDerivative = {
-  };
-  private params: paramTypes.ParamsDerivative = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsDerivative} [params]
   */
-  constructor(params: paramTypes.ParamsDerivative) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Derivative();
   }
   /**
@@ -2240,8 +2204,7 @@ class Derivative {
    * @param {paramTypes.ParamsDerivative} [params]
    * @memberof Derivative
   */
-  configure(params: paramTypes.ParamsDerivative) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -2262,9 +2225,6 @@ class Derivative {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsDerivative) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -2273,16 +2233,12 @@ class Derivative {
 */
 class DerivativeSFX {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsDerivativeSFX = {
-  };
-  private params: paramTypes.ParamsDerivativeSFX = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsDerivativeSFX} [params]
   */
-  constructor(params: paramTypes.ParamsDerivativeSFX) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.DerivativeSFX();
   }
   /**
@@ -2291,8 +2247,7 @@ class DerivativeSFX {
    * @param {paramTypes.ParamsDerivativeSFX} [params]
    * @memberof DerivativeSFX
   */
-  configure(params: paramTypes.ParamsDerivativeSFX) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -2312,9 +2267,6 @@ class DerivativeSFX {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsDerivativeSFX) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -2388,16 +2340,12 @@ References:
 */
 class Dissonance {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsDissonance = {
-  };
-  private params: paramTypes.ParamsDissonance = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsDissonance} [params]
   */
-  constructor(params: paramTypes.ParamsDissonance) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Dissonance();
   }
   /**
@@ -2406,8 +2354,7 @@ class Dissonance {
    * @param {paramTypes.ParamsDissonance} [params]
    * @memberof Dissonance
   */
-  configure(params: paramTypes.ParamsDissonance) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -2429,9 +2376,6 @@ class Dissonance {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsDissonance) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -2441,16 +2385,12 @@ The size of the input array must be at least 5. An exception will be thrown othe
 */
 class DistributionShape {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsDistributionShape = {
-  };
-  private params: paramTypes.ParamsDistributionShape = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsDistributionShape} [params]
   */
-  constructor(params: paramTypes.ParamsDistributionShape) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.DistributionShape();
   }
   /**
@@ -2459,8 +2399,7 @@ class DistributionShape {
    * @param {paramTypes.ParamsDistributionShape} [params]
    * @memberof DistributionShape
   */
-  configure(params: paramTypes.ParamsDistributionShape) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -2480,9 +2419,6 @@ class DistributionShape {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsDistributionShape) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -2713,16 +2649,12 @@ class EffectiveDuration {
 */
 class Energy {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsEnergy = {
-  };
-  private params: paramTypes.ParamsEnergy = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsEnergy} [params]
   */
-  constructor(params: paramTypes.ParamsEnergy) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Energy();
   }
   /**
@@ -2731,8 +2663,7 @@ class Energy {
    * @param {paramTypes.ParamsEnergy} [params]
    * @memberof Energy
   */
-  configure(params: paramTypes.ParamsEnergy) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -2752,9 +2683,6 @@ class Energy {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsEnergy) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -2873,16 +2801,12 @@ class EnergyBandRatio {
 */
 class Entropy {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsEntropy = {
-  };
-  private params: paramTypes.ParamsEntropy = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsEntropy} [params]
   */
-  constructor(params: paramTypes.ParamsEntropy) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Entropy();
   }
   /**
@@ -2891,8 +2815,7 @@ class Entropy {
    * @param {paramTypes.ParamsEntropy} [params]
    * @memberof Entropy
   */
-  configure(params: paramTypes.ParamsEntropy) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -2912,9 +2835,6 @@ class Entropy {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsEntropy) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -3031,16 +2951,12 @@ class EqualLoudness {
 */
 class Flatness {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsFlatness = {
-  };
-  private params: paramTypes.ParamsFlatness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsFlatness} [params]
   */
-  constructor(params: paramTypes.ParamsFlatness) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Flatness();
   }
   /**
@@ -3049,8 +2965,7 @@ class Flatness {
    * @param {paramTypes.ParamsFlatness} [params]
    * @memberof Flatness
   */
-  configure(params: paramTypes.ParamsFlatness) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -3071,9 +2986,6 @@ class Flatness {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsFlatness) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -3082,16 +2994,12 @@ class Flatness {
 */
 class FlatnessDB {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsFlatnessDB = {
-  };
-  private params: paramTypes.ParamsFlatnessDB = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsFlatnessDB} [params]
   */
-  constructor(params: paramTypes.ParamsFlatnessDB) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.FlatnessDB();
   }
   /**
@@ -3100,8 +3008,7 @@ class FlatnessDB {
    * @param {paramTypes.ParamsFlatnessDB} [params]
    * @memberof FlatnessDB
   */
-  configure(params: paramTypes.ParamsFlatnessDB) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -3122,9 +3029,6 @@ class FlatnessDB {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsFlatnessDB) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -3133,16 +3037,12 @@ class FlatnessDB {
 */
 class FlatnessSFX {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsFlatnessSFX = {
-  };
-  private params: paramTypes.ParamsFlatnessSFX = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsFlatnessSFX} [params]
   */
-  constructor(params: paramTypes.ParamsFlatnessSFX) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.FlatnessSFX();
   }
   /**
@@ -3151,8 +3051,7 @@ class FlatnessSFX {
    * @param {paramTypes.ParamsFlatnessSFX} [params]
    * @memberof FlatnessSFX
   */
-  configure(params: paramTypes.ParamsFlatnessSFX) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -3172,9 +3071,6 @@ class FlatnessSFX {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsFlatnessSFX) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -3527,16 +3423,12 @@ class GapsDetector {
 */
 class GeometricMean {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsGeometricMean = {
-  };
-  private params: paramTypes.ParamsGeometricMean = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsGeometricMean} [params]
   */
-  constructor(params: paramTypes.ParamsGeometricMean) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.GeometricMean();
   }
   /**
@@ -3545,8 +3437,7 @@ class GeometricMean {
    * @param {paramTypes.ParamsGeometricMean} [params]
    * @memberof GeometricMean
   */
-  configure(params: paramTypes.ParamsGeometricMean) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -3566,9 +3457,6 @@ class GeometricMean {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsGeometricMean) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -4224,16 +4112,12 @@ class IIR {
 */
 class Inharmonicity {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsInharmonicity = {
-  };
-  private params: paramTypes.ParamsInharmonicity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsInharmonicity} [params]
   */
-  constructor(params: paramTypes.ParamsInharmonicity) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Inharmonicity();
   }
   /**
@@ -4242,8 +4126,7 @@ class Inharmonicity {
    * @param {paramTypes.ParamsInharmonicity} [params]
    * @memberof Inharmonicity
   */
-  configure(params: paramTypes.ParamsInharmonicity) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -4265,9 +4148,6 @@ class Inharmonicity {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsInharmonicity) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -4276,16 +4156,12 @@ class Inharmonicity {
 */
 class InstantPower {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsInstantPower = {
-  };
-  private params: paramTypes.ParamsInstantPower = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsInstantPower} [params]
   */
-  constructor(params: paramTypes.ParamsInstantPower) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.InstantPower();
   }
   /**
@@ -4294,8 +4170,7 @@ class InstantPower {
    * @param {paramTypes.ParamsInstantPower} [params]
    * @memberof InstantPower
   */
-  configure(params: paramTypes.ParamsInstantPower) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -4315,9 +4190,6 @@ class InstantPower {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsInstantPower) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -4612,16 +4484,12 @@ This algorithm will throw an exception on empty input. Check https://essentia.up
 */
 class Leq {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsLeq = {
-  };
-  private params: paramTypes.ParamsLeq = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsLeq} [params]
   */
-  constructor(params: paramTypes.ParamsLeq) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Leq();
   }
   /**
@@ -4630,8 +4498,7 @@ class Leq {
    * @param {paramTypes.ParamsLeq} [params]
    * @memberof Leq
   */
-  configure(params: paramTypes.ParamsLeq) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -4651,9 +4518,6 @@ class Leq {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsLeq) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -4931,16 +4795,12 @@ class LoopBpmEstimator {
 */
 class Loudness {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsLoudness = {
-  };
-  private params: paramTypes.ParamsLoudness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsLoudness} [params]
   */
-  constructor(params: paramTypes.ParamsLoudness) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Loudness();
   }
   /**
@@ -4949,8 +4809,7 @@ class Loudness {
    * @param {paramTypes.ParamsLoudness} [params]
    * @memberof Loudness
   */
-  configure(params: paramTypes.ParamsLoudness) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -4970,9 +4829,6 @@ class Loudness {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsLoudness) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -5373,16 +5229,12 @@ class MaxMagFreq {
 */
 class MaxToTotal {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsMaxToTotal = {
-  };
-  private params: paramTypes.ParamsMaxToTotal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsMaxToTotal} [params]
   */
-  constructor(params: paramTypes.ParamsMaxToTotal) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.MaxToTotal();
   }
   /**
@@ -5391,8 +5243,7 @@ class MaxToTotal {
    * @param {paramTypes.ParamsMaxToTotal} [params]
    * @memberof MaxToTotal
   */
-  configure(params: paramTypes.ParamsMaxToTotal) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -5413,9 +5264,6 @@ class MaxToTotal {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsMaxToTotal) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -5424,16 +5272,12 @@ class MaxToTotal {
 */
 class Mean {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsMean = {
-  };
-  private params: paramTypes.ParamsMean = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsMean} [params]
   */
-  constructor(params: paramTypes.ParamsMean) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Mean();
   }
   /**
@@ -5442,8 +5286,7 @@ class Mean {
    * @param {paramTypes.ParamsMean} [params]
    * @memberof Mean
   */
-  configure(params: paramTypes.ParamsMean) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -5464,9 +5307,6 @@ class Mean {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsMean) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -5475,16 +5315,12 @@ class Mean {
 */
 class Median {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsMedian = {
-  };
-  private params: paramTypes.ParamsMedian = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsMedian} [params]
   */
-  constructor(params: paramTypes.ParamsMedian) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Median();
   }
   /**
@@ -5493,8 +5329,7 @@ class Median {
    * @param {paramTypes.ParamsMedian} [params]
    * @memberof Median
   */
-  configure(params: paramTypes.ParamsMedian) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -5514,9 +5349,6 @@ class Median {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsMedian) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -5639,16 +5471,12 @@ class MelBands {
 */
 class Meter {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsMeter = {
-  };
-  private params: paramTypes.ParamsMeter = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsMeter} [params]
   */
-  constructor(params: paramTypes.ParamsMeter) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Meter();
   }
   /**
@@ -5657,8 +5485,7 @@ class Meter {
    * @param {paramTypes.ParamsMeter} [params]
    * @memberof Meter
   */
-  configure(params: paramTypes.ParamsMeter) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -5678,9 +5505,6 @@ class Meter {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsMeter) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -5743,16 +5567,12 @@ class MinMax {
 */
 class MinToTotal {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsMinToTotal = {
-  };
-  private params: paramTypes.ParamsMinToTotal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsMinToTotal} [params]
   */
-  constructor(params: paramTypes.ParamsMinToTotal) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.MinToTotal();
   }
   /**
@@ -5761,8 +5581,7 @@ class MinToTotal {
    * @param {paramTypes.ParamsMinToTotal} [params]
    * @memberof MinToTotal
   */
-  configure(params: paramTypes.ParamsMinToTotal) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -5782,9 +5601,6 @@ class MinToTotal {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsMinToTotal) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -6318,16 +6134,12 @@ If no peaks are supplied, the algorithm outputs a value of one, assuming either 
 */
 class OddToEvenHarmonicEnergyRatio {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsOddToEvenHarmonicEnergyRatio = {
-  };
-  private params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsOddToEvenHarmonicEnergyRatio} [params]
   */
-  constructor(params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.OddToEvenHarmonicEnergyRatio();
   }
   /**
@@ -6336,8 +6148,7 @@ class OddToEvenHarmonicEnergyRatio {
    * @param {paramTypes.ParamsOddToEvenHarmonicEnergyRatio} [params]
    * @memberof OddToEvenHarmonicEnergyRatio
   */
-  configure(params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -6358,9 +6169,6 @@ class OddToEvenHarmonicEnergyRatio {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -6495,16 +6303,12 @@ This algorithm throws an exception if the input signal is empty. Check https://e
 */
 class OnsetRate {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsOnsetRate = {
-  };
-  private params: paramTypes.ParamsOnsetRate = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsOnsetRate} [params]
   */
-  constructor(params: paramTypes.ParamsOnsetRate) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.OnsetRate();
   }
   /**
@@ -6513,8 +6317,7 @@ class OnsetRate {
    * @param {paramTypes.ParamsOnsetRate} [params]
    * @memberof OnsetRate
   */
-  configure(params: paramTypes.ParamsOnsetRate) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -6534,9 +6337,6 @@ class OnsetRate {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsOnsetRate) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -6719,16 +6519,12 @@ class PercivalBpmEstimator {
 */
 class PercivalEnhanceHarmonics {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsPercivalEnhanceHarmonics = {
-  };
-  private params: paramTypes.ParamsPercivalEnhanceHarmonics = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsPercivalEnhanceHarmonics} [params]
   */
-  constructor(params: paramTypes.ParamsPercivalEnhanceHarmonics) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.PercivalEnhanceHarmonics();
   }
   /**
@@ -6737,8 +6533,7 @@ class PercivalEnhanceHarmonics {
    * @param {paramTypes.ParamsPercivalEnhanceHarmonics} [params]
    * @memberof PercivalEnhanceHarmonics
   */
-  configure(params: paramTypes.ParamsPercivalEnhanceHarmonics) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -6759,9 +6554,6 @@ class PercivalEnhanceHarmonics {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsPercivalEnhanceHarmonics) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -6771,16 +6563,12 @@ For more details check the referenced paper.Please note that in the original pap
 */
 class PercivalEvaluatePulseTrains {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsPercivalEvaluatePulseTrains = {
-  };
-  private params: paramTypes.ParamsPercivalEvaluatePulseTrains = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsPercivalEvaluatePulseTrains} [params]
   */
-  constructor(params: paramTypes.ParamsPercivalEvaluatePulseTrains) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.PercivalEvaluatePulseTrains();
   }
   /**
@@ -6789,8 +6577,7 @@ class PercivalEvaluatePulseTrains {
    * @param {paramTypes.ParamsPercivalEvaluatePulseTrains} [params]
    * @memberof PercivalEvaluatePulseTrains
   */
-  configure(params: paramTypes.ParamsPercivalEvaluatePulseTrains) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -6811,9 +6598,6 @@ class PercivalEvaluatePulseTrains {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsPercivalEvaluatePulseTrains) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -7886,16 +7670,12 @@ References:
 */
 class RMS {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsRMS = {
-  };
-  private params: paramTypes.ParamsRMS = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsRMS} [params]
   */
-  constructor(params: paramTypes.ParamsRMS) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.RMS();
   }
   /**
@@ -7904,8 +7684,7 @@ class RMS {
    * @param {paramTypes.ParamsRMS} [params]
    * @memberof RMS
   */
-  configure(params: paramTypes.ParamsRMS) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -7925,9 +7704,6 @@ class RMS {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsRMS) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -8148,16 +7924,12 @@ class ResampleFFT {
 */
 class RhythmDescriptors {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsRhythmDescriptors = {
-  };
-  private params: paramTypes.ParamsRhythmDescriptors = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsRhythmDescriptors} [params]
   */
-  constructor(params: paramTypes.ParamsRhythmDescriptors) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.RhythmDescriptors();
   }
   /**
@@ -8166,8 +7938,7 @@ class RhythmDescriptors {
    * @param {paramTypes.ParamsRhythmDescriptors} [params]
    * @memberof RhythmDescriptors
   */
-  configure(params: paramTypes.ParamsRhythmDescriptors) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -8187,9 +7958,6 @@ class RhythmDescriptors {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsRhythmDescriptors) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -9807,16 +9575,12 @@ class StrongDecay {
 */
 class StrongPeak {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsStrongPeak = {
-  };
-  private params: paramTypes.ParamsStrongPeak = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsStrongPeak} [params]
   */
-  constructor(params: paramTypes.ParamsStrongPeak) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.StrongPeak();
   }
   /**
@@ -9825,8 +9589,7 @@ class StrongPeak {
    * @param {paramTypes.ParamsStrongPeak} [params]
    * @memberof StrongPeak
   */
-  configure(params: paramTypes.ParamsStrongPeak) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -9846,9 +9609,6 @@ class StrongPeak {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsStrongPeak) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -10025,16 +9785,12 @@ class SuperFluxPeaks {
 */
 class TCToTotal {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTCToTotal = {
-  };
-  private params: paramTypes.ParamsTCToTotal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTCToTotal} [params]
   */
-  constructor(params: paramTypes.ParamsTCToTotal) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.TCToTotal();
   }
   /**
@@ -10043,8 +9799,7 @@ class TCToTotal {
    * @param {paramTypes.ParamsTCToTotal} [params]
    * @memberof TCToTotal
   */
-  configure(params: paramTypes.ParamsTCToTotal) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10064,9 +9819,6 @@ class TCToTotal {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsTCToTotal) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -10251,16 +10003,12 @@ class TempoTapDegara {
 */
 class TempoTapMaxAgreement {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTempoTapMaxAgreement = {
-  };
-  private params: paramTypes.ParamsTempoTapMaxAgreement = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTempoTapMaxAgreement} [params]
   */
-  constructor(params: paramTypes.ParamsTempoTapMaxAgreement) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.TempoTapMaxAgreement();
   }
   /**
@@ -10269,8 +10017,7 @@ class TempoTapMaxAgreement {
    * @param {paramTypes.ParamsTempoTapMaxAgreement} [params]
    * @memberof TempoTapMaxAgreement
   */
-  configure(params: paramTypes.ParamsTempoTapMaxAgreement) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10290,9 +10037,6 @@ class TempoTapMaxAgreement {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsTempoTapMaxAgreement) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -10357,16 +10101,12 @@ class TempoTapTicks {
 */
 class TensorflowInputFSDSINet {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTensorflowInputFSDSINet = {
-  };
-  private params: paramTypes.ParamsTensorflowInputFSDSINet = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTensorflowInputFSDSINet} [params]
   */
-  constructor(params: paramTypes.ParamsTensorflowInputFSDSINet) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.TensorflowInputFSDSINet();
   }
   /**
@@ -10375,8 +10115,7 @@ class TensorflowInputFSDSINet {
    * @param {paramTypes.ParamsTensorflowInputFSDSINet} [params]
    * @memberof TensorflowInputFSDSINet
   */
-  configure(params: paramTypes.ParamsTensorflowInputFSDSINet) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10397,9 +10136,6 @@ class TensorflowInputFSDSINet {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsTensorflowInputFSDSINet) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -10408,16 +10144,12 @@ class TensorflowInputFSDSINet {
 */
 class TensorflowInputMusiCNN {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTensorflowInputMusiCNN = {
-  };
-  private params: paramTypes.ParamsTensorflowInputMusiCNN = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTensorflowInputMusiCNN} [params]
   */
-  constructor(params: paramTypes.ParamsTensorflowInputMusiCNN) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.TensorflowInputMusiCNN();
   }
   /**
@@ -10426,8 +10158,7 @@ class TensorflowInputMusiCNN {
    * @param {paramTypes.ParamsTensorflowInputMusiCNN} [params]
    * @memberof TensorflowInputMusiCNN
   */
-  configure(params: paramTypes.ParamsTensorflowInputMusiCNN) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10448,9 +10179,6 @@ class TensorflowInputMusiCNN {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsTensorflowInputMusiCNN) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -10459,16 +10187,12 @@ class TensorflowInputMusiCNN {
 */
 class TensorflowInputTempoCNN {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTensorflowInputTempoCNN = {
-  };
-  private params: paramTypes.ParamsTensorflowInputTempoCNN = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTensorflowInputTempoCNN} [params]
   */
-  constructor(params: paramTypes.ParamsTensorflowInputTempoCNN) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.TensorflowInputTempoCNN();
   }
   /**
@@ -10477,8 +10201,7 @@ class TensorflowInputTempoCNN {
    * @param {paramTypes.ParamsTensorflowInputTempoCNN} [params]
    * @memberof TensorflowInputTempoCNN
   */
-  configure(params: paramTypes.ParamsTensorflowInputTempoCNN) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10499,9 +10222,6 @@ class TensorflowInputTempoCNN {
   delete() {
     this.algoInstance.delete();
   }
-  private updateParams(params: paramTypes.ParamsTensorflowInputTempoCNN) {
-    this.params = { ...this.defaultParams, ...params };
-  }
 }
  
 /**
@@ -10510,16 +10230,12 @@ class TensorflowInputTempoCNN {
 */
 class TensorflowInputVGGish {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTensorflowInputVGGish = {
-  };
-  private params: paramTypes.ParamsTensorflowInputVGGish = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTensorflowInputVGGish} [params]
   */
-  constructor(params: paramTypes.ParamsTensorflowInputVGGish) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.TensorflowInputVGGish();
   }
   /**
@@ -10528,8 +10244,7 @@ class TensorflowInputVGGish {
    * @param {paramTypes.ParamsTensorflowInputVGGish} [params]
    * @memberof TensorflowInputVGGish
   */
-  configure(params: paramTypes.ParamsTensorflowInputVGGish) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10549,9 +10264,6 @@ class TensorflowInputVGGish {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsTensorflowInputVGGish) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -10857,16 +10569,12 @@ class Trimmer {
 */
 class Tristimulus {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsTristimulus = {
-  };
-  private params: paramTypes.ParamsTristimulus = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsTristimulus} [params]
   */
-  constructor(params: paramTypes.ParamsTristimulus) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Tristimulus();
   }
   /**
@@ -10875,8 +10583,7 @@ class Tristimulus {
    * @param {paramTypes.ParamsTristimulus} [params]
    * @memberof Tristimulus
   */
-  configure(params: paramTypes.ParamsTristimulus) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -10897,9 +10604,6 @@ class Tristimulus {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsTristimulus) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -11200,16 +10904,12 @@ class UnaryOperatorStream {
 */
 class Variance {
   private algoInstance: any;
-  private readonly defaultParams: paramTypes.ParamsVariance = {
-  };
-  private params: paramTypes.ParamsVariance = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
    * @param {paramTypes.ParamsVariance} [params]
   */
-  constructor(params: paramTypes.ParamsVariance) {
-    this.updateParams(params);
+  constructor() {
     this.algoInstance = new wasmBackend.Variance();
   }
   /**
@@ -11218,8 +10918,7 @@ class Variance {
    * @param {paramTypes.ParamsVariance} [params]
    * @memberof Variance
   */
-  configure(params: paramTypes.ParamsVariance) {
-    this.updateParams(params);
+  configure() {
     this.algoInstance.configure();
   }
   /**
@@ -11239,9 +10938,6 @@ class Variance {
   */
   delete() {
     this.algoInstance.delete();
-  }
-  private updateParams(params: paramTypes.ParamsVariance) {
-    this.params = { ...this.defaultParams, ...params };
   }
 }
  
