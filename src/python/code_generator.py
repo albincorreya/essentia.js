@@ -290,31 +290,24 @@ def map_types_to_js(es_type):
 
 def parse_to_typescript(algorithm_name):
 	inputs = list()
-	parameters = list()
-	param_converted = list()
+	internal_instance_arg_list = list()
+	converted_params_check_list = list()
 	untyped_inputs = list()
-	untyped_parameters = list()	
-	algorithm = list()
+	untyped_parameters = list()
+	algorithm_class_body = list()
 	# create the algorithm object
 	algo = getattr(estd, algorithm_name)()
 	doc_dict = algo.getStruct()
 
-	wasmBackendVar = "wasmBackend"
+	wasm_backend_var = "wasmBackend"
+
+	# 1. PARSE ALGO INFO:
 	doc_link = f" Check https://essentia.upf.edu/reference/std_{algorithm_name}.html for more details."
 	# We do a shim of algorithm description for prettifying the doc
 	algo_description = doc_dict['description'].split('\n\n')[0] + doc_link
-	# add jsdoc string
-	class_comment = [
-		"/**",
-		f"* {algo_description}",
-		"* @class",
-		"*/"
-	]
 
-	algorithm.extend(class_comment)
-
-	param_prefix = "* @param"
-	return_prefix = "* @returns"
+	param_jsdocs_prefix = "* @param"
+	return_jsdocs_prefix = "* @returns"
 
 	inputs_comments = list()
 	# parse input variables
@@ -342,83 +335,95 @@ def parse_to_typescript(algorithm_name):
 			inputs.append(f"{inp['name']}: {map_types_to_js(inp['type'])}")
 			comment_input_type = f"{{{map_types_to_js(inp['type'])}}}"
 
-		inputs_comments.append(f"   {param_prefix} {comment_input_type} {inp['name']} {inp['description']}")
+		inputs_comments.append(f"   {param_jsdocs_prefix} {comment_input_type} {inp['name']} {inp['description']}")
 		untyped_inputs.append(inp['name'])
 	
-	param_comments = list()
+	algo_param_type = f"paramTypes.Params{algorithm_name}" # access from global param types import
+	param_comment = f"   {param_jsdocs_prefix} {{{algo_param_type}}} [params]"
+	default_params_object = list()
+	default_params_object.append(f"  private readonly defaultParams: {algo_param_type} = {{")
+
+	constructor_configure_param_arg = f"params: {algo_param_type}"
+
 	# parse parameter variables
 	for param in doc_dict['parameters']:
 
-		param_comments.append(f"   {param_prefix} {{{map_types_to_js(param['type'])}}} [{param['name']}={param['default']}] {param['description']}")
-		vec_param_var = f"vec{param['name']}"
+		# gather vec params for #updateParams checks
 		param_default_val = param['default']
-		param_var_name = param['name']
+		param_name = param['name']
 		if param['type'] in ['vector_real', 'vector_complex', 'matrix_real']:
 			# arrayToVector now sits at the same module level as all algorithm classes
-			param_converted.append(f"    let {vec_param_var} = arrayToVector({param['name']});")
-
-			param_var_name = vec_param_var
-
-		# NOTE: there are no algos in INCLUDED_ALGOS with vector_string typed params
-		elif param['type'] in ['vector_string']:
-			param_converted.append(f"    let {vec_param_var} = new {wasmBackendVar}.VectorString();")
-			param_converted.append(f"    for (var i=0; i<{vec_param_var}.size(); i++) {{")
-			param_converted.append(f"      {vec_param_var}.push_back({param['name']}[i]);")
-			param_converted.append("    }")
-
-			param_var_name = vec_param_var
+			obj_arg_param_access = f"params.{param_name}"
+			converted_params_check_list.append(f"    if ({obj_arg_param_access}) {{")
+			converted_params_check_list.append(f"      {obj_arg_param_access} = arrayToVector({obj_arg_param_access});")
+			converted_params_check_list.append("    }")
 
 		elif param['type'] == 'string':
 			param_default_val = f"'{param['default']}'"
+
+		# gather param names and default values for defaultParams declaration at top of class def
+		default_params_object.append(f"    {param_name}: {param_default_val},")
 		
-		parameters.append(f"{param['name']}: {map_types_to_js(param['type'])}={param_default_val}")
-		untyped_parameters.append(param_var_name)
+		# assemble individual params.paramName list to pass to internal algo instance
+		internal_instance_arg_list.append(f"this.params.{param_name}")
+		untyped_parameters.append(param_name)
 	
+	default_params_object.append("  };")
+
 	# parse output variables
 	outs = list()
 	for out in doc_dict['outputs']:
 		outs.append(f"{out['name']}: '{out['description']}'")
-	return_comment = f"   {return_prefix} {{object}} {{{', '.join(outs)}}}"
+	return_comment = f"   {return_jsdocs_prefix} {{object}} {{{', '.join(outs)}}}"
 
-	# Generate the class definition
-	class_definition = f"class {algorithm_name} {{"
-	algorithm.append(class_definition)
-	# TODO: add public `params` member, perhaps read-only with defaults/current values
-	algorithm.append("  private algoInstance: any;")
+	
+	# 2. ASSEMBLE CLASS DECLARATION with algo info
+	# add jsdoc string
+	class_comment = [
+		"/**",
+		f"* {algo_description}",
+		"* @class",
+		"*/"
+	]
 
-	config_param_list = ', '.join(untyped_parameters)
+	algorithm_class_body.extend(class_comment)
+	# top of class definition
+	classname_line = f"class {algorithm_name} {{"
+	algorithm_class_body.append(classname_line)
+	algorithm_class_body.append("  private algoInstance: any;")
+	algorithm_class_body.extend(default_params_object)
+	algorithm_class_body.append(f"  private params: {algo_param_type} = {{ ...this.defaultParams }};")
+
+	internal_config_param_list = ', '.join(internal_instance_arg_list)
 	
 	# Add the constructor
 	constructor_comment = [
 		"  /**",
 		"   * Creates an instance of the algorithm and initializes it by configuring with default or given params",
 		"   * @constructor",
-		*param_comments,
+		param_comment,
 		"  */"
 	]
-	algorithm.extend(constructor_comment)
-	constructor_args = ', '.join(parameters)
-	algorithm.append(f"  constructor({constructor_args}) {{")
-	if param_converted:
-		algorithm.extend(param_converted)
-	algorithm.append(f"    this.algoInstance = new wasmBackend.{algorithm_name}({config_param_list});")
-	algorithm.append("  }")
+	algorithm_class_body.extend(constructor_comment)
+	algorithm_class_body.append(f"  constructor({constructor_configure_param_arg}) {{")
+	algorithm_class_body.append("    this.updateParams(params);")
+	algorithm_class_body.append(f"    this.algoInstance = new {wasm_backend_var}.{algorithm_name}({internal_config_param_list});")
+	algorithm_class_body.append("  }")
 
 	# Add configure method
 	configure_comment = [
 		"  /**",
 		"   * Configure algorithm with default or given params",
 		"   * @method",
-		*param_comments,
+		param_comment,
 		f"   * @memberof {algorithm_name}",
 		"  */"
 	]
-	algorithm.extend(configure_comment)
-	algorithm.append(f"  configure({constructor_args}) {{")		
-	if param_converted:
-		algorithm.extend(param_converted)
-	algorithm.append(f"    this.algoInstance.configure({config_param_list});")
-	algorithm.append("  }")
+	algorithm_class_body.extend(configure_comment)
+	algorithm_class_body.append(f"  configure({constructor_configure_param_arg}) {{")		
+	algorithm_class_body.append("    this.updateParams(params);")
+	algorithm_class_body.append(f"    this.algoInstance.configure({internal_config_param_list});")
+	algorithm_class_body.append("  }")
 
 	# Add the compute method
 	compute_comment = [
@@ -430,11 +435,11 @@ def parse_to_typescript(algorithm_name):
 		f"   * @memberof {algorithm_name}",
 		"  */"
 	]
-	algorithm.extend(compute_comment)
+	algorithm_class_body.extend(compute_comment)
 	compute_args = ', '.join(inputs)
-	algorithm.append(f"  compute({compute_args}) {{")
-	algorithm.append(f"    return this.algoInstance.compute({', '.join(untyped_inputs)});")
-	algorithm.append("  }")
+	algorithm_class_body.append(f"  compute({compute_args}) {{")
+	algorithm_class_body.append(f"    return this.algoInstance.compute({', '.join(untyped_inputs)});")
+	algorithm_class_body.append("  }")
 
 	# Add delete method
 	delete_comment = [
@@ -444,16 +449,23 @@ def parse_to_typescript(algorithm_name):
 		f"   * @memberof {algorithm_name}",
 		"  */"
 	]
-	algorithm.extend(delete_comment)
-	algorithm.append("  delete() {")
-	algorithm.append("    this.algoInstance.delete();")
-	algorithm.append("  }")
+	algorithm_class_body.extend(delete_comment)
+	algorithm_class_body.append("  delete() {")
+	algorithm_class_body.append("    this.algoInstance.delete();")
+	algorithm_class_body.append("  }")
+
+	# private params update method
+	algorithm_class_body.append(f"  private updateParams({constructor_configure_param_arg}) {{")
+	if converted_params_check_list:
+		algorithm_class_body.extend(converted_params_check_list)
+	
+	algorithm_class_body.append("    this.params = { ...this.defaultParams, ...params };")
+	algorithm_class_body.append("  }")
 
 	# Close the class definition
-	algorithm.append("}")
+	algorithm_class_body.append("}")
 
-
-	return algorithm
+	return algorithm_class_body
 
 
 def parse_to_param_types(algorithm_name):

@@ -20,6 +20,8 @@
 
 // NOTE: The following code snippets are machine generated. Do not edit.
 
+import * as paramTypes from "./param_types.ts";
+
 let wasmBackend: any;
 
 /**
@@ -256,19 +258,26 @@ class LoudnessEBUR128 {
 */
 class AfterMaxToBeforeMaxEnergyRatio {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio = {
+  };
+  private params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.AfterMaxToBeforeMaxEnergyRatio();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio} [params]
    * @memberof AfterMaxToBeforeMaxEnergyRatio
   */
-  configure() {
+  configure(params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -289,6 +298,9 @@ class AfterMaxToBeforeMaxEnergyRatio {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsAfterMaxToBeforeMaxEnergyRatio) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -297,28 +309,31 @@ class AfterMaxToBeforeMaxEnergyRatio {
 */
 class AllPass {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsAllPass = {
+    bandwidth: 500,
+    cutoffFrequency: 1500,
+    order: 1,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsAllPass = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [bandwidth=500] the bandwidth of the filter [Hz] (used only for 2nd-order filters)
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [order=1] the order of the filter
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsAllPass} [params]
   */
-  constructor(bandwidth: number=500, cutoffFrequency: number=1500, order: number=1, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.AllPass(bandwidth, cutoffFrequency, order, sampleRate);
+  constructor(params: paramTypes.ParamsAllPass) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.AllPass(this.params.bandwidth, this.params.cutoffFrequency, this.params.order, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [bandwidth=500] the bandwidth of the filter [Hz] (used only for 2nd-order filters)
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [order=1] the order of the filter
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsAllPass} [params]
    * @memberof AllPass
   */
-  configure(bandwidth: number=500, cutoffFrequency: number=1500, order: number=1, sampleRate: number=44100) {
-    this.algoInstance.configure(bandwidth, cutoffFrequency, order, sampleRate);
+  configure(params: paramTypes.ParamsAllPass) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bandwidth, this.params.cutoffFrequency, this.params.order, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -338,6 +353,9 @@ class AllPass {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsAllPass) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -346,28 +364,30 @@ class AllPass {
 */
 class AudioOnsetsMarker {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsAudioOnsetsMarker = {
+    onsets: [],
+    sampleRate: 44100,
+    type: 'beep',
+  };
+  private params: paramTypes.ParamsAudioOnsetsMarker = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [onsets=[]] the list of onset locations [s]
-   * @param {number} [sampleRate=44100] the sampling rate of the output signal [Hz]
-   * @param {string} [type=beep] the type of sound to be added on the event
+   * @param {paramTypes.ParamsAudioOnsetsMarker} [params]
   */
-  constructor(onsets: any[]=[], sampleRate: number=44100, type: string='beep') {
-    let veconsets = arrayToVector(onsets);
-    this.algoInstance = new wasmBackend.AudioOnsetsMarker(veconsets, sampleRate, type);
+  constructor(params: paramTypes.ParamsAudioOnsetsMarker) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.AudioOnsetsMarker(this.params.onsets, this.params.sampleRate, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [onsets=[]] the list of onset locations [s]
-   * @param {number} [sampleRate=44100] the sampling rate of the output signal [Hz]
-   * @param {string} [type=beep] the type of sound to be added on the event
+   * @param {paramTypes.ParamsAudioOnsetsMarker} [params]
    * @memberof AudioOnsetsMarker
   */
-  configure(onsets: any[]=[], sampleRate: number=44100, type: string='beep') {
-    let veconsets = arrayToVector(onsets);
-    this.algoInstance.configure(veconsets, sampleRate, type);
+  configure(params: paramTypes.ParamsAudioOnsetsMarker) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.onsets, this.params.sampleRate, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -387,6 +407,12 @@ class AudioOnsetsMarker {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsAudioOnsetsMarker) {
+    if (params.onsets) {
+      params.onsets = arrayToVector(params.onsets);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -397,26 +423,30 @@ Using the 'generalized' option this algorithm computes autocorrelation as descri
 */
 class AutoCorrelation {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsAutoCorrelation = {
+    frequencyDomainCompression: 0.5,
+    generalized: false,
+    normalization: 'standard',
+  };
+  private params: paramTypes.ParamsAutoCorrelation = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frequencyDomainCompression=0.5] factor at which FFT magnitude is compressed (only used if 'generalized' is set to true, see [3])
-   * @param {boolean} [generalized=false] bool value to indicate whether to compute the 'generalized' autocorrelation as described in [3]
-   * @param {string} [normalization=standard] type of normalization to compute: either 'standard' (default) or 'unbiased'
+   * @param {paramTypes.ParamsAutoCorrelation} [params]
   */
-  constructor(frequencyDomainCompression: number=0.5, generalized: boolean=false, normalization: string='standard') {
-    this.algoInstance = new wasmBackend.AutoCorrelation(frequencyDomainCompression, generalized, normalization);
+  constructor(params: paramTypes.ParamsAutoCorrelation) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.AutoCorrelation(this.params.frequencyDomainCompression, this.params.generalized, this.params.normalization);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frequencyDomainCompression=0.5] factor at which FFT magnitude is compressed (only used if 'generalized' is set to true, see [3])
-   * @param {boolean} [generalized=false] bool value to indicate whether to compute the 'generalized' autocorrelation as described in [3]
-   * @param {string} [normalization=standard] type of normalization to compute: either 'standard' (default) or 'unbiased'
+   * @param {paramTypes.ParamsAutoCorrelation} [params]
    * @memberof AutoCorrelation
   */
-  configure(frequencyDomainCompression: number=0.5, generalized: boolean=false, normalization: string='standard') {
-    this.algoInstance.configure(frequencyDomainCompression, generalized, normalization);
+  configure(params: paramTypes.ParamsAutoCorrelation) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frequencyDomainCompression, this.params.generalized, this.params.normalization);
   }
   /**
    * Execute algorithm with given inputs
@@ -436,6 +466,9 @@ class AutoCorrelation {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsAutoCorrelation) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -445,44 +478,39 @@ This algorithm is implemented using the Bark scaling approach in the Rastamat ve
 */
 class BFCC {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBFCC = {
+    dctType: 2,
+    highFrequencyBound: 11000,
+    inputSize: 1025,
+    liftering: 0,
+    logType: 'dbamp',
+    lowFrequencyBound: 0,
+    normalize: 'unit_sum',
+    numberBands: 40,
+    numberCoefficients: 13,
+    sampleRate: 44100,
+    type: 'power',
+    weighting: 'warping',
+  };
+  private params: paramTypes.ParamsBFCC = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [highFrequencyBound=11000] the upper bound of the frequency range [Hz]
-   * @param {number} [inputSize=1025] the size of input spectrum
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {string} [logType=dbamp] logarithmic compression type. Use 'dbpow' if working with power and 'dbamp' if working with magnitudes
-   * @param {number} [lowFrequencyBound=0] the lower bound of the frequency range [Hz]
-   * @param {string} [normalize=unit_sum] 'unit_max' makes the vertex of all the triangles equal to 1, 'unit_sum' makes the area of all the triangles equal to 1
-   * @param {number} [numberBands=40] the number of bark bands in the filter
-   * @param {number} [numberCoefficients=13] the number of output cepstrum coefficients
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsBFCC} [params]
   */
-  constructor(dctType: number=2, highFrequencyBound: number=11000, inputSize: number=1025, liftering: number=0, logType: string='dbamp', lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=40, numberCoefficients: number=13, sampleRate: number=44100, type: string='power', weighting: string='warping') {
-    this.algoInstance = new wasmBackend.BFCC(dctType, highFrequencyBound, inputSize, liftering, logType, lowFrequencyBound, normalize, numberBands, numberCoefficients, sampleRate, type, weighting);
+  constructor(params: paramTypes.ParamsBFCC) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BFCC(this.params.dctType, this.params.highFrequencyBound, this.params.inputSize, this.params.liftering, this.params.logType, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.numberCoefficients, this.params.sampleRate, this.params.type, this.params.weighting);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [highFrequencyBound=11000] the upper bound of the frequency range [Hz]
-   * @param {number} [inputSize=1025] the size of input spectrum
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {string} [logType=dbamp] logarithmic compression type. Use 'dbpow' if working with power and 'dbamp' if working with magnitudes
-   * @param {number} [lowFrequencyBound=0] the lower bound of the frequency range [Hz]
-   * @param {string} [normalize=unit_sum] 'unit_max' makes the vertex of all the triangles equal to 1, 'unit_sum' makes the area of all the triangles equal to 1
-   * @param {number} [numberBands=40] the number of bark bands in the filter
-   * @param {number} [numberCoefficients=13] the number of output cepstrum coefficients
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsBFCC} [params]
    * @memberof BFCC
   */
-  configure(dctType: number=2, highFrequencyBound: number=11000, inputSize: number=1025, liftering: number=0, logType: string='dbamp', lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=40, numberCoefficients: number=13, sampleRate: number=44100, type: string='power', weighting: string='warping') {
-    this.algoInstance.configure(dctType, highFrequencyBound, inputSize, liftering, logType, lowFrequencyBound, normalize, numberBands, numberCoefficients, sampleRate, type, weighting);
+  configure(params: paramTypes.ParamsBFCC) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.dctType, this.params.highFrequencyBound, this.params.inputSize, this.params.liftering, this.params.logType, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.numberCoefficients, this.params.sampleRate, this.params.type, this.params.weighting);
   }
   /**
    * Execute algorithm with given inputs
@@ -502,6 +530,9 @@ class BFCC {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBFCC) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -510,28 +541,29 @@ class BFCC {
 */
 class BPF {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBPF = {
+    xPoints: [0, 1],
+    yPoints: [0, 1],
+  };
+  private params: paramTypes.ParamsBPF = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [xPoints=[0, 1]] the x-coordinates of the points forming the break-point function (the points must be arranged in ascending order and cannot contain duplicates)
-   * @param {any[]} [yPoints=[0, 1]] the y-coordinates of the points forming the break-point function
+   * @param {paramTypes.ParamsBPF} [params]
   */
-  constructor(xPoints: any[]=[0, 1], yPoints: any[]=[0, 1]) {
-    let vecxPoints = arrayToVector(xPoints);
-    let vecyPoints = arrayToVector(yPoints);
-    this.algoInstance = new wasmBackend.BPF(vecxPoints, vecyPoints);
+  constructor(params: paramTypes.ParamsBPF) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BPF(this.params.xPoints, this.params.yPoints);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [xPoints=[0, 1]] the x-coordinates of the points forming the break-point function (the points must be arranged in ascending order and cannot contain duplicates)
-   * @param {any[]} [yPoints=[0, 1]] the y-coordinates of the points forming the break-point function
+   * @param {paramTypes.ParamsBPF} [params]
    * @memberof BPF
   */
-  configure(xPoints: any[]=[0, 1], yPoints: any[]=[0, 1]) {
-    let vecxPoints = arrayToVector(xPoints);
-    let vecyPoints = arrayToVector(yPoints);
-    this.algoInstance.configure(vecxPoints, vecyPoints);
+  configure(params: paramTypes.ParamsBPF) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.xPoints, this.params.yPoints);
   }
   /**
    * Execute algorithm with given inputs
@@ -551,6 +583,15 @@ class BPF {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBPF) {
+    if (params.xPoints) {
+      params.xPoints = arrayToVector(params.xPoints);
+    }
+    if (params.yPoints) {
+      params.yPoints = arrayToVector(params.yPoints);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -559,26 +600,30 @@ class BPF {
 */
 class BandPass {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBandPass = {
+    bandwidth: 500,
+    cutoffFrequency: 1500,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsBandPass = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [bandwidth=500] the bandwidth of the filter [Hz]
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsBandPass} [params]
   */
-  constructor(bandwidth: number=500, cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.BandPass(bandwidth, cutoffFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsBandPass) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BandPass(this.params.bandwidth, this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [bandwidth=500] the bandwidth of the filter [Hz]
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsBandPass} [params]
    * @memberof BandPass
   */
-  configure(bandwidth: number=500, cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance.configure(bandwidth, cutoffFrequency, sampleRate);
+  configure(params: paramTypes.ParamsBandPass) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bandwidth, this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -598,6 +643,9 @@ class BandPass {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBandPass) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -606,26 +654,30 @@ class BandPass {
 */
 class BandReject {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBandReject = {
+    bandwidth: 500,
+    cutoffFrequency: 1500,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsBandReject = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [bandwidth=500] the bandwidth of the filter [Hz]
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsBandReject} [params]
   */
-  constructor(bandwidth: number=500, cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.BandReject(bandwidth, cutoffFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsBandReject) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BandReject(this.params.bandwidth, this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [bandwidth=500] the bandwidth of the filter [Hz]
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsBandReject} [params]
    * @memberof BandReject
   */
-  configure(bandwidth: number=500, cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance.configure(bandwidth, cutoffFrequency, sampleRate);
+  configure(params: paramTypes.ParamsBandReject) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bandwidth, this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -645,6 +697,9 @@ class BandReject {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBandReject) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -653,24 +708,29 @@ class BandReject {
 */
 class BarkBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBarkBands = {
+    numberBands: 27,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsBarkBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [numberBands=27] the number of desired barkbands
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsBarkBands} [params]
   */
-  constructor(numberBands: number=27, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.BarkBands(numberBands, sampleRate);
+  constructor(params: paramTypes.ParamsBarkBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BarkBands(this.params.numberBands, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [numberBands=27] the number of desired barkbands
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsBarkBands} [params]
    * @memberof BarkBands
   */
-  configure(numberBands: number=27, sampleRate: number=44100) {
-    this.algoInstance.configure(numberBands, sampleRate);
+  configure(params: paramTypes.ParamsBarkBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.numberBands, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -690,6 +750,9 @@ class BarkBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBarkBands) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -698,24 +761,29 @@ class BarkBands {
 */
 class BeatTrackerDegara {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBeatTrackerDegara = {
+    maxTempo: 208,
+    minTempo: 40,
+  };
+  private params: paramTypes.ParamsBeatTrackerDegara = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
+   * @param {paramTypes.ParamsBeatTrackerDegara} [params]
   */
-  constructor(maxTempo: number=208, minTempo: number=40) {
-    this.algoInstance = new wasmBackend.BeatTrackerDegara(maxTempo, minTempo);
+  constructor(params: paramTypes.ParamsBeatTrackerDegara) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BeatTrackerDegara(this.params.maxTempo, this.params.minTempo);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
+   * @param {paramTypes.ParamsBeatTrackerDegara} [params]
    * @memberof BeatTrackerDegara
   */
-  configure(maxTempo: number=208, minTempo: number=40) {
-    this.algoInstance.configure(maxTempo, minTempo);
+  configure(params: paramTypes.ParamsBeatTrackerDegara) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxTempo, this.params.minTempo);
   }
   /**
    * Execute algorithm with given inputs
@@ -735,6 +803,9 @@ class BeatTrackerDegara {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBeatTrackerDegara) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -748,24 +819,29 @@ class BeatTrackerDegara {
 */
 class BeatTrackerMultiFeature {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBeatTrackerMultiFeature = {
+    maxTempo: 208,
+    minTempo: 40,
+  };
+  private params: paramTypes.ParamsBeatTrackerMultiFeature = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
+   * @param {paramTypes.ParamsBeatTrackerMultiFeature} [params]
   */
-  constructor(maxTempo: number=208, minTempo: number=40) {
-    this.algoInstance = new wasmBackend.BeatTrackerMultiFeature(maxTempo, minTempo);
+  constructor(params: paramTypes.ParamsBeatTrackerMultiFeature) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BeatTrackerMultiFeature(this.params.maxTempo, this.params.minTempo);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
+   * @param {paramTypes.ParamsBeatTrackerMultiFeature} [params]
    * @memberof BeatTrackerMultiFeature
   */
-  configure(maxTempo: number=208, minTempo: number=40) {
-    this.algoInstance.configure(maxTempo, minTempo);
+  configure(params: paramTypes.ParamsBeatTrackerMultiFeature) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxTempo, this.params.minTempo);
   }
   /**
    * Execute algorithm with given inputs
@@ -785,6 +861,9 @@ class BeatTrackerMultiFeature {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBeatTrackerMultiFeature) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -794,22 +873,28 @@ This algorithm has been found to be useful for estimating time signatures. Check
 */
 class Beatogram {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBeatogram = {
+    size: 16,
+  };
+  private params: paramTypes.ParamsBeatogram = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [size=16] number of beats for dynamic filtering
+   * @param {paramTypes.ParamsBeatogram} [params]
   */
-  constructor(size: number=16) {
-    this.algoInstance = new wasmBackend.Beatogram(size);
+  constructor(params: paramTypes.ParamsBeatogram) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Beatogram(this.params.size);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [size=16] number of beats for dynamic filtering
+   * @param {paramTypes.ParamsBeatogram} [params]
    * @memberof Beatogram
   */
-  configure(size: number=16) {
-    this.algoInstance.configure(size);
+  configure(params: paramTypes.ParamsBeatogram) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.size);
   }
   /**
    * Execute algorithm with given inputs
@@ -830,6 +915,9 @@ class Beatogram {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBeatogram) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -838,34 +926,32 @@ class Beatogram {
 */
 class BeatsLoudness {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBeatsLoudness = {
+    beatDuration: 0.05,
+    beatWindowDuration: 0.1,
+    beats: [],
+    frequencyBands: [20, 150, 400, 3200, 7000, 22000],
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsBeatsLoudness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [beatDuration=0.05] the duration of the window in which the beat will be restricted [s]
-   * @param {number} [beatWindowDuration=0.1] the duration of the window in which to look for the beginning of the beat (centered around the positions in 'beats') [s]
-   * @param {any[]} [beats=[]] the list of beat positions (each position is in seconds)
-   * @param {any[]} [frequencyBands=[20, 150, 400, 3200, 7000, 22000]] the list of bands to compute energy ratios [Hz
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsBeatsLoudness} [params]
   */
-  constructor(beatDuration: number=0.05, beatWindowDuration: number=0.1, beats: any[]=[], frequencyBands: any[]=[20, 150, 400, 3200, 7000, 22000], sampleRate: number=44100) {
-    let vecbeats = arrayToVector(beats);
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance = new wasmBackend.BeatsLoudness(beatDuration, beatWindowDuration, vecbeats, vecfrequencyBands, sampleRate);
+  constructor(params: paramTypes.ParamsBeatsLoudness) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BeatsLoudness(this.params.beatDuration, this.params.beatWindowDuration, this.params.beats, this.params.frequencyBands, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [beatDuration=0.05] the duration of the window in which the beat will be restricted [s]
-   * @param {number} [beatWindowDuration=0.1] the duration of the window in which to look for the beginning of the beat (centered around the positions in 'beats') [s]
-   * @param {any[]} [beats=[]] the list of beat positions (each position is in seconds)
-   * @param {any[]} [frequencyBands=[20, 150, 400, 3200, 7000, 22000]] the list of bands to compute energy ratios [Hz
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsBeatsLoudness} [params]
    * @memberof BeatsLoudness
   */
-  configure(beatDuration: number=0.05, beatWindowDuration: number=0.1, beats: any[]=[], frequencyBands: any[]=[20, 150, 400, 3200, 7000, 22000], sampleRate: number=44100) {
-    let vecbeats = arrayToVector(beats);
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance.configure(beatDuration, beatWindowDuration, vecbeats, vecfrequencyBands, sampleRate);
+  configure(params: paramTypes.ParamsBeatsLoudness) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.beatDuration, this.params.beatWindowDuration, this.params.beats, this.params.frequencyBands, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -885,6 +971,15 @@ class BeatsLoudness {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBeatsLoudness) {
+    if (params.beats) {
+      params.beats = arrayToVector(params.beats);
+    }
+    if (params.frequencyBands) {
+      params.frequencyBands = arrayToVector(params.frequencyBands);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -896,22 +991,28 @@ Note:
 */
 class BinaryOperator {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBinaryOperator = {
+    type: 'add',
+  };
+  private params: paramTypes.ParamsBinaryOperator = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [type=add] the type of the binary operator to apply to the input arrays
+   * @param {paramTypes.ParamsBinaryOperator} [params]
   */
-  constructor(type: string='add') {
-    this.algoInstance = new wasmBackend.BinaryOperator(type);
+  constructor(params: paramTypes.ParamsBinaryOperator) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BinaryOperator(this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [type=add] the type of the binary operator to apply to the input arrays
+   * @param {paramTypes.ParamsBinaryOperator} [params]
    * @memberof BinaryOperator
   */
-  configure(type: string='add') {
-    this.algoInstance.configure(type);
+  configure(params: paramTypes.ParamsBinaryOperator) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -931,6 +1032,9 @@ class BinaryOperator {
   */
   delete() {
     this.algoInstance.delete();
+  }
+  private updateParams(params: paramTypes.ParamsBinaryOperator) {
+    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -943,22 +1047,28 @@ Note:
 */
 class BinaryOperatorStream {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBinaryOperatorStream = {
+    type: 'add',
+  };
+  private params: paramTypes.ParamsBinaryOperatorStream = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [type=add] the type of the binary operator to apply to the input arrays
+   * @param {paramTypes.ParamsBinaryOperatorStream} [params]
   */
-  constructor(type: string='add') {
-    this.algoInstance = new wasmBackend.BinaryOperatorStream(type);
+  constructor(params: paramTypes.ParamsBinaryOperatorStream) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BinaryOperatorStream(this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [type=add] the type of the binary operator to apply to the input arrays
+   * @param {paramTypes.ParamsBinaryOperatorStream} [params]
    * @memberof BinaryOperatorStream
   */
-  configure(type: string='add') {
-    this.algoInstance.configure(type);
+  configure(params: paramTypes.ParamsBinaryOperatorStream) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -979,6 +1089,9 @@ class BinaryOperatorStream {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBinaryOperatorStream) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -988,19 +1101,26 @@ Note: histogram vector contains occurance frequency for each bpm value, 0-th ele
 */
 class BpmHistogramDescriptors {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBpmHistogramDescriptors = {
+  };
+  private params: paramTypes.ParamsBpmHistogramDescriptors = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsBpmHistogramDescriptors} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsBpmHistogramDescriptors) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.BpmHistogramDescriptors();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsBpmHistogramDescriptors} [params]
    * @memberof BpmHistogramDescriptors
   */
-  configure() {
+  configure(params: paramTypes.ParamsBpmHistogramDescriptors) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -1021,6 +1141,9 @@ class BpmHistogramDescriptors {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBpmHistogramDescriptors) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1029,26 +1152,30 @@ class BpmHistogramDescriptors {
 */
 class BpmRubato {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsBpmRubato = {
+    longRegionsPruningTime: 20,
+    shortRegionsMergingTime: 4,
+    tolerance: 0.08,
+  };
+  private params: paramTypes.ParamsBpmRubato = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [longRegionsPruningTime=20] time for the longest constant tempo region inside a rubato region [s]
-   * @param {number} [shortRegionsMergingTime=4] time for the shortest constant tempo region from one tempo region to another [s]
-   * @param {number} [tolerance=0.08] minimum tempo deviation to look for
+   * @param {paramTypes.ParamsBpmRubato} [params]
   */
-  constructor(longRegionsPruningTime: number=20, shortRegionsMergingTime: number=4, tolerance: number=0.08) {
-    this.algoInstance = new wasmBackend.BpmRubato(longRegionsPruningTime, shortRegionsMergingTime, tolerance);
+  constructor(params: paramTypes.ParamsBpmRubato) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.BpmRubato(this.params.longRegionsPruningTime, this.params.shortRegionsMergingTime, this.params.tolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [longRegionsPruningTime=20] time for the longest constant tempo region inside a rubato region [s]
-   * @param {number} [shortRegionsMergingTime=4] time for the shortest constant tempo region from one tempo region to another [s]
-   * @param {number} [tolerance=0.08] minimum tempo deviation to look for
+   * @param {paramTypes.ParamsBpmRubato} [params]
    * @memberof BpmRubato
   */
-  configure(longRegionsPruningTime: number=20, shortRegionsMergingTime: number=4, tolerance: number=0.08) {
-    this.algoInstance.configure(longRegionsPruningTime, shortRegionsMergingTime, tolerance);
+  configure(params: paramTypes.ParamsBpmRubato) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.longRegionsPruningTime, this.params.shortRegionsMergingTime, this.params.tolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -1068,6 +1195,9 @@ class BpmRubato {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsBpmRubato) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1076,24 +1206,29 @@ class BpmRubato {
 */
 class CentralMoments {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCentralMoments = {
+    mode: 'pdf',
+    range: 1,
+  };
+  private params: paramTypes.ParamsCentralMoments = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [mode=pdf] compute central moments considering array values as a probability density function over array index or as sample points of a distribution
-   * @param {number} [range=1] the range of the input array, used for normalizing the results in the 'pdf' mode
+   * @param {paramTypes.ParamsCentralMoments} [params]
   */
-  constructor(mode: string='pdf', range: number=1) {
-    this.algoInstance = new wasmBackend.CentralMoments(mode, range);
+  constructor(params: paramTypes.ParamsCentralMoments) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.CentralMoments(this.params.mode, this.params.range);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [mode=pdf] compute central moments considering array values as a probability density function over array index or as sample points of a distribution
-   * @param {number} [range=1] the range of the input array, used for normalizing the results in the 'pdf' mode
+   * @param {paramTypes.ParamsCentralMoments} [params]
    * @memberof CentralMoments
   */
-  configure(mode: string='pdf', range: number=1) {
-    this.algoInstance.configure(mode, range);
+  configure(params: paramTypes.ParamsCentralMoments) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.mode, this.params.range);
   }
   /**
    * Execute algorithm with given inputs
@@ -1113,6 +1248,9 @@ class CentralMoments {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCentralMoments) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1121,22 +1259,28 @@ class CentralMoments {
 */
 class Centroid {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCentroid = {
+    range: 1,
+  };
+  private params: paramTypes.ParamsCentroid = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [range=1] the range of the input array, used for normalizing the results
+   * @param {paramTypes.ParamsCentroid} [params]
   */
-  constructor(range: number=1) {
-    this.algoInstance = new wasmBackend.Centroid(range);
+  constructor(params: paramTypes.ParamsCentroid) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Centroid(this.params.range);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [range=1] the range of the input array, used for normalizing the results
+   * @param {paramTypes.ParamsCentroid} [params]
    * @memberof Centroid
   */
-  configure(range: number=1) {
-    this.algoInstance.configure(range);
+  configure(params: paramTypes.ParamsCentroid) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.range);
   }
   /**
    * Execute algorithm with given inputs
@@ -1156,6 +1300,9 @@ class Centroid {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCentroid) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1168,19 +1315,26 @@ Note:
 */
 class ChordsDescriptors {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsChordsDescriptors = {
+  };
+  private params: paramTypes.ParamsChordsDescriptors = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsChordsDescriptors} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsChordsDescriptors) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.ChordsDescriptors();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsChordsDescriptors} [params]
    * @memberof ChordsDescriptors
   */
-  configure() {
+  configure(params: paramTypes.ParamsChordsDescriptors) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -1203,6 +1357,9 @@ class ChordsDescriptors {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsChordsDescriptors) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1215,26 +1372,30 @@ Note:
 */
 class ChordsDetection {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsChordsDetection = {
+    hopSize: 2048,
+    sampleRate: 44100,
+    windowSize: 2,
+  };
+  private params: paramTypes.ParamsChordsDetection = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [hopSize=2048] the hop size with which the input PCPs were computed
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [windowSize=2] the size of the window on which to estimate the chords [s]
+   * @param {paramTypes.ParamsChordsDetection} [params]
   */
-  constructor(hopSize: number=2048, sampleRate: number=44100, windowSize: number=2) {
-    this.algoInstance = new wasmBackend.ChordsDetection(hopSize, sampleRate, windowSize);
+  constructor(params: paramTypes.ParamsChordsDetection) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ChordsDetection(this.params.hopSize, this.params.sampleRate, this.params.windowSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [hopSize=2048] the hop size with which the input PCPs were computed
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [windowSize=2] the size of the window on which to estimate the chords [s]
+   * @param {paramTypes.ParamsChordsDetection} [params]
    * @memberof ChordsDetection
   */
-  configure(hopSize: number=2048, sampleRate: number=44100, windowSize: number=2) {
-    this.algoInstance.configure(hopSize, sampleRate, windowSize);
+  configure(params: paramTypes.ParamsChordsDetection) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.hopSize, this.params.sampleRate, this.params.windowSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -1254,6 +1415,9 @@ class ChordsDetection {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsChordsDetection) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1264,26 +1428,30 @@ class ChordsDetection {
 */
 class ChordsDetectionBeats {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsChordsDetectionBeats = {
+    chromaPick: 'interbeat_median',
+    hopSize: 2048,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsChordsDetectionBeats = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [chromaPick=interbeat_median] method of calculating singleton chroma for interbeat interval
-   * @param {number} [hopSize=2048] the hop size with which the input PCPs were computed
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsChordsDetectionBeats} [params]
   */
-  constructor(chromaPick: string='interbeat_median', hopSize: number=2048, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.ChordsDetectionBeats(chromaPick, hopSize, sampleRate);
+  constructor(params: paramTypes.ParamsChordsDetectionBeats) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ChordsDetectionBeats(this.params.chromaPick, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [chromaPick=interbeat_median] method of calculating singleton chroma for interbeat interval
-   * @param {number} [hopSize=2048] the hop size with which the input PCPs were computed
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsChordsDetectionBeats} [params]
    * @memberof ChordsDetectionBeats
   */
-  configure(chromaPick: string='interbeat_median', hopSize: number=2048, sampleRate: number=44100) {
-    this.algoInstance.configure(chromaPick, hopSize, sampleRate);
+  configure(params: paramTypes.ParamsChordsDetectionBeats) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.chromaPick, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -1304,6 +1472,9 @@ class ChordsDetectionBeats {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsChordsDetectionBeats) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1312,34 +1483,34 @@ class ChordsDetectionBeats {
 */
 class ChromaCrossSimilarity {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsChromaCrossSimilarity = {
+    binarizePercentile: 0.095,
+    frameStackSize: 9,
+    frameStackStride: 1,
+    noti: 12,
+    oti: true,
+    otiBinary: false,
+    streaming: false,
+  };
+  private params: paramTypes.ParamsChromaCrossSimilarity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binarizePercentile=0.095] maximum percent of distance values to consider as similar in each row and each column
-   * @param {number} [frameStackSize=9] number of input frames to stack together and treat as a feature vector for similarity computation. Choose 'frameStackSize=1' to use the original input frames without stacking
-   * @param {number} [frameStackStride=1] stride size to form a stack of frames (e.g., 'frameStackStride'=1 to use consecutive frames; 'frameStackStride'=2 for using every second frame)
-   * @param {number} [noti=12] number of circular shifts to be checked for Optimal Transposition Index [1]
-   * @param {boolean} [oti=true] whether to transpose the key of the reference song to the query song by Optimal Transposition Index [1]
-   * @param {boolean} [otiBinary=false] whether to use the OTI-based chroma binary similarity method [3]
-   * @param {boolean} [streaming=false] whether to accumulate the input 'queryFeature' in the euclidean similarity matrix calculation on each compute() method call
+   * @param {paramTypes.ParamsChromaCrossSimilarity} [params]
   */
-  constructor(binarizePercentile: number=0.095, frameStackSize: number=9, frameStackStride: number=1, noti: number=12, oti: boolean=true, otiBinary: boolean=false, streaming: boolean=false) {
-    this.algoInstance = new wasmBackend.ChromaCrossSimilarity(binarizePercentile, frameStackSize, frameStackStride, noti, oti, otiBinary, streaming);
+  constructor(params: paramTypes.ParamsChromaCrossSimilarity) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ChromaCrossSimilarity(this.params.binarizePercentile, this.params.frameStackSize, this.params.frameStackStride, this.params.noti, this.params.oti, this.params.otiBinary, this.params.streaming);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binarizePercentile=0.095] maximum percent of distance values to consider as similar in each row and each column
-   * @param {number} [frameStackSize=9] number of input frames to stack together and treat as a feature vector for similarity computation. Choose 'frameStackSize=1' to use the original input frames without stacking
-   * @param {number} [frameStackStride=1] stride size to form a stack of frames (e.g., 'frameStackStride'=1 to use consecutive frames; 'frameStackStride'=2 for using every second frame)
-   * @param {number} [noti=12] number of circular shifts to be checked for Optimal Transposition Index [1]
-   * @param {boolean} [oti=true] whether to transpose the key of the reference song to the query song by Optimal Transposition Index [1]
-   * @param {boolean} [otiBinary=false] whether to use the OTI-based chroma binary similarity method [3]
-   * @param {boolean} [streaming=false] whether to accumulate the input 'queryFeature' in the euclidean similarity matrix calculation on each compute() method call
+   * @param {paramTypes.ParamsChromaCrossSimilarity} [params]
    * @memberof ChromaCrossSimilarity
   */
-  configure(binarizePercentile: number=0.095, frameStackSize: number=9, frameStackStride: number=1, noti: number=12, oti: boolean=true, otiBinary: boolean=false, streaming: boolean=false) {
-    this.algoInstance.configure(binarizePercentile, frameStackSize, frameStackStride, noti, oti, otiBinary, streaming);
+  configure(params: paramTypes.ParamsChromaCrossSimilarity) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binarizePercentile, this.params.frameStackSize, this.params.frameStackStride, this.params.noti, this.params.oti, this.params.otiBinary, this.params.streaming);
   }
   /**
    * Execute algorithm with given inputs
@@ -1360,6 +1531,9 @@ class ChromaCrossSimilarity {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsChromaCrossSimilarity) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1369,40 +1543,37 @@ class ChromaCrossSimilarity {
 */
 class Chromagram {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsChromagram = {
+    binsPerOctave: 12,
+    minFrequency: 32.7,
+    minimumKernelSize: 4,
+    normalizeType: 'unit_max',
+    numberBins: 84,
+    sampleRate: 44100,
+    scale: 1,
+    threshold: 0.01,
+    windowType: 'hann',
+    zeroPhase: true,
+  };
+  private params: paramTypes.ParamsChromagram = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binsPerOctave=12] number of bins per octave
-   * @param {number} [minFrequency=32.7] minimum frequency [Hz]
-   * @param {number} [minimumKernelSize=4] minimum size allowed for frequency kernels
-   * @param {string} [normalizeType=unit_max] normalize type
-   * @param {number} [numberBins=84] number of frequency bins, starting at minFrequency
-   * @param {number} [sampleRate=44100] FFT sampling rate [Hz]
-   * @param {number} [scale=1] filters scale. Larger values use longer windows
-   * @param {number} [threshold=0.01] bins whose magnitude is below this quantile are discarded
-   * @param {string} [windowType=hann] the window type
-   * @param {boolean} [zeroPhase=true] a boolean value that enables zero-phase windowing. Input audio frames should be windowed with the same phase mode
+   * @param {paramTypes.ParamsChromagram} [params]
   */
-  constructor(binsPerOctave: number=12, minFrequency: number=32.7, minimumKernelSize: number=4, normalizeType: string='unit_max', numberBins: number=84, sampleRate: number=44100, scale: number=1, threshold: number=0.01, windowType: string='hann', zeroPhase: boolean=true) {
-    this.algoInstance = new wasmBackend.Chromagram(binsPerOctave, minFrequency, minimumKernelSize, normalizeType, numberBins, sampleRate, scale, threshold, windowType, zeroPhase);
+  constructor(params: paramTypes.ParamsChromagram) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Chromagram(this.params.binsPerOctave, this.params.minFrequency, this.params.minimumKernelSize, this.params.normalizeType, this.params.numberBins, this.params.sampleRate, this.params.scale, this.params.threshold, this.params.windowType, this.params.zeroPhase);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binsPerOctave=12] number of bins per octave
-   * @param {number} [minFrequency=32.7] minimum frequency [Hz]
-   * @param {number} [minimumKernelSize=4] minimum size allowed for frequency kernels
-   * @param {string} [normalizeType=unit_max] normalize type
-   * @param {number} [numberBins=84] number of frequency bins, starting at minFrequency
-   * @param {number} [sampleRate=44100] FFT sampling rate [Hz]
-   * @param {number} [scale=1] filters scale. Larger values use longer windows
-   * @param {number} [threshold=0.01] bins whose magnitude is below this quantile are discarded
-   * @param {string} [windowType=hann] the window type
-   * @param {boolean} [zeroPhase=true] a boolean value that enables zero-phase windowing. Input audio frames should be windowed with the same phase mode
+   * @param {paramTypes.ParamsChromagram} [params]
    * @memberof Chromagram
   */
-  configure(binsPerOctave: number=12, minFrequency: number=32.7, minimumKernelSize: number=4, normalizeType: string='unit_max', numberBins: number=84, sampleRate: number=44100, scale: number=1, threshold: number=0.01, windowType: string='hann', zeroPhase: boolean=true) {
-    this.algoInstance.configure(binsPerOctave, minFrequency, minimumKernelSize, normalizeType, numberBins, sampleRate, scale, threshold, windowType, zeroPhase);
+  configure(params: paramTypes.ParamsChromagram) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binsPerOctave, this.params.minFrequency, this.params.minimumKernelSize, this.params.normalizeType, this.params.numberBins, this.params.sampleRate, this.params.scale, this.params.threshold, this.params.windowType, this.params.zeroPhase);
   }
   /**
    * Execute algorithm with given inputs
@@ -1422,6 +1593,9 @@ class Chromagram {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsChromagram) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1430,34 +1604,34 @@ class Chromagram {
 */
 class ClickDetector {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsClickDetector = {
+    detectionThreshold: 30,
+    frameSize: 512,
+    hopSize: 256,
+    order: 12,
+    powerEstimationThreshold: 10,
+    sampleRate: 44100,
+    silenceThreshold: -50,
+  };
+  private params: paramTypes.ParamsClickDetector = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [detectionThreshold=30] 'detectionThreshold' the threshold is based on the instant power of the noisy excitation signal plus detectionThreshold dBs
-   * @param {number} [frameSize=512] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
-   * @param {number} [hopSize=256] hop size used for the analysis. This parameter must be set correctly as it cannot be obtained from the input data
-   * @param {number} [order=12] scalar giving the number of LPCs to use
-   * @param {number} [powerEstimationThreshold=10] the noisy excitation is clipped to 'powerEstimationThreshold' times its median.
-   * @param {number} [sampleRate=44100] sample rate used for the analysis
-   * @param {number} [silenceThreshold=-50] threshold to skip silent frames
+   * @param {paramTypes.ParamsClickDetector} [params]
   */
-  constructor(detectionThreshold: number=30, frameSize: number=512, hopSize: number=256, order: number=12, powerEstimationThreshold: number=10, sampleRate: number=44100, silenceThreshold: number=-50) {
-    this.algoInstance = new wasmBackend.ClickDetector(detectionThreshold, frameSize, hopSize, order, powerEstimationThreshold, sampleRate, silenceThreshold);
+  constructor(params: paramTypes.ParamsClickDetector) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ClickDetector(this.params.detectionThreshold, this.params.frameSize, this.params.hopSize, this.params.order, this.params.powerEstimationThreshold, this.params.sampleRate, this.params.silenceThreshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [detectionThreshold=30] 'detectionThreshold' the threshold is based on the instant power of the noisy excitation signal plus detectionThreshold dBs
-   * @param {number} [frameSize=512] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
-   * @param {number} [hopSize=256] hop size used for the analysis. This parameter must be set correctly as it cannot be obtained from the input data
-   * @param {number} [order=12] scalar giving the number of LPCs to use
-   * @param {number} [powerEstimationThreshold=10] the noisy excitation is clipped to 'powerEstimationThreshold' times its median.
-   * @param {number} [sampleRate=44100] sample rate used for the analysis
-   * @param {number} [silenceThreshold=-50] threshold to skip silent frames
+   * @param {paramTypes.ParamsClickDetector} [params]
    * @memberof ClickDetector
   */
-  configure(detectionThreshold: number=30, frameSize: number=512, hopSize: number=256, order: number=12, powerEstimationThreshold: number=10, sampleRate: number=44100, silenceThreshold: number=-50) {
-    this.algoInstance.configure(detectionThreshold, frameSize, hopSize, order, powerEstimationThreshold, sampleRate, silenceThreshold);
+  configure(params: paramTypes.ParamsClickDetector) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.detectionThreshold, this.params.frameSize, this.params.hopSize, this.params.order, this.params.powerEstimationThreshold, this.params.sampleRate, this.params.silenceThreshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -1477,6 +1651,9 @@ class ClickDetector {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsClickDetector) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1485,24 +1662,29 @@ class ClickDetector {
 */
 class Clipper {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsClipper = {
+    max: 1,
+    min: -1,
+  };
+  private params: paramTypes.ParamsClipper = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [max=1] the maximum value above which the signal will be clipped
-   * @param {number} [min=-1] the minimum value below which the signal will be clipped
+   * @param {paramTypes.ParamsClipper} [params]
   */
-  constructor(max: number=1, min: number=-1) {
-    this.algoInstance = new wasmBackend.Clipper(max, min);
+  constructor(params: paramTypes.ParamsClipper) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Clipper(this.params.max, this.params.min);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [max=1] the maximum value above which the signal will be clipped
-   * @param {number} [min=-1] the minimum value below which the signal will be clipped
+   * @param {paramTypes.ParamsClipper} [params]
    * @memberof Clipper
   */
-  configure(max: number=1, min: number=-1) {
-    this.algoInstance.configure(max, min);
+  configure(params: paramTypes.ParamsClipper) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.max, this.params.min);
   }
   /**
    * Execute algorithm with given inputs
@@ -1522,6 +1704,9 @@ class Clipper {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsClipper) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1530,28 +1715,31 @@ class Clipper {
 */
 class CoverSongSimilarity {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCoverSongSimilarity = {
+    alignmentType: 'serra09',
+    disExtension: 0.5,
+    disOnset: 0.5,
+    distanceType: 'asymmetric',
+  };
+  private params: paramTypes.ParamsCoverSongSimilarity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [alignmentType=serra09] choose either one of the given local-alignment constraints for smith-waterman algorithm as described in [2] or [3] respectively.
-   * @param {number} [disExtension=0.5] penalty for disruption extension
-   * @param {number} [disOnset=0.5] penalty for disruption onset
-   * @param {string} [distanceType=asymmetric] choose the type of distance. By default the algorithm outputs a asymmetric distance which is obtained by normalising the maximum score in the alignment score matrix with length of reference song
+   * @param {paramTypes.ParamsCoverSongSimilarity} [params]
   */
-  constructor(alignmentType: string='serra09', disExtension: number=0.5, disOnset: number=0.5, distanceType: string='asymmetric') {
-    this.algoInstance = new wasmBackend.CoverSongSimilarity(alignmentType, disExtension, disOnset, distanceType);
+  constructor(params: paramTypes.ParamsCoverSongSimilarity) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.CoverSongSimilarity(this.params.alignmentType, this.params.disExtension, this.params.disOnset, this.params.distanceType);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [alignmentType=serra09] choose either one of the given local-alignment constraints for smith-waterman algorithm as described in [2] or [3] respectively.
-   * @param {number} [disExtension=0.5] penalty for disruption extension
-   * @param {number} [disOnset=0.5] penalty for disruption onset
-   * @param {string} [distanceType=asymmetric] choose the type of distance. By default the algorithm outputs a asymmetric distance which is obtained by normalising the maximum score in the alignment score matrix with length of reference song
+   * @param {paramTypes.ParamsCoverSongSimilarity} [params]
    * @memberof CoverSongSimilarity
   */
-  configure(alignmentType: string='serra09', disExtension: number=0.5, disOnset: number=0.5, distanceType: string='asymmetric') {
-    this.algoInstance.configure(alignmentType, disExtension, disOnset, distanceType);
+  configure(params: paramTypes.ParamsCoverSongSimilarity) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.alignmentType, this.params.disExtension, this.params.disOnset, this.params.distanceType);
   }
   /**
    * Execute algorithm with given inputs
@@ -1571,6 +1759,9 @@ class CoverSongSimilarity {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCoverSongSimilarity) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1579,19 +1770,26 @@ class CoverSongSimilarity {
 */
 class Crest {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCrest = {
+  };
+  private params: paramTypes.ParamsCrest = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsCrest} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsCrest) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Crest();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsCrest} [params]
    * @memberof Crest
   */
-  configure() {
+  configure(params: paramTypes.ParamsCrest) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -1612,6 +1810,9 @@ class Crest {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCrest) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1620,24 +1821,29 @@ class Crest {
 */
 class CrossCorrelation {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCrossCorrelation = {
+    maxLag: 1,
+    minLag: 0,
+  };
+  private params: paramTypes.ParamsCrossCorrelation = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxLag=1] the maximum lag to be computed between the two vectors
-   * @param {number} [minLag=0] the minimum lag to be computed between the two vectors
+   * @param {paramTypes.ParamsCrossCorrelation} [params]
   */
-  constructor(maxLag: number=1, minLag: number=0) {
-    this.algoInstance = new wasmBackend.CrossCorrelation(maxLag, minLag);
+  constructor(params: paramTypes.ParamsCrossCorrelation) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.CrossCorrelation(this.params.maxLag, this.params.minLag);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxLag=1] the maximum lag to be computed between the two vectors
-   * @param {number} [minLag=0] the minimum lag to be computed between the two vectors
+   * @param {paramTypes.ParamsCrossCorrelation} [params]
    * @memberof CrossCorrelation
   */
-  configure(maxLag: number=1, minLag: number=0) {
-    this.algoInstance.configure(maxLag, minLag);
+  configure(params: paramTypes.ParamsCrossCorrelation) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxLag, this.params.minLag);
   }
   /**
    * Execute algorithm with given inputs
@@ -1658,6 +1864,9 @@ class CrossCorrelation {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCrossCorrelation) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1666,28 +1875,31 @@ class CrossCorrelation {
 */
 class CrossSimilarityMatrix {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCrossSimilarityMatrix = {
+    binarize: false,
+    binarizePercentile: 0.095,
+    frameStackSize: 1,
+    frameStackStride: 1,
+  };
+  private params: paramTypes.ParamsCrossSimilarityMatrix = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [binarize=false] whether to binarize the euclidean cross-similarity matrix
-   * @param {number} [binarizePercentile=0.095] maximum percent of distance values to consider as similar in each row and each column
-   * @param {number} [frameStackSize=1] number of input frames to stack together and treat as a feature vector for similarity computation. Choose 'frameStackSize=1' to use the original input frames without stacking
-   * @param {number} [frameStackStride=1] stride size to form a stack of frames (e.g., 'frameStackStride'=1 to use consecutive frames; 'frameStackStride'=2 for using every second frame)
+   * @param {paramTypes.ParamsCrossSimilarityMatrix} [params]
   */
-  constructor(binarize: boolean=false, binarizePercentile: number=0.095, frameStackSize: number=1, frameStackStride: number=1) {
-    this.algoInstance = new wasmBackend.CrossSimilarityMatrix(binarize, binarizePercentile, frameStackSize, frameStackStride);
+  constructor(params: paramTypes.ParamsCrossSimilarityMatrix) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.CrossSimilarityMatrix(this.params.binarize, this.params.binarizePercentile, this.params.frameStackSize, this.params.frameStackStride);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [binarize=false] whether to binarize the euclidean cross-similarity matrix
-   * @param {number} [binarizePercentile=0.095] maximum percent of distance values to consider as similar in each row and each column
-   * @param {number} [frameStackSize=1] number of input frames to stack together and treat as a feature vector for similarity computation. Choose 'frameStackSize=1' to use the original input frames without stacking
-   * @param {number} [frameStackStride=1] stride size to form a stack of frames (e.g., 'frameStackStride'=1 to use consecutive frames; 'frameStackStride'=2 for using every second frame)
+   * @param {paramTypes.ParamsCrossSimilarityMatrix} [params]
    * @memberof CrossSimilarityMatrix
   */
-  configure(binarize: boolean=false, binarizePercentile: number=0.095, frameStackSize: number=1, frameStackStride: number=1) {
-    this.algoInstance.configure(binarize, binarizePercentile, frameStackSize, frameStackStride);
+  configure(params: paramTypes.ParamsCrossSimilarityMatrix) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binarize, this.params.binarizePercentile, this.params.frameStackSize, this.params.frameStackStride);
   }
   /**
    * Execute algorithm with given inputs
@@ -1708,6 +1920,9 @@ class CrossSimilarityMatrix {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCrossSimilarityMatrix) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1724,36 +1939,33 @@ References:
 */
 class CubicSpline {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsCubicSpline = {
+    leftBoundaryFlag: 0,
+    leftBoundaryValue: 0,
+    rightBoundaryFlag: 0,
+    rightBoundaryValue: 0,
+    xPoints: [0, 1],
+    yPoints: [0, 1],
+  };
+  private params: paramTypes.ParamsCubicSpline = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [leftBoundaryFlag=0] type of boundary condition for the left boundary
-   * @param {number} [leftBoundaryValue=0] the value to be used in the left boundary, when leftBoundaryFlag is 1 or 2
-   * @param {number} [rightBoundaryFlag=0] type of boundary condition for the right boundary
-   * @param {number} [rightBoundaryValue=0] the value to be used in the right boundary, when rightBoundaryFlag is 1 or 2
-   * @param {any[]} [xPoints=[0, 1]] the x-coordinates where data is specified (the points must be arranged in ascending order and cannot contain duplicates)
-   * @param {any[]} [yPoints=[0, 1]] the y-coordinates to be interpolated (i.e. the known data)
+   * @param {paramTypes.ParamsCubicSpline} [params]
   */
-  constructor(leftBoundaryFlag: number=0, leftBoundaryValue: number=0, rightBoundaryFlag: number=0, rightBoundaryValue: number=0, xPoints: any[]=[0, 1], yPoints: any[]=[0, 1]) {
-    let vecxPoints = arrayToVector(xPoints);
-    let vecyPoints = arrayToVector(yPoints);
-    this.algoInstance = new wasmBackend.CubicSpline(leftBoundaryFlag, leftBoundaryValue, rightBoundaryFlag, rightBoundaryValue, vecxPoints, vecyPoints);
+  constructor(params: paramTypes.ParamsCubicSpline) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.CubicSpline(this.params.leftBoundaryFlag, this.params.leftBoundaryValue, this.params.rightBoundaryFlag, this.params.rightBoundaryValue, this.params.xPoints, this.params.yPoints);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [leftBoundaryFlag=0] type of boundary condition for the left boundary
-   * @param {number} [leftBoundaryValue=0] the value to be used in the left boundary, when leftBoundaryFlag is 1 or 2
-   * @param {number} [rightBoundaryFlag=0] type of boundary condition for the right boundary
-   * @param {number} [rightBoundaryValue=0] the value to be used in the right boundary, when rightBoundaryFlag is 1 or 2
-   * @param {any[]} [xPoints=[0, 1]] the x-coordinates where data is specified (the points must be arranged in ascending order and cannot contain duplicates)
-   * @param {any[]} [yPoints=[0, 1]] the y-coordinates to be interpolated (i.e. the known data)
+   * @param {paramTypes.ParamsCubicSpline} [params]
    * @memberof CubicSpline
   */
-  configure(leftBoundaryFlag: number=0, leftBoundaryValue: number=0, rightBoundaryFlag: number=0, rightBoundaryValue: number=0, xPoints: any[]=[0, 1], yPoints: any[]=[0, 1]) {
-    let vecxPoints = arrayToVector(xPoints);
-    let vecyPoints = arrayToVector(yPoints);
-    this.algoInstance.configure(leftBoundaryFlag, leftBoundaryValue, rightBoundaryFlag, rightBoundaryValue, vecxPoints, vecyPoints);
+  configure(params: paramTypes.ParamsCubicSpline) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.leftBoundaryFlag, this.params.leftBoundaryValue, this.params.rightBoundaryFlag, this.params.rightBoundaryValue, this.params.xPoints, this.params.yPoints);
   }
   /**
    * Execute algorithm with given inputs
@@ -1773,6 +1985,15 @@ class CubicSpline {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsCubicSpline) {
+    if (params.xPoints) {
+      params.xPoints = arrayToVector(params.xPoints);
+    }
+    if (params.yPoints) {
+      params.yPoints = arrayToVector(params.yPoints);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1781,24 +2002,29 @@ class CubicSpline {
 */
 class DCRemoval {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDCRemoval = {
+    cutoffFrequency: 40,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsDCRemoval = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [cutoffFrequency=40] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsDCRemoval} [params]
   */
-  constructor(cutoffFrequency: number=40, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.DCRemoval(cutoffFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsDCRemoval) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.DCRemoval(this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [cutoffFrequency=40] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsDCRemoval} [params]
    * @memberof DCRemoval
   */
-  configure(cutoffFrequency: number=40, sampleRate: number=44100) {
-    this.algoInstance.configure(cutoffFrequency, sampleRate);
+  configure(params: paramTypes.ParamsDCRemoval) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -1818,6 +2044,9 @@ class DCRemoval {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDCRemoval) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1827,28 +2056,31 @@ It uses the DCT-II form, with the 1/sqrt(2) scaling factor for the first coeffic
 */
 class DCT {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDCT = {
+    dctType: 2,
+    inputSize: 10,
+    liftering: 0,
+    outputSize: 10,
+  };
+  private params: paramTypes.ParamsDCT = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [inputSize=10] the size of the input array
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {number} [outputSize=10] the number of output coefficients
+   * @param {paramTypes.ParamsDCT} [params]
   */
-  constructor(dctType: number=2, inputSize: number=10, liftering: number=0, outputSize: number=10) {
-    this.algoInstance = new wasmBackend.DCT(dctType, inputSize, liftering, outputSize);
+  constructor(params: paramTypes.ParamsDCT) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.DCT(this.params.dctType, this.params.inputSize, this.params.liftering, this.params.outputSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [inputSize=10] the size of the input array
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {number} [outputSize=10] the number of output coefficients
+   * @param {paramTypes.ParamsDCT} [params]
    * @memberof DCT
   */
-  configure(dctType: number=2, inputSize: number=10, liftering: number=0, outputSize: number=10) {
-    this.algoInstance.configure(dctType, inputSize, liftering, outputSize);
+  configure(params: paramTypes.ParamsDCT) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.dctType, this.params.inputSize, this.params.liftering, this.params.outputSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -1868,6 +2100,9 @@ class DCT {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDCT) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1876,28 +2111,31 @@ class DCT {
 */
 class Danceability {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDanceability = {
+    maxTau: 8800,
+    minTau: 310,
+    sampleRate: 44100,
+    tauMultiplier: 1.1,
+  };
+  private params: paramTypes.ParamsDanceability = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxTau=8800] maximum segment length to consider [ms]
-   * @param {number} [minTau=310] minimum segment length to consider [ms]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [tauMultiplier=1.1] multiplier to increment from min to max tau
+   * @param {paramTypes.ParamsDanceability} [params]
   */
-  constructor(maxTau: number=8800, minTau: number=310, sampleRate: number=44100, tauMultiplier: number=1.1) {
-    this.algoInstance = new wasmBackend.Danceability(maxTau, minTau, sampleRate, tauMultiplier);
+  constructor(params: paramTypes.ParamsDanceability) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Danceability(this.params.maxTau, this.params.minTau, this.params.sampleRate, this.params.tauMultiplier);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxTau=8800] maximum segment length to consider [ms]
-   * @param {number} [minTau=310] minimum segment length to consider [ms]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [tauMultiplier=1.1] multiplier to increment from min to max tau
+   * @param {paramTypes.ParamsDanceability} [params]
    * @memberof Danceability
   */
-  configure(maxTau: number=8800, minTau: number=310, sampleRate: number=44100, tauMultiplier: number=1.1) {
-    this.algoInstance.configure(maxTau, minTau, sampleRate, tauMultiplier);
+  configure(params: paramTypes.ParamsDanceability) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxTau, this.params.minTau, this.params.sampleRate, this.params.tauMultiplier);
   }
   /**
    * Execute algorithm with given inputs
@@ -1917,6 +2155,9 @@ class Danceability {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDanceability) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1929,22 +2170,28 @@ References:
 */
 class Decrease {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDecrease = {
+    range: 1,
+  };
+  private params: paramTypes.ParamsDecrease = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [range=1] the range of the input array, used for normalizing the results
+   * @param {paramTypes.ParamsDecrease} [params]
   */
-  constructor(range: number=1) {
-    this.algoInstance = new wasmBackend.Decrease(range);
+  constructor(params: paramTypes.ParamsDecrease) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Decrease(this.params.range);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [range=1] the range of the input array, used for normalizing the results
+   * @param {paramTypes.ParamsDecrease} [params]
    * @memberof Decrease
   */
-  configure(range: number=1) {
-    this.algoInstance.configure(range);
+  configure(params: paramTypes.ParamsDecrease) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.range);
   }
   /**
    * Execute algorithm with given inputs
@@ -1964,6 +2211,9 @@ class Decrease {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDecrease) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -1972,19 +2222,26 @@ class Decrease {
 */
 class Derivative {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDerivative = {
+  };
+  private params: paramTypes.ParamsDerivative = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsDerivative} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsDerivative) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Derivative();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsDerivative} [params]
    * @memberof Derivative
   */
-  configure() {
+  configure(params: paramTypes.ParamsDerivative) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2005,6 +2262,9 @@ class Derivative {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDerivative) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2013,19 +2273,26 @@ class Derivative {
 */
 class DerivativeSFX {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDerivativeSFX = {
+  };
+  private params: paramTypes.ParamsDerivativeSFX = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsDerivativeSFX} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsDerivativeSFX) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.DerivativeSFX();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsDerivativeSFX} [params]
    * @memberof DerivativeSFX
   */
-  configure() {
+  configure(params: paramTypes.ParamsDerivativeSFX) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2046,6 +2313,9 @@ class DerivativeSFX {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDerivativeSFX) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2054,36 +2324,35 @@ class DerivativeSFX {
 */
 class DiscontinuityDetector {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDiscontinuityDetector = {
+    detectionThreshold: 8,
+    energyThreshold: -60,
+    frameSize: 512,
+    hopSize: 256,
+    kernelSize: 7,
+    order: 3,
+    silenceThreshold: -50,
+    subFrameSize: 32,
+  };
+  private params: paramTypes.ParamsDiscontinuityDetector = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [detectionThreshold=8] 'detectionThreshold' times the standard deviation plus the median of the frame is used as detection threshold
-   * @param {number} [energyThreshold=-60] threshold in dB to detect silent subframes
-   * @param {number} [frameSize=512] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
-   * @param {number} [hopSize=256] hop size used for the analysis. This parameter must be set correctly as it cannot be obtained from the input data
-   * @param {number} [kernelSize=7] scalar giving the size of the median filter window. Must be odd
-   * @param {number} [order=3] scalar giving the number of LPCs to use
-   * @param {number} [silenceThreshold=-50] threshold to skip silent frames
-   * @param {number} [subFrameSize=32] size of the window used to compute silent subframes
+   * @param {paramTypes.ParamsDiscontinuityDetector} [params]
   */
-  constructor(detectionThreshold: number=8, energyThreshold: number=-60, frameSize: number=512, hopSize: number=256, kernelSize: number=7, order: number=3, silenceThreshold: number=-50, subFrameSize: number=32) {
-    this.algoInstance = new wasmBackend.DiscontinuityDetector(detectionThreshold, energyThreshold, frameSize, hopSize, kernelSize, order, silenceThreshold, subFrameSize);
+  constructor(params: paramTypes.ParamsDiscontinuityDetector) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.DiscontinuityDetector(this.params.detectionThreshold, this.params.energyThreshold, this.params.frameSize, this.params.hopSize, this.params.kernelSize, this.params.order, this.params.silenceThreshold, this.params.subFrameSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [detectionThreshold=8] 'detectionThreshold' times the standard deviation plus the median of the frame is used as detection threshold
-   * @param {number} [energyThreshold=-60] threshold in dB to detect silent subframes
-   * @param {number} [frameSize=512] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
-   * @param {number} [hopSize=256] hop size used for the analysis. This parameter must be set correctly as it cannot be obtained from the input data
-   * @param {number} [kernelSize=7] scalar giving the size of the median filter window. Must be odd
-   * @param {number} [order=3] scalar giving the number of LPCs to use
-   * @param {number} [silenceThreshold=-50] threshold to skip silent frames
-   * @param {number} [subFrameSize=32] size of the window used to compute silent subframes
+   * @param {paramTypes.ParamsDiscontinuityDetector} [params]
    * @memberof DiscontinuityDetector
   */
-  configure(detectionThreshold: number=8, energyThreshold: number=-60, frameSize: number=512, hopSize: number=256, kernelSize: number=7, order: number=3, silenceThreshold: number=-50, subFrameSize: number=32) {
-    this.algoInstance.configure(detectionThreshold, energyThreshold, frameSize, hopSize, kernelSize, order, silenceThreshold, subFrameSize);
+  configure(params: paramTypes.ParamsDiscontinuityDetector) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.detectionThreshold, this.params.energyThreshold, this.params.frameSize, this.params.hopSize, this.params.kernelSize, this.params.order, this.params.silenceThreshold, this.params.subFrameSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -2103,6 +2372,9 @@ class DiscontinuityDetector {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDiscontinuityDetector) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2116,19 +2388,26 @@ References:
 */
 class Dissonance {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDissonance = {
+  };
+  private params: paramTypes.ParamsDissonance = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsDissonance} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsDissonance) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Dissonance();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsDissonance} [params]
    * @memberof Dissonance
   */
-  configure() {
+  configure(params: paramTypes.ParamsDissonance) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2150,6 +2429,9 @@ class Dissonance {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDissonance) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2159,19 +2441,26 @@ The size of the input array must be at least 5. An exception will be thrown othe
 */
 class DistributionShape {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDistributionShape = {
+  };
+  private params: paramTypes.ParamsDistributionShape = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsDistributionShape} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsDistributionShape) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.DistributionShape();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsDistributionShape} [params]
    * @memberof DistributionShape
   */
-  configure() {
+  configure(params: paramTypes.ParamsDistributionShape) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2192,6 +2481,9 @@ class DistributionShape {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDistributionShape) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2200,22 +2492,28 @@ class DistributionShape {
 */
 class Duration {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDuration = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsDuration = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsDuration} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.Duration(sampleRate);
+  constructor(params: paramTypes.ParamsDuration) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Duration(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsDuration} [params]
    * @memberof Duration
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsDuration) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -2235,6 +2533,9 @@ class Duration {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDuration) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2243,24 +2544,29 @@ class Duration {
 */
 class DynamicComplexity {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsDynamicComplexity = {
+    frameSize: 0.2,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsDynamicComplexity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=0.2] the frame size [s]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsDynamicComplexity} [params]
   */
-  constructor(frameSize: number=0.2, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.DynamicComplexity(frameSize, sampleRate);
+  constructor(params: paramTypes.ParamsDynamicComplexity) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.DynamicComplexity(this.params.frameSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=0.2] the frame size [s]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsDynamicComplexity} [params]
    * @memberof DynamicComplexity
   */
-  configure(frameSize: number=0.2, sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, sampleRate);
+  configure(params: paramTypes.ParamsDynamicComplexity) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -2280,6 +2586,9 @@ class DynamicComplexity {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsDynamicComplexity) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2288,34 +2597,34 @@ class DynamicComplexity {
 */
 class ERBBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsERBBands = {
+    highFrequencyBound: 22050,
+    inputSize: 1025,
+    lowFrequencyBound: 50,
+    numberBands: 40,
+    sampleRate: 44100,
+    type: 'power',
+    width: 1,
+  };
+  private params: paramTypes.ParamsERBBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [highFrequencyBound=22050] an upper-bound limit for the frequencies to be included in the bands
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {number} [lowFrequencyBound=50] a lower-bound limit for the frequencies to be included in the bands
-   * @param {number} [numberBands=40] the number of output bands
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {number} [width=1] filter width with respect to ERB
+   * @param {paramTypes.ParamsERBBands} [params]
   */
-  constructor(highFrequencyBound: number=22050, inputSize: number=1025, lowFrequencyBound: number=50, numberBands: number=40, sampleRate: number=44100, type: string='power', width: number=1) {
-    this.algoInstance = new wasmBackend.ERBBands(highFrequencyBound, inputSize, lowFrequencyBound, numberBands, sampleRate, type, width);
+  constructor(params: paramTypes.ParamsERBBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ERBBands(this.params.highFrequencyBound, this.params.inputSize, this.params.lowFrequencyBound, this.params.numberBands, this.params.sampleRate, this.params.type, this.params.width);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [highFrequencyBound=22050] an upper-bound limit for the frequencies to be included in the bands
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {number} [lowFrequencyBound=50] a lower-bound limit for the frequencies to be included in the bands
-   * @param {number} [numberBands=40] the number of output bands
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {number} [width=1] filter width with respect to ERB
+   * @param {paramTypes.ParamsERBBands} [params]
    * @memberof ERBBands
   */
-  configure(highFrequencyBound: number=22050, inputSize: number=1025, lowFrequencyBound: number=50, numberBands: number=40, sampleRate: number=44100, type: string='power', width: number=1) {
-    this.algoInstance.configure(highFrequencyBound, inputSize, lowFrequencyBound, numberBands, sampleRate, type, width);
+  configure(params: paramTypes.ParamsERBBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.highFrequencyBound, this.params.inputSize, this.params.lowFrequencyBound, this.params.numberBands, this.params.sampleRate, this.params.type, this.params.width);
   }
   /**
    * Execute algorithm with given inputs
@@ -2335,6 +2644,9 @@ class ERBBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsERBBands) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2348,24 +2660,29 @@ References:
 */
 class EffectiveDuration {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEffectiveDuration = {
+    sampleRate: 44100,
+    thresholdRatio: 0.4,
+  };
+  private params: paramTypes.ParamsEffectiveDuration = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [thresholdRatio=0.4] the ratio of the envelope maximum to be used as the threshold
+   * @param {paramTypes.ParamsEffectiveDuration} [params]
   */
-  constructor(sampleRate: number=44100, thresholdRatio: number=0.4) {
-    this.algoInstance = new wasmBackend.EffectiveDuration(sampleRate, thresholdRatio);
+  constructor(params: paramTypes.ParamsEffectiveDuration) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.EffectiveDuration(this.params.sampleRate, this.params.thresholdRatio);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [thresholdRatio=0.4] the ratio of the envelope maximum to be used as the threshold
+   * @param {paramTypes.ParamsEffectiveDuration} [params]
    * @memberof EffectiveDuration
   */
-  configure(sampleRate: number=44100, thresholdRatio: number=0.4) {
-    this.algoInstance.configure(sampleRate, thresholdRatio);
+  configure(params: paramTypes.ParamsEffectiveDuration) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate, this.params.thresholdRatio);
   }
   /**
    * Execute algorithm with given inputs
@@ -2385,6 +2702,9 @@ class EffectiveDuration {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEffectiveDuration) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2393,19 +2713,26 @@ class EffectiveDuration {
 */
 class Energy {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEnergy = {
+  };
+  private params: paramTypes.ParamsEnergy = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsEnergy} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsEnergy) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Energy();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsEnergy} [params]
    * @memberof Energy
   */
-  configure() {
+  configure(params: paramTypes.ParamsEnergy) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2426,6 +2753,9 @@ class Energy {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEnergy) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2435,26 +2765,30 @@ Note that exceptions will be thrown when input spectrum is empty and if startCut
 */
 class EnergyBand {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEnergyBand = {
+    sampleRate: 44100,
+    startCutoffFrequency: 0,
+    stopCutoffFrequency: 100,
+  };
+  private params: paramTypes.ParamsEnergyBand = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [startCutoffFrequency=0] the start frequency from which to sum the energy [Hz]
-   * @param {number} [stopCutoffFrequency=100] the stop frequency to which to sum the energy [Hz]
+   * @param {paramTypes.ParamsEnergyBand} [params]
   */
-  constructor(sampleRate: number=44100, startCutoffFrequency: number=0, stopCutoffFrequency: number=100) {
-    this.algoInstance = new wasmBackend.EnergyBand(sampleRate, startCutoffFrequency, stopCutoffFrequency);
+  constructor(params: paramTypes.ParamsEnergyBand) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.EnergyBand(this.params.sampleRate, this.params.startCutoffFrequency, this.params.stopCutoffFrequency);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [startCutoffFrequency=0] the start frequency from which to sum the energy [Hz]
-   * @param {number} [stopCutoffFrequency=100] the stop frequency to which to sum the energy [Hz]
+   * @param {paramTypes.ParamsEnergyBand} [params]
    * @memberof EnergyBand
   */
-  configure(sampleRate: number=44100, startCutoffFrequency: number=0, stopCutoffFrequency: number=100) {
-    this.algoInstance.configure(sampleRate, startCutoffFrequency, stopCutoffFrequency);
+  configure(params: paramTypes.ParamsEnergyBand) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate, this.params.startCutoffFrequency, this.params.stopCutoffFrequency);
   }
   /**
    * Execute algorithm with given inputs
@@ -2474,6 +2808,9 @@ class EnergyBand {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEnergyBand) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2482,26 +2819,30 @@ class EnergyBand {
 */
 class EnergyBandRatio {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEnergyBandRatio = {
+    sampleRate: 44100,
+    startFrequency: 0,
+    stopFrequency: 100,
+  };
+  private params: paramTypes.ParamsEnergyBandRatio = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [startFrequency=0] the frequency from which to start summing the energy [Hz]
-   * @param {number} [stopFrequency=100] the frequency up to which to sum the energy [Hz]
+   * @param {paramTypes.ParamsEnergyBandRatio} [params]
   */
-  constructor(sampleRate: number=44100, startFrequency: number=0, stopFrequency: number=100) {
-    this.algoInstance = new wasmBackend.EnergyBandRatio(sampleRate, startFrequency, stopFrequency);
+  constructor(params: paramTypes.ParamsEnergyBandRatio) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.EnergyBandRatio(this.params.sampleRate, this.params.startFrequency, this.params.stopFrequency);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [startFrequency=0] the frequency from which to start summing the energy [Hz]
-   * @param {number} [stopFrequency=100] the frequency up to which to sum the energy [Hz]
+   * @param {paramTypes.ParamsEnergyBandRatio} [params]
    * @memberof EnergyBandRatio
   */
-  configure(sampleRate: number=44100, startFrequency: number=0, stopFrequency: number=100) {
-    this.algoInstance.configure(sampleRate, startFrequency, stopFrequency);
+  configure(params: paramTypes.ParamsEnergyBandRatio) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate, this.params.startFrequency, this.params.stopFrequency);
   }
   /**
    * Execute algorithm with given inputs
@@ -2521,6 +2862,9 @@ class EnergyBandRatio {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEnergyBandRatio) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2529,19 +2873,26 @@ class EnergyBandRatio {
 */
 class Entropy {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEntropy = {
+  };
+  private params: paramTypes.ParamsEntropy = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsEntropy} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsEntropy) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Entropy();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsEntropy} [params]
    * @memberof Entropy
   */
-  configure() {
+  configure(params: paramTypes.ParamsEntropy) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2562,6 +2913,9 @@ class Entropy {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEntropy) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2570,28 +2924,31 @@ class Entropy {
 */
 class Envelope {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEnvelope = {
+    applyRectification: true,
+    attackTime: 10,
+    releaseTime: 1500,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsEnvelope = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [applyRectification=true] whether to apply rectification (envelope based on the absolute value of signal)
-   * @param {number} [attackTime=10] the attack time of the first order lowpass in the attack phase [ms]
-   * @param {number} [releaseTime=1500] the release time of the first order lowpass in the release phase [ms]
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsEnvelope} [params]
   */
-  constructor(applyRectification: boolean=true, attackTime: number=10, releaseTime: number=1500, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.Envelope(applyRectification, attackTime, releaseTime, sampleRate);
+  constructor(params: paramTypes.ParamsEnvelope) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Envelope(this.params.applyRectification, this.params.attackTime, this.params.releaseTime, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [applyRectification=true] whether to apply rectification (envelope based on the absolute value of signal)
-   * @param {number} [attackTime=10] the attack time of the first order lowpass in the attack phase [ms]
-   * @param {number} [releaseTime=1500] the release time of the first order lowpass in the release phase [ms]
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsEnvelope} [params]
    * @memberof Envelope
   */
-  configure(applyRectification: boolean=true, attackTime: number=10, releaseTime: number=1500, sampleRate: number=44100) {
-    this.algoInstance.configure(applyRectification, attackTime, releaseTime, sampleRate);
+  configure(params: paramTypes.ParamsEnvelope) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.applyRectification, this.params.attackTime, this.params.releaseTime, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -2611,6 +2968,9 @@ class Envelope {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEnvelope) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2619,22 +2979,28 @@ class Envelope {
 */
 class EqualLoudness {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsEqualLoudness = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsEqualLoudness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsEqualLoudness} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.EqualLoudness(sampleRate);
+  constructor(params: paramTypes.ParamsEqualLoudness) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.EqualLoudness(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsEqualLoudness} [params]
    * @memberof EqualLoudness
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsEqualLoudness) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -2654,6 +3020,9 @@ class EqualLoudness {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsEqualLoudness) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2662,19 +3031,26 @@ class EqualLoudness {
 */
 class Flatness {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFlatness = {
+  };
+  private params: paramTypes.ParamsFlatness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsFlatness} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsFlatness) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Flatness();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsFlatness} [params]
    * @memberof Flatness
   */
-  configure() {
+  configure(params: paramTypes.ParamsFlatness) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2695,6 +3071,9 @@ class Flatness {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFlatness) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2703,19 +3082,26 @@ class Flatness {
 */
 class FlatnessDB {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFlatnessDB = {
+  };
+  private params: paramTypes.ParamsFlatnessDB = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsFlatnessDB} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsFlatnessDB) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.FlatnessDB();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsFlatnessDB} [params]
    * @memberof FlatnessDB
   */
-  configure() {
+  configure(params: paramTypes.ParamsFlatnessDB) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2736,6 +3122,9 @@ class FlatnessDB {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFlatnessDB) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2744,19 +3133,26 @@ class FlatnessDB {
 */
 class FlatnessSFX {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFlatnessSFX = {
+  };
+  private params: paramTypes.ParamsFlatnessSFX = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsFlatnessSFX} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsFlatnessSFX) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.FlatnessSFX();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsFlatnessSFX} [params]
    * @memberof FlatnessSFX
   */
-  configure() {
+  configure(params: paramTypes.ParamsFlatnessSFX) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -2777,6 +3173,9 @@ class FlatnessSFX {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFlatnessSFX) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2785,24 +3184,29 @@ class FlatnessSFX {
 */
 class Flux {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFlux = {
+    halfRectify: false,
+    norm: 'L2',
+  };
+  private params: paramTypes.ParamsFlux = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [halfRectify=false] half-rectify the differences in each spectrum bin
-   * @param {string} [norm=L2] the norm to use for difference computation
+   * @param {paramTypes.ParamsFlux} [params]
   */
-  constructor(halfRectify: boolean=false, norm: string='L2') {
-    this.algoInstance = new wasmBackend.Flux(halfRectify, norm);
+  constructor(params: paramTypes.ParamsFlux) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Flux(this.params.halfRectify, this.params.norm);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [halfRectify=false] half-rectify the differences in each spectrum bin
-   * @param {string} [norm=L2] the norm to use for difference computation
+   * @param {paramTypes.ParamsFlux} [params]
    * @memberof Flux
   */
-  configure(halfRectify: boolean=false, norm: string='L2') {
-    this.algoInstance.configure(halfRectify, norm);
+  configure(params: paramTypes.ParamsFlux) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.halfRectify, this.params.norm);
   }
   /**
    * Execute algorithm with given inputs
@@ -2822,6 +3226,9 @@ class Flux {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFlux) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2830,30 +3237,32 @@ class Flux {
 */
 class FrameCutter {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFrameCutter = {
+    frameSize: 1024,
+    hopSize: 512,
+    lastFrameToEndOfFile: false,
+    startFromZero: false,
+    validFrameThresholdRatio: 0,
+  };
+  private params: paramTypes.ParamsFrameCutter = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=1024] the output frame size
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {boolean} [lastFrameToEndOfFile=false] whether the beginning of the last frame should reach the end of file. Only applicable if startFromZero is true
-   * @param {boolean} [startFromZero=false] whether to start the first frame at time 0 (centered at frameSize/2) if true, or -frameSize/2 otherwise (zero-centered)
-   * @param {number} [validFrameThresholdRatio=0] frames smaller than this ratio will be discarded, those larger will be zero-padded to a full frame (i.e. a value of 0 will never discard frames and a value of 1 will only keep frames that are of length 'frameSize')
+   * @param {paramTypes.ParamsFrameCutter} [params]
   */
-  constructor(frameSize: number=1024, hopSize: number=512, lastFrameToEndOfFile: boolean=false, startFromZero: boolean=false, validFrameThresholdRatio: number=0) {
-    this.algoInstance = new wasmBackend.FrameCutter(frameSize, hopSize, lastFrameToEndOfFile, startFromZero, validFrameThresholdRatio);
+  constructor(params: paramTypes.ParamsFrameCutter) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.FrameCutter(this.params.frameSize, this.params.hopSize, this.params.lastFrameToEndOfFile, this.params.startFromZero, this.params.validFrameThresholdRatio);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=1024] the output frame size
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {boolean} [lastFrameToEndOfFile=false] whether the beginning of the last frame should reach the end of file. Only applicable if startFromZero is true
-   * @param {boolean} [startFromZero=false] whether to start the first frame at time 0 (centered at frameSize/2) if true, or -frameSize/2 otherwise (zero-centered)
-   * @param {number} [validFrameThresholdRatio=0] frames smaller than this ratio will be discarded, those larger will be zero-padded to a full frame (i.e. a value of 0 will never discard frames and a value of 1 will only keep frames that are of length 'frameSize')
+   * @param {paramTypes.ParamsFrameCutter} [params]
    * @memberof FrameCutter
   */
-  configure(frameSize: number=1024, hopSize: number=512, lastFrameToEndOfFile: boolean=false, startFromZero: boolean=false, validFrameThresholdRatio: number=0) {
-    this.algoInstance.configure(frameSize, hopSize, lastFrameToEndOfFile, startFromZero, validFrameThresholdRatio);
+  configure(params: paramTypes.ParamsFrameCutter) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.lastFrameToEndOfFile, this.params.startFromZero, this.params.validFrameThresholdRatio);
   }
   /**
    * Execute algorithm with given inputs
@@ -2873,6 +3282,9 @@ class FrameCutter {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFrameCutter) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2881,24 +3293,29 @@ class FrameCutter {
 */
 class FrameToReal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFrameToReal = {
+    frameSize: 2048,
+    hopSize: 128,
+  };
+  private params: paramTypes.ParamsFrameToReal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the frame size for computing the overlap-add process
-   * @param {number} [hopSize=128] the hop size with which the overlap-add function is computed
+   * @param {paramTypes.ParamsFrameToReal} [params]
   */
-  constructor(frameSize: number=2048, hopSize: number=128) {
-    this.algoInstance = new wasmBackend.FrameToReal(frameSize, hopSize);
+  constructor(params: paramTypes.ParamsFrameToReal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.FrameToReal(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the frame size for computing the overlap-add process
-   * @param {number} [hopSize=128] the hop size with which the overlap-add function is computed
+   * @param {paramTypes.ParamsFrameToReal} [params]
    * @memberof FrameToReal
   */
-  configure(frameSize: number=2048, hopSize: number=128) {
-    this.algoInstance.configure(frameSize, hopSize);
+  configure(params: paramTypes.ParamsFrameToReal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -2918,6 +3335,9 @@ class FrameToReal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFrameToReal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2926,26 +3346,29 @@ class FrameToReal {
 */
 class FrequencyBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsFrequencyBands = {
+    frequencyBands: [0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000],
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsFrequencyBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [frequencyBands=[0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000]] list of frequency ranges in to which the spectrum is divided (these must be in ascending order and connot contain duplicates)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsFrequencyBands} [params]
   */
-  constructor(frequencyBands: any[]=[0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000], sampleRate: number=44100) {
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance = new wasmBackend.FrequencyBands(vecfrequencyBands, sampleRate);
+  constructor(params: paramTypes.ParamsFrequencyBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.FrequencyBands(this.params.frequencyBands, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [frequencyBands=[0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000]] list of frequency ranges in to which the spectrum is divided (these must be in ascending order and connot contain duplicates)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsFrequencyBands} [params]
    * @memberof FrequencyBands
   */
-  configure(frequencyBands: any[]=[0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000], sampleRate: number=44100) {
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance.configure(vecfrequencyBands, sampleRate);
+  configure(params: paramTypes.ParamsFrequencyBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frequencyBands, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -2965,6 +3388,12 @@ class FrequencyBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsFrequencyBands) {
+    if (params.frequencyBands) {
+      params.frequencyBands = arrayToVector(params.frequencyBands);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -2973,40 +3402,37 @@ class FrequencyBands {
 */
 class GFCC {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsGFCC = {
+    dctType: 2,
+    highFrequencyBound: 22050,
+    inputSize: 1025,
+    logType: 'dbamp',
+    lowFrequencyBound: 40,
+    numberBands: 40,
+    numberCoefficients: 13,
+    sampleRate: 44100,
+    silenceThreshold: 1e-10,
+    type: 'power',
+  };
+  private params: paramTypes.ParamsGFCC = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [highFrequencyBound=22050] the upper bound of the frequency range [Hz]
-   * @param {number} [inputSize=1025] the size of input spectrum
-   * @param {string} [logType=dbamp] logarithmic compression type. Use 'dbpow' if working with power and 'dbamp' if working with magnitudes
-   * @param {number} [lowFrequencyBound=40] the lower bound of the frequency range [Hz]
-   * @param {number} [numberBands=40] the number of bands in the filter
-   * @param {number} [numberCoefficients=13] the number of output cepstrum coefficients
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [silenceThreshold=1e-10] silence threshold for computing log-energy bands
-   * @param {string} [type=power] use magnitude or power spectrum
+   * @param {paramTypes.ParamsGFCC} [params]
   */
-  constructor(dctType: number=2, highFrequencyBound: number=22050, inputSize: number=1025, logType: string='dbamp', lowFrequencyBound: number=40, numberBands: number=40, numberCoefficients: number=13, sampleRate: number=44100, silenceThreshold: number=1e-10, type: string='power') {
-    this.algoInstance = new wasmBackend.GFCC(dctType, highFrequencyBound, inputSize, logType, lowFrequencyBound, numberBands, numberCoefficients, sampleRate, silenceThreshold, type);
+  constructor(params: paramTypes.ParamsGFCC) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.GFCC(this.params.dctType, this.params.highFrequencyBound, this.params.inputSize, this.params.logType, this.params.lowFrequencyBound, this.params.numberBands, this.params.numberCoefficients, this.params.sampleRate, this.params.silenceThreshold, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [highFrequencyBound=22050] the upper bound of the frequency range [Hz]
-   * @param {number} [inputSize=1025] the size of input spectrum
-   * @param {string} [logType=dbamp] logarithmic compression type. Use 'dbpow' if working with power and 'dbamp' if working with magnitudes
-   * @param {number} [lowFrequencyBound=40] the lower bound of the frequency range [Hz]
-   * @param {number} [numberBands=40] the number of bands in the filter
-   * @param {number} [numberCoefficients=13] the number of output cepstrum coefficients
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [silenceThreshold=1e-10] silence threshold for computing log-energy bands
-   * @param {string} [type=power] use magnitude or power spectrum
+   * @param {paramTypes.ParamsGFCC} [params]
    * @memberof GFCC
   */
-  configure(dctType: number=2, highFrequencyBound: number=22050, inputSize: number=1025, logType: string='dbamp', lowFrequencyBound: number=40, numberBands: number=40, numberCoefficients: number=13, sampleRate: number=44100, silenceThreshold: number=1e-10, type: string='power') {
-    this.algoInstance.configure(dctType, highFrequencyBound, inputSize, logType, lowFrequencyBound, numberBands, numberCoefficients, sampleRate, silenceThreshold, type);
+  configure(params: paramTypes.ParamsGFCC) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.dctType, this.params.highFrequencyBound, this.params.inputSize, this.params.logType, this.params.lowFrequencyBound, this.params.numberBands, this.params.numberCoefficients, this.params.sampleRate, this.params.silenceThreshold, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -3026,6 +3452,9 @@ class GFCC {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsGFCC) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3035,44 +3464,39 @@ The algorithm was designed for a framewise use and returns the start and end tim
 */
 class GapsDetector {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsGapsDetector = {
+    attackTime: 0.05,
+    frameSize: 2048,
+    hopSize: 1024,
+    kernelSize: 11,
+    maximumTime: 3500,
+    minimumTime: 10,
+    postpowerTime: 40,
+    prepowerThreshold: -30,
+    prepowerTime: 40,
+    releaseTime: 0.05,
+    sampleRate: 44100,
+    silenceThreshold: -50,
+  };
+  private params: paramTypes.ParamsGapsDetector = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [attackTime=0.05] the attack time of the first order lowpass in the attack phase [ms]
-   * @param {number} [frameSize=2048] frame size used for the analysis. Should match the input frame size. Otherwise, an exception will be thrown
-   * @param {number} [hopSize=1024] hop size used for the analysis
-   * @param {number} [kernelSize=11] scalar giving the size of the median filter window. Must be odd
-   * @param {number} [maximumTime=3500] time of the maximum gap duration [ms]
-   * @param {number} [minimumTime=10] time of the minimum gap duration [ms]
-   * @param {number} [postpowerTime=40] time for the postpower calculation [ms]
-   * @param {number} [prepowerThreshold=-30] prepower threshold [dB]. 
-   * @param {number} [prepowerTime=40] time for the prepower calculation [ms]
-   * @param {number} [releaseTime=0.05] the release time of the first order lowpass in the release phase [ms]
-   * @param {number} [sampleRate=44100] sample rate used for the analysis
-   * @param {number} [silenceThreshold=-50] silence threshold [dB]
+   * @param {paramTypes.ParamsGapsDetector} [params]
   */
-  constructor(attackTime: number=0.05, frameSize: number=2048, hopSize: number=1024, kernelSize: number=11, maximumTime: number=3500, minimumTime: number=10, postpowerTime: number=40, prepowerThreshold: number=-30, prepowerTime: number=40, releaseTime: number=0.05, sampleRate: number=44100, silenceThreshold: number=-50) {
-    this.algoInstance = new wasmBackend.GapsDetector(attackTime, frameSize, hopSize, kernelSize, maximumTime, minimumTime, postpowerTime, prepowerThreshold, prepowerTime, releaseTime, sampleRate, silenceThreshold);
+  constructor(params: paramTypes.ParamsGapsDetector) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.GapsDetector(this.params.attackTime, this.params.frameSize, this.params.hopSize, this.params.kernelSize, this.params.maximumTime, this.params.minimumTime, this.params.postpowerTime, this.params.prepowerThreshold, this.params.prepowerTime, this.params.releaseTime, this.params.sampleRate, this.params.silenceThreshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [attackTime=0.05] the attack time of the first order lowpass in the attack phase [ms]
-   * @param {number} [frameSize=2048] frame size used for the analysis. Should match the input frame size. Otherwise, an exception will be thrown
-   * @param {number} [hopSize=1024] hop size used for the analysis
-   * @param {number} [kernelSize=11] scalar giving the size of the median filter window. Must be odd
-   * @param {number} [maximumTime=3500] time of the maximum gap duration [ms]
-   * @param {number} [minimumTime=10] time of the minimum gap duration [ms]
-   * @param {number} [postpowerTime=40] time for the postpower calculation [ms]
-   * @param {number} [prepowerThreshold=-30] prepower threshold [dB]. 
-   * @param {number} [prepowerTime=40] time for the prepower calculation [ms]
-   * @param {number} [releaseTime=0.05] the release time of the first order lowpass in the release phase [ms]
-   * @param {number} [sampleRate=44100] sample rate used for the analysis
-   * @param {number} [silenceThreshold=-50] silence threshold [dB]
+   * @param {paramTypes.ParamsGapsDetector} [params]
    * @memberof GapsDetector
   */
-  configure(attackTime: number=0.05, frameSize: number=2048, hopSize: number=1024, kernelSize: number=11, maximumTime: number=3500, minimumTime: number=10, postpowerTime: number=40, prepowerThreshold: number=-30, prepowerTime: number=40, releaseTime: number=0.05, sampleRate: number=44100, silenceThreshold: number=-50) {
-    this.algoInstance.configure(attackTime, frameSize, hopSize, kernelSize, maximumTime, minimumTime, postpowerTime, prepowerThreshold, prepowerTime, releaseTime, sampleRate, silenceThreshold);
+  configure(params: paramTypes.ParamsGapsDetector) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.attackTime, this.params.frameSize, this.params.hopSize, this.params.kernelSize, this.params.maximumTime, this.params.minimumTime, this.params.postpowerTime, this.params.prepowerThreshold, this.params.prepowerTime, this.params.releaseTime, this.params.sampleRate, this.params.silenceThreshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -3092,6 +3516,9 @@ class GapsDetector {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsGapsDetector) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3100,19 +3527,26 @@ class GapsDetector {
 */
 class GeometricMean {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsGeometricMean = {
+  };
+  private params: paramTypes.ParamsGeometricMean = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsGeometricMean} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsGeometricMean) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.GeometricMean();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsGeometricMean} [params]
    * @memberof GeometricMean
   */
-  configure() {
+  configure(params: paramTypes.ParamsGeometricMean) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -3133,6 +3567,9 @@ class GeometricMean {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsGeometricMean) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3144,24 +3581,29 @@ class GeometricMean {
 */
 class HFC {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHFC = {
+    sampleRate: 44100,
+    type: 'Masri',
+  };
+  private params: paramTypes.ParamsHFC = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=Masri] the type of HFC coefficient to be computed
+   * @param {paramTypes.ParamsHFC} [params]
   */
-  constructor(sampleRate: number=44100, type: string='Masri') {
-    this.algoInstance = new wasmBackend.HFC(sampleRate, type);
+  constructor(params: paramTypes.ParamsHFC) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HFC(this.params.sampleRate, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=Masri] the type of HFC coefficient to be computed
+   * @param {paramTypes.ParamsHFC} [params]
    * @memberof HFC
   */
-  configure(sampleRate: number=44100, type: string='Masri') {
-    this.algoInstance.configure(sampleRate, type);
+  configure(params: paramTypes.ParamsHFC) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -3181,6 +3623,9 @@ class HFC {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHFC) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3189,46 +3634,40 @@ class HFC {
 */
 class HPCP {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHPCP = {
+    bandPreset: true,
+    bandSplitFrequency: 500,
+    harmonics: 0,
+    maxFrequency: 5000,
+    maxShifted: false,
+    minFrequency: 40,
+    nonLinear: false,
+    normalized: 'unitMax',
+    referenceFrequency: 440,
+    sampleRate: 44100,
+    size: 12,
+    weightType: 'squaredCosine',
+    windowSize: 1,
+  };
+  private params: paramTypes.ParamsHPCP = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [bandPreset=true] enables whether to use a band preset
-   * @param {number} [bandSplitFrequency=500] the split frequency for low and high bands, not used if bandPreset is false [Hz]
-   * @param {number} [harmonics=0] number of harmonics for frequency contribution, 0 indicates exclusive fundamental frequency contribution
-   * @param {number} [maxFrequency=5000] the maximum frequency that contributes to the HPCP [Hz] (the difference between the max and split frequencies must not be less than 200.0 Hz)
-   * @param {boolean} [maxShifted=false] whether to shift the HPCP vector so that the maximum peak is at index 0
-   * @param {number} [minFrequency=40] the minimum frequency that contributes to the HPCP [Hz] (the difference between the min and split frequencies must not be less than 200.0 Hz)
-   * @param {boolean} [nonLinear=false] apply non-linear post-processing to the output (use with normalized='unitMax'). Boosts values close to 1, decreases values close to 0.
-   * @param {string} [normalized=unitMax] whether to normalize the HPCP vector
-   * @param {number} [referenceFrequency=440] the reference frequency for semitone index calculation, corresponding to A3 [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [size=12] the size of the output HPCP (must be a positive nonzero multiple of 12)
-   * @param {string} [weightType=squaredCosine] type of weighting function for determining frequency contribution
-   * @param {number} [windowSize=1] the size, in semitones, of the window used for the weighting
+   * @param {paramTypes.ParamsHPCP} [params]
   */
-  constructor(bandPreset: boolean=true, bandSplitFrequency: number=500, harmonics: number=0, maxFrequency: number=5000, maxShifted: boolean=false, minFrequency: number=40, nonLinear: boolean=false, normalized: string='unitMax', referenceFrequency: number=440, sampleRate: number=44100, size: number=12, weightType: string='squaredCosine', windowSize: number=1) {
-    this.algoInstance = new wasmBackend.HPCP(bandPreset, bandSplitFrequency, harmonics, maxFrequency, maxShifted, minFrequency, nonLinear, normalized, referenceFrequency, sampleRate, size, weightType, windowSize);
+  constructor(params: paramTypes.ParamsHPCP) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HPCP(this.params.bandPreset, this.params.bandSplitFrequency, this.params.harmonics, this.params.maxFrequency, this.params.maxShifted, this.params.minFrequency, this.params.nonLinear, this.params.normalized, this.params.referenceFrequency, this.params.sampleRate, this.params.size, this.params.weightType, this.params.windowSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [bandPreset=true] enables whether to use a band preset
-   * @param {number} [bandSplitFrequency=500] the split frequency for low and high bands, not used if bandPreset is false [Hz]
-   * @param {number} [harmonics=0] number of harmonics for frequency contribution, 0 indicates exclusive fundamental frequency contribution
-   * @param {number} [maxFrequency=5000] the maximum frequency that contributes to the HPCP [Hz] (the difference between the max and split frequencies must not be less than 200.0 Hz)
-   * @param {boolean} [maxShifted=false] whether to shift the HPCP vector so that the maximum peak is at index 0
-   * @param {number} [minFrequency=40] the minimum frequency that contributes to the HPCP [Hz] (the difference between the min and split frequencies must not be less than 200.0 Hz)
-   * @param {boolean} [nonLinear=false] apply non-linear post-processing to the output (use with normalized='unitMax'). Boosts values close to 1, decreases values close to 0.
-   * @param {string} [normalized=unitMax] whether to normalize the HPCP vector
-   * @param {number} [referenceFrequency=440] the reference frequency for semitone index calculation, corresponding to A3 [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [size=12] the size of the output HPCP (must be a positive nonzero multiple of 12)
-   * @param {string} [weightType=squaredCosine] type of weighting function for determining frequency contribution
-   * @param {number} [windowSize=1] the size, in semitones, of the window used for the weighting
+   * @param {paramTypes.ParamsHPCP} [params]
    * @memberof HPCP
   */
-  configure(bandPreset: boolean=true, bandSplitFrequency: number=500, harmonics: number=0, maxFrequency: number=5000, maxShifted: boolean=false, minFrequency: number=40, nonLinear: boolean=false, normalized: string='unitMax', referenceFrequency: number=440, sampleRate: number=44100, size: number=12, weightType: string='squaredCosine', windowSize: number=1) {
-    this.algoInstance.configure(bandPreset, bandSplitFrequency, harmonics, maxFrequency, maxShifted, minFrequency, nonLinear, normalized, referenceFrequency, sampleRate, size, weightType, windowSize);
+  configure(params: paramTypes.ParamsHPCP) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bandPreset, this.params.bandSplitFrequency, this.params.harmonics, this.params.maxFrequency, this.params.maxShifted, this.params.minFrequency, this.params.nonLinear, this.params.normalized, this.params.referenceFrequency, this.params.sampleRate, this.params.size, this.params.weightType, this.params.windowSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -3249,6 +3688,9 @@ class HPCP {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHPCP) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3259,26 +3701,30 @@ The 'tolerance' parameter is needed in order to consider if two bpms are related
 */
 class HarmonicBpm {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHarmonicBpm = {
+    bpm: 60,
+    threshold: 20,
+    tolerance: 5,
+  };
+  private params: paramTypes.ParamsHarmonicBpm = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [bpm=60] the bpm used to find its harmonics
-   * @param {number} [threshold=20] bpm threshold below which greatest common divisors are discarded
-   * @param {number} [tolerance=5] percentage tolerance to consider two bpms are equal or equal to a harmonic
+   * @param {paramTypes.ParamsHarmonicBpm} [params]
   */
-  constructor(bpm: number=60, threshold: number=20, tolerance: number=5) {
-    this.algoInstance = new wasmBackend.HarmonicBpm(bpm, threshold, tolerance);
+  constructor(params: paramTypes.ParamsHarmonicBpm) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HarmonicBpm(this.params.bpm, this.params.threshold, this.params.tolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [bpm=60] the bpm used to find its harmonics
-   * @param {number} [threshold=20] bpm threshold below which greatest common divisors are discarded
-   * @param {number} [tolerance=5] percentage tolerance to consider two bpms are equal or equal to a harmonic
+   * @param {paramTypes.ParamsHarmonicBpm} [params]
    * @memberof HarmonicBpm
   */
-  configure(bpm: number=60, threshold: number=20, tolerance: number=5) {
-    this.algoInstance.configure(bpm, threshold, tolerance);
+  configure(params: paramTypes.ParamsHarmonicBpm) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bpm, this.params.threshold, this.params.tolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -3298,6 +3744,9 @@ class HarmonicBpm {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHarmonicBpm) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3312,24 +3761,29 @@ This algorithm is intended to receive its "frequencies" and "magnitudes" inputs 
 */
 class HarmonicPeaks {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHarmonicPeaks = {
+    maxHarmonics: 20,
+    tolerance: 0.2,
+  };
+  private params: paramTypes.ParamsHarmonicPeaks = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxHarmonics=20] the number of harmonics to return including F0
-   * @param {number} [tolerance=0.2] the allowed ratio deviation from ideal harmonics
+   * @param {paramTypes.ParamsHarmonicPeaks} [params]
   */
-  constructor(maxHarmonics: number=20, tolerance: number=0.2) {
-    this.algoInstance = new wasmBackend.HarmonicPeaks(maxHarmonics, tolerance);
+  constructor(params: paramTypes.ParamsHarmonicPeaks) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HarmonicPeaks(this.params.maxHarmonics, this.params.tolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxHarmonics=20] the number of harmonics to return including F0
-   * @param {number} [tolerance=0.2] the allowed ratio deviation from ideal harmonics
+   * @param {paramTypes.ParamsHarmonicPeaks} [params]
    * @memberof HarmonicPeaks
   */
-  configure(maxHarmonics: number=20, tolerance: number=0.2) {
-    this.algoInstance.configure(maxHarmonics, tolerance);
+  configure(params: paramTypes.ParamsHarmonicPeaks) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxHarmonics, this.params.tolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -3351,6 +3805,9 @@ class HarmonicPeaks {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHarmonicPeaks) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3359,24 +3816,29 @@ class HarmonicPeaks {
 */
 class HighPass {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHighPass = {
+    cutoffFrequency: 1500,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsHighPass = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsHighPass} [params]
   */
-  constructor(cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.HighPass(cutoffFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsHighPass) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HighPass(this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsHighPass} [params]
    * @memberof HighPass
   */
-  configure(cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance.configure(cutoffFrequency, sampleRate);
+  configure(params: paramTypes.ParamsHighPass) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -3396,6 +3858,9 @@ class HighPass {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHighPass) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3405,22 +3870,28 @@ The high-resolution features being computed are: Check https://essentia.upf.edu/
 */
 class HighResolutionFeatures {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHighResolutionFeatures = {
+    maxPeaks: 24,
+  };
+  private params: paramTypes.ParamsHighResolutionFeatures = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxPeaks=24] maximum number of HPCP peaks to consider when calculating outputs
+   * @param {paramTypes.ParamsHighResolutionFeatures} [params]
   */
-  constructor(maxPeaks: number=24) {
-    this.algoInstance = new wasmBackend.HighResolutionFeatures(maxPeaks);
+  constructor(params: paramTypes.ParamsHighResolutionFeatures) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HighResolutionFeatures(this.params.maxPeaks);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxPeaks=24] maximum number of HPCP peaks to consider when calculating outputs
+   * @param {paramTypes.ParamsHighResolutionFeatures} [params]
    * @memberof HighResolutionFeatures
   */
-  configure(maxPeaks: number=24) {
-    this.algoInstance.configure(maxPeaks);
+  configure(params: paramTypes.ParamsHighResolutionFeatures) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxPeaks);
   }
   /**
    * Execute algorithm with given inputs
@@ -3440,6 +3911,9 @@ class HighResolutionFeatures {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHighResolutionFeatures) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3448,28 +3922,31 @@ class HighResolutionFeatures {
 */
 class Histogram {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHistogram = {
+    maxValue: 1,
+    minValue: 0,
+    normalize: 'none',
+    numberBins: 10,
+  };
+  private params: paramTypes.ParamsHistogram = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxValue=1] the max value of the histogram
-   * @param {number} [minValue=0] the min value of the histogram
-   * @param {string} [normalize=none] the normalization setting.
-   * @param {number} [numberBins=10] the number of bins
+   * @param {paramTypes.ParamsHistogram} [params]
   */
-  constructor(maxValue: number=1, minValue: number=0, normalize: string='none', numberBins: number=10) {
-    this.algoInstance = new wasmBackend.Histogram(maxValue, minValue, normalize, numberBins);
+  constructor(params: paramTypes.ParamsHistogram) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Histogram(this.params.maxValue, this.params.minValue, this.params.normalize, this.params.numberBins);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxValue=1] the max value of the histogram
-   * @param {number} [minValue=0] the min value of the histogram
-   * @param {string} [normalize=none] the normalization setting.
-   * @param {number} [numberBins=10] the number of bins
+   * @param {paramTypes.ParamsHistogram} [params]
    * @memberof Histogram
   */
-  configure(maxValue: number=1, minValue: number=0, normalize: string='none', numberBins: number=10) {
-    this.algoInstance.configure(maxValue, minValue, normalize, numberBins);
+  configure(params: paramTypes.ParamsHistogram) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxValue, this.params.minValue, this.params.normalize, this.params.numberBins);
   }
   /**
    * Execute algorithm with given inputs
@@ -3489,6 +3966,9 @@ class Histogram {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHistogram) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3497,48 +3977,41 @@ class Histogram {
 */
 class HprModelAnal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHprModelAnal = {
+    fftSize: 2048,
+    freqDevOffset: 20,
+    freqDevSlope: 0.01,
+    harmDevSlope: 0.01,
+    hopSize: 512,
+    magnitudeThreshold: 0,
+    maxFrequency: 5000,
+    maxPeaks: 100,
+    maxnSines: 100,
+    minFrequency: 20,
+    nHarmonics: 100,
+    orderBy: 'frequency',
+    sampleRate: 44100,
+    stocf: 0.2,
+  };
+  private params: paramTypes.ParamsHprModelAnal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [harmDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=20] the minimum frequency of the range to evaluate [Hz]
-   * @param {number} [nHarmonics=100] maximum number of harmonics per frame
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsHprModelAnal} [params]
   */
-  constructor(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, harmDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=20, nHarmonics: number=100, orderBy: string='frequency', sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance = new wasmBackend.HprModelAnal(fftSize, freqDevOffset, freqDevSlope, harmDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, nHarmonics, orderBy, sampleRate, stocf);
+  constructor(params: paramTypes.ParamsHprModelAnal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HprModelAnal(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.harmDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.nHarmonics, this.params.orderBy, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [harmDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=20] the minimum frequency of the range to evaluate [Hz]
-   * @param {number} [nHarmonics=100] maximum number of harmonics per frame
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsHprModelAnal} [params]
    * @memberof HprModelAnal
   */
-  configure(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, harmDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=20, nHarmonics: number=100, orderBy: string='frequency', sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance.configure(fftSize, freqDevOffset, freqDevSlope, harmDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, nHarmonics, orderBy, sampleRate, stocf);
+  configure(params: paramTypes.ParamsHprModelAnal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.harmDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.nHarmonics, this.params.orderBy, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Execute algorithm with given inputs
@@ -3559,6 +4032,9 @@ class HprModelAnal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHprModelAnal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3567,48 +4043,41 @@ class HprModelAnal {
 */
 class HpsModelAnal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsHpsModelAnal = {
+    fftSize: 2048,
+    freqDevOffset: 20,
+    freqDevSlope: 0.01,
+    harmDevSlope: 0.01,
+    hopSize: 512,
+    magnitudeThreshold: 0,
+    maxFrequency: 5000,
+    maxPeaks: 100,
+    maxnSines: 100,
+    minFrequency: 20,
+    nHarmonics: 100,
+    orderBy: 'frequency',
+    sampleRate: 44100,
+    stocf: 0.2,
+  };
+  private params: paramTypes.ParamsHpsModelAnal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [harmDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=20] the minimum frequency of the range to evaluate [Hz]
-   * @param {number} [nHarmonics=100] maximum number of harmonics per frame
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsHpsModelAnal} [params]
   */
-  constructor(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, harmDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=20, nHarmonics: number=100, orderBy: string='frequency', sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance = new wasmBackend.HpsModelAnal(fftSize, freqDevOffset, freqDevSlope, harmDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, nHarmonics, orderBy, sampleRate, stocf);
+  constructor(params: paramTypes.ParamsHpsModelAnal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.HpsModelAnal(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.harmDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.nHarmonics, this.params.orderBy, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [harmDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=20] the minimum frequency of the range to evaluate [Hz]
-   * @param {number} [nHarmonics=100] maximum number of harmonics per frame
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsHpsModelAnal} [params]
    * @memberof HpsModelAnal
   */
-  configure(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, harmDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=20, nHarmonics: number=100, orderBy: string='frequency', sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance.configure(fftSize, freqDevOffset, freqDevSlope, harmDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, nHarmonics, orderBy, sampleRate, stocf);
+  configure(params: paramTypes.ParamsHpsModelAnal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.harmDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.nHarmonics, this.params.orderBy, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Execute algorithm with given inputs
@@ -3629,6 +4098,9 @@ class HpsModelAnal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsHpsModelAnal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3638,28 +4110,31 @@ It can be configured to perform the inverse DCT-II form, with the 1/sqrt(2) scal
 */
 class IDCT {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsIDCT = {
+    dctType: 2,
+    inputSize: 10,
+    liftering: 0,
+    outputSize: 10,
+  };
+  private params: paramTypes.ParamsIDCT = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [inputSize=10] the size of the input array
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {number} [outputSize=10] the number of output coefficients
+   * @param {paramTypes.ParamsIDCT} [params]
   */
-  constructor(dctType: number=2, inputSize: number=10, liftering: number=0, outputSize: number=10) {
-    this.algoInstance = new wasmBackend.IDCT(dctType, inputSize, liftering, outputSize);
+  constructor(params: paramTypes.ParamsIDCT) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.IDCT(this.params.dctType, this.params.inputSize, this.params.liftering, this.params.outputSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [inputSize=10] the size of the input array
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {number} [outputSize=10] the number of output coefficients
+   * @param {paramTypes.ParamsIDCT} [params]
    * @memberof IDCT
   */
-  configure(dctType: number=2, inputSize: number=10, liftering: number=0, outputSize: number=10) {
-    this.algoInstance.configure(dctType, inputSize, liftering, outputSize);
+  configure(params: paramTypes.ParamsIDCT) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.dctType, this.params.inputSize, this.params.liftering, this.params.outputSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -3679,6 +4154,9 @@ class IDCT {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsIDCT) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3687,28 +4165,29 @@ class IDCT {
 */
 class IIR {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsIIR = {
+    denominator: [1],
+    numerator: [1],
+  };
+  private params: paramTypes.ParamsIIR = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [denominator=[1]] the list of coefficients of the denominator. Often referred to as the A coefficient vector.
-   * @param {any[]} [numerator=[1]] the list of coefficients of the numerator. Often referred to as the B coefficient vector.
+   * @param {paramTypes.ParamsIIR} [params]
   */
-  constructor(denominator: any[]=[1], numerator: any[]=[1]) {
-    let vecdenominator = arrayToVector(denominator);
-    let vecnumerator = arrayToVector(numerator);
-    this.algoInstance = new wasmBackend.IIR(vecdenominator, vecnumerator);
+  constructor(params: paramTypes.ParamsIIR) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.IIR(this.params.denominator, this.params.numerator);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [denominator=[1]] the list of coefficients of the denominator. Often referred to as the A coefficient vector.
-   * @param {any[]} [numerator=[1]] the list of coefficients of the numerator. Often referred to as the B coefficient vector.
+   * @param {paramTypes.ParamsIIR} [params]
    * @memberof IIR
   */
-  configure(denominator: any[]=[1], numerator: any[]=[1]) {
-    let vecdenominator = arrayToVector(denominator);
-    let vecnumerator = arrayToVector(numerator);
-    this.algoInstance.configure(vecdenominator, vecnumerator);
+  configure(params: paramTypes.ParamsIIR) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.denominator, this.params.numerator);
   }
   /**
    * Execute algorithm with given inputs
@@ -3728,6 +4207,15 @@ class IIR {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsIIR) {
+    if (params.denominator) {
+      params.denominator = arrayToVector(params.denominator);
+    }
+    if (params.numerator) {
+      params.numerator = arrayToVector(params.numerator);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3736,19 +4224,26 @@ class IIR {
 */
 class Inharmonicity {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsInharmonicity = {
+  };
+  private params: paramTypes.ParamsInharmonicity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsInharmonicity} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsInharmonicity) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Inharmonicity();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsInharmonicity} [params]
    * @memberof Inharmonicity
   */
-  configure() {
+  configure(params: paramTypes.ParamsInharmonicity) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -3770,6 +4265,9 @@ class Inharmonicity {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsInharmonicity) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3778,19 +4276,26 @@ class Inharmonicity {
 */
 class InstantPower {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsInstantPower = {
+  };
+  private params: paramTypes.ParamsInstantPower = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsInstantPower} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsInstantPower) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.InstantPower();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsInstantPower} [params]
    * @memberof InstantPower
   */
-  configure() {
+  configure(params: paramTypes.ParamsInstantPower) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -3811,6 +4316,9 @@ class InstantPower {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsInstantPower) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3819,22 +4327,28 @@ class InstantPower {
 */
 class Intensity {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsIntensity = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsIntensity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the input audio sampling rate [Hz]
+   * @param {paramTypes.ParamsIntensity} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.Intensity(sampleRate);
+  constructor(params: paramTypes.ParamsIntensity) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Intensity(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the input audio sampling rate [Hz]
+   * @param {paramTypes.ParamsIntensity} [params]
    * @memberof Intensity
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsIntensity) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -3854,6 +4368,9 @@ class Intensity {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsIntensity) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3862,34 +4379,34 @@ class Intensity {
 */
 class Key {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsKey = {
+    numHarmonics: 4,
+    pcpSize: 36,
+    profileType: 'bgate',
+    slope: 0.6,
+    useMajMin: false,
+    usePolyphony: true,
+    useThreeChords: true,
+  };
+  private params: paramTypes.ParamsKey = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [numHarmonics=4] number of harmonics that should contribute to the polyphonic profile (1 only considers the fundamental harmonic)
-   * @param {number} [pcpSize=36] number of array elements used to represent a semitone times 12 (this parameter is only a hint, during computation, the size of the input PCP is used instead)
-   * @param {string} [profileType=bgate] the type of polyphic profile to use for correlation calculation
-   * @param {number} [slope=0.6] value of the slope of the exponential harmonic contribution to the polyphonic profile
-   * @param {boolean} [useMajMin=false] use a third profile called 'majmin' for ambiguous tracks [4]. Only avalable for the edma, bgate and braw profiles
-   * @param {boolean} [usePolyphony=true] enables the use of polyphonic profiles to define key profiles (this includes the contributions from triads as well as pitch harmonics)
-   * @param {boolean} [useThreeChords=true] consider only the 3 main triad chords of the key (T, D, SD) to build the polyphonic profiles
+   * @param {paramTypes.ParamsKey} [params]
   */
-  constructor(numHarmonics: number=4, pcpSize: number=36, profileType: string='bgate', slope: number=0.6, useMajMin: boolean=false, usePolyphony: boolean=true, useThreeChords: boolean=true) {
-    this.algoInstance = new wasmBackend.Key(numHarmonics, pcpSize, profileType, slope, useMajMin, usePolyphony, useThreeChords);
+  constructor(params: paramTypes.ParamsKey) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Key(this.params.numHarmonics, this.params.pcpSize, this.params.profileType, this.params.slope, this.params.useMajMin, this.params.usePolyphony, this.params.useThreeChords);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [numHarmonics=4] number of harmonics that should contribute to the polyphonic profile (1 only considers the fundamental harmonic)
-   * @param {number} [pcpSize=36] number of array elements used to represent a semitone times 12 (this parameter is only a hint, during computation, the size of the input PCP is used instead)
-   * @param {string} [profileType=bgate] the type of polyphic profile to use for correlation calculation
-   * @param {number} [slope=0.6] value of the slope of the exponential harmonic contribution to the polyphonic profile
-   * @param {boolean} [useMajMin=false] use a third profile called 'majmin' for ambiguous tracks [4]. Only avalable for the edma, bgate and braw profiles
-   * @param {boolean} [usePolyphony=true] enables the use of polyphonic profiles to define key profiles (this includes the contributions from triads as well as pitch harmonics)
-   * @param {boolean} [useThreeChords=true] consider only the 3 main triad chords of the key (T, D, SD) to build the polyphonic profiles
+   * @param {paramTypes.ParamsKey} [params]
    * @memberof Key
   */
-  configure(numHarmonics: number=4, pcpSize: number=36, profileType: string='bgate', slope: number=0.6, useMajMin: boolean=false, usePolyphony: boolean=true, useThreeChords: boolean=true) {
-    this.algoInstance.configure(numHarmonics, pcpSize, profileType, slope, useMajMin, usePolyphony, useThreeChords);
+  configure(params: paramTypes.ParamsKey) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.numHarmonics, this.params.pcpSize, this.params.profileType, this.params.slope, this.params.useMajMin, this.params.usePolyphony, this.params.useThreeChords);
   }
   /**
    * Execute algorithm with given inputs
@@ -3909,6 +4426,9 @@ class Key {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsKey) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3917,48 +4437,41 @@ class Key {
 */
 class KeyExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsKeyExtractor = {
+    averageDetuningCorrection: true,
+    frameSize: 4096,
+    hopSize: 4096,
+    hpcpSize: 12,
+    maxFrequency: 3500,
+    maximumSpectralPeaks: 60,
+    minFrequency: 25,
+    pcpThreshold: 0.2,
+    profileType: 'bgate',
+    sampleRate: 44100,
+    spectralPeaksThreshold: 0.0001,
+    tuningFrequency: 440,
+    weightType: 'cosine',
+    windowType: 'hann',
+  };
+  private params: paramTypes.ParamsKeyExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [averageDetuningCorrection=true] shifts a pcp to the nearest tempered bin
-   * @param {number} [frameSize=4096] the framesize for computing tonal features
-   * @param {number} [hopSize=4096] the hopsize for computing tonal features
-   * @param {number} [hpcpSize=12] the size of the output HPCP (must be a positive nonzero multiple of 12)
-   * @param {number} [maxFrequency=3500] max frequency to apply whitening to [Hz]
-   * @param {number} [maximumSpectralPeaks=60] the maximum number of spectral peaks
-   * @param {number} [minFrequency=25] min frequency to apply whitening to [Hz]
-   * @param {number} [pcpThreshold=0.2] pcp bins below this value are set to 0
-   * @param {string} [profileType=bgate] the type of polyphic profile to use for correlation calculation
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [spectralPeaksThreshold=0.0001] the threshold for the spectral peaks
-   * @param {number} [tuningFrequency=440] the tuning frequency of the input signal
-   * @param {string} [weightType=cosine] type of weighting function for determining frequency contribution
-   * @param {string} [windowType=hann] the window type
+   * @param {paramTypes.ParamsKeyExtractor} [params]
   */
-  constructor(averageDetuningCorrection: boolean=true, frameSize: number=4096, hopSize: number=4096, hpcpSize: number=12, maxFrequency: number=3500, maximumSpectralPeaks: number=60, minFrequency: number=25, pcpThreshold: number=0.2, profileType: string='bgate', sampleRate: number=44100, spectralPeaksThreshold: number=0.0001, tuningFrequency: number=440, weightType: string='cosine', windowType: string='hann') {
-    this.algoInstance = new wasmBackend.KeyExtractor(averageDetuningCorrection, frameSize, hopSize, hpcpSize, maxFrequency, maximumSpectralPeaks, minFrequency, pcpThreshold, profileType, sampleRate, spectralPeaksThreshold, tuningFrequency, weightType, windowType);
+  constructor(params: paramTypes.ParamsKeyExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.KeyExtractor(this.params.averageDetuningCorrection, this.params.frameSize, this.params.hopSize, this.params.hpcpSize, this.params.maxFrequency, this.params.maximumSpectralPeaks, this.params.minFrequency, this.params.pcpThreshold, this.params.profileType, this.params.sampleRate, this.params.spectralPeaksThreshold, this.params.tuningFrequency, this.params.weightType, this.params.windowType);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [averageDetuningCorrection=true] shifts a pcp to the nearest tempered bin
-   * @param {number} [frameSize=4096] the framesize for computing tonal features
-   * @param {number} [hopSize=4096] the hopsize for computing tonal features
-   * @param {number} [hpcpSize=12] the size of the output HPCP (must be a positive nonzero multiple of 12)
-   * @param {number} [maxFrequency=3500] max frequency to apply whitening to [Hz]
-   * @param {number} [maximumSpectralPeaks=60] the maximum number of spectral peaks
-   * @param {number} [minFrequency=25] min frequency to apply whitening to [Hz]
-   * @param {number} [pcpThreshold=0.2] pcp bins below this value are set to 0
-   * @param {string} [profileType=bgate] the type of polyphic profile to use for correlation calculation
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [spectralPeaksThreshold=0.0001] the threshold for the spectral peaks
-   * @param {number} [tuningFrequency=440] the tuning frequency of the input signal
-   * @param {string} [weightType=cosine] type of weighting function for determining frequency contribution
-   * @param {string} [windowType=hann] the window type
+   * @param {paramTypes.ParamsKeyExtractor} [params]
    * @memberof KeyExtractor
   */
-  configure(averageDetuningCorrection: boolean=true, frameSize: number=4096, hopSize: number=4096, hpcpSize: number=12, maxFrequency: number=3500, maximumSpectralPeaks: number=60, minFrequency: number=25, pcpThreshold: number=0.2, profileType: string='bgate', sampleRate: number=44100, spectralPeaksThreshold: number=0.0001, tuningFrequency: number=440, weightType: string='cosine', windowType: string='hann') {
-    this.algoInstance.configure(averageDetuningCorrection, frameSize, hopSize, hpcpSize, maxFrequency, maximumSpectralPeaks, minFrequency, pcpThreshold, profileType, sampleRate, spectralPeaksThreshold, tuningFrequency, weightType, windowType);
+  configure(params: paramTypes.ParamsKeyExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.averageDetuningCorrection, this.params.frameSize, this.params.hopSize, this.params.hpcpSize, this.params.maxFrequency, this.params.maximumSpectralPeaks, this.params.minFrequency, this.params.pcpThreshold, this.params.profileType, this.params.sampleRate, this.params.spectralPeaksThreshold, this.params.tuningFrequency, this.params.weightType, this.params.windowType);
   }
   /**
    * Execute algorithm with given inputs
@@ -3978,6 +4491,9 @@ class KeyExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsKeyExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -3986,26 +4502,30 @@ class KeyExtractor {
 */
 class LPC {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLPC = {
+    order: 10,
+    sampleRate: 44100,
+    type: 'regular',
+  };
+  private params: paramTypes.ParamsLPC = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [order=10] the order of the LPC analysis (typically [8,14])
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=regular] the type of LPC (regular or warped)
+   * @param {paramTypes.ParamsLPC} [params]
   */
-  constructor(order: number=10, sampleRate: number=44100, type: string='regular') {
-    this.algoInstance = new wasmBackend.LPC(order, sampleRate, type);
+  constructor(params: paramTypes.ParamsLPC) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LPC(this.params.order, this.params.sampleRate, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [order=10] the order of the LPC analysis (typically [8,14])
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=regular] the type of LPC (regular or warped)
+   * @param {paramTypes.ParamsLPC} [params]
    * @memberof LPC
   */
-  configure(order: number=10, sampleRate: number=44100, type: string='regular') {
-    this.algoInstance.configure(order, sampleRate, type);
+  configure(params: paramTypes.ParamsLPC) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.order, this.params.sampleRate, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -4025,6 +4545,9 @@ class LPC {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLPC) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4033,28 +4556,31 @@ class LPC {
 */
 class Larm {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLarm = {
+    attackTime: 10,
+    power: 1.5,
+    releaseTime: 1500,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLarm = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [attackTime=10] the attack time of the first order lowpass in the attack phase [ms]
-   * @param {number} [power=1.5] the power used for averaging
-   * @param {number} [releaseTime=1500] the release time of the first order lowpass in the release phase [ms]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsLarm} [params]
   */
-  constructor(attackTime: number=10, power: number=1.5, releaseTime: number=1500, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.Larm(attackTime, power, releaseTime, sampleRate);
+  constructor(params: paramTypes.ParamsLarm) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Larm(this.params.attackTime, this.params.power, this.params.releaseTime, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [attackTime=10] the attack time of the first order lowpass in the attack phase [ms]
-   * @param {number} [power=1.5] the power used for averaging
-   * @param {number} [releaseTime=1500] the release time of the first order lowpass in the release phase [ms]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsLarm} [params]
    * @memberof Larm
   */
-  configure(attackTime: number=10, power: number=1.5, releaseTime: number=1500, sampleRate: number=44100) {
-    this.algoInstance.configure(attackTime, power, releaseTime, sampleRate);
+  configure(params: paramTypes.ParamsLarm) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.attackTime, this.params.power, this.params.releaseTime, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4074,6 +4600,9 @@ class Larm {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLarm) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4083,19 +4612,26 @@ This algorithm will throw an exception on empty input. Check https://essentia.up
 */
 class Leq {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLeq = {
+  };
+  private params: paramTypes.ParamsLeq = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsLeq} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsLeq) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Leq();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsLeq} [params]
    * @memberof Leq
   */
-  configure() {
+  configure(params: paramTypes.ParamsLeq) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -4116,6 +4652,9 @@ class Leq {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLeq) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4124,24 +4663,29 @@ class Leq {
 */
 class LevelExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLevelExtractor = {
+    frameSize: 88200,
+    hopSize: 44100,
+  };
+  private params: paramTypes.ParamsLevelExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=88200] frame size to compute loudness
-   * @param {number} [hopSize=44100] hop size to compute loudness
+   * @param {paramTypes.ParamsLevelExtractor} [params]
   */
-  constructor(frameSize: number=88200, hopSize: number=44100) {
-    this.algoInstance = new wasmBackend.LevelExtractor(frameSize, hopSize);
+  constructor(params: paramTypes.ParamsLevelExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LevelExtractor(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=88200] frame size to compute loudness
-   * @param {number} [hopSize=44100] hop size to compute loudness
+   * @param {paramTypes.ParamsLevelExtractor} [params]
    * @memberof LevelExtractor
   */
-  configure(frameSize: number=88200, hopSize: number=44100) {
-    this.algoInstance.configure(frameSize, hopSize);
+  configure(params: paramTypes.ParamsLevelExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -4161,6 +4705,9 @@ class LevelExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLevelExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4169,26 +4716,30 @@ class LevelExtractor {
 */
 class LogAttackTime {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLogAttackTime = {
+    sampleRate: 44100,
+    startAttackThreshold: 0.2,
+    stopAttackThreshold: 0.9,
+  };
+  private params: paramTypes.ParamsLogAttackTime = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [startAttackThreshold=0.2] the percentage of the input signal envelope at which the starting point of the attack is considered
-   * @param {number} [stopAttackThreshold=0.9] the percentage of the input signal envelope at which the ending point of the attack is considered
+   * @param {paramTypes.ParamsLogAttackTime} [params]
   */
-  constructor(sampleRate: number=44100, startAttackThreshold: number=0.2, stopAttackThreshold: number=0.9) {
-    this.algoInstance = new wasmBackend.LogAttackTime(sampleRate, startAttackThreshold, stopAttackThreshold);
+  constructor(params: paramTypes.ParamsLogAttackTime) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LogAttackTime(this.params.sampleRate, this.params.startAttackThreshold, this.params.stopAttackThreshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [startAttackThreshold=0.2] the percentage of the input signal envelope at which the starting point of the attack is considered
-   * @param {number} [stopAttackThreshold=0.9] the percentage of the input signal envelope at which the ending point of the attack is considered
+   * @param {paramTypes.ParamsLogAttackTime} [params]
    * @memberof LogAttackTime
   */
-  configure(sampleRate: number=44100, startAttackThreshold: number=0.2, stopAttackThreshold: number=0.9) {
-    this.algoInstance.configure(sampleRate, startAttackThreshold, stopAttackThreshold);
+  configure(params: paramTypes.ParamsLogAttackTime) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate, this.params.startAttackThreshold, this.params.stopAttackThreshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -4208,6 +4759,9 @@ class LogAttackTime {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLogAttackTime) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4216,30 +4770,32 @@ class LogAttackTime {
 */
 class LogSpectrum {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLogSpectrum = {
+    binsPerSemitone: 3,
+    frameSize: 1025,
+    nOctave: 7,
+    rollOn: 0,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLogSpectrum = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binsPerSemitone=3]  bins per semitone
-   * @param {number} [frameSize=1025] the input frame size of the spectrum vector
-   * @param {number} [nOctave=7] the number of octave of the output vector
-   * @param {number} [rollOn=0] this removes low-frequency noise - useful in quiet recordings
-   * @param {number} [sampleRate=44100] the input sample rate
+   * @param {paramTypes.ParamsLogSpectrum} [params]
   */
-  constructor(binsPerSemitone: number=3, frameSize: number=1025, nOctave: number=7, rollOn: number=0, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.LogSpectrum(binsPerSemitone, frameSize, nOctave, rollOn, sampleRate);
+  constructor(params: paramTypes.ParamsLogSpectrum) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LogSpectrum(this.params.binsPerSemitone, this.params.frameSize, this.params.nOctave, this.params.rollOn, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binsPerSemitone=3]  bins per semitone
-   * @param {number} [frameSize=1025] the input frame size of the spectrum vector
-   * @param {number} [nOctave=7] the number of octave of the output vector
-   * @param {number} [rollOn=0] this removes low-frequency noise - useful in quiet recordings
-   * @param {number} [sampleRate=44100] the input sample rate
+   * @param {paramTypes.ParamsLogSpectrum} [params]
    * @memberof LogSpectrum
   */
-  configure(binsPerSemitone: number=3, frameSize: number=1025, nOctave: number=7, rollOn: number=0, sampleRate: number=44100) {
-    this.algoInstance.configure(binsPerSemitone, frameSize, nOctave, rollOn, sampleRate);
+  configure(params: paramTypes.ParamsLogSpectrum) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binsPerSemitone, this.params.frameSize, this.params.nOctave, this.params.rollOn, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4259,6 +4815,9 @@ class LogSpectrum {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLogSpectrum) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4267,22 +4826,28 @@ class LogSpectrum {
 */
 class LoopBpmConfidence {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLoopBpmConfidence = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLoopBpmConfidence = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsLoopBpmConfidence} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.LoopBpmConfidence(sampleRate);
+  constructor(params: paramTypes.ParamsLoopBpmConfidence) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LoopBpmConfidence(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsLoopBpmConfidence} [params]
    * @memberof LoopBpmConfidence
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsLoopBpmConfidence) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4303,6 +4868,9 @@ class LoopBpmConfidence {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLoopBpmConfidence) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4311,22 +4879,28 @@ class LoopBpmConfidence {
 */
 class LoopBpmEstimator {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLoopBpmEstimator = {
+    confidenceThreshold: 0.95,
+  };
+  private params: paramTypes.ParamsLoopBpmEstimator = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [confidenceThreshold=0.95] confidence threshold below which bpm estimate will be considered unreliable
+   * @param {paramTypes.ParamsLoopBpmEstimator} [params]
   */
-  constructor(confidenceThreshold: number=0.95) {
-    this.algoInstance = new wasmBackend.LoopBpmEstimator(confidenceThreshold);
+  constructor(params: paramTypes.ParamsLoopBpmEstimator) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LoopBpmEstimator(this.params.confidenceThreshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [confidenceThreshold=0.95] confidence threshold below which bpm estimate will be considered unreliable
+   * @param {paramTypes.ParamsLoopBpmEstimator} [params]
    * @memberof LoopBpmEstimator
   */
-  configure(confidenceThreshold: number=0.95) {
-    this.algoInstance.configure(confidenceThreshold);
+  configure(params: paramTypes.ParamsLoopBpmEstimator) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.confidenceThreshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -4346,6 +4920,9 @@ class LoopBpmEstimator {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLoopBpmEstimator) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4354,19 +4931,26 @@ class LoopBpmEstimator {
 */
 class Loudness {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLoudness = {
+  };
+  private params: paramTypes.ParamsLoudness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsLoudness} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsLoudness) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Loudness();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsLoudness} [params]
    * @memberof Loudness
   */
-  configure() {
+  configure(params: paramTypes.ParamsLoudness) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -4387,6 +4971,9 @@ class Loudness {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLoudness) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4395,22 +4982,28 @@ class Loudness {
 */
 class LoudnessVickers {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLoudnessVickers = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLoudnessVickers = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the audio sampling rate of the input signal which is used to create the weight vector [Hz] (currently, this algorithm only works on signals with a sampling rate of 44100Hz)
+   * @param {paramTypes.ParamsLoudnessVickers} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.LoudnessVickers(sampleRate);
+  constructor(params: paramTypes.ParamsLoudnessVickers) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LoudnessVickers(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the audio sampling rate of the input signal which is used to create the weight vector [Hz] (currently, this algorithm only works on signals with a sampling rate of 44100Hz)
+   * @param {paramTypes.ParamsLoudnessVickers} [params]
    * @memberof LoudnessVickers
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsLoudnessVickers) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4430,6 +5023,9 @@ class LoudnessVickers {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLoudnessVickers) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4438,26 +5034,30 @@ class LoudnessVickers {
 */
 class LowLevelSpectralEqloudExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLowLevelSpectralEqloudExtractor = {
+    frameSize: 2048,
+    hopSize: 1024,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLowLevelSpectralEqloudExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the frame size for computing low level features
-   * @param {number} [hopSize=1024] the hop size for computing low level features
-   * @param {number} [sampleRate=44100] the audio sampling rate
+   * @param {paramTypes.ParamsLowLevelSpectralEqloudExtractor} [params]
   */
-  constructor(frameSize: number=2048, hopSize: number=1024, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.LowLevelSpectralEqloudExtractor(frameSize, hopSize, sampleRate);
+  constructor(params: paramTypes.ParamsLowLevelSpectralEqloudExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LowLevelSpectralEqloudExtractor(this.params.frameSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the frame size for computing low level features
-   * @param {number} [hopSize=1024] the hop size for computing low level features
-   * @param {number} [sampleRate=44100] the audio sampling rate
+   * @param {paramTypes.ParamsLowLevelSpectralEqloudExtractor} [params]
    * @memberof LowLevelSpectralEqloudExtractor
   */
-  configure(frameSize: number=2048, hopSize: number=1024, sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, hopSize, sampleRate);
+  configure(params: paramTypes.ParamsLowLevelSpectralEqloudExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4477,6 +5077,9 @@ class LowLevelSpectralEqloudExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLowLevelSpectralEqloudExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4485,26 +5088,30 @@ class LowLevelSpectralEqloudExtractor {
 */
 class LowLevelSpectralExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLowLevelSpectralExtractor = {
+    frameSize: 2048,
+    hopSize: 1024,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLowLevelSpectralExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the frame size for computing low level features
-   * @param {number} [hopSize=1024] the hop size for computing low level features
-   * @param {number} [sampleRate=44100] the audio sampling rate
+   * @param {paramTypes.ParamsLowLevelSpectralExtractor} [params]
   */
-  constructor(frameSize: number=2048, hopSize: number=1024, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.LowLevelSpectralExtractor(frameSize, hopSize, sampleRate);
+  constructor(params: paramTypes.ParamsLowLevelSpectralExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LowLevelSpectralExtractor(this.params.frameSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the frame size for computing low level features
-   * @param {number} [hopSize=1024] the hop size for computing low level features
-   * @param {number} [sampleRate=44100] the audio sampling rate
+   * @param {paramTypes.ParamsLowLevelSpectralExtractor} [params]
    * @memberof LowLevelSpectralExtractor
   */
-  configure(frameSize: number=2048, hopSize: number=1024, sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, hopSize, sampleRate);
+  configure(params: paramTypes.ParamsLowLevelSpectralExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4524,6 +5131,9 @@ class LowLevelSpectralExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLowLevelSpectralExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4535,24 +5145,29 @@ References:
 */
 class LowPass {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsLowPass = {
+    cutoffFrequency: 1500,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsLowPass = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsLowPass} [params]
   */
-  constructor(cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.LowPass(cutoffFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsLowPass) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.LowPass(this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [cutoffFrequency=1500] the cutoff frequency for the filter [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsLowPass} [params]
    * @memberof LowPass
   */
-  configure(cutoffFrequency: number=1500, sampleRate: number=44100) {
-    this.algoInstance.configure(cutoffFrequency, sampleRate);
+  configure(params: paramTypes.ParamsLowPass) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.cutoffFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4572,6 +5187,9 @@ class LowPass {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsLowPass) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4584,48 +5202,41 @@ There is a paper describing various MFCC implementations [1]. Check https://esse
 */
 class MFCC {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMFCC = {
+    dctType: 2,
+    highFrequencyBound: 11000,
+    inputSize: 1025,
+    liftering: 0,
+    logType: 'dbamp',
+    lowFrequencyBound: 0,
+    normalize: 'unit_sum',
+    numberBands: 40,
+    numberCoefficients: 13,
+    sampleRate: 44100,
+    silenceThreshold: 1e-10,
+    type: 'power',
+    warpingFormula: 'htkMel',
+    weighting: 'warping',
+  };
+  private params: paramTypes.ParamsMFCC = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [highFrequencyBound=11000] the upper bound of the frequency range [Hz]
-   * @param {number} [inputSize=1025] the size of input spectrum
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {string} [logType=dbamp] logarithmic compression type. Use 'dbpow' if working with power and 'dbamp' if working with magnitudes
-   * @param {number} [lowFrequencyBound=0] the lower bound of the frequency range [Hz]
-   * @param {string} [normalize=unit_sum] spectrum bin weights to use for each mel band: 'unit_max' to make each mel band vertex equal to 1, 'unit_sum' to make each mel band area equal to 1 summing the actual weights of spectrum bins, 'unit_area' to make each triangle mel band area equal to 1 normalizing the weights of each triangle by its bandwidth
-   * @param {number} [numberBands=40] the number of mel-bands in the filter
-   * @param {number} [numberCoefficients=13] the number of output mel coefficients
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [silenceThreshold=1e-10] silence threshold for computing log-energy bands
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {string} [warpingFormula=htkMel] The scale implementation type: 'htkMel' scale from the HTK toolkit [2, 3] (default) or 'slaneyMel' scale from the Auditory toolbox [4]
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsMFCC} [params]
   */
-  constructor(dctType: number=2, highFrequencyBound: number=11000, inputSize: number=1025, liftering: number=0, logType: string='dbamp', lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=40, numberCoefficients: number=13, sampleRate: number=44100, silenceThreshold: number=1e-10, type: string='power', warpingFormula: string='htkMel', weighting: string='warping') {
-    this.algoInstance = new wasmBackend.MFCC(dctType, highFrequencyBound, inputSize, liftering, logType, lowFrequencyBound, normalize, numberBands, numberCoefficients, sampleRate, silenceThreshold, type, warpingFormula, weighting);
+  constructor(params: paramTypes.ParamsMFCC) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MFCC(this.params.dctType, this.params.highFrequencyBound, this.params.inputSize, this.params.liftering, this.params.logType, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.numberCoefficients, this.params.sampleRate, this.params.silenceThreshold, this.params.type, this.params.warpingFormula, this.params.weighting);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [dctType=2] the DCT type
-   * @param {number} [highFrequencyBound=11000] the upper bound of the frequency range [Hz]
-   * @param {number} [inputSize=1025] the size of input spectrum
-   * @param {number} [liftering=0] the liftering coefficient. Use '0' to bypass it
-   * @param {string} [logType=dbamp] logarithmic compression type. Use 'dbpow' if working with power and 'dbamp' if working with magnitudes
-   * @param {number} [lowFrequencyBound=0] the lower bound of the frequency range [Hz]
-   * @param {string} [normalize=unit_sum] spectrum bin weights to use for each mel band: 'unit_max' to make each mel band vertex equal to 1, 'unit_sum' to make each mel band area equal to 1 summing the actual weights of spectrum bins, 'unit_area' to make each triangle mel band area equal to 1 normalizing the weights of each triangle by its bandwidth
-   * @param {number} [numberBands=40] the number of mel-bands in the filter
-   * @param {number} [numberCoefficients=13] the number of output mel coefficients
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [silenceThreshold=1e-10] silence threshold for computing log-energy bands
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {string} [warpingFormula=htkMel] The scale implementation type: 'htkMel' scale from the HTK toolkit [2, 3] (default) or 'slaneyMel' scale from the Auditory toolbox [4]
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsMFCC} [params]
    * @memberof MFCC
   */
-  configure(dctType: number=2, highFrequencyBound: number=11000, inputSize: number=1025, liftering: number=0, logType: string='dbamp', lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=40, numberCoefficients: number=13, sampleRate: number=44100, silenceThreshold: number=1e-10, type: string='power', warpingFormula: string='htkMel', weighting: string='warping') {
-    this.algoInstance.configure(dctType, highFrequencyBound, inputSize, liftering, logType, lowFrequencyBound, normalize, numberBands, numberCoefficients, sampleRate, silenceThreshold, type, warpingFormula, weighting);
+  configure(params: paramTypes.ParamsMFCC) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.dctType, this.params.highFrequencyBound, this.params.inputSize, this.params.liftering, this.params.logType, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.numberCoefficients, this.params.sampleRate, this.params.silenceThreshold, this.params.type, this.params.warpingFormula, this.params.weighting);
   }
   /**
    * Execute algorithm with given inputs
@@ -4645,6 +5256,9 @@ class MFCC {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMFCC) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4653,24 +5267,29 @@ class MFCC {
 */
 class MaxFilter {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMaxFilter = {
+    causal: true,
+    width: 3,
+  };
+  private params: paramTypes.ParamsMaxFilter = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [causal=true] use casual filter (window is behind current element otherwise it is centered around)
-   * @param {number} [width=3] the window size, even size is auto-resized to the next odd value in the non-casual case
+   * @param {paramTypes.ParamsMaxFilter} [params]
   */
-  constructor(causal: boolean=true, width: number=3) {
-    this.algoInstance = new wasmBackend.MaxFilter(causal, width);
+  constructor(params: paramTypes.ParamsMaxFilter) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MaxFilter(this.params.causal, this.params.width);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [causal=true] use casual filter (window is behind current element otherwise it is centered around)
-   * @param {number} [width=3] the window size, even size is auto-resized to the next odd value in the non-casual case
+   * @param {paramTypes.ParamsMaxFilter} [params]
    * @memberof MaxFilter
   */
-  configure(causal: boolean=true, width: number=3) {
-    this.algoInstance.configure(causal, width);
+  configure(params: paramTypes.ParamsMaxFilter) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.causal, this.params.width);
   }
   /**
    * Execute algorithm with given inputs
@@ -4690,6 +5309,9 @@ class MaxFilter {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMaxFilter) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4699,22 +5321,28 @@ Note that a spectrum must contain at least two elements otherwise an exception i
 */
 class MaxMagFreq {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMaxMagFreq = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsMaxMagFreq = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsMaxMagFreq} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.MaxMagFreq(sampleRate);
+  constructor(params: paramTypes.ParamsMaxMagFreq) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MaxMagFreq(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsMaxMagFreq} [params]
    * @memberof MaxMagFreq
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsMaxMagFreq) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -4734,6 +5362,9 @@ class MaxMagFreq {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMaxMagFreq) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4742,19 +5373,26 @@ class MaxMagFreq {
 */
 class MaxToTotal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMaxToTotal = {
+  };
+  private params: paramTypes.ParamsMaxToTotal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsMaxToTotal} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsMaxToTotal) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.MaxToTotal();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsMaxToTotal} [params]
    * @memberof MaxToTotal
   */
-  configure() {
+  configure(params: paramTypes.ParamsMaxToTotal) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -4775,6 +5413,9 @@ class MaxToTotal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMaxToTotal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4783,19 +5424,26 @@ class MaxToTotal {
 */
 class Mean {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMean = {
+  };
+  private params: paramTypes.ParamsMean = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsMean} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsMean) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Mean();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsMean} [params]
    * @memberof Mean
   */
-  configure() {
+  configure(params: paramTypes.ParamsMean) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -4816,6 +5464,9 @@ class Mean {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMean) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4824,19 +5475,26 @@ class Mean {
 */
 class Median {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMedian = {
+  };
+  private params: paramTypes.ParamsMedian = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsMedian} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsMedian) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Median();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsMedian} [params]
    * @memberof Median
   */
-  configure() {
+  configure(params: paramTypes.ParamsMedian) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -4857,6 +5515,9 @@ class Median {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMedian) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4865,22 +5526,28 @@ class Median {
 */
 class MedianFilter {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMedianFilter = {
+    kernelSize: 11,
+  };
+  private params: paramTypes.ParamsMedianFilter = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [kernelSize=11] scalar giving the size of the median filter window. Must be odd
+   * @param {paramTypes.ParamsMedianFilter} [params]
   */
-  constructor(kernelSize: number=11) {
-    this.algoInstance = new wasmBackend.MedianFilter(kernelSize);
+  constructor(params: paramTypes.ParamsMedianFilter) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MedianFilter(this.params.kernelSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [kernelSize=11] scalar giving the size of the median filter window. Must be odd
+   * @param {paramTypes.ParamsMedianFilter} [params]
    * @memberof MedianFilter
   */
-  configure(kernelSize: number=11) {
-    this.algoInstance.configure(kernelSize);
+  configure(params: paramTypes.ParamsMedianFilter) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.kernelSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -4900,6 +5567,9 @@ class MedianFilter {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMedianFilter) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4908,40 +5578,37 @@ class MedianFilter {
 */
 class MelBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMelBands = {
+    highFrequencyBound: 22050,
+    inputSize: 1025,
+    log: false,
+    lowFrequencyBound: 0,
+    normalize: 'unit_sum',
+    numberBands: 24,
+    sampleRate: 44100,
+    type: 'power',
+    warpingFormula: 'htkMel',
+    weighting: 'warping',
+  };
+  private params: paramTypes.ParamsMelBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [highFrequencyBound=22050] an upper-bound limit for the frequencies to be included in the bands
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {boolean} [log=false] compute log-energies (log2 (1 + energy))
-   * @param {number} [lowFrequencyBound=0] a lower-bound limit for the frequencies to be included in the bands
-   * @param {string} [normalize=unit_sum] spectrum bin weights to use for each mel band: 'unit_max' to make each mel band vertex equal to 1, 'unit_sum' to make each mel band area equal to 1 summing the actual weights of spectrum bins, 'unit_area' to make each triangle mel band area equal to 1 normalizing the weights of each triangle by its bandwidth
-   * @param {number} [numberBands=24] the number of output bands
-   * @param {number} [sampleRate=44100] the sample rate
-   * @param {string} [type=power] 'power' to output squared units, 'magnitude' to keep it as the input
-   * @param {string} [warpingFormula=htkMel] The scale implementation type: 'htkMel' scale from the HTK toolkit [2, 3] (default) or 'slaneyMel' scale from the Auditory toolbox [4]
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsMelBands} [params]
   */
-  constructor(highFrequencyBound: number=22050, inputSize: number=1025, log: boolean=false, lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=24, sampleRate: number=44100, type: string='power', warpingFormula: string='htkMel', weighting: string='warping') {
-    this.algoInstance = new wasmBackend.MelBands(highFrequencyBound, inputSize, log, lowFrequencyBound, normalize, numberBands, sampleRate, type, warpingFormula, weighting);
+  constructor(params: paramTypes.ParamsMelBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MelBands(this.params.highFrequencyBound, this.params.inputSize, this.params.log, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.sampleRate, this.params.type, this.params.warpingFormula, this.params.weighting);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [highFrequencyBound=22050] an upper-bound limit for the frequencies to be included in the bands
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {boolean} [log=false] compute log-energies (log2 (1 + energy))
-   * @param {number} [lowFrequencyBound=0] a lower-bound limit for the frequencies to be included in the bands
-   * @param {string} [normalize=unit_sum] spectrum bin weights to use for each mel band: 'unit_max' to make each mel band vertex equal to 1, 'unit_sum' to make each mel band area equal to 1 summing the actual weights of spectrum bins, 'unit_area' to make each triangle mel band area equal to 1 normalizing the weights of each triangle by its bandwidth
-   * @param {number} [numberBands=24] the number of output bands
-   * @param {number} [sampleRate=44100] the sample rate
-   * @param {string} [type=power] 'power' to output squared units, 'magnitude' to keep it as the input
-   * @param {string} [warpingFormula=htkMel] The scale implementation type: 'htkMel' scale from the HTK toolkit [2, 3] (default) or 'slaneyMel' scale from the Auditory toolbox [4]
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsMelBands} [params]
    * @memberof MelBands
   */
-  configure(highFrequencyBound: number=22050, inputSize: number=1025, log: boolean=false, lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=24, sampleRate: number=44100, type: string='power', warpingFormula: string='htkMel', weighting: string='warping') {
-    this.algoInstance.configure(highFrequencyBound, inputSize, log, lowFrequencyBound, normalize, numberBands, sampleRate, type, warpingFormula, weighting);
+  configure(params: paramTypes.ParamsMelBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.highFrequencyBound, this.params.inputSize, this.params.log, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.sampleRate, this.params.type, this.params.warpingFormula, this.params.weighting);
   }
   /**
    * Execute algorithm with given inputs
@@ -4961,6 +5628,9 @@ class MelBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMelBands) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -4969,19 +5639,26 @@ class MelBands {
 */
 class Meter {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMeter = {
+  };
+  private params: paramTypes.ParamsMeter = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsMeter} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsMeter) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Meter();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsMeter} [params]
    * @memberof Meter
   */
-  configure() {
+  configure(params: paramTypes.ParamsMeter) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -5002,6 +5679,9 @@ class Meter {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMeter) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5011,22 +5691,28 @@ If the array has more than one minimum or maximum value, the index of the first 
 */
 class MinMax {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMinMax = {
+    type: 'min',
+  };
+  private params: paramTypes.ParamsMinMax = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [type=min] the type of the operation
+   * @param {paramTypes.ParamsMinMax} [params]
   */
-  constructor(type: string='min') {
-    this.algoInstance = new wasmBackend.MinMax(type);
+  constructor(params: paramTypes.ParamsMinMax) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MinMax(this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [type=min] the type of the operation
+   * @param {paramTypes.ParamsMinMax} [params]
    * @memberof MinMax
   */
-  configure(type: string='min') {
-    this.algoInstance.configure(type);
+  configure(params: paramTypes.ParamsMinMax) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -5046,6 +5732,9 @@ class MinMax {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMinMax) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5054,19 +5743,26 @@ class MinMax {
 */
 class MinToTotal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMinToTotal = {
+  };
+  private params: paramTypes.ParamsMinToTotal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsMinToTotal} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsMinToTotal) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.MinToTotal();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsMinToTotal} [params]
    * @memberof MinToTotal
   */
-  configure() {
+  configure(params: paramTypes.ParamsMinToTotal) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -5087,6 +5783,9 @@ class MinToTotal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMinToTotal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5095,22 +5794,28 @@ class MinToTotal {
 */
 class MovingAverage {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMovingAverage = {
+    size: 6,
+  };
+  private params: paramTypes.ParamsMovingAverage = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [size=6] the size of the window [audio samples]
+   * @param {paramTypes.ParamsMovingAverage} [params]
   */
-  constructor(size: number=6) {
-    this.algoInstance = new wasmBackend.MovingAverage(size);
+  constructor(params: paramTypes.ParamsMovingAverage) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MovingAverage(this.params.size);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [size=6] the size of the window [audio samples]
+   * @param {paramTypes.ParamsMovingAverage} [params]
    * @memberof MovingAverage
   */
-  configure(size: number=6) {
-    this.algoInstance.configure(size);
+  configure(params: paramTypes.ParamsMovingAverage) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.size);
   }
   /**
    * Execute algorithm with given inputs
@@ -5130,6 +5835,9 @@ class MovingAverage {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMovingAverage) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5139,42 +5847,38 @@ The output is a vector for each frame containing the estimated melody pitch valu
 */
 class MultiPitchKlapuri {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMultiPitchKlapuri = {
+    binResolution: 10,
+    frameSize: 2048,
+    harmonicWeight: 0.8,
+    hopSize: 128,
+    magnitudeCompression: 1,
+    magnitudeThreshold: 40,
+    maxFrequency: 1760,
+    minFrequency: 80,
+    numberHarmonics: 10,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsMultiPitchKlapuri = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=1760] the maximum allowed frequency for salience function peaks (ignore peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore peaks below) [Hz]
-   * @param {number} [numberHarmonics=10] number of considered harmonics
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsMultiPitchKlapuri} [params]
   */
-  constructor(binResolution: number=10, frameSize: number=2048, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=1760, minFrequency: number=80, numberHarmonics: number=10, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.MultiPitchKlapuri(binResolution, frameSize, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minFrequency, numberHarmonics, referenceFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsMultiPitchKlapuri) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MultiPitchKlapuri(this.params.binResolution, this.params.frameSize, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minFrequency, this.params.numberHarmonics, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=1760] the maximum allowed frequency for salience function peaks (ignore peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore peaks below) [Hz]
-   * @param {number} [numberHarmonics=10] number of considered harmonics
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsMultiPitchKlapuri} [params]
    * @memberof MultiPitchKlapuri
   */
-  configure(binResolution: number=10, frameSize: number=2048, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=1760, minFrequency: number=80, numberHarmonics: number=10, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance.configure(binResolution, frameSize, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minFrequency, numberHarmonics, referenceFrequency, sampleRate);
+  configure(params: paramTypes.ParamsMultiPitchKlapuri) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.frameSize, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minFrequency, this.params.numberHarmonics, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -5193,6 +5897,9 @@ class MultiPitchKlapuri {
   */
   delete() {
     this.algoInstance.delete();
+  }
+  private updateParams(params: paramTypes.ParamsMultiPitchKlapuri) {
+    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -5202,56 +5909,45 @@ class MultiPitchKlapuri {
 */
 class MultiPitchMelodia {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMultiPitchMelodia = {
+    binResolution: 10,
+    filterIterations: 3,
+    frameSize: 2048,
+    guessUnvoiced: false,
+    harmonicWeight: 0.8,
+    hopSize: 128,
+    magnitudeCompression: 1,
+    magnitudeThreshold: 40,
+    maxFrequency: 20000,
+    minDuration: 100,
+    minFrequency: 40,
+    numberHarmonics: 20,
+    peakDistributionThreshold: 0.9,
+    peakFrameThreshold: 0.9,
+    pitchContinuity: 27.5625,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+    timeContinuity: 100,
+  };
+  private params: paramTypes.ParamsMultiPitchMelodia = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of iterations for the octave errors / pitch outlier filtering process
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {boolean} [guessUnvoiced=false] estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [minFrequency=40] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change during 1 ms time period) [cents]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
+   * @param {paramTypes.ParamsMultiPitchMelodia} [params]
   */
-  constructor(binResolution: number=10, filterIterations: number=3, frameSize: number=2048, guessUnvoiced: boolean=false, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=20000, minDuration: number=100, minFrequency: number=40, numberHarmonics: number=20, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, referenceFrequency: number=55, sampleRate: number=44100, timeContinuity: number=100) {
-    this.algoInstance = new wasmBackend.MultiPitchMelodia(binResolution, filterIterations, frameSize, guessUnvoiced, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minDuration, minFrequency, numberHarmonics, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, referenceFrequency, sampleRate, timeContinuity);
+  constructor(params: paramTypes.ParamsMultiPitchMelodia) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.MultiPitchMelodia(this.params.binResolution, this.params.filterIterations, this.params.frameSize, this.params.guessUnvoiced, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minDuration, this.params.minFrequency, this.params.numberHarmonics, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.referenceFrequency, this.params.sampleRate, this.params.timeContinuity);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of iterations for the octave errors / pitch outlier filtering process
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {boolean} [guessUnvoiced=false] estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [minFrequency=40] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change during 1 ms time period) [cents]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
+   * @param {paramTypes.ParamsMultiPitchMelodia} [params]
    * @memberof MultiPitchMelodia
   */
-  configure(binResolution: number=10, filterIterations: number=3, frameSize: number=2048, guessUnvoiced: boolean=false, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=20000, minDuration: number=100, minFrequency: number=40, numberHarmonics: number=20, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, referenceFrequency: number=55, sampleRate: number=44100, timeContinuity: number=100) {
-    this.algoInstance.configure(binResolution, filterIterations, frameSize, guessUnvoiced, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minDuration, minFrequency, numberHarmonics, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, referenceFrequency, sampleRate, timeContinuity);
+  configure(params: paramTypes.ParamsMultiPitchMelodia) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.filterIterations, this.params.frameSize, this.params.guessUnvoiced, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minDuration, this.params.minFrequency, this.params.numberHarmonics, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.referenceFrequency, this.params.sampleRate, this.params.timeContinuity);
   }
   /**
    * Execute algorithm with given inputs
@@ -5271,6 +5967,9 @@ class MultiPitchMelodia {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMultiPitchMelodia) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5279,24 +5978,29 @@ class MultiPitchMelodia {
 */
 class Multiplexer {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsMultiplexer = {
+    numberRealInputs: 0,
+    numberVectorRealInputs: 0,
+  };
+  private params: paramTypes.ParamsMultiplexer = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [numberRealInputs=0] the number of inputs of type Real to multiplex
-   * @param {number} [numberVectorRealInputs=0] the number of inputs of type vector<Real> to multiplex
+   * @param {paramTypes.ParamsMultiplexer} [params]
   */
-  constructor(numberRealInputs: number=0, numberVectorRealInputs: number=0) {
-    this.algoInstance = new wasmBackend.Multiplexer(numberRealInputs, numberVectorRealInputs);
+  constructor(params: paramTypes.ParamsMultiplexer) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Multiplexer(this.params.numberRealInputs, this.params.numberVectorRealInputs);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [numberRealInputs=0] the number of inputs of type Real to multiplex
-   * @param {number} [numberVectorRealInputs=0] the number of inputs of type vector<Real> to multiplex
+   * @param {paramTypes.ParamsMultiplexer} [params]
    * @memberof Multiplexer
   */
-  configure(numberRealInputs: number=0, numberVectorRealInputs: number=0) {
-    this.algoInstance.configure(numberRealInputs, numberVectorRealInputs);
+  configure(params: paramTypes.ParamsMultiplexer) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.numberRealInputs, this.params.numberVectorRealInputs);
   }
   /**
    * Execute algorithm with given inputs
@@ -5315,6 +6019,9 @@ class Multiplexer {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsMultiplexer) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5328,34 +6035,34 @@ frame slicing with sample rate = 44100, frame size = 16384, hop size = 2048 -> W
 */
 class NNLSChroma {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsNNLSChroma = {
+    chromaNormalization: 'none',
+    frameSize: 1025,
+    sampleRate: 44100,
+    spectralShape: 0.7,
+    spectralWhitening: 1,
+    tuningMode: 'global',
+    useNNLS: true,
+  };
+  private params: paramTypes.ParamsNNLSChroma = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [chromaNormalization=none] determines whether or how the chromagrams are normalised
-   * @param {number} [frameSize=1025] the input frame size of the spectrum vector
-   * @param {number} [sampleRate=44100] the input sample rate
-   * @param {number} [spectralShape=0.7]  the shape of the notes in the NNLS dictionary
-   * @param {number} [spectralWhitening=1] determines how much the log-frequency spectrum is whitened
-   * @param {string} [tuningMode=global] local uses a local average for tuning, global uses all audio frames. Local tuning is only advisable when the tuning is likely to change over the audio
-   * @param {boolean} [useNNLS=true] toggle between NNLS approximate transcription and linear spectral mapping
+   * @param {paramTypes.ParamsNNLSChroma} [params]
   */
-  constructor(chromaNormalization: string='none', frameSize: number=1025, sampleRate: number=44100, spectralShape: number=0.7, spectralWhitening: number=1, tuningMode: string='global', useNNLS: boolean=true) {
-    this.algoInstance = new wasmBackend.NNLSChroma(chromaNormalization, frameSize, sampleRate, spectralShape, spectralWhitening, tuningMode, useNNLS);
+  constructor(params: paramTypes.ParamsNNLSChroma) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.NNLSChroma(this.params.chromaNormalization, this.params.frameSize, this.params.sampleRate, this.params.spectralShape, this.params.spectralWhitening, this.params.tuningMode, this.params.useNNLS);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [chromaNormalization=none] determines whether or how the chromagrams are normalised
-   * @param {number} [frameSize=1025] the input frame size of the spectrum vector
-   * @param {number} [sampleRate=44100] the input sample rate
-   * @param {number} [spectralShape=0.7]  the shape of the notes in the NNLS dictionary
-   * @param {number} [spectralWhitening=1] determines how much the log-frequency spectrum is whitened
-   * @param {string} [tuningMode=global] local uses a local average for tuning, global uses all audio frames. Local tuning is only advisable when the tuning is likely to change over the audio
-   * @param {boolean} [useNNLS=true] toggle between NNLS approximate transcription and linear spectral mapping
+   * @param {paramTypes.ParamsNNLSChroma} [params]
    * @memberof NNLSChroma
   */
-  configure(chromaNormalization: string='none', frameSize: number=1025, sampleRate: number=44100, spectralShape: number=0.7, spectralWhitening: number=1, tuningMode: string='global', useNNLS: boolean=true) {
-    this.algoInstance.configure(chromaNormalization, frameSize, sampleRate, spectralShape, spectralWhitening, tuningMode, useNNLS);
+  configure(params: paramTypes.ParamsNNLSChroma) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.chromaNormalization, this.params.frameSize, this.params.sampleRate, this.params.spectralShape, this.params.spectralWhitening, this.params.tuningMode, this.params.useNNLS);
   }
   /**
    * Execute algorithm with given inputs
@@ -5377,6 +6084,9 @@ class NNLSChroma {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsNNLSChroma) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5385,24 +6095,29 @@ class NNLSChroma {
 */
 class NoiseAdder {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsNoiseAdder = {
+    fixSeed: false,
+    level: -100,
+  };
+  private params: paramTypes.ParamsNoiseAdder = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [fixSeed=false] if true, 0 is used as the seed for generating random values
-   * @param {number} [level=-100] power level of the noise generator [dB]
+   * @param {paramTypes.ParamsNoiseAdder} [params]
   */
-  constructor(fixSeed: boolean=false, level: number=-100) {
-    this.algoInstance = new wasmBackend.NoiseAdder(fixSeed, level);
+  constructor(params: paramTypes.ParamsNoiseAdder) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.NoiseAdder(this.params.fixSeed, this.params.level);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [fixSeed=false] if true, 0 is used as the seed for generating random values
-   * @param {number} [level=-100] power level of the noise generator [dB]
+   * @param {paramTypes.ParamsNoiseAdder} [params]
    * @memberof NoiseAdder
   */
-  configure(fixSeed: boolean=false, level: number=-100) {
-    this.algoInstance.configure(fixSeed, level);
+  configure(params: paramTypes.ParamsNoiseAdder) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fixSeed, this.params.level);
   }
   /**
    * Execute algorithm with given inputs
@@ -5422,6 +6137,9 @@ class NoiseAdder {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsNoiseAdder) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5430,26 +6148,30 @@ class NoiseAdder {
 */
 class NoiseBurstDetector {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsNoiseBurstDetector = {
+    alpha: 0.9,
+    silenceThreshold: -50,
+    threshold: 8,
+  };
+  private params: paramTypes.ParamsNoiseBurstDetector = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [alpha=0.9] alpha coefficient for the Exponential Moving Average threshold estimation.
-   * @param {number} [silenceThreshold=-50] threshold to skip silent frames
-   * @param {number} [threshold=8] factor to control the dynamic theshold
+   * @param {paramTypes.ParamsNoiseBurstDetector} [params]
   */
-  constructor(alpha: number=0.9, silenceThreshold: number=-50, threshold: number=8) {
-    this.algoInstance = new wasmBackend.NoiseBurstDetector(alpha, silenceThreshold, threshold);
+  constructor(params: paramTypes.ParamsNoiseBurstDetector) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.NoiseBurstDetector(this.params.alpha, this.params.silenceThreshold, this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [alpha=0.9] alpha coefficient for the Exponential Moving Average threshold estimation.
-   * @param {number} [silenceThreshold=-50] threshold to skip silent frames
-   * @param {number} [threshold=8] factor to control the dynamic theshold
+   * @param {paramTypes.ParamsNoiseBurstDetector} [params]
    * @memberof NoiseBurstDetector
   */
-  configure(alpha: number=0.9, silenceThreshold: number=-50, threshold: number=8) {
-    this.algoInstance.configure(alpha, silenceThreshold, threshold);
+  configure(params: paramTypes.ParamsNoiseBurstDetector) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.alpha, this.params.silenceThreshold, this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -5469,6 +6191,9 @@ class NoiseBurstDetector {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsNoiseBurstDetector) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5477,30 +6202,31 @@ class NoiseBurstDetector {
 */
 class NoveltyCurve {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsNoveltyCurve = {
+    frameRate: 344.531,
+    normalize: false,
+    weightCurve: [],
+    weightCurveType: 'hybrid',
+  };
+  private params: paramTypes.ParamsNoveltyCurve = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameRate=344.531] the sampling rate of the input audio
-   * @param {boolean} [normalize=false] whether to normalize each band's energy
-   * @param {any[]} [weightCurve=[]] vector containing the weights for each frequency band. Only if weightCurveType==supplied
-   * @param {string} [weightCurveType=hybrid] the type of weighting to be used for the bands novelty
+   * @param {paramTypes.ParamsNoveltyCurve} [params]
   */
-  constructor(frameRate: number=344.531, normalize: boolean=false, weightCurve: any[]=[], weightCurveType: string='hybrid') {
-    let vecweightCurve = arrayToVector(weightCurve);
-    this.algoInstance = new wasmBackend.NoveltyCurve(frameRate, normalize, vecweightCurve, weightCurveType);
+  constructor(params: paramTypes.ParamsNoveltyCurve) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.NoveltyCurve(this.params.frameRate, this.params.normalize, this.params.weightCurve, this.params.weightCurveType);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameRate=344.531] the sampling rate of the input audio
-   * @param {boolean} [normalize=false] whether to normalize each band's energy
-   * @param {any[]} [weightCurve=[]] vector containing the weights for each frequency band. Only if weightCurveType==supplied
-   * @param {string} [weightCurveType=hybrid] the type of weighting to be used for the bands novelty
+   * @param {paramTypes.ParamsNoveltyCurve} [params]
    * @memberof NoveltyCurve
   */
-  configure(frameRate: number=344.531, normalize: boolean=false, weightCurve: any[]=[], weightCurveType: string='hybrid') {
-    let vecweightCurve = arrayToVector(weightCurve);
-    this.algoInstance.configure(frameRate, normalize, vecweightCurve, weightCurveType);
+  configure(params: paramTypes.ParamsNoveltyCurve) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameRate, this.params.normalize, this.params.weightCurve, this.params.weightCurveType);
   }
   /**
    * Execute algorithm with given inputs
@@ -5520,6 +6246,12 @@ class NoveltyCurve {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsNoveltyCurve) {
+    if (params.weightCurve) {
+      params.weightCurve = arrayToVector(params.weightCurve);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5528,30 +6260,32 @@ class NoveltyCurve {
 */
 class NoveltyCurveFixedBpmEstimator {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsNoveltyCurveFixedBpmEstimator = {
+    hopSize: 512,
+    maxBpm: 560,
+    minBpm: 30,
+    sampleRate: 44100,
+    tolerance: 3,
+  };
+  private params: paramTypes.ParamsNoveltyCurveFixedBpmEstimator = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [hopSize=512] the hopSize used to computeh the novelty curve from the original signal
-   * @param {number} [maxBpm=560] the maximum bpm to look for
-   * @param {number} [minBpm=30] the minimum bpm to look for
-   * @param {number} [sampleRate=44100] the sampling rate original audio signal [Hz]
-   * @param {number} [tolerance=3] tolerance (in percentage) for considering bpms to be equal
+   * @param {paramTypes.ParamsNoveltyCurveFixedBpmEstimator} [params]
   */
-  constructor(hopSize: number=512, maxBpm: number=560, minBpm: number=30, sampleRate: number=44100, tolerance: number=3) {
-    this.algoInstance = new wasmBackend.NoveltyCurveFixedBpmEstimator(hopSize, maxBpm, minBpm, sampleRate, tolerance);
+  constructor(params: paramTypes.ParamsNoveltyCurveFixedBpmEstimator) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.NoveltyCurveFixedBpmEstimator(this.params.hopSize, this.params.maxBpm, this.params.minBpm, this.params.sampleRate, this.params.tolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [hopSize=512] the hopSize used to computeh the novelty curve from the original signal
-   * @param {number} [maxBpm=560] the maximum bpm to look for
-   * @param {number} [minBpm=30] the minimum bpm to look for
-   * @param {number} [sampleRate=44100] the sampling rate original audio signal [Hz]
-   * @param {number} [tolerance=3] tolerance (in percentage) for considering bpms to be equal
+   * @param {paramTypes.ParamsNoveltyCurveFixedBpmEstimator} [params]
    * @memberof NoveltyCurveFixedBpmEstimator
   */
-  configure(hopSize: number=512, maxBpm: number=560, minBpm: number=30, sampleRate: number=44100, tolerance: number=3) {
-    this.algoInstance.configure(hopSize, maxBpm, minBpm, sampleRate, tolerance);
+  configure(params: paramTypes.ParamsNoveltyCurveFixedBpmEstimator) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.hopSize, this.params.maxBpm, this.params.minBpm, this.params.sampleRate, this.params.tolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -5571,6 +6305,9 @@ class NoveltyCurveFixedBpmEstimator {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsNoveltyCurveFixedBpmEstimator) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5581,19 +6318,26 @@ If no peaks are supplied, the algorithm outputs a value of one, assuming either 
 */
 class OddToEvenHarmonicEnergyRatio {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsOddToEvenHarmonicEnergyRatio = {
+  };
+  private params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsOddToEvenHarmonicEnergyRatio} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.OddToEvenHarmonicEnergyRatio();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsOddToEvenHarmonicEnergyRatio} [params]
    * @memberof OddToEvenHarmonicEnergyRatio
   */
-  configure() {
+  configure(params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -5615,6 +6359,9 @@ class OddToEvenHarmonicEnergyRatio {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsOddToEvenHarmonicEnergyRatio) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5630,24 +6377,29 @@ Four methods are available:
 */
 class OnsetDetection {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsOnsetDetection = {
+    method: 'hfc',
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsOnsetDetection = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {string} [method=hfc] the method used for onset detection
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsOnsetDetection} [params]
   */
-  constructor(method: string='hfc', sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.OnsetDetection(method, sampleRate);
+  constructor(params: paramTypes.ParamsOnsetDetection) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.OnsetDetection(this.params.method, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {string} [method=hfc] the method used for onset detection
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsOnsetDetection} [params]
    * @memberof OnsetDetection
   */
-  configure(method: string='hfc', sampleRate: number=44100) {
-    this.algoInstance.configure(method, sampleRate);
+  configure(params: paramTypes.ParamsOnsetDetection) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.method, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -5668,6 +6420,9 @@ class OnsetDetection {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsOnsetDetection) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5683,28 +6438,31 @@ Note:
 */
 class OnsetDetectionGlobal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsOnsetDetectionGlobal = {
+    frameSize: 2048,
+    hopSize: 512,
+    method: 'infogain',
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsOnsetDetectionGlobal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the frame size for computing onset detection function
-   * @param {number} [hopSize=512] the hop size for computing onset detection function
-   * @param {string} [method=infogain] the method used for onset detection
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsOnsetDetectionGlobal} [params]
   */
-  constructor(frameSize: number=2048, hopSize: number=512, method: string='infogain', sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.OnsetDetectionGlobal(frameSize, hopSize, method, sampleRate);
+  constructor(params: paramTypes.ParamsOnsetDetectionGlobal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.OnsetDetectionGlobal(this.params.frameSize, this.params.hopSize, this.params.method, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the frame size for computing onset detection function
-   * @param {number} [hopSize=512] the hop size for computing onset detection function
-   * @param {string} [method=infogain] the method used for onset detection
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsOnsetDetectionGlobal} [params]
    * @memberof OnsetDetectionGlobal
   */
-  configure(frameSize: number=2048, hopSize: number=512, method: string='infogain', sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, hopSize, method, sampleRate);
+  configure(params: paramTypes.ParamsOnsetDetectionGlobal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.method, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -5724,6 +6482,9 @@ class OnsetDetectionGlobal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsOnsetDetectionGlobal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5734,19 +6495,26 @@ This algorithm throws an exception if the input signal is empty. Check https://e
 */
 class OnsetRate {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsOnsetRate = {
+  };
+  private params: paramTypes.ParamsOnsetRate = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsOnsetRate} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsOnsetRate) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.OnsetRate();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsOnsetRate} [params]
    * @memberof OnsetRate
   */
-  configure() {
+  configure(params: paramTypes.ParamsOnsetRate) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -5767,6 +6535,9 @@ class OnsetRate {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsOnsetRate) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5775,26 +6546,30 @@ class OnsetRate {
 */
 class OverlapAdd {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsOverlapAdd = {
+    frameSize: 2048,
+    gain: 1,
+    hopSize: 128,
+  };
+  private params: paramTypes.ParamsOverlapAdd = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the frame size for computing the overlap-add process
-   * @param {number} [gain=1] the normalization gain that scales the output signal. Useful for IFFT output
-   * @param {number} [hopSize=128] the hop size with which the overlap-add function is computed
+   * @param {paramTypes.ParamsOverlapAdd} [params]
   */
-  constructor(frameSize: number=2048, gain: number=1, hopSize: number=128) {
-    this.algoInstance = new wasmBackend.OverlapAdd(frameSize, gain, hopSize);
+  constructor(params: paramTypes.ParamsOverlapAdd) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.OverlapAdd(this.params.frameSize, this.params.gain, this.params.hopSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the frame size for computing the overlap-add process
-   * @param {number} [gain=1] the normalization gain that scales the output signal. Useful for IFFT output
-   * @param {number} [hopSize=128] the hop size with which the overlap-add function is computed
+   * @param {paramTypes.ParamsOverlapAdd} [params]
    * @memberof OverlapAdd
   */
-  configure(frameSize: number=2048, gain: number=1, hopSize: number=128) {
-    this.algoInstance.configure(frameSize, gain, hopSize);
+  configure(params: paramTypes.ParamsOverlapAdd) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.gain, this.params.hopSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -5814,6 +6589,9 @@ class OverlapAdd {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsOverlapAdd) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5824,36 +6602,35 @@ When two consecutive peaks are closer than the `minPeakDistance` parameter, the 
 */
 class PeakDetection {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPeakDetection = {
+    interpolate: true,
+    maxPeaks: 100,
+    maxPosition: 1,
+    minPeakDistance: 0,
+    minPosition: 0,
+    orderBy: 'position',
+    range: 1,
+    threshold: -1e+06,
+  };
+  private params: paramTypes.ParamsPeakDetection = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [interpolate=true] boolean flag to enable interpolation
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxPosition=1] the maximum value of the range to evaluate
-   * @param {number} [minPeakDistance=0] minimum distance between consecutive peaks (0 to bypass this feature)
-   * @param {number} [minPosition=0] the minimum value of the range to evaluate
-   * @param {string} [orderBy=position] the ordering type of the output peaks (ascending by position or descending by value)
-   * @param {number} [range=1] the input range
-   * @param {number} [threshold=-1e+06] peaks below this given threshold are not output
+   * @param {paramTypes.ParamsPeakDetection} [params]
   */
-  constructor(interpolate: boolean=true, maxPeaks: number=100, maxPosition: number=1, minPeakDistance: number=0, minPosition: number=0, orderBy: string='position', range: number=1, threshold: number=-1e+06) {
-    this.algoInstance = new wasmBackend.PeakDetection(interpolate, maxPeaks, maxPosition, minPeakDistance, minPosition, orderBy, range, threshold);
+  constructor(params: paramTypes.ParamsPeakDetection) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PeakDetection(this.params.interpolate, this.params.maxPeaks, this.params.maxPosition, this.params.minPeakDistance, this.params.minPosition, this.params.orderBy, this.params.range, this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [interpolate=true] boolean flag to enable interpolation
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxPosition=1] the maximum value of the range to evaluate
-   * @param {number} [minPeakDistance=0] minimum distance between consecutive peaks (0 to bypass this feature)
-   * @param {number} [minPosition=0] the minimum value of the range to evaluate
-   * @param {string} [orderBy=position] the ordering type of the output peaks (ascending by position or descending by value)
-   * @param {number} [range=1] the input range
-   * @param {number} [threshold=-1e+06] peaks below this given threshold are not output
+   * @param {paramTypes.ParamsPeakDetection} [params]
    * @memberof PeakDetection
   */
-  configure(interpolate: boolean=true, maxPeaks: number=100, maxPosition: number=1, minPeakDistance: number=0, minPosition: number=0, orderBy: string='position', range: number=1, threshold: number=-1e+06) {
-    this.algoInstance.configure(interpolate, maxPeaks, maxPosition, minPeakDistance, minPosition, orderBy, range, threshold);
+  configure(params: paramTypes.ParamsPeakDetection) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.interpolate, this.params.maxPeaks, this.params.maxPosition, this.params.minPeakDistance, this.params.minPosition, this.params.orderBy, this.params.range, this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -5873,6 +6650,9 @@ class PeakDetection {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPeakDetection) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5881,34 +6661,34 @@ class PeakDetection {
 */
 class PercivalBpmEstimator {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPercivalBpmEstimator = {
+    frameSize: 1024,
+    frameSizeOSS: 2048,
+    hopSize: 128,
+    hopSizeOSS: 128,
+    maxBPM: 210,
+    minBPM: 50,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsPercivalBpmEstimator = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=1024] frame size for the analysis of the input signal
-   * @param {number} [frameSizeOSS=2048] frame size for the analysis of the Onset Strength Signal
-   * @param {number} [hopSize=128] hop size for the analysis of the input signal
-   * @param {number} [hopSizeOSS=128] hop size for the analysis of the Onset Strength Signal
-   * @param {number} [maxBPM=210] maximum BPM to detect
-   * @param {number} [minBPM=50] minimum BPM to detect
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsPercivalBpmEstimator} [params]
   */
-  constructor(frameSize: number=1024, frameSizeOSS: number=2048, hopSize: number=128, hopSizeOSS: number=128, maxBPM: number=210, minBPM: number=50, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.PercivalBpmEstimator(frameSize, frameSizeOSS, hopSize, hopSizeOSS, maxBPM, minBPM, sampleRate);
+  constructor(params: paramTypes.ParamsPercivalBpmEstimator) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PercivalBpmEstimator(this.params.frameSize, this.params.frameSizeOSS, this.params.hopSize, this.params.hopSizeOSS, this.params.maxBPM, this.params.minBPM, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=1024] frame size for the analysis of the input signal
-   * @param {number} [frameSizeOSS=2048] frame size for the analysis of the Onset Strength Signal
-   * @param {number} [hopSize=128] hop size for the analysis of the input signal
-   * @param {number} [hopSizeOSS=128] hop size for the analysis of the Onset Strength Signal
-   * @param {number} [maxBPM=210] maximum BPM to detect
-   * @param {number} [minBPM=50] minimum BPM to detect
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsPercivalBpmEstimator} [params]
    * @memberof PercivalBpmEstimator
   */
-  configure(frameSize: number=1024, frameSizeOSS: number=2048, hopSize: number=128, hopSizeOSS: number=128, maxBPM: number=210, minBPM: number=50, sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, frameSizeOSS, hopSize, hopSizeOSS, maxBPM, minBPM, sampleRate);
+  configure(params: paramTypes.ParamsPercivalBpmEstimator) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.frameSizeOSS, this.params.hopSize, this.params.hopSizeOSS, this.params.maxBPM, this.params.minBPM, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -5928,6 +6708,9 @@ class PercivalBpmEstimator {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPercivalBpmEstimator) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5936,19 +6719,26 @@ class PercivalBpmEstimator {
 */
 class PercivalEnhanceHarmonics {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPercivalEnhanceHarmonics = {
+  };
+  private params: paramTypes.ParamsPercivalEnhanceHarmonics = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsPercivalEnhanceHarmonics} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsPercivalEnhanceHarmonics) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.PercivalEnhanceHarmonics();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsPercivalEnhanceHarmonics} [params]
    * @memberof PercivalEnhanceHarmonics
   */
-  configure() {
+  configure(params: paramTypes.ParamsPercivalEnhanceHarmonics) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -5969,6 +6759,9 @@ class PercivalEnhanceHarmonics {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPercivalEnhanceHarmonics) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -5978,19 +6771,26 @@ For more details check the referenced paper.Please note that in the original pap
 */
 class PercivalEvaluatePulseTrains {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPercivalEvaluatePulseTrains = {
+  };
+  private params: paramTypes.ParamsPercivalEvaluatePulseTrains = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsPercivalEvaluatePulseTrains} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsPercivalEvaluatePulseTrains) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.PercivalEvaluatePulseTrains();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsPercivalEvaluatePulseTrains} [params]
    * @memberof PercivalEvaluatePulseTrains
   */
-  configure() {
+  configure(params: paramTypes.ParamsPercivalEvaluatePulseTrains) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -6012,6 +6812,9 @@ class PercivalEvaluatePulseTrains {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPercivalEvaluatePulseTrains) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6020,32 +6823,33 @@ class PercivalEvaluatePulseTrains {
 */
 class PitchContourSegmentation {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchContourSegmentation = {
+    hopSize: 128,
+    minDuration: 0.1,
+    pitchDistanceThreshold: 60,
+    rmsThreshold: -2,
+    sampleRate: 44100,
+    tuningFrequency: 440,
+  };
+  private params: paramTypes.ParamsPitchContourSegmentation = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [hopSize=128] hop size of the extracted pitch
-   * @param {number} [minDuration=0.1] minimum note duration [s]
-   * @param {number} [pitchDistanceThreshold=60] pitch threshold for note segmentation [cents]
-   * @param {number} [rmsThreshold=-2] zscore threshold for note segmentation
-   * @param {number} [sampleRate=44100] sample rate of the audio signal
-   * @param {number} [tuningFrequency=440] tuning reference frequency  [Hz]
+   * @param {paramTypes.ParamsPitchContourSegmentation} [params]
   */
-  constructor(hopSize: number=128, minDuration: number=0.1, pitchDistanceThreshold: number=60, rmsThreshold: number=-2, sampleRate: number=44100, tuningFrequency: number=440) {
-    this.algoInstance = new wasmBackend.PitchContourSegmentation(hopSize, minDuration, pitchDistanceThreshold, rmsThreshold, sampleRate, tuningFrequency);
+  constructor(params: paramTypes.ParamsPitchContourSegmentation) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchContourSegmentation(this.params.hopSize, this.params.minDuration, this.params.pitchDistanceThreshold, this.params.rmsThreshold, this.params.sampleRate, this.params.tuningFrequency);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [hopSize=128] hop size of the extracted pitch
-   * @param {number} [minDuration=0.1] minimum note duration [s]
-   * @param {number} [pitchDistanceThreshold=60] pitch threshold for note segmentation [cents]
-   * @param {number} [rmsThreshold=-2] zscore threshold for note segmentation
-   * @param {number} [sampleRate=44100] sample rate of the audio signal
-   * @param {number} [tuningFrequency=440] tuning reference frequency  [Hz]
+   * @param {paramTypes.ParamsPitchContourSegmentation} [params]
    * @memberof PitchContourSegmentation
   */
-  configure(hopSize: number=128, minDuration: number=0.1, pitchDistanceThreshold: number=60, rmsThreshold: number=-2, sampleRate: number=44100, tuningFrequency: number=440) {
-    this.algoInstance.configure(hopSize, minDuration, pitchDistanceThreshold, rmsThreshold, sampleRate, tuningFrequency);
+  configure(params: paramTypes.ParamsPitchContourSegmentation) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.hopSize, this.params.minDuration, this.params.pitchDistanceThreshold, this.params.rmsThreshold, this.params.sampleRate, this.params.tuningFrequency);
   }
   /**
    * Execute algorithm with given inputs
@@ -6066,6 +6870,9 @@ class PitchContourSegmentation {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchContourSegmentation) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6074,36 +6881,35 @@ class PitchContourSegmentation {
 */
 class PitchContours {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchContours = {
+    binResolution: 10,
+    hopSize: 128,
+    minDuration: 100,
+    peakDistributionThreshold: 0.9,
+    peakFrameThreshold: 0.9,
+    pitchContinuity: 27.5625,
+    sampleRate: 44100,
+    timeContinuity: 100,
+  };
+  private params: paramTypes.ParamsPitchContours = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change durig 1 ms time period) [cents]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
+   * @param {paramTypes.ParamsPitchContours} [params]
   */
-  constructor(binResolution: number=10, hopSize: number=128, minDuration: number=100, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, sampleRate: number=44100, timeContinuity: number=100) {
-    this.algoInstance = new wasmBackend.PitchContours(binResolution, hopSize, minDuration, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, sampleRate, timeContinuity);
+  constructor(params: paramTypes.ParamsPitchContours) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchContours(this.params.binResolution, this.params.hopSize, this.params.minDuration, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.sampleRate, this.params.timeContinuity);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change durig 1 ms time period) [cents]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
+   * @param {paramTypes.ParamsPitchContours} [params]
    * @memberof PitchContours
   */
-  configure(binResolution: number=10, hopSize: number=128, minDuration: number=100, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, sampleRate: number=44100, timeContinuity: number=100) {
-    this.algoInstance.configure(binResolution, hopSize, minDuration, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, sampleRate, timeContinuity);
+  configure(params: paramTypes.ParamsPitchContours) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.hopSize, this.params.minDuration, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.sampleRate, this.params.timeContinuity);
   }
   /**
    * Execute algorithm with given inputs
@@ -6124,6 +6930,9 @@ class PitchContours {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchContours) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6133,40 +6942,37 @@ This algorithm is intended to receive its "contoursBins", "contoursSaliences", a
 */
 class PitchContoursMelody {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchContoursMelody = {
+    binResolution: 10,
+    filterIterations: 3,
+    guessUnvoiced: false,
+    hopSize: 128,
+    maxFrequency: 20000,
+    minFrequency: 80,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+    voiceVibrato: false,
+    voicingTolerance: 0.2,
+  };
+  private params: paramTypes.ParamsPitchContoursMelody = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of interations for the octave errors / pitch outlier filtering process
-   * @param {boolean} [guessUnvoiced=false] Estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (Hz)
-   * @param {boolean} [voiceVibrato=false] detect voice vibrato
-   * @param {number} [voicingTolerance=0.2] allowed deviation below the average contour mean salience of all contours (fraction of the standard deviation)
+   * @param {paramTypes.ParamsPitchContoursMelody} [params]
   */
-  constructor(binResolution: number=10, filterIterations: number=3, guessUnvoiced: boolean=false, hopSize: number=128, maxFrequency: number=20000, minFrequency: number=80, referenceFrequency: number=55, sampleRate: number=44100, voiceVibrato: boolean=false, voicingTolerance: number=0.2) {
-    this.algoInstance = new wasmBackend.PitchContoursMelody(binResolution, filterIterations, guessUnvoiced, hopSize, maxFrequency, minFrequency, referenceFrequency, sampleRate, voiceVibrato, voicingTolerance);
+  constructor(params: paramTypes.ParamsPitchContoursMelody) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchContoursMelody(this.params.binResolution, this.params.filterIterations, this.params.guessUnvoiced, this.params.hopSize, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency, this.params.sampleRate, this.params.voiceVibrato, this.params.voicingTolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of interations for the octave errors / pitch outlier filtering process
-   * @param {boolean} [guessUnvoiced=false] Estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (Hz)
-   * @param {boolean} [voiceVibrato=false] detect voice vibrato
-   * @param {number} [voicingTolerance=0.2] allowed deviation below the average contour mean salience of all contours (fraction of the standard deviation)
+   * @param {paramTypes.ParamsPitchContoursMelody} [params]
    * @memberof PitchContoursMelody
   */
-  configure(binResolution: number=10, filterIterations: number=3, guessUnvoiced: boolean=false, hopSize: number=128, maxFrequency: number=20000, minFrequency: number=80, referenceFrequency: number=55, sampleRate: number=44100, voiceVibrato: boolean=false, voicingTolerance: number=0.2) {
-    this.algoInstance.configure(binResolution, filterIterations, guessUnvoiced, hopSize, maxFrequency, minFrequency, referenceFrequency, sampleRate, voiceVibrato, voicingTolerance);
+  configure(params: paramTypes.ParamsPitchContoursMelody) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.filterIterations, this.params.guessUnvoiced, this.params.hopSize, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency, this.params.sampleRate, this.params.voiceVibrato, this.params.voicingTolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -6188,6 +6994,9 @@ class PitchContoursMelody {
   */
   delete() {
     this.algoInstance.delete();
+  }
+  private updateParams(params: paramTypes.ParamsPitchContoursMelody) {
+    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -6199,36 +7008,35 @@ This algorithm is intended to receive its "contoursBins", "contoursSaliences", a
 */
 class PitchContoursMonoMelody {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchContoursMonoMelody = {
+    binResolution: 10,
+    filterIterations: 3,
+    guessUnvoiced: false,
+    hopSize: 128,
+    maxFrequency: 20000,
+    minFrequency: 80,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsPitchContoursMonoMelody = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of interations for the octave errors / pitch outlier filtering process
-   * @param {boolean} [guessUnvoiced=false] Estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (Hz)
+   * @param {paramTypes.ParamsPitchContoursMonoMelody} [params]
   */
-  constructor(binResolution: number=10, filterIterations: number=3, guessUnvoiced: boolean=false, hopSize: number=128, maxFrequency: number=20000, minFrequency: number=80, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.PitchContoursMonoMelody(binResolution, filterIterations, guessUnvoiced, hopSize, maxFrequency, minFrequency, referenceFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsPitchContoursMonoMelody) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchContoursMonoMelody(this.params.binResolution, this.params.filterIterations, this.params.guessUnvoiced, this.params.hopSize, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of interations for the octave errors / pitch outlier filtering process
-   * @param {boolean} [guessUnvoiced=false] Estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (Hz)
+   * @param {paramTypes.ParamsPitchContoursMonoMelody} [params]
    * @memberof PitchContoursMonoMelody
   */
-  configure(binResolution: number=10, filterIterations: number=3, guessUnvoiced: boolean=false, hopSize: number=128, maxFrequency: number=20000, minFrequency: number=80, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance.configure(binResolution, filterIterations, guessUnvoiced, hopSize, maxFrequency, minFrequency, referenceFrequency, sampleRate);
+  configure(params: paramTypes.ParamsPitchContoursMonoMelody) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.filterIterations, this.params.guessUnvoiced, this.params.hopSize, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -6251,6 +7059,9 @@ class PitchContoursMonoMelody {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchContoursMonoMelody) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6260,36 +7071,35 @@ This algorithm is intended to receive its "contoursBins", "contoursSaliences", a
 */
 class PitchContoursMultiMelody {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchContoursMultiMelody = {
+    binResolution: 10,
+    filterIterations: 3,
+    guessUnvoiced: false,
+    hopSize: 128,
+    maxFrequency: 20000,
+    minFrequency: 80,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsPitchContoursMultiMelody = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of interations for the octave errors / pitch outlier filtering process
-   * @param {boolean} [guessUnvoiced=false] Estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (Hz)
+   * @param {paramTypes.ParamsPitchContoursMultiMelody} [params]
   */
-  constructor(binResolution: number=10, filterIterations: number=3, guessUnvoiced: boolean=false, hopSize: number=128, maxFrequency: number=20000, minFrequency: number=80, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.PitchContoursMultiMelody(binResolution, filterIterations, guessUnvoiced, hopSize, maxFrequency, minFrequency, referenceFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsPitchContoursMultiMelody) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchContoursMultiMelody(this.params.binResolution, this.params.filterIterations, this.params.guessUnvoiced, this.params.hopSize, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of interations for the octave errors / pitch outlier filtering process
-   * @param {boolean} [guessUnvoiced=false] Estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (Hz)
+   * @param {paramTypes.ParamsPitchContoursMultiMelody} [params]
    * @memberof PitchContoursMultiMelody
   */
-  configure(binResolution: number=10, filterIterations: number=3, guessUnvoiced: boolean=false, hopSize: number=128, maxFrequency: number=20000, minFrequency: number=80, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance.configure(binResolution, filterIterations, guessUnvoiced, hopSize, maxFrequency, minFrequency, referenceFrequency, sampleRate);
+  configure(params: paramTypes.ParamsPitchContoursMultiMelody) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.filterIterations, this.params.guessUnvoiced, this.params.hopSize, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -6312,6 +7122,9 @@ class PitchContoursMultiMelody {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchContoursMultiMelody) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6320,26 +7133,30 @@ class PitchContoursMultiMelody {
 */
 class PitchFilter {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchFilter = {
+    confidenceThreshold: 36,
+    minChunkSize: 30,
+    useAbsolutePitchConfidence: false,
+  };
+  private params: paramTypes.ParamsPitchFilter = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [confidenceThreshold=36] ratio between the average confidence of the most confident chunk and the minimum allowed average confidence of a chunk
-   * @param {number} [minChunkSize=30] minumum number of frames in non-zero pitch chunks
-   * @param {boolean} [useAbsolutePitchConfidence=false] treat negative pitch confidence values as positive (use with melodia guessUnvoiced=True)
+   * @param {paramTypes.ParamsPitchFilter} [params]
   */
-  constructor(confidenceThreshold: number=36, minChunkSize: number=30, useAbsolutePitchConfidence: boolean=false) {
-    this.algoInstance = new wasmBackend.PitchFilter(confidenceThreshold, minChunkSize, useAbsolutePitchConfidence);
+  constructor(params: paramTypes.ParamsPitchFilter) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchFilter(this.params.confidenceThreshold, this.params.minChunkSize, this.params.useAbsolutePitchConfidence);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [confidenceThreshold=36] ratio between the average confidence of the most confident chunk and the minimum allowed average confidence of a chunk
-   * @param {number} [minChunkSize=30] minumum number of frames in non-zero pitch chunks
-   * @param {boolean} [useAbsolutePitchConfidence=false] treat negative pitch confidence values as positive (use with melodia guessUnvoiced=True)
+   * @param {paramTypes.ParamsPitchFilter} [params]
    * @memberof PitchFilter
   */
-  configure(confidenceThreshold: number=36, minChunkSize: number=30, useAbsolutePitchConfidence: boolean=false) {
-    this.algoInstance.configure(confidenceThreshold, minChunkSize, useAbsolutePitchConfidence);
+  configure(params: paramTypes.ParamsPitchFilter) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.confidenceThreshold, this.params.minChunkSize, this.params.useAbsolutePitchConfidence);
   }
   /**
    * Execute algorithm with given inputs
@@ -6360,6 +7177,9 @@ class PitchFilter {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchFilter) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6368,56 +7188,45 @@ class PitchFilter {
 */
 class PitchMelodia {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchMelodia = {
+    binResolution: 10,
+    filterIterations: 3,
+    frameSize: 2048,
+    guessUnvoiced: false,
+    harmonicWeight: 0.8,
+    hopSize: 128,
+    magnitudeCompression: 1,
+    magnitudeThreshold: 40,
+    maxFrequency: 20000,
+    minDuration: 100,
+    minFrequency: 40,
+    numberHarmonics: 20,
+    peakDistributionThreshold: 0.9,
+    peakFrameThreshold: 0.9,
+    pitchContinuity: 27.5625,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+    timeContinuity: 100,
+  };
+  private params: paramTypes.ParamsPitchMelodia = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of iterations for the octave errors / pitch outlier filtering process
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {boolean} [guessUnvoiced=false] estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [minFrequency=40] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change during 1 ms time period) [cents]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
+   * @param {paramTypes.ParamsPitchMelodia} [params]
   */
-  constructor(binResolution: number=10, filterIterations: number=3, frameSize: number=2048, guessUnvoiced: boolean=false, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=20000, minDuration: number=100, minFrequency: number=40, numberHarmonics: number=20, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, referenceFrequency: number=55, sampleRate: number=44100, timeContinuity: number=100) {
-    this.algoInstance = new wasmBackend.PitchMelodia(binResolution, filterIterations, frameSize, guessUnvoiced, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minDuration, minFrequency, numberHarmonics, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, referenceFrequency, sampleRate, timeContinuity);
+  constructor(params: paramTypes.ParamsPitchMelodia) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchMelodia(this.params.binResolution, this.params.filterIterations, this.params.frameSize, this.params.guessUnvoiced, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minDuration, this.params.minFrequency, this.params.numberHarmonics, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.referenceFrequency, this.params.sampleRate, this.params.timeContinuity);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of iterations for the octave errors / pitch outlier filtering process
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {boolean} [guessUnvoiced=false] estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [minFrequency=40] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change during 1 ms time period) [cents]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
+   * @param {paramTypes.ParamsPitchMelodia} [params]
    * @memberof PitchMelodia
   */
-  configure(binResolution: number=10, filterIterations: number=3, frameSize: number=2048, guessUnvoiced: boolean=false, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=20000, minDuration: number=100, minFrequency: number=40, numberHarmonics: number=20, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, referenceFrequency: number=55, sampleRate: number=44100, timeContinuity: number=100) {
-    this.algoInstance.configure(binResolution, filterIterations, frameSize, guessUnvoiced, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minDuration, minFrequency, numberHarmonics, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, referenceFrequency, sampleRate, timeContinuity);
+  configure(params: paramTypes.ParamsPitchMelodia) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.filterIterations, this.params.frameSize, this.params.guessUnvoiced, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minDuration, this.params.minFrequency, this.params.numberHarmonics, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.referenceFrequency, this.params.sampleRate, this.params.timeContinuity);
   }
   /**
    * Execute algorithm with given inputs
@@ -6437,6 +7246,9 @@ class PitchMelodia {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchMelodia) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6445,26 +7257,30 @@ class PitchMelodia {
 */
 class PitchSalience {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchSalience = {
+    highBoundary: 5000,
+    lowBoundary: 100,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsPitchSalience = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [highBoundary=5000] until which frequency we are looking for the minimum (must be smaller than half sampleRate) [Hz]
-   * @param {number} [lowBoundary=100] from which frequency we are looking for the maximum (must not be larger than highBoundary) [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsPitchSalience} [params]
   */
-  constructor(highBoundary: number=5000, lowBoundary: number=100, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.PitchSalience(highBoundary, lowBoundary, sampleRate);
+  constructor(params: paramTypes.ParamsPitchSalience) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchSalience(this.params.highBoundary, this.params.lowBoundary, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [highBoundary=5000] until which frequency we are looking for the minimum (must be smaller than half sampleRate) [Hz]
-   * @param {number} [lowBoundary=100] from which frequency we are looking for the maximum (must not be larger than highBoundary) [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsPitchSalience} [params]
    * @memberof PitchSalience
   */
-  configure(highBoundary: number=5000, lowBoundary: number=100, sampleRate: number=44100) {
-    this.algoInstance.configure(highBoundary, lowBoundary, sampleRate);
+  configure(params: paramTypes.ParamsPitchSalience) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.highBoundary, this.params.lowBoundary, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -6484,6 +7300,9 @@ class PitchSalience {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchSalience) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6492,32 +7311,33 @@ class PitchSalience {
 */
 class PitchSalienceFunction {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchSalienceFunction = {
+    binResolution: 10,
+    harmonicWeight: 0.8,
+    magnitudeCompression: 1,
+    magnitudeThreshold: 40,
+    numberHarmonics: 20,
+    referenceFrequency: 55,
+  };
+  private params: paramTypes.ParamsPitchSalienceFunction = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
+   * @param {paramTypes.ParamsPitchSalienceFunction} [params]
   */
-  constructor(binResolution: number=10, harmonicWeight: number=0.8, magnitudeCompression: number=1, magnitudeThreshold: number=40, numberHarmonics: number=20, referenceFrequency: number=55) {
-    this.algoInstance = new wasmBackend.PitchSalienceFunction(binResolution, harmonicWeight, magnitudeCompression, magnitudeThreshold, numberHarmonics, referenceFrequency);
+  constructor(params: paramTypes.ParamsPitchSalienceFunction) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchSalienceFunction(this.params.binResolution, this.params.harmonicWeight, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.numberHarmonics, this.params.referenceFrequency);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
+   * @param {paramTypes.ParamsPitchSalienceFunction} [params]
    * @memberof PitchSalienceFunction
   */
-  configure(binResolution: number=10, harmonicWeight: number=0.8, magnitudeCompression: number=1, magnitudeThreshold: number=40, numberHarmonics: number=20, referenceFrequency: number=55) {
-    this.algoInstance.configure(binResolution, harmonicWeight, magnitudeCompression, magnitudeThreshold, numberHarmonics, referenceFrequency);
+  configure(params: paramTypes.ParamsPitchSalienceFunction) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.harmonicWeight, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.numberHarmonics, this.params.referenceFrequency);
   }
   /**
    * Execute algorithm with given inputs
@@ -6538,6 +7358,9 @@ class PitchSalienceFunction {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchSalienceFunction) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6546,28 +7369,31 @@ class PitchSalienceFunction {
 */
 class PitchSalienceFunctionPeaks {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchSalienceFunctionPeaks = {
+    binResolution: 10,
+    maxFrequency: 1760,
+    minFrequency: 55,
+    referenceFrequency: 55,
+  };
+  private params: paramTypes.ParamsPitchSalienceFunctionPeaks = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [maxFrequency=1760] the maximum frequency to evaluate (ignore peaks above) [Hz]
-   * @param {number} [minFrequency=55] the minimum frequency to evaluate (ignore peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
+   * @param {paramTypes.ParamsPitchSalienceFunctionPeaks} [params]
   */
-  constructor(binResolution: number=10, maxFrequency: number=1760, minFrequency: number=55, referenceFrequency: number=55) {
-    this.algoInstance = new wasmBackend.PitchSalienceFunctionPeaks(binResolution, maxFrequency, minFrequency, referenceFrequency);
+  constructor(params: paramTypes.ParamsPitchSalienceFunctionPeaks) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchSalienceFunctionPeaks(this.params.binResolution, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [maxFrequency=1760] the maximum frequency to evaluate (ignore peaks above) [Hz]
-   * @param {number} [minFrequency=55] the minimum frequency to evaluate (ignore peaks below) [Hz]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
+   * @param {paramTypes.ParamsPitchSalienceFunctionPeaks} [params]
    * @memberof PitchSalienceFunctionPeaks
   */
-  configure(binResolution: number=10, maxFrequency: number=1760, minFrequency: number=55, referenceFrequency: number=55) {
-    this.algoInstance.configure(binResolution, maxFrequency, minFrequency, referenceFrequency);
+  configure(params: paramTypes.ParamsPitchSalienceFunctionPeaks) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.maxFrequency, this.params.minFrequency, this.params.referenceFrequency);
   }
   /**
    * Execute algorithm with given inputs
@@ -6587,6 +7413,9 @@ class PitchSalienceFunctionPeaks {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchSalienceFunctionPeaks) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6595,32 +7424,33 @@ class PitchSalienceFunctionPeaks {
 */
 class PitchYin {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchYin = {
+    frameSize: 2048,
+    interpolate: true,
+    maxFrequency: 22050,
+    minFrequency: 20,
+    sampleRate: 44100,
+    tolerance: 0.15,
+  };
+  private params: paramTypes.ParamsPitchYin = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] number of samples in the input frame (this is an optional parameter to optimize memory allocation)
-   * @param {boolean} [interpolate=true] enable interpolation
-   * @param {number} [maxFrequency=22050] the maximum allowed frequency [Hz]
-   * @param {number} [minFrequency=20] the minimum allowed frequency [Hz]
-   * @param {number} [sampleRate=44100] sampling rate of the input audio [Hz]
-   * @param {number} [tolerance=0.15] tolerance for peak detection
+   * @param {paramTypes.ParamsPitchYin} [params]
   */
-  constructor(frameSize: number=2048, interpolate: boolean=true, maxFrequency: number=22050, minFrequency: number=20, sampleRate: number=44100, tolerance: number=0.15) {
-    this.algoInstance = new wasmBackend.PitchYin(frameSize, interpolate, maxFrequency, minFrequency, sampleRate, tolerance);
+  constructor(params: paramTypes.ParamsPitchYin) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchYin(this.params.frameSize, this.params.interpolate, this.params.maxFrequency, this.params.minFrequency, this.params.sampleRate, this.params.tolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] number of samples in the input frame (this is an optional parameter to optimize memory allocation)
-   * @param {boolean} [interpolate=true] enable interpolation
-   * @param {number} [maxFrequency=22050] the maximum allowed frequency [Hz]
-   * @param {number} [minFrequency=20] the minimum allowed frequency [Hz]
-   * @param {number} [sampleRate=44100] sampling rate of the input audio [Hz]
-   * @param {number} [tolerance=0.15] tolerance for peak detection
+   * @param {paramTypes.ParamsPitchYin} [params]
    * @memberof PitchYin
   */
-  configure(frameSize: number=2048, interpolate: boolean=true, maxFrequency: number=22050, minFrequency: number=20, sampleRate: number=44100, tolerance: number=0.15) {
-    this.algoInstance.configure(frameSize, interpolate, maxFrequency, minFrequency, sampleRate, tolerance);
+  configure(params: paramTypes.ParamsPitchYin) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.interpolate, this.params.maxFrequency, this.params.minFrequency, this.params.sampleRate, this.params.tolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -6640,6 +7470,9 @@ class PitchYin {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchYin) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6648,32 +7481,33 @@ class PitchYin {
 */
 class PitchYinFFT {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchYinFFT = {
+    frameSize: 2048,
+    interpolate: true,
+    maxFrequency: 22050,
+    minFrequency: 20,
+    sampleRate: 44100,
+    tolerance: 1,
+  };
+  private params: paramTypes.ParamsPitchYinFFT = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] number of samples in the input spectrum
-   * @param {boolean} [interpolate=true] boolean flag to enable interpolation
-   * @param {number} [maxFrequency=22050] the maximum allowed frequency [Hz]
-   * @param {number} [minFrequency=20] the minimum allowed frequency [Hz]
-   * @param {number} [sampleRate=44100] sampling rate of the input spectrum [Hz]
-   * @param {number} [tolerance=1] tolerance for peak detection
+   * @param {paramTypes.ParamsPitchYinFFT} [params]
   */
-  constructor(frameSize: number=2048, interpolate: boolean=true, maxFrequency: number=22050, minFrequency: number=20, sampleRate: number=44100, tolerance: number=1) {
-    this.algoInstance = new wasmBackend.PitchYinFFT(frameSize, interpolate, maxFrequency, minFrequency, sampleRate, tolerance);
+  constructor(params: paramTypes.ParamsPitchYinFFT) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchYinFFT(this.params.frameSize, this.params.interpolate, this.params.maxFrequency, this.params.minFrequency, this.params.sampleRate, this.params.tolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] number of samples in the input spectrum
-   * @param {boolean} [interpolate=true] boolean flag to enable interpolation
-   * @param {number} [maxFrequency=22050] the maximum allowed frequency [Hz]
-   * @param {number} [minFrequency=20] the minimum allowed frequency [Hz]
-   * @param {number} [sampleRate=44100] sampling rate of the input spectrum [Hz]
-   * @param {number} [tolerance=1] tolerance for peak detection
+   * @param {paramTypes.ParamsPitchYinFFT} [params]
    * @memberof PitchYinFFT
   */
-  configure(frameSize: number=2048, interpolate: boolean=true, maxFrequency: number=22050, minFrequency: number=20, sampleRate: number=44100, tolerance: number=1) {
-    this.algoInstance.configure(frameSize, interpolate, maxFrequency, minFrequency, sampleRate, tolerance);
+  configure(params: paramTypes.ParamsPitchYinFFT) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.interpolate, this.params.maxFrequency, this.params.minFrequency, this.params.sampleRate, this.params.tolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -6693,6 +7527,9 @@ class PitchYinFFT {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchYinFFT) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6701,32 +7538,33 @@ class PitchYinFFT {
 */
 class PitchYinProbabilistic {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchYinProbabilistic = {
+    frameSize: 2048,
+    hopSize: 256,
+    lowRMSThreshold: 0.1,
+    outputUnvoiced: 'negative',
+    preciseTime: false,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsPitchYinProbabilistic = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the frame size of FFT
-   * @param {number} [hopSize=256] the hop size with which the pitch is computed
-   * @param {number} [lowRMSThreshold=0.1] the low RMS amplitude threshold
-   * @param {string} [outputUnvoiced=negative] whether output unvoiced frame, zero: output non-voiced pitch as 0.; abs: output non-voiced pitch as absolute values; negative: output non-voiced pitch as negative values
-   * @param {boolean} [preciseTime=false] use non-standard precise YIN timing (slow).
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsPitchYinProbabilistic} [params]
   */
-  constructor(frameSize: number=2048, hopSize: number=256, lowRMSThreshold: number=0.1, outputUnvoiced: string='negative', preciseTime: boolean=false, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.PitchYinProbabilistic(frameSize, hopSize, lowRMSThreshold, outputUnvoiced, preciseTime, sampleRate);
+  constructor(params: paramTypes.ParamsPitchYinProbabilistic) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchYinProbabilistic(this.params.frameSize, this.params.hopSize, this.params.lowRMSThreshold, this.params.outputUnvoiced, this.params.preciseTime, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the frame size of FFT
-   * @param {number} [hopSize=256] the hop size with which the pitch is computed
-   * @param {number} [lowRMSThreshold=0.1] the low RMS amplitude threshold
-   * @param {string} [outputUnvoiced=negative] whether output unvoiced frame, zero: output non-voiced pitch as 0.; abs: output non-voiced pitch as absolute values; negative: output non-voiced pitch as negative values
-   * @param {boolean} [preciseTime=false] use non-standard precise YIN timing (slow).
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsPitchYinProbabilistic} [params]
    * @memberof PitchYinProbabilistic
   */
-  configure(frameSize: number=2048, hopSize: number=256, lowRMSThreshold: number=0.1, outputUnvoiced: string='negative', preciseTime: boolean=false, sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, hopSize, lowRMSThreshold, outputUnvoiced, preciseTime, sampleRate);
+  configure(params: paramTypes.ParamsPitchYinProbabilistic) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.lowRMSThreshold, this.params.outputUnvoiced, this.params.preciseTime, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -6746,6 +7584,9 @@ class PitchYinProbabilistic {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchYinProbabilistic) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6754,28 +7595,31 @@ class PitchYinProbabilistic {
 */
 class PitchYinProbabilities {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchYinProbabilities = {
+    frameSize: 2048,
+    lowAmp: 0.1,
+    preciseTime: false,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsPitchYinProbabilities = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] number of samples in the input frame
-   * @param {number} [lowAmp=0.1] the low RMS amplitude threshold
-   * @param {boolean} [preciseTime=false] use non-standard precise YIN timing (slow).
-   * @param {number} [sampleRate=44100] sampling rate of the input audio [Hz]
+   * @param {paramTypes.ParamsPitchYinProbabilities} [params]
   */
-  constructor(frameSize: number=2048, lowAmp: number=0.1, preciseTime: boolean=false, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.PitchYinProbabilities(frameSize, lowAmp, preciseTime, sampleRate);
+  constructor(params: paramTypes.ParamsPitchYinProbabilities) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchYinProbabilities(this.params.frameSize, this.params.lowAmp, this.params.preciseTime, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] number of samples in the input frame
-   * @param {number} [lowAmp=0.1] the low RMS amplitude threshold
-   * @param {boolean} [preciseTime=false] use non-standard precise YIN timing (slow).
-   * @param {number} [sampleRate=44100] sampling rate of the input audio [Hz]
+   * @param {paramTypes.ParamsPitchYinProbabilities} [params]
    * @memberof PitchYinProbabilities
   */
-  configure(frameSize: number=2048, lowAmp: number=0.1, preciseTime: boolean=false, sampleRate: number=44100) {
-    this.algoInstance.configure(frameSize, lowAmp, preciseTime, sampleRate);
+  configure(params: paramTypes.ParamsPitchYinProbabilities) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.lowAmp, this.params.preciseTime, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -6795,6 +7639,9 @@ class PitchYinProbabilities {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchYinProbabilities) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6803,28 +7650,31 @@ class PitchYinProbabilities {
 */
 class PitchYinProbabilitiesHMM {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPitchYinProbabilitiesHMM = {
+    minFrequency: 61.735,
+    numberBinsPerSemitone: 5,
+    selfTransition: 0.99,
+    yinTrust: 0.5,
+  };
+  private params: paramTypes.ParamsPitchYinProbabilitiesHMM = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [minFrequency=61.735] minimum detected frequency
-   * @param {number} [numberBinsPerSemitone=5] number of bins per semitone
-   * @param {number} [selfTransition=0.99] the self transition probabilities
-   * @param {number} [yinTrust=0.5] the yin trust parameter
+   * @param {paramTypes.ParamsPitchYinProbabilitiesHMM} [params]
   */
-  constructor(minFrequency: number=61.735, numberBinsPerSemitone: number=5, selfTransition: number=0.99, yinTrust: number=0.5) {
-    this.algoInstance = new wasmBackend.PitchYinProbabilitiesHMM(minFrequency, numberBinsPerSemitone, selfTransition, yinTrust);
+  constructor(params: paramTypes.ParamsPitchYinProbabilitiesHMM) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PitchYinProbabilitiesHMM(this.params.minFrequency, this.params.numberBinsPerSemitone, this.params.selfTransition, this.params.yinTrust);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [minFrequency=61.735] minimum detected frequency
-   * @param {number} [numberBinsPerSemitone=5] number of bins per semitone
-   * @param {number} [selfTransition=0.99] the self transition probabilities
-   * @param {number} [yinTrust=0.5] the yin trust parameter
+   * @param {paramTypes.ParamsPitchYinProbabilitiesHMM} [params]
    * @memberof PitchYinProbabilitiesHMM
   */
-  configure(minFrequency: number=61.735, numberBinsPerSemitone: number=5, selfTransition: number=0.99, yinTrust: number=0.5) {
-    this.algoInstance.configure(minFrequency, numberBinsPerSemitone, selfTransition, yinTrust);
+  configure(params: paramTypes.ParamsPitchYinProbabilitiesHMM) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.minFrequency, this.params.numberBinsPerSemitone, this.params.selfTransition, this.params.yinTrust);
   }
   /**
    * Execute algorithm with given inputs
@@ -6845,6 +7695,9 @@ class PitchYinProbabilitiesHMM {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPitchYinProbabilitiesHMM) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6853,22 +7706,28 @@ class PitchYinProbabilitiesHMM {
 */
 class PowerMean {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPowerMean = {
+    power: 1,
+  };
+  private params: paramTypes.ParamsPowerMean = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [power=1] the power to which to elevate each element before taking the mean
+   * @param {paramTypes.ParamsPowerMean} [params]
   */
-  constructor(power: number=1) {
-    this.algoInstance = new wasmBackend.PowerMean(power);
+  constructor(params: paramTypes.ParamsPowerMean) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PowerMean(this.params.power);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [power=1] the power to which to elevate each element before taking the mean
+   * @param {paramTypes.ParamsPowerMean} [params]
    * @memberof PowerMean
   */
-  configure(power: number=1) {
-    this.algoInstance.configure(power);
+  configure(params: paramTypes.ParamsPowerMean) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.power);
   }
   /**
    * Execute algorithm with given inputs
@@ -6888,6 +7747,9 @@ class PowerMean {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPowerMean) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6896,22 +7758,28 @@ class PowerMean {
 */
 class PowerSpectrum {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPowerSpectrum = {
+    size: 2048,
+  };
+  private params: paramTypes.ParamsPowerSpectrum = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [size=2048] the expected size of the input frame (this is purely optional and only targeted at optimizing the creation time of the FFT object)
+   * @param {paramTypes.ParamsPowerSpectrum} [params]
   */
-  constructor(size: number=2048) {
-    this.algoInstance = new wasmBackend.PowerSpectrum(size);
+  constructor(params: paramTypes.ParamsPowerSpectrum) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PowerSpectrum(this.params.size);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [size=2048] the expected size of the input frame (this is purely optional and only targeted at optimizing the creation time of the FFT object)
+   * @param {paramTypes.ParamsPowerSpectrum} [params]
    * @memberof PowerSpectrum
   */
-  configure(size: number=2048) {
-    this.algoInstance.configure(size);
+  configure(params: paramTypes.ParamsPowerSpectrum) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.size);
   }
   /**
    * Execute algorithm with given inputs
@@ -6931,6 +7799,9 @@ class PowerSpectrum {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPowerSpectrum) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -6939,60 +7810,47 @@ class PowerSpectrum {
 */
 class PredominantPitchMelodia {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsPredominantPitchMelodia = {
+    binResolution: 10,
+    filterIterations: 3,
+    frameSize: 2048,
+    guessUnvoiced: false,
+    harmonicWeight: 0.8,
+    hopSize: 128,
+    magnitudeCompression: 1,
+    magnitudeThreshold: 40,
+    maxFrequency: 20000,
+    minDuration: 100,
+    minFrequency: 80,
+    numberHarmonics: 20,
+    peakDistributionThreshold: 0.9,
+    peakFrameThreshold: 0.9,
+    pitchContinuity: 27.5625,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+    timeContinuity: 100,
+    voiceVibrato: false,
+    voicingTolerance: 0.2,
+  };
+  private params: paramTypes.ParamsPredominantPitchMelodia = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of iterations for the octave errors / pitch outlier filtering process
-   * @param {number} [frameSize=2048] the frame size for computing pitch salience
-   * @param {boolean} [guessUnvoiced=false] estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change during 1 ms time period) [cents]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent conversion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
-   * @param {boolean} [voiceVibrato=false] detect voice vibrato
-   * @param {number} [voicingTolerance=0.2] allowed deviation below the average contour mean salience of all contours (fraction of the standard deviation)
+   * @param {paramTypes.ParamsPredominantPitchMelodia} [params]
   */
-  constructor(binResolution: number=10, filterIterations: number=3, frameSize: number=2048, guessUnvoiced: boolean=false, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=20000, minDuration: number=100, minFrequency: number=80, numberHarmonics: number=20, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, referenceFrequency: number=55, sampleRate: number=44100, timeContinuity: number=100, voiceVibrato: boolean=false, voicingTolerance: number=0.2) {
-    this.algoInstance = new wasmBackend.PredominantPitchMelodia(binResolution, filterIterations, frameSize, guessUnvoiced, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minDuration, minFrequency, numberHarmonics, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, referenceFrequency, sampleRate, timeContinuity, voiceVibrato, voicingTolerance);
+  constructor(params: paramTypes.ParamsPredominantPitchMelodia) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.PredominantPitchMelodia(this.params.binResolution, this.params.filterIterations, this.params.frameSize, this.params.guessUnvoiced, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minDuration, this.params.minFrequency, this.params.numberHarmonics, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.referenceFrequency, this.params.sampleRate, this.params.timeContinuity, this.params.voiceVibrato, this.params.voicingTolerance);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [filterIterations=3] number of iterations for the octave errors / pitch outlier filtering process
-   * @param {number} [frameSize=2048] the frame size for computing pitch salience
-   * @param {boolean} [guessUnvoiced=false] estimate pitch for non-voiced segments by using non-salient contours when no salient ones are present in a frame
-   * @param {number} [harmonicWeight=0.8] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=128] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter for the salience function (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] spectral peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxFrequency=20000] the maximum allowed frequency for salience function peaks (ignore contours with peaks above) [Hz]
-   * @param {number} [minDuration=100] the minimum allowed contour duration [ms]
-   * @param {number} [minFrequency=80] the minimum allowed frequency for salience function peaks (ignore contours with peaks below) [Hz]
-   * @param {number} [numberHarmonics=20] number of considered harmonics
-   * @param {number} [peakDistributionThreshold=0.9] allowed deviation below the peak salience mean over all frames (fraction of the standard deviation)
-   * @param {number} [peakFrameThreshold=0.9] per-frame salience threshold factor (fraction of the highest peak salience in a frame)
-   * @param {number} [pitchContinuity=27.5625] pitch continuity cue (maximum allowed pitch change during 1 ms time period) [cents]
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent conversion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [timeContinuity=100] time continuity cue (the maximum allowed gap duration for a pitch contour) [ms]
-   * @param {boolean} [voiceVibrato=false] detect voice vibrato
-   * @param {number} [voicingTolerance=0.2] allowed deviation below the average contour mean salience of all contours (fraction of the standard deviation)
+   * @param {paramTypes.ParamsPredominantPitchMelodia} [params]
    * @memberof PredominantPitchMelodia
   */
-  configure(binResolution: number=10, filterIterations: number=3, frameSize: number=2048, guessUnvoiced: boolean=false, harmonicWeight: number=0.8, hopSize: number=128, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxFrequency: number=20000, minDuration: number=100, minFrequency: number=80, numberHarmonics: number=20, peakDistributionThreshold: number=0.9, peakFrameThreshold: number=0.9, pitchContinuity: number=27.5625, referenceFrequency: number=55, sampleRate: number=44100, timeContinuity: number=100, voiceVibrato: boolean=false, voicingTolerance: number=0.2) {
-    this.algoInstance.configure(binResolution, filterIterations, frameSize, guessUnvoiced, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxFrequency, minDuration, minFrequency, numberHarmonics, peakDistributionThreshold, peakFrameThreshold, pitchContinuity, referenceFrequency, sampleRate, timeContinuity, voiceVibrato, voicingTolerance);
+  configure(params: paramTypes.ParamsPredominantPitchMelodia) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.filterIterations, this.params.frameSize, this.params.guessUnvoiced, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.minDuration, this.params.minFrequency, this.params.numberHarmonics, this.params.peakDistributionThreshold, this.params.peakFrameThreshold, this.params.pitchContinuity, this.params.referenceFrequency, this.params.sampleRate, this.params.timeContinuity, this.params.voiceVibrato, this.params.voicingTolerance);
   }
   /**
    * Execute algorithm with given inputs
@@ -7012,6 +7870,9 @@ class PredominantPitchMelodia {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsPredominantPitchMelodia) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7025,19 +7886,26 @@ References:
 */
 class RMS {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRMS = {
+  };
+  private params: paramTypes.ParamsRMS = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsRMS} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsRMS) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.RMS();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsRMS} [params]
    * @memberof RMS
   */
-  configure() {
+  configure(params: paramTypes.ParamsRMS) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -7058,6 +7926,9 @@ class RMS {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRMS) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7066,22 +7937,28 @@ class RMS {
 */
 class RawMoments {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRawMoments = {
+    range: 22050,
+  };
+  private params: paramTypes.ParamsRawMoments = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [range=22050] the range of the input array, used for normalizing the results
+   * @param {paramTypes.ParamsRawMoments} [params]
   */
-  constructor(range: number=22050) {
-    this.algoInstance = new wasmBackend.RawMoments(range);
+  constructor(params: paramTypes.ParamsRawMoments) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.RawMoments(this.params.range);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [range=22050] the range of the input array, used for normalizing the results
+   * @param {paramTypes.ParamsRawMoments} [params]
    * @memberof RawMoments
   */
-  configure(range: number=22050) {
-    this.algoInstance.configure(range);
+  configure(params: paramTypes.ParamsRawMoments) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.range);
   }
   /**
    * Execute algorithm with given inputs
@@ -7101,6 +7978,9 @@ class RawMoments {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRawMoments) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7109,22 +7989,28 @@ class RawMoments {
 */
 class ReplayGain {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsReplayGain = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsReplayGain = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the input audio signal [Hz]
+   * @param {paramTypes.ParamsReplayGain} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.ReplayGain(sampleRate);
+  constructor(params: paramTypes.ParamsReplayGain) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ReplayGain(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the input audio signal [Hz]
+   * @param {paramTypes.ParamsReplayGain} [params]
    * @memberof ReplayGain
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsReplayGain) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7144,6 +8030,9 @@ class ReplayGain {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsReplayGain) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7152,26 +8041,30 @@ class ReplayGain {
 */
 class Resample {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsResample = {
+    inputSampleRate: 44100,
+    outputSampleRate: 44100,
+    quality: 1,
+  };
+  private params: paramTypes.ParamsResample = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [inputSampleRate=44100] the sampling rate of the input signal [Hz]
-   * @param {number} [outputSampleRate=44100] the sampling rate of the output signal [Hz]
-   * @param {number} [quality=1] the quality of the conversion, 0 for best quality, 4 for fast linear approximation
+   * @param {paramTypes.ParamsResample} [params]
   */
-  constructor(inputSampleRate: number=44100, outputSampleRate: number=44100, quality: number=1) {
-    this.algoInstance = new wasmBackend.Resample(inputSampleRate, outputSampleRate, quality);
+  constructor(params: paramTypes.ParamsResample) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Resample(this.params.inputSampleRate, this.params.outputSampleRate, this.params.quality);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [inputSampleRate=44100] the sampling rate of the input signal [Hz]
-   * @param {number} [outputSampleRate=44100] the sampling rate of the output signal [Hz]
-   * @param {number} [quality=1] the quality of the conversion, 0 for best quality, 4 for fast linear approximation
+   * @param {paramTypes.ParamsResample} [params]
    * @memberof Resample
   */
-  configure(inputSampleRate: number=44100, outputSampleRate: number=44100, quality: number=1) {
-    this.algoInstance.configure(inputSampleRate, outputSampleRate, quality);
+  configure(params: paramTypes.ParamsResample) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.inputSampleRate, this.params.outputSampleRate, this.params.quality);
   }
   /**
    * Execute algorithm with given inputs
@@ -7191,6 +8084,9 @@ class Resample {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsResample) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7199,24 +8095,29 @@ class Resample {
 */
 class ResampleFFT {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsResampleFFT = {
+    inSize: 128,
+    outSize: 128,
+  };
+  private params: paramTypes.ParamsResampleFFT = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [inSize=128] the size of the input sequence. It needs to be even-sized.
-   * @param {number} [outSize=128] the size of the output sequence. It needs to be even-sized.
+   * @param {paramTypes.ParamsResampleFFT} [params]
   */
-  constructor(inSize: number=128, outSize: number=128) {
-    this.algoInstance = new wasmBackend.ResampleFFT(inSize, outSize);
+  constructor(params: paramTypes.ParamsResampleFFT) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ResampleFFT(this.params.inSize, this.params.outSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [inSize=128] the size of the input sequence. It needs to be even-sized.
-   * @param {number} [outSize=128] the size of the output sequence. It needs to be even-sized.
+   * @param {paramTypes.ParamsResampleFFT} [params]
    * @memberof ResampleFFT
   */
-  configure(inSize: number=128, outSize: number=128) {
-    this.algoInstance.configure(inSize, outSize);
+  configure(params: paramTypes.ParamsResampleFFT) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.inSize, this.params.outSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -7236,6 +8137,9 @@ class ResampleFFT {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsResampleFFT) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7244,19 +8148,26 @@ class ResampleFFT {
 */
 class RhythmDescriptors {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRhythmDescriptors = {
+  };
+  private params: paramTypes.ParamsRhythmDescriptors = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsRhythmDescriptors} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsRhythmDescriptors) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.RhythmDescriptors();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsRhythmDescriptors} [params]
    * @memberof RhythmDescriptors
   */
-  configure() {
+  configure(params: paramTypes.ParamsRhythmDescriptors) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -7277,6 +8188,9 @@ class RhythmDescriptors {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRhythmDescriptors) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7288,46 +8202,39 @@ class RhythmDescriptors {
 */
 class RhythmExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRhythmExtractor = {
+    frameHop: 1024,
+    frameSize: 1024,
+    hopSize: 256,
+    lastBeatInterval: 0.1,
+    maxTempo: 208,
+    minTempo: 40,
+    numberFrames: 1024,
+    sampleRate: 44100,
+    tempoHints: [],
+    tolerance: 0.24,
+    useBands: true,
+    useOnset: true,
+  };
+  private params: paramTypes.ParamsRhythmExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameHop=1024] the number of feature frames separating two evaluations
-   * @param {number} [frameSize=1024] the number audio samples used to compute a feature
-   * @param {number} [hopSize=256] the number of audio samples per features
-   * @param {number} [lastBeatInterval=0.1] the minimum interval between last beat and end of file [s]
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
-   * @param {number} [numberFrames=1024] the number of feature frames to buffer on
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {any[]} [tempoHints=[]] the optional list of initial beat locations, to favor the detection of pre-determined tempo period and beats alignment [s]
-   * @param {number} [tolerance=0.24] the minimum interval between two consecutive beats [s]
-   * @param {boolean} [useBands=true] whether or not to use band energy as periodicity function
-   * @param {boolean} [useOnset=true] whether or not to use onsets as periodicity function
+   * @param {paramTypes.ParamsRhythmExtractor} [params]
   */
-  constructor(frameHop: number=1024, frameSize: number=1024, hopSize: number=256, lastBeatInterval: number=0.1, maxTempo: number=208, minTempo: number=40, numberFrames: number=1024, sampleRate: number=44100, tempoHints: any[]=[], tolerance: number=0.24, useBands: boolean=true, useOnset: boolean=true) {
-    let vectempoHints = arrayToVector(tempoHints);
-    this.algoInstance = new wasmBackend.RhythmExtractor(frameHop, frameSize, hopSize, lastBeatInterval, maxTempo, minTempo, numberFrames, sampleRate, vectempoHints, tolerance, useBands, useOnset);
+  constructor(params: paramTypes.ParamsRhythmExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.RhythmExtractor(this.params.frameHop, this.params.frameSize, this.params.hopSize, this.params.lastBeatInterval, this.params.maxTempo, this.params.minTempo, this.params.numberFrames, this.params.sampleRate, this.params.tempoHints, this.params.tolerance, this.params.useBands, this.params.useOnset);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameHop=1024] the number of feature frames separating two evaluations
-   * @param {number} [frameSize=1024] the number audio samples used to compute a feature
-   * @param {number} [hopSize=256] the number of audio samples per features
-   * @param {number} [lastBeatInterval=0.1] the minimum interval between last beat and end of file [s]
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
-   * @param {number} [numberFrames=1024] the number of feature frames to buffer on
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {any[]} [tempoHints=[]] the optional list of initial beat locations, to favor the detection of pre-determined tempo period and beats alignment [s]
-   * @param {number} [tolerance=0.24] the minimum interval between two consecutive beats [s]
-   * @param {boolean} [useBands=true] whether or not to use band energy as periodicity function
-   * @param {boolean} [useOnset=true] whether or not to use onsets as periodicity function
+   * @param {paramTypes.ParamsRhythmExtractor} [params]
    * @memberof RhythmExtractor
   */
-  configure(frameHop: number=1024, frameSize: number=1024, hopSize: number=256, lastBeatInterval: number=0.1, maxTempo: number=208, minTempo: number=40, numberFrames: number=1024, sampleRate: number=44100, tempoHints: any[]=[], tolerance: number=0.24, useBands: boolean=true, useOnset: boolean=true) {
-    let vectempoHints = arrayToVector(tempoHints);
-    this.algoInstance.configure(frameHop, frameSize, hopSize, lastBeatInterval, maxTempo, minTempo, numberFrames, sampleRate, vectempoHints, tolerance, useBands, useOnset);
+  configure(params: paramTypes.ParamsRhythmExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameHop, this.params.frameSize, this.params.hopSize, this.params.lastBeatInterval, this.params.maxTempo, this.params.minTempo, this.params.numberFrames, this.params.sampleRate, this.params.tempoHints, this.params.tolerance, this.params.useBands, this.params.useOnset);
   }
   /**
    * Execute algorithm with given inputs
@@ -7347,6 +8254,12 @@ class RhythmExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRhythmExtractor) {
+    if (params.tempoHints) {
+      params.tempoHints = arrayToVector(params.tempoHints);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7357,26 +8270,30 @@ class RhythmExtractor {
 */
 class RhythmExtractor2013 {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRhythmExtractor2013 = {
+    maxTempo: 208,
+    method: 'multifeature',
+    minTempo: 40,
+  };
+  private params: paramTypes.ParamsRhythmExtractor2013 = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {string} [method=multifeature] the method used for beat tracking
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
+   * @param {paramTypes.ParamsRhythmExtractor2013} [params]
   */
-  constructor(maxTempo: number=208, method: string='multifeature', minTempo: number=40) {
-    this.algoInstance = new wasmBackend.RhythmExtractor2013(maxTempo, method, minTempo);
+  constructor(params: paramTypes.ParamsRhythmExtractor2013) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.RhythmExtractor2013(this.params.maxTempo, this.params.method, this.params.minTempo);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxTempo=208] the fastest tempo to detect [bpm]
-   * @param {string} [method=multifeature] the method used for beat tracking
-   * @param {number} [minTempo=40] the slowest tempo to detect [bpm]
+   * @param {paramTypes.ParamsRhythmExtractor2013} [params]
    * @memberof RhythmExtractor2013
   */
-  configure(maxTempo: number=208, method: string='multifeature', minTempo: number=40) {
-    this.algoInstance.configure(maxTempo, method, minTempo);
+  configure(params: paramTypes.ParamsRhythmExtractor2013) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxTempo, this.params.method, this.params.minTempo);
   }
   /**
    * Execute algorithm with given inputs
@@ -7396,6 +8313,9 @@ class RhythmExtractor2013 {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRhythmExtractor2013) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7404,24 +8324,29 @@ class RhythmExtractor2013 {
 */
 class RhythmTransform {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRhythmTransform = {
+    frameSize: 256,
+    hopSize: 32,
+  };
+  private params: paramTypes.ParamsRhythmTransform = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=256] the frame size to compute the rhythm trasform
-   * @param {number} [hopSize=32] the hop size to compute the rhythm transform
+   * @param {paramTypes.ParamsRhythmTransform} [params]
   */
-  constructor(frameSize: number=256, hopSize: number=32) {
-    this.algoInstance = new wasmBackend.RhythmTransform(frameSize, hopSize);
+  constructor(params: paramTypes.ParamsRhythmTransform) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.RhythmTransform(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=256] the frame size to compute the rhythm trasform
-   * @param {number} [hopSize=32] the hop size to compute the rhythm transform
+   * @param {paramTypes.ParamsRhythmTransform} [params]
    * @memberof RhythmTransform
   */
-  configure(frameSize: number=256, hopSize: number=32) {
-    this.algoInstance.configure(frameSize, hopSize);
+  configure(params: paramTypes.ParamsRhythmTransform) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -7441,6 +8366,9 @@ class RhythmTransform {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRhythmTransform) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7449,24 +8377,29 @@ class RhythmTransform {
 */
 class RollOff {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsRollOff = {
+    cutoff: 0.85,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsRollOff = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [cutoff=0.85] the ratio of total energy to attain before yielding the roll-off frequency
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (used to normalize rollOff) [Hz]
+   * @param {paramTypes.ParamsRollOff} [params]
   */
-  constructor(cutoff: number=0.85, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.RollOff(cutoff, sampleRate);
+  constructor(params: paramTypes.ParamsRollOff) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.RollOff(this.params.cutoff, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [cutoff=0.85] the ratio of total energy to attain before yielding the roll-off frequency
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal (used to normalize rollOff) [Hz]
+   * @param {paramTypes.ParamsRollOff} [params]
    * @memberof RollOff
   */
-  configure(cutoff: number=0.85, sampleRate: number=44100) {
-    this.algoInstance.configure(cutoff, sampleRate);
+  configure(params: paramTypes.ParamsRollOff) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.cutoff, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7486,6 +8419,9 @@ class RollOff {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsRollOff) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7494,34 +8430,34 @@ class RollOff {
 */
 class SNR {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSNR = {
+    MAAlpha: 0.95,
+    MMSEAlpha: 0.98,
+    NoiseAlpha: 0.9,
+    frameSize: 512,
+    noiseThreshold: -40,
+    sampleRate: 44100,
+    useBroadbadNoiseCorrection: true,
+  };
+  private params: paramTypes.ParamsSNR = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [MAAlpha=0.95] Alpha coefficient for the EMA SNR estimation [2]
-   * @param {number} [MMSEAlpha=0.98] Alpha coefficient for the MMSE estimation [1].
-   * @param {number} [NoiseAlpha=0.9] Alpha coefficient for the EMA noise estimation [2]
-   * @param {number} [frameSize=512] the size of the input frame
-   * @param {number} [noiseThreshold=-40] Threshold to detect frames without signal
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {boolean} [useBroadbadNoiseCorrection=true] flag to apply the -10 * log10(BW) broadband noise correction factor
+   * @param {paramTypes.ParamsSNR} [params]
   */
-  constructor(MAAlpha: number=0.95, MMSEAlpha: number=0.98, NoiseAlpha: number=0.9, frameSize: number=512, noiseThreshold: number=-40, sampleRate: number=44100, useBroadbadNoiseCorrection: boolean=true) {
-    this.algoInstance = new wasmBackend.SNR(MAAlpha, MMSEAlpha, NoiseAlpha, frameSize, noiseThreshold, sampleRate, useBroadbadNoiseCorrection);
+  constructor(params: paramTypes.ParamsSNR) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SNR(this.params.MAAlpha, this.params.MMSEAlpha, this.params.NoiseAlpha, this.params.frameSize, this.params.noiseThreshold, this.params.sampleRate, this.params.useBroadbadNoiseCorrection);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [MAAlpha=0.95] Alpha coefficient for the EMA SNR estimation [2]
-   * @param {number} [MMSEAlpha=0.98] Alpha coefficient for the MMSE estimation [1].
-   * @param {number} [NoiseAlpha=0.9] Alpha coefficient for the EMA noise estimation [2]
-   * @param {number} [frameSize=512] the size of the input frame
-   * @param {number} [noiseThreshold=-40] Threshold to detect frames without signal
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {boolean} [useBroadbadNoiseCorrection=true] flag to apply the -10 * log10(BW) broadband noise correction factor
+   * @param {paramTypes.ParamsSNR} [params]
    * @memberof SNR
   */
-  configure(MAAlpha: number=0.95, MMSEAlpha: number=0.98, NoiseAlpha: number=0.9, frameSize: number=512, noiseThreshold: number=-40, sampleRate: number=44100, useBroadbadNoiseCorrection: boolean=true) {
-    this.algoInstance.configure(MAAlpha, MMSEAlpha, NoiseAlpha, frameSize, noiseThreshold, sampleRate, useBroadbadNoiseCorrection);
+  configure(params: paramTypes.ParamsSNR) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.MAAlpha, this.params.MMSEAlpha, this.params.NoiseAlpha, this.params.frameSize, this.params.noiseThreshold, this.params.sampleRate, this.params.useBroadbadNoiseCorrection);
   }
   /**
    * Execute algorithm with given inputs
@@ -7541,6 +8477,9 @@ class SNR {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSNR) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7552,32 +8491,33 @@ class SNR {
 */
 class SaturationDetector {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSaturationDetector = {
+    differentialThreshold: 0.001,
+    energyThreshold: -1,
+    frameSize: 512,
+    hopSize: 256,
+    minimumDuration: 0.005,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSaturationDetector = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [differentialThreshold=0.001] minimum difference between contiguous samples of the salturated regions
-   * @param {number} [energyThreshold=-1] mininimum energy of the samples in the saturated regions [dB]
-   * @param {number} [frameSize=512] expected input frame size
-   * @param {number} [hopSize=256] hop size used for the analysis
-   * @param {number} [minimumDuration=0.005] minimum duration of the saturated regions [ms]
-   * @param {number} [sampleRate=44100] sample rate used for the analysis
+   * @param {paramTypes.ParamsSaturationDetector} [params]
   */
-  constructor(differentialThreshold: number=0.001, energyThreshold: number=-1, frameSize: number=512, hopSize: number=256, minimumDuration: number=0.005, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SaturationDetector(differentialThreshold, energyThreshold, frameSize, hopSize, minimumDuration, sampleRate);
+  constructor(params: paramTypes.ParamsSaturationDetector) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SaturationDetector(this.params.differentialThreshold, this.params.energyThreshold, this.params.frameSize, this.params.hopSize, this.params.minimumDuration, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [differentialThreshold=0.001] minimum difference between contiguous samples of the salturated regions
-   * @param {number} [energyThreshold=-1] mininimum energy of the samples in the saturated regions [dB]
-   * @param {number} [frameSize=512] expected input frame size
-   * @param {number} [hopSize=256] hop size used for the analysis
-   * @param {number} [minimumDuration=0.005] minimum duration of the saturated regions [ms]
-   * @param {number} [sampleRate=44100] sample rate used for the analysis
+   * @param {paramTypes.ParamsSaturationDetector} [params]
    * @memberof SaturationDetector
   */
-  configure(differentialThreshold: number=0.001, energyThreshold: number=-1, frameSize: number=512, hopSize: number=256, minimumDuration: number=0.005, sampleRate: number=44100) {
-    this.algoInstance.configure(differentialThreshold, energyThreshold, frameSize, hopSize, minimumDuration, sampleRate);
+  configure(params: paramTypes.ParamsSaturationDetector) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.differentialThreshold, this.params.energyThreshold, this.params.frameSize, this.params.hopSize, this.params.minimumDuration, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7597,6 +8537,9 @@ class SaturationDetector {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSaturationDetector) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7605,26 +8548,30 @@ class SaturationDetector {
 */
 class Scale {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsScale = {
+    clipping: true,
+    factor: 10,
+    maxAbsValue: 1,
+  };
+  private params: paramTypes.ParamsScale = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [clipping=true] boolean flag whether to apply clipping or not
-   * @param {number} [factor=10] the multiplication factor by which the audio will be scaled
-   * @param {number} [maxAbsValue=1] the maximum value above which to apply clipping
+   * @param {paramTypes.ParamsScale} [params]
   */
-  constructor(clipping: boolean=true, factor: number=10, maxAbsValue: number=1) {
-    this.algoInstance = new wasmBackend.Scale(clipping, factor, maxAbsValue);
+  constructor(params: paramTypes.ParamsScale) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Scale(this.params.clipping, this.params.factor, this.params.maxAbsValue);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [clipping=true] boolean flag whether to apply clipping or not
-   * @param {number} [factor=10] the multiplication factor by which the audio will be scaled
-   * @param {number} [maxAbsValue=1] the maximum value above which to apply clipping
+   * @param {paramTypes.ParamsScale} [params]
    * @memberof Scale
   */
-  configure(clipping: boolean=true, factor: number=10, maxAbsValue: number=1) {
-    this.algoInstance.configure(clipping, factor, maxAbsValue);
+  configure(params: paramTypes.ParamsScale) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.clipping, this.params.factor, this.params.maxAbsValue);
   }
   /**
    * Execute algorithm with given inputs
@@ -7644,6 +8591,9 @@ class Scale {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsScale) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7652,26 +8602,30 @@ class Scale {
 */
 class SineSubtraction {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSineSubtraction = {
+    fftSize: 512,
+    hopSize: 128,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSineSubtraction = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=512] the size of the FFT internal process (full spectrum size) and output frame. Minimum twice the hopsize.
-   * @param {number} [hopSize=128] the hop size between frames
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSineSubtraction} [params]
   */
-  constructor(fftSize: number=512, hopSize: number=128, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SineSubtraction(fftSize, hopSize, sampleRate);
+  constructor(params: paramTypes.ParamsSineSubtraction) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SineSubtraction(this.params.fftSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=512] the size of the FFT internal process (full spectrum size) and output frame. Minimum twice the hopsize.
-   * @param {number} [hopSize=128] the hop size between frames
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSineSubtraction} [params]
    * @memberof SineSubtraction
   */
-  configure(fftSize: number=512, hopSize: number=128, sampleRate: number=44100) {
-    this.algoInstance.configure(fftSize, hopSize, sampleRate);
+  configure(params: paramTypes.ParamsSineSubtraction) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7694,6 +8648,9 @@ class SineSubtraction {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSineSubtraction) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7702,32 +8659,32 @@ class SineSubtraction {
 */
 class SingleBeatLoudness {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSingleBeatLoudness = {
+    beatDuration: 0.05,
+    beatWindowDuration: 0.1,
+    frequencyBands: [0, 200, 400, 800, 1600, 3200, 22000],
+    onsetStart: 'sumEnergy',
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSingleBeatLoudness = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [beatDuration=0.05] window size for the beat's energy computation (the window starts at the onset) [s]
-   * @param {number} [beatWindowDuration=0.1] window size for the beat's onset detection [s]
-   * @param {any[]} [frequencyBands=[0, 200, 400, 800, 1600, 3200, 22000]] frequency bands
-   * @param {string} [onsetStart=sumEnergy] criteria for finding the start of the beat
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSingleBeatLoudness} [params]
   */
-  constructor(beatDuration: number=0.05, beatWindowDuration: number=0.1, frequencyBands: any[]=[0, 200, 400, 800, 1600, 3200, 22000], onsetStart: string='sumEnergy', sampleRate: number=44100) {
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance = new wasmBackend.SingleBeatLoudness(beatDuration, beatWindowDuration, vecfrequencyBands, onsetStart, sampleRate);
+  constructor(params: paramTypes.ParamsSingleBeatLoudness) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SingleBeatLoudness(this.params.beatDuration, this.params.beatWindowDuration, this.params.frequencyBands, this.params.onsetStart, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [beatDuration=0.05] window size for the beat's energy computation (the window starts at the onset) [s]
-   * @param {number} [beatWindowDuration=0.1] window size for the beat's onset detection [s]
-   * @param {any[]} [frequencyBands=[0, 200, 400, 800, 1600, 3200, 22000]] frequency bands
-   * @param {string} [onsetStart=sumEnergy] criteria for finding the start of the beat
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSingleBeatLoudness} [params]
    * @memberof SingleBeatLoudness
   */
-  configure(beatDuration: number=0.05, beatWindowDuration: number=0.1, frequencyBands: any[]=[0, 200, 400, 800, 1600, 3200, 22000], onsetStart: string='sumEnergy', sampleRate: number=44100) {
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance.configure(beatDuration, beatWindowDuration, vecfrequencyBands, onsetStart, sampleRate);
+  configure(params: paramTypes.ParamsSingleBeatLoudness) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.beatDuration, this.params.beatWindowDuration, this.params.frequencyBands, this.params.onsetStart, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7747,6 +8704,12 @@ class SingleBeatLoudness {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSingleBeatLoudness) {
+    if (params.frequencyBands) {
+      params.frequencyBands = arrayToVector(params.frequencyBands);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7755,32 +8718,31 @@ class SingleBeatLoudness {
 */
 class Slicer {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSlicer = {
+    endTimes: [],
+    sampleRate: 44100,
+    startTimes: [],
+    timeUnits: 'seconds',
+  };
+  private params: paramTypes.ParamsSlicer = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [endTimes=[]] the list of end times for the slices you want to extract
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {any[]} [startTimes=[]] the list of start times for the slices you want to extract
-   * @param {string} [timeUnits=seconds] the units of time of the start and end times
+   * @param {paramTypes.ParamsSlicer} [params]
   */
-  constructor(endTimes: any[]=[], sampleRate: number=44100, startTimes: any[]=[], timeUnits: string='seconds') {
-    let vecendTimes = arrayToVector(endTimes);
-    let vecstartTimes = arrayToVector(startTimes);
-    this.algoInstance = new wasmBackend.Slicer(vecendTimes, sampleRate, vecstartTimes, timeUnits);
+  constructor(params: paramTypes.ParamsSlicer) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Slicer(this.params.endTimes, this.params.sampleRate, this.params.startTimes, this.params.timeUnits);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [endTimes=[]] the list of end times for the slices you want to extract
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {any[]} [startTimes=[]] the list of start times for the slices you want to extract
-   * @param {string} [timeUnits=seconds] the units of time of the start and end times
+   * @param {paramTypes.ParamsSlicer} [params]
    * @memberof Slicer
   */
-  configure(endTimes: any[]=[], sampleRate: number=44100, startTimes: any[]=[], timeUnits: string='seconds') {
-    let vecendTimes = arrayToVector(endTimes);
-    let vecstartTimes = arrayToVector(startTimes);
-    this.algoInstance.configure(vecendTimes, sampleRate, vecstartTimes, timeUnits);
+  configure(params: paramTypes.ParamsSlicer) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.endTimes, this.params.sampleRate, this.params.startTimes, this.params.timeUnits);
   }
   /**
    * Execute algorithm with given inputs
@@ -7800,6 +8762,15 @@ class Slicer {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSlicer) {
+    if (params.endTimes) {
+      params.endTimes = arrayToVector(params.endTimes);
+    }
+    if (params.startTimes) {
+      params.startTimes = arrayToVector(params.startTimes);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7811,22 +8782,28 @@ References:
 */
 class SpectralCentroidTime {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectralCentroidTime = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSpectralCentroidTime = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] sampling rate of the input spectrum [Hz]
+   * @param {paramTypes.ParamsSpectralCentroidTime} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SpectralCentroidTime(sampleRate);
+  constructor(params: paramTypes.ParamsSpectralCentroidTime) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectralCentroidTime(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] sampling rate of the input spectrum [Hz]
+   * @param {paramTypes.ParamsSpectralCentroidTime} [params]
    * @memberof SpectralCentroidTime
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsSpectralCentroidTime) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7846,6 +8823,9 @@ class SpectralCentroidTime {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectralCentroidTime) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7854,24 +8834,29 @@ class SpectralCentroidTime {
 */
 class SpectralComplexity {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectralComplexity = {
+    magnitudeThreshold: 0.005,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSpectralComplexity = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [magnitudeThreshold=0.005] the minimum spectral-peak magnitude that contributes to spectral complexity
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSpectralComplexity} [params]
   */
-  constructor(magnitudeThreshold: number=0.005, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SpectralComplexity(magnitudeThreshold, sampleRate);
+  constructor(params: paramTypes.ParamsSpectralComplexity) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectralComplexity(this.params.magnitudeThreshold, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [magnitudeThreshold=0.005] the minimum spectral-peak magnitude that contributes to spectral complexity
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSpectralComplexity} [params]
    * @memberof SpectralComplexity
   */
-  configure(magnitudeThreshold: number=0.005, sampleRate: number=44100) {
-    this.algoInstance.configure(magnitudeThreshold, sampleRate);
+  configure(params: paramTypes.ParamsSpectralComplexity) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.magnitudeThreshold, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7891,6 +8876,9 @@ class SpectralComplexity {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectralComplexity) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7899,34 +8887,34 @@ class SpectralComplexity {
 */
 class SpectralContrast {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectralContrast = {
+    frameSize: 2048,
+    highFrequencyBound: 11000,
+    lowFrequencyBound: 20,
+    neighbourRatio: 0.4,
+    numberBands: 6,
+    sampleRate: 22050,
+    staticDistribution: 0.15,
+  };
+  private params: paramTypes.ParamsSpectralContrast = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=2048] the size of the fft frames
-   * @param {number} [highFrequencyBound=11000] the upper bound of the highest band
-   * @param {number} [lowFrequencyBound=20] the lower bound of the lowest band
-   * @param {number} [neighbourRatio=0.4] the ratio of the bins in the sub band used to calculate the peak and valley
-   * @param {number} [numberBands=6] the number of bands in the filter
-   * @param {number} [sampleRate=22050] the sampling rate of the audio signal
-   * @param {number} [staticDistribution=0.15] the ratio of the bins to distribute equally
+   * @param {paramTypes.ParamsSpectralContrast} [params]
   */
-  constructor(frameSize: number=2048, highFrequencyBound: number=11000, lowFrequencyBound: number=20, neighbourRatio: number=0.4, numberBands: number=6, sampleRate: number=22050, staticDistribution: number=0.15) {
-    this.algoInstance = new wasmBackend.SpectralContrast(frameSize, highFrequencyBound, lowFrequencyBound, neighbourRatio, numberBands, sampleRate, staticDistribution);
+  constructor(params: paramTypes.ParamsSpectralContrast) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectralContrast(this.params.frameSize, this.params.highFrequencyBound, this.params.lowFrequencyBound, this.params.neighbourRatio, this.params.numberBands, this.params.sampleRate, this.params.staticDistribution);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=2048] the size of the fft frames
-   * @param {number} [highFrequencyBound=11000] the upper bound of the highest band
-   * @param {number} [lowFrequencyBound=20] the lower bound of the lowest band
-   * @param {number} [neighbourRatio=0.4] the ratio of the bins in the sub band used to calculate the peak and valley
-   * @param {number} [numberBands=6] the number of bands in the filter
-   * @param {number} [sampleRate=22050] the sampling rate of the audio signal
-   * @param {number} [staticDistribution=0.15] the ratio of the bins to distribute equally
+   * @param {paramTypes.ParamsSpectralContrast} [params]
    * @memberof SpectralContrast
   */
-  configure(frameSize: number=2048, highFrequencyBound: number=11000, lowFrequencyBound: number=20, neighbourRatio: number=0.4, numberBands: number=6, sampleRate: number=22050, staticDistribution: number=0.15) {
-    this.algoInstance.configure(frameSize, highFrequencyBound, lowFrequencyBound, neighbourRatio, numberBands, sampleRate, staticDistribution);
+  configure(params: paramTypes.ParamsSpectralContrast) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.highFrequencyBound, this.params.lowFrequencyBound, this.params.neighbourRatio, this.params.numberBands, this.params.sampleRate, this.params.staticDistribution);
   }
   /**
    * Execute algorithm with given inputs
@@ -7946,6 +8934,9 @@ class SpectralContrast {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectralContrast) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -7954,32 +8945,33 @@ class SpectralContrast {
 */
 class SpectralPeaks {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectralPeaks = {
+    magnitudeThreshold: 0,
+    maxFrequency: 5000,
+    maxPeaks: 100,
+    minFrequency: 0,
+    orderBy: 'frequency',
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSpectralPeaks = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [minFrequency=0] the minimum frequency of the range to evaluate [Hz]
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsSpectralPeaks} [params]
   */
-  constructor(magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, minFrequency: number=0, orderBy: string='frequency', sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SpectralPeaks(magnitudeThreshold, maxFrequency, maxPeaks, minFrequency, orderBy, sampleRate);
+  constructor(params: paramTypes.ParamsSpectralPeaks) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectralPeaks(this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.minFrequency, this.params.orderBy, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [minFrequency=0] the minimum frequency of the range to evaluate [Hz]
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsSpectralPeaks} [params]
    * @memberof SpectralPeaks
   */
-  configure(magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, minFrequency: number=0, orderBy: string='frequency', sampleRate: number=44100) {
-    this.algoInstance.configure(magnitudeThreshold, maxFrequency, maxPeaks, minFrequency, orderBy, sampleRate);
+  configure(params: paramTypes.ParamsSpectralPeaks) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.minFrequency, this.params.orderBy, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -7999,6 +8991,9 @@ class SpectralPeaks {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectralPeaks) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8007,24 +9002,29 @@ class SpectralPeaks {
 */
 class SpectralWhitening {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectralWhitening = {
+    maxFrequency: 5000,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSpectralWhitening = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxFrequency=5000] max frequency to apply whitening to [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsSpectralWhitening} [params]
   */
-  constructor(maxFrequency: number=5000, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SpectralWhitening(maxFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsSpectralWhitening) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectralWhitening(this.params.maxFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxFrequency=5000] max frequency to apply whitening to [Hz]
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsSpectralWhitening} [params]
    * @memberof SpectralWhitening
   */
-  configure(maxFrequency: number=5000, sampleRate: number=44100) {
-    this.algoInstance.configure(maxFrequency, sampleRate);
+  configure(params: paramTypes.ParamsSpectralWhitening) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -8046,6 +9046,9 @@ class SpectralWhitening {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectralWhitening) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8054,22 +9057,28 @@ class SpectralWhitening {
 */
 class Spectrum {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectrum = {
+    size: 2048,
+  };
+  private params: paramTypes.ParamsSpectrum = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [size=2048] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
+   * @param {paramTypes.ParamsSpectrum} [params]
   */
-  constructor(size: number=2048) {
-    this.algoInstance = new wasmBackend.Spectrum(size);
+  constructor(params: paramTypes.ParamsSpectrum) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Spectrum(this.params.size);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [size=2048] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
+   * @param {paramTypes.ParamsSpectrum} [params]
    * @memberof Spectrum
   */
-  configure(size: number=2048) {
-    this.algoInstance.configure(size);
+  configure(params: paramTypes.ParamsSpectrum) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.size);
   }
   /**
    * Execute algorithm with given inputs
@@ -8089,6 +9098,9 @@ class Spectrum {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectrum) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8098,38 +9110,36 @@ class Spectrum {
 */
 class SpectrumCQ {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectrumCQ = {
+    binsPerOctave: 12,
+    minFrequency: 32.7,
+    minimumKernelSize: 4,
+    numberBins: 84,
+    sampleRate: 44100,
+    scale: 1,
+    threshold: 0.01,
+    windowType: 'hann',
+    zeroPhase: true,
+  };
+  private params: paramTypes.ParamsSpectrumCQ = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binsPerOctave=12] number of bins per octave
-   * @param {number} [minFrequency=32.7] minimum frequency [Hz]
-   * @param {number} [minimumKernelSize=4] minimum size allowed for frequency kernels
-   * @param {number} [numberBins=84] number of frequency bins, starting at minFrequency
-   * @param {number} [sampleRate=44100] FFT sampling rate [Hz]
-   * @param {number} [scale=1] filters scale. Larger values use longer windows
-   * @param {number} [threshold=0.01] bins whose magnitude is below this quantile are discarded
-   * @param {string} [windowType=hann] the window type
-   * @param {boolean} [zeroPhase=true] a boolean value that enables zero-phase windowing. Input audio frames should be windowed with the same phase mode
+   * @param {paramTypes.ParamsSpectrumCQ} [params]
   */
-  constructor(binsPerOctave: number=12, minFrequency: number=32.7, minimumKernelSize: number=4, numberBins: number=84, sampleRate: number=44100, scale: number=1, threshold: number=0.01, windowType: string='hann', zeroPhase: boolean=true) {
-    this.algoInstance = new wasmBackend.SpectrumCQ(binsPerOctave, minFrequency, minimumKernelSize, numberBins, sampleRate, scale, threshold, windowType, zeroPhase);
+  constructor(params: paramTypes.ParamsSpectrumCQ) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectrumCQ(this.params.binsPerOctave, this.params.minFrequency, this.params.minimumKernelSize, this.params.numberBins, this.params.sampleRate, this.params.scale, this.params.threshold, this.params.windowType, this.params.zeroPhase);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binsPerOctave=12] number of bins per octave
-   * @param {number} [minFrequency=32.7] minimum frequency [Hz]
-   * @param {number} [minimumKernelSize=4] minimum size allowed for frequency kernels
-   * @param {number} [numberBins=84] number of frequency bins, starting at minFrequency
-   * @param {number} [sampleRate=44100] FFT sampling rate [Hz]
-   * @param {number} [scale=1] filters scale. Larger values use longer windows
-   * @param {number} [threshold=0.01] bins whose magnitude is below this quantile are discarded
-   * @param {string} [windowType=hann] the window type
-   * @param {boolean} [zeroPhase=true] a boolean value that enables zero-phase windowing. Input audio frames should be windowed with the same phase mode
+   * @param {paramTypes.ParamsSpectrumCQ} [params]
    * @memberof SpectrumCQ
   */
-  configure(binsPerOctave: number=12, minFrequency: number=32.7, minimumKernelSize: number=4, numberBins: number=84, sampleRate: number=44100, scale: number=1, threshold: number=0.01, windowType: string='hann', zeroPhase: boolean=true) {
-    this.algoInstance.configure(binsPerOctave, minFrequency, minimumKernelSize, numberBins, sampleRate, scale, threshold, windowType, zeroPhase);
+  configure(params: paramTypes.ParamsSpectrumCQ) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binsPerOctave, this.params.minFrequency, this.params.minimumKernelSize, this.params.numberBins, this.params.sampleRate, this.params.scale, this.params.threshold, this.params.windowType, this.params.zeroPhase);
   }
   /**
    * Execute algorithm with given inputs
@@ -8149,6 +9159,9 @@ class SpectrumCQ {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectrumCQ) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8157,36 +9170,35 @@ class SpectrumCQ {
 */
 class SpectrumToCent {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpectrumToCent = {
+    bands: 720,
+    centBinResolution: 10,
+    inputSize: 32768,
+    log: true,
+    minimumFrequency: 164,
+    normalize: 'unit_sum',
+    sampleRate: 44100,
+    type: 'power',
+  };
+  private params: paramTypes.ParamsSpectrumToCent = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [bands=720] number of bins to compute. Default is 720 (6 octaves with the default 'centBinResolution')
-   * @param {number} [centBinResolution=10] Width of each band in cents. Default is 10 cents
-   * @param {number} [inputSize=32768] the size of the spectrum
-   * @param {boolean} [log=true] compute log-energies (log2 (1 + energy))
-   * @param {number} [minimumFrequency=164] central frequency of the first band of the bank [Hz]
-   * @param {string} [normalize=unit_sum] use unit area or vertex equal to 1 triangles.
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
+   * @param {paramTypes.ParamsSpectrumToCent} [params]
   */
-  constructor(bands: number=720, centBinResolution: number=10, inputSize: number=32768, log: boolean=true, minimumFrequency: number=164, normalize: string='unit_sum', sampleRate: number=44100, type: string='power') {
-    this.algoInstance = new wasmBackend.SpectrumToCent(bands, centBinResolution, inputSize, log, minimumFrequency, normalize, sampleRate, type);
+  constructor(params: paramTypes.ParamsSpectrumToCent) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpectrumToCent(this.params.bands, this.params.centBinResolution, this.params.inputSize, this.params.log, this.params.minimumFrequency, this.params.normalize, this.params.sampleRate, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [bands=720] number of bins to compute. Default is 720 (6 octaves with the default 'centBinResolution')
-   * @param {number} [centBinResolution=10] Width of each band in cents. Default is 10 cents
-   * @param {number} [inputSize=32768] the size of the spectrum
-   * @param {boolean} [log=true] compute log-energies (log2 (1 + energy))
-   * @param {number} [minimumFrequency=164] central frequency of the first band of the bank [Hz]
-   * @param {string} [normalize=unit_sum] use unit area or vertex equal to 1 triangles.
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
+   * @param {paramTypes.ParamsSpectrumToCent} [params]
    * @memberof SpectrumToCent
   */
-  configure(bands: number=720, centBinResolution: number=10, inputSize: number=32768, log: boolean=true, minimumFrequency: number=164, normalize: string='unit_sum', sampleRate: number=44100, type: string='power') {
-    this.algoInstance.configure(bands, centBinResolution, inputSize, log, minimumFrequency, normalize, sampleRate, type);
+  configure(params: paramTypes.ParamsSpectrumToCent) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bands, this.params.centBinResolution, this.params.inputSize, this.params.log, this.params.minimumFrequency, this.params.normalize, this.params.sampleRate, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -8206,6 +9218,9 @@ class SpectrumToCent {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpectrumToCent) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8219,34 +9234,32 @@ Regarding spline types:
 */
 class Spline {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpline = {
+    beta1: 1,
+    beta2: 0,
+    type: 'b',
+    xPoints: [0, 1],
+    yPoints: [0, 1],
+  };
+  private params: paramTypes.ParamsSpline = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [beta1=1] the skew or bias parameter (only available for type beta)
-   * @param {number} [beta2=0] the tension parameter
-   * @param {string} [type=b] the type of spline to be computed
-   * @param {any[]} [xPoints=[0, 1]] the x-coordinates where data is specified (the points must be arranged in ascending order and cannot contain duplicates)
-   * @param {any[]} [yPoints=[0, 1]] the y-coordinates to be interpolated (i.e. the known data)
+   * @param {paramTypes.ParamsSpline} [params]
   */
-  constructor(beta1: number=1, beta2: number=0, type: string='b', xPoints: any[]=[0, 1], yPoints: any[]=[0, 1]) {
-    let vecxPoints = arrayToVector(xPoints);
-    let vecyPoints = arrayToVector(yPoints);
-    this.algoInstance = new wasmBackend.Spline(beta1, beta2, type, vecxPoints, vecyPoints);
+  constructor(params: paramTypes.ParamsSpline) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Spline(this.params.beta1, this.params.beta2, this.params.type, this.params.xPoints, this.params.yPoints);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [beta1=1] the skew or bias parameter (only available for type beta)
-   * @param {number} [beta2=0] the tension parameter
-   * @param {string} [type=b] the type of spline to be computed
-   * @param {any[]} [xPoints=[0, 1]] the x-coordinates where data is specified (the points must be arranged in ascending order and cannot contain duplicates)
-   * @param {any[]} [yPoints=[0, 1]] the y-coordinates to be interpolated (i.e. the known data)
+   * @param {paramTypes.ParamsSpline} [params]
    * @memberof Spline
   */
-  configure(beta1: number=1, beta2: number=0, type: string='b', xPoints: any[]=[0, 1], yPoints: any[]=[0, 1]) {
-    let vecxPoints = arrayToVector(xPoints);
-    let vecyPoints = arrayToVector(yPoints);
-    this.algoInstance.configure(beta1, beta2, type, vecxPoints, vecyPoints);
+  configure(params: paramTypes.ParamsSpline) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.beta1, this.params.beta2, this.params.type, this.params.xPoints, this.params.yPoints);
   }
   /**
    * Execute algorithm with given inputs
@@ -8266,6 +9279,15 @@ class Spline {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpline) {
+    if (params.xPoints) {
+      params.xPoints = arrayToVector(params.xPoints);
+    }
+    if (params.yPoints) {
+      params.yPoints = arrayToVector(params.yPoints);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8274,42 +9296,38 @@ class Spline {
 */
 class SprModelAnal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSprModelAnal = {
+    fftSize: 2048,
+    freqDevOffset: 20,
+    freqDevSlope: 0.01,
+    hopSize: 512,
+    magnitudeThreshold: 0,
+    maxFrequency: 5000,
+    maxPeaks: 100,
+    maxnSines: 100,
+    minFrequency: 0,
+    orderBy: 'frequency',
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSprModelAnal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=0] the minimum frequency of the range to evaluate [Hz]
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsSprModelAnal} [params]
   */
-  constructor(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=0, orderBy: string='frequency', sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SprModelAnal(fftSize, freqDevOffset, freqDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, orderBy, sampleRate);
+  constructor(params: paramTypes.ParamsSprModelAnal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SprModelAnal(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.orderBy, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=0] the minimum frequency of the range to evaluate [Hz]
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsSprModelAnal} [params]
    * @memberof SprModelAnal
   */
-  configure(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=0, orderBy: string='frequency', sampleRate: number=44100) {
-    this.algoInstance.configure(fftSize, freqDevOffset, freqDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, orderBy, sampleRate);
+  configure(params: paramTypes.ParamsSprModelAnal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.orderBy, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -8329,6 +9347,9 @@ class SprModelAnal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSprModelAnal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8337,26 +9358,30 @@ class SprModelAnal {
 */
 class SprModelSynth {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSprModelSynth = {
+    fftSize: 2048,
+    hopSize: 512,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsSprModelSynth = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the output FFT frame (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSprModelSynth} [params]
   */
-  constructor(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.SprModelSynth(fftSize, hopSize, sampleRate);
+  constructor(params: paramTypes.ParamsSprModelSynth) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SprModelSynth(this.params.fftSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the output FFT frame (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsSprModelSynth} [params]
    * @memberof SprModelSynth
   */
-  configure(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100) {
-    this.algoInstance.configure(fftSize, hopSize, sampleRate);
+  configure(params: paramTypes.ParamsSprModelSynth) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -8379,6 +9404,9 @@ class SprModelSynth {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSprModelSynth) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8387,44 +9415,39 @@ class SprModelSynth {
 */
 class SpsModelAnal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpsModelAnal = {
+    fftSize: 2048,
+    freqDevOffset: 20,
+    freqDevSlope: 0.01,
+    hopSize: 512,
+    magnitudeThreshold: 0,
+    maxFrequency: 5000,
+    maxPeaks: 100,
+    maxnSines: 100,
+    minFrequency: 0,
+    orderBy: 'frequency',
+    sampleRate: 44100,
+    stocf: 0.2,
+  };
+  private params: paramTypes.ParamsSpsModelAnal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=0] the minimum frequency of the range to evaluate [Hz]
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsSpsModelAnal} [params]
   */
-  constructor(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=0, orderBy: string='frequency', sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance = new wasmBackend.SpsModelAnal(fftSize, freqDevOffset, freqDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, orderBy, sampleRate, stocf);
+  constructor(params: paramTypes.ParamsSpsModelAnal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpsModelAnal(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.orderBy, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [freqDevOffset=20] minimum frequency deviation at 0Hz
-   * @param {number} [freqDevSlope=0.01] slope increase of minimum frequency deviation
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [magnitudeThreshold=0] peaks below this given threshold are not outputted
-   * @param {number} [maxFrequency=5000] the maximum frequency of the range to evaluate [Hz]
-   * @param {number} [maxPeaks=100] the maximum number of returned peaks
-   * @param {number} [maxnSines=100] maximum number of sines per frame
-   * @param {number} [minFrequency=0] the minimum frequency of the range to evaluate [Hz]
-   * @param {string} [orderBy=frequency] the ordering type of the outputted peaks (ascending by frequency or descending by magnitude)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsSpsModelAnal} [params]
    * @memberof SpsModelAnal
   */
-  configure(fftSize: number=2048, freqDevOffset: number=20, freqDevSlope: number=0.01, hopSize: number=512, magnitudeThreshold: number=0, maxFrequency: number=5000, maxPeaks: number=100, maxnSines: number=100, minFrequency: number=0, orderBy: string='frequency', sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance.configure(fftSize, freqDevOffset, freqDevSlope, hopSize, magnitudeThreshold, maxFrequency, maxPeaks, maxnSines, minFrequency, orderBy, sampleRate, stocf);
+  configure(params: paramTypes.ParamsSpsModelAnal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.freqDevOffset, this.params.freqDevSlope, this.params.hopSize, this.params.magnitudeThreshold, this.params.maxFrequency, this.params.maxPeaks, this.params.maxnSines, this.params.minFrequency, this.params.orderBy, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Execute algorithm with given inputs
@@ -8444,6 +9467,9 @@ class SpsModelAnal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpsModelAnal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8452,28 +9478,31 @@ class SpsModelAnal {
 */
 class SpsModelSynth {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSpsModelSynth = {
+    fftSize: 2048,
+    hopSize: 512,
+    sampleRate: 44100,
+    stocf: 0.2,
+  };
+  private params: paramTypes.ParamsSpsModelSynth = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the output FFT frame (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsSpsModelSynth} [params]
   */
-  constructor(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance = new wasmBackend.SpsModelSynth(fftSize, hopSize, sampleRate, stocf);
+  constructor(params: paramTypes.ParamsSpsModelSynth) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SpsModelSynth(this.params.fftSize, this.params.hopSize, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the output FFT frame (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsSpsModelSynth} [params]
    * @memberof SpsModelSynth
   */
-  configure(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance.configure(fftSize, hopSize, sampleRate, stocf);
+  configure(params: paramTypes.ParamsSpsModelSynth) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.hopSize, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Execute algorithm with given inputs
@@ -8496,6 +9525,9 @@ class SpsModelSynth {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSpsModelSynth) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8504,32 +9536,33 @@ class SpsModelSynth {
 */
 class StartStopCut {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsStartStopCut = {
+    frameSize: 256,
+    hopSize: 256,
+    maximumStartTime: 10,
+    maximumStopTime: 10,
+    sampleRate: 44100,
+    threshold: -60,
+  };
+  private params: paramTypes.ParamsStartStopCut = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=256] the frame size for the internal power analysis
-   * @param {number} [hopSize=256] the hop size for the internal power analysis
-   * @param {number} [maximumStartTime=10] if the first non-silent frame occurs before maximumStartTime startCut is activated [ms]
-   * @param {number} [maximumStopTime=10] if the last non-silent frame occurs after maximumStopTime to the end stopCut is activated [ms]
-   * @param {number} [sampleRate=44100] the sample rate
-   * @param {number} [threshold=-60] the threshold below which average energy is defined as silence [dB]
+   * @param {paramTypes.ParamsStartStopCut} [params]
   */
-  constructor(frameSize: number=256, hopSize: number=256, maximumStartTime: number=10, maximumStopTime: number=10, sampleRate: number=44100, threshold: number=-60) {
-    this.algoInstance = new wasmBackend.StartStopCut(frameSize, hopSize, maximumStartTime, maximumStopTime, sampleRate, threshold);
+  constructor(params: paramTypes.ParamsStartStopCut) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.StartStopCut(this.params.frameSize, this.params.hopSize, this.params.maximumStartTime, this.params.maximumStopTime, this.params.sampleRate, this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=256] the frame size for the internal power analysis
-   * @param {number} [hopSize=256] the hop size for the internal power analysis
-   * @param {number} [maximumStartTime=10] if the first non-silent frame occurs before maximumStartTime startCut is activated [ms]
-   * @param {number} [maximumStopTime=10] if the last non-silent frame occurs after maximumStopTime to the end stopCut is activated [ms]
-   * @param {number} [sampleRate=44100] the sample rate
-   * @param {number} [threshold=-60] the threshold below which average energy is defined as silence [dB]
+   * @param {paramTypes.ParamsStartStopCut} [params]
    * @memberof StartStopCut
   */
-  configure(frameSize: number=256, hopSize: number=256, maximumStartTime: number=10, maximumStopTime: number=10, sampleRate: number=44100, threshold: number=-60) {
-    this.algoInstance.configure(frameSize, hopSize, maximumStartTime, maximumStopTime, sampleRate, threshold);
+  configure(params: paramTypes.ParamsStartStopCut) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.maximumStartTime, this.params.maximumStopTime, this.params.sampleRate, this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -8549,6 +9582,9 @@ class StartStopCut {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsStartStopCut) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8557,22 +9593,28 @@ class StartStopCut {
 */
 class StartStopSilence {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsStartStopSilence = {
+    threshold: -60,
+  };
+  private params: paramTypes.ParamsStartStopSilence = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [threshold=-60] the threshold below which average energy is defined as silence [dB]
+   * @param {paramTypes.ParamsStartStopSilence} [params]
   */
-  constructor(threshold: number=-60) {
-    this.algoInstance = new wasmBackend.StartStopSilence(threshold);
+  constructor(params: paramTypes.ParamsStartStopSilence) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.StartStopSilence(this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [threshold=-60] the threshold below which average energy is defined as silence [dB]
+   * @param {paramTypes.ParamsStartStopSilence} [params]
    * @memberof StartStopSilence
   */
-  configure(threshold: number=-60) {
-    this.algoInstance.configure(threshold);
+  configure(params: paramTypes.ParamsStartStopSilence) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -8592,6 +9634,9 @@ class StartStopSilence {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsStartStopSilence) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8600,28 +9645,31 @@ class StartStopSilence {
 */
 class StochasticModelAnal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsStochasticModelAnal = {
+    fftSize: 2048,
+    hopSize: 512,
+    sampleRate: 44100,
+    stocf: 0.2,
+  };
+  private params: paramTypes.ParamsStochasticModelAnal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsStochasticModelAnal} [params]
   */
-  constructor(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance = new wasmBackend.StochasticModelAnal(fftSize, hopSize, sampleRate, stocf);
+  constructor(params: paramTypes.ParamsStochasticModelAnal) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.StochasticModelAnal(this.params.fftSize, this.params.hopSize, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsStochasticModelAnal} [params]
    * @memberof StochasticModelAnal
   */
-  configure(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance.configure(fftSize, hopSize, sampleRate, stocf);
+  configure(params: paramTypes.ParamsStochasticModelAnal) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.hopSize, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Execute algorithm with given inputs
@@ -8641,6 +9689,9 @@ class StochasticModelAnal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsStochasticModelAnal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8649,28 +9700,31 @@ class StochasticModelAnal {
 */
 class StochasticModelSynth {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsStochasticModelSynth = {
+    fftSize: 2048,
+    hopSize: 512,
+    sampleRate: 44100,
+    stocf: 0.2,
+  };
+  private params: paramTypes.ParamsStochasticModelSynth = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsStochasticModelSynth} [params]
   */
-  constructor(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance = new wasmBackend.StochasticModelSynth(fftSize, hopSize, sampleRate, stocf);
+  constructor(params: paramTypes.ParamsStochasticModelSynth) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.StochasticModelSynth(this.params.fftSize, this.params.hopSize, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [fftSize=2048] the size of the internal FFT size (full spectrum size)
-   * @param {number} [hopSize=512] the hop size between frames
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [stocf=0.2] decimation factor used for the stochastic approximation
+   * @param {paramTypes.ParamsStochasticModelSynth} [params]
    * @memberof StochasticModelSynth
   */
-  configure(fftSize: number=2048, hopSize: number=512, sampleRate: number=44100, stocf: number=0.2) {
-    this.algoInstance.configure(fftSize, hopSize, sampleRate, stocf);
+  configure(params: paramTypes.ParamsStochasticModelSynth) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.fftSize, this.params.hopSize, this.params.sampleRate, this.params.stocf);
   }
   /**
    * Execute algorithm with given inputs
@@ -8690,6 +9744,9 @@ class StochasticModelSynth {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsStochasticModelSynth) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8698,22 +9755,28 @@ class StochasticModelSynth {
 */
 class StrongDecay {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsStrongDecay = {
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsStrongDecay = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsStrongDecay} [params]
   */
-  constructor(sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.StrongDecay(sampleRate);
+  constructor(params: paramTypes.ParamsStrongDecay) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.StrongDecay(this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsStrongDecay} [params]
    * @memberof StrongDecay
   */
-  configure(sampleRate: number=44100) {
-    this.algoInstance.configure(sampleRate);
+  configure(params: paramTypes.ParamsStrongDecay) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -8733,6 +9796,9 @@ class StrongDecay {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsStrongDecay) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8741,19 +9807,26 @@ class StrongDecay {
 */
 class StrongPeak {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsStrongPeak = {
+  };
+  private params: paramTypes.ParamsStrongPeak = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsStrongPeak} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsStrongPeak) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.StrongPeak();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsStrongPeak} [params]
    * @memberof StrongPeak
   */
-  configure() {
+  configure(params: paramTypes.ParamsStrongPeak) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -8774,6 +9847,9 @@ class StrongPeak {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsStrongPeak) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8782,32 +9858,33 @@ class StrongPeak {
 */
 class SuperFluxExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSuperFluxExtractor = {
+    combine: 20,
+    frameSize: 2048,
+    hopSize: 256,
+    ratioThreshold: 16,
+    sampleRate: 44100,
+    threshold: 0.05,
+  };
+  private params: paramTypes.ParamsSuperFluxExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [combine=20] time threshold for double onsets detections (ms)
-   * @param {number} [frameSize=2048] the frame size for computing low-level features
-   * @param {number} [hopSize=256] the hop size for computing low-level features
-   * @param {number} [ratioThreshold=16] ratio threshold for peak picking with respect to novelty_signal/novelty_average rate, use 0 to disable it (for low-energy onsets)
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [threshold=0.05] threshold for peak peaking with respect to the difference between novelty_signal and average_signal (for onsets in ambient noise)
+   * @param {paramTypes.ParamsSuperFluxExtractor} [params]
   */
-  constructor(combine: number=20, frameSize: number=2048, hopSize: number=256, ratioThreshold: number=16, sampleRate: number=44100, threshold: number=0.05) {
-    this.algoInstance = new wasmBackend.SuperFluxExtractor(combine, frameSize, hopSize, ratioThreshold, sampleRate, threshold);
+  constructor(params: paramTypes.ParamsSuperFluxExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SuperFluxExtractor(this.params.combine, this.params.frameSize, this.params.hopSize, this.params.ratioThreshold, this.params.sampleRate, this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [combine=20] time threshold for double onsets detections (ms)
-   * @param {number} [frameSize=2048] the frame size for computing low-level features
-   * @param {number} [hopSize=256] the hop size for computing low-level features
-   * @param {number} [ratioThreshold=16] ratio threshold for peak picking with respect to novelty_signal/novelty_average rate, use 0 to disable it (for low-energy onsets)
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
-   * @param {number} [threshold=0.05] threshold for peak peaking with respect to the difference between novelty_signal and average_signal (for onsets in ambient noise)
+   * @param {paramTypes.ParamsSuperFluxExtractor} [params]
    * @memberof SuperFluxExtractor
   */
-  configure(combine: number=20, frameSize: number=2048, hopSize: number=256, ratioThreshold: number=16, sampleRate: number=44100, threshold: number=0.05) {
-    this.algoInstance.configure(combine, frameSize, hopSize, ratioThreshold, sampleRate, threshold);
+  configure(params: paramTypes.ParamsSuperFluxExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.combine, this.params.frameSize, this.params.hopSize, this.params.ratioThreshold, this.params.sampleRate, this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -8827,6 +9904,9 @@ class SuperFluxExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSuperFluxExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8835,24 +9915,29 @@ class SuperFluxExtractor {
 */
 class SuperFluxNovelty {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSuperFluxNovelty = {
+    binWidth: 3,
+    frameWidth: 2,
+  };
+  private params: paramTypes.ParamsSuperFluxNovelty = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binWidth=3] filter width (number of frequency bins)
-   * @param {number} [frameWidth=2] differentiation offset (compute the difference with the N-th previous frame)
+   * @param {paramTypes.ParamsSuperFluxNovelty} [params]
   */
-  constructor(binWidth: number=3, frameWidth: number=2) {
-    this.algoInstance = new wasmBackend.SuperFluxNovelty(binWidth, frameWidth);
+  constructor(params: paramTypes.ParamsSuperFluxNovelty) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SuperFluxNovelty(this.params.binWidth, this.params.frameWidth);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binWidth=3] filter width (number of frequency bins)
-   * @param {number} [frameWidth=2] differentiation offset (compute the difference with the N-th previous frame)
+   * @param {paramTypes.ParamsSuperFluxNovelty} [params]
    * @memberof SuperFluxNovelty
   */
-  configure(binWidth: number=3, frameWidth: number=2) {
-    this.algoInstance.configure(binWidth, frameWidth);
+  configure(params: paramTypes.ParamsSuperFluxNovelty) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binWidth, this.params.frameWidth);
   }
   /**
    * Execute algorithm with given inputs
@@ -8872,6 +9957,9 @@ class SuperFluxNovelty {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSuperFluxNovelty) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8880,32 +9968,33 @@ class SuperFluxNovelty {
 */
 class SuperFluxPeaks {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsSuperFluxPeaks = {
+    combine: 30,
+    frameRate: 172,
+    pre_avg: 100,
+    pre_max: 30,
+    ratioThreshold: 16,
+    threshold: 0.05,
+  };
+  private params: paramTypes.ParamsSuperFluxPeaks = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [combine=30] time threshold for double onsets detections (ms)
-   * @param {number} [frameRate=172] frameRate
-   * @param {number} [pre_avg=100] look back duration for moving average filter [ms]
-   * @param {number} [pre_max=30] look back duration for moving maximum filter [ms]
-   * @param {number} [ratioThreshold=16] ratio threshold for peak picking with respect to novelty_signal/novelty_average rate, use 0 to disable it (for low-energy onsets)
-   * @param {number} [threshold=0.05] threshold for peak peaking with respect to the difference between novelty_signal and average_signal (for onsets in ambient noise)
+   * @param {paramTypes.ParamsSuperFluxPeaks} [params]
   */
-  constructor(combine: number=30, frameRate: number=172, pre_avg: number=100, pre_max: number=30, ratioThreshold: number=16, threshold: number=0.05) {
-    this.algoInstance = new wasmBackend.SuperFluxPeaks(combine, frameRate, pre_avg, pre_max, ratioThreshold, threshold);
+  constructor(params: paramTypes.ParamsSuperFluxPeaks) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.SuperFluxPeaks(this.params.combine, this.params.frameRate, this.params.pre_avg, this.params.pre_max, this.params.ratioThreshold, this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [combine=30] time threshold for double onsets detections (ms)
-   * @param {number} [frameRate=172] frameRate
-   * @param {number} [pre_avg=100] look back duration for moving average filter [ms]
-   * @param {number} [pre_max=30] look back duration for moving maximum filter [ms]
-   * @param {number} [ratioThreshold=16] ratio threshold for peak picking with respect to novelty_signal/novelty_average rate, use 0 to disable it (for low-energy onsets)
-   * @param {number} [threshold=0.05] threshold for peak peaking with respect to the difference between novelty_signal and average_signal (for onsets in ambient noise)
+   * @param {paramTypes.ParamsSuperFluxPeaks} [params]
    * @memberof SuperFluxPeaks
   */
-  configure(combine: number=30, frameRate: number=172, pre_avg: number=100, pre_max: number=30, ratioThreshold: number=16, threshold: number=0.05) {
-    this.algoInstance.configure(combine, frameRate, pre_avg, pre_max, ratioThreshold, threshold);
+  configure(params: paramTypes.ParamsSuperFluxPeaks) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.combine, this.params.frameRate, this.params.pre_avg, this.params.pre_max, this.params.ratioThreshold, this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -8925,6 +10014,9 @@ class SuperFluxPeaks {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsSuperFluxPeaks) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8933,19 +10025,26 @@ class SuperFluxPeaks {
 */
 class TCToTotal {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTCToTotal = {
+  };
+  private params: paramTypes.ParamsTCToTotal = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTCToTotal} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTCToTotal) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.TCToTotal();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTCToTotal} [params]
    * @memberof TCToTotal
   */
-  configure() {
+  configure(params: paramTypes.ParamsTCToTotal) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -8966,6 +10065,9 @@ class TCToTotal {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTCToTotal) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -8974,26 +10076,29 @@ class TCToTotal {
 */
 class TempoScaleBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTempoScaleBands = {
+    bandsGain: [2, 3, 2, 1, 1.20000004768, 2, 3, 2.5],
+    frameTime: 512,
+  };
+  private params: paramTypes.ParamsTempoScaleBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [bandsGain=[2, 3, 2, 1, 1.20000004768, 2, 3, 2.5]] gain for each bands
-   * @param {number} [frameTime=512] the frame rate in samples
+   * @param {paramTypes.ParamsTempoScaleBands} [params]
   */
-  constructor(bandsGain: any[]=[2, 3, 2, 1, 1.20000004768, 2, 3, 2.5], frameTime: number=512) {
-    let vecbandsGain = arrayToVector(bandsGain);
-    this.algoInstance = new wasmBackend.TempoScaleBands(vecbandsGain, frameTime);
+  constructor(params: paramTypes.ParamsTempoScaleBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TempoScaleBands(this.params.bandsGain, this.params.frameTime);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [bandsGain=[2, 3, 2, 1, 1.20000004768, 2, 3, 2.5]] gain for each bands
-   * @param {number} [frameTime=512] the frame rate in samples
+   * @param {paramTypes.ParamsTempoScaleBands} [params]
    * @memberof TempoScaleBands
   */
-  configure(bandsGain: any[]=[2, 3, 2, 1, 1.20000004768, 2, 3, 2.5], frameTime: number=512) {
-    let vecbandsGain = arrayToVector(bandsGain);
-    this.algoInstance.configure(vecbandsGain, frameTime);
+  configure(params: paramTypes.ParamsTempoScaleBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.bandsGain, this.params.frameTime);
   }
   /**
    * Execute algorithm with given inputs
@@ -9013,6 +10118,12 @@ class TempoScaleBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTempoScaleBands) {
+    if (params.bandsGain) {
+      params.bandsGain = arrayToVector(params.bandsGain);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9024,36 +10135,34 @@ The algorithm uses elements of the following beat-tracking methods:
 */
 class TempoTap {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTempoTap = {
+    frameHop: 1024,
+    frameSize: 256,
+    maxTempo: 208,
+    minTempo: 40,
+    numberFrames: 1024,
+    sampleRate: 44100,
+    tempoHints: [],
+  };
+  private params: paramTypes.ParamsTempoTap = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameHop=1024] number of feature frames separating two evaluations
-   * @param {number} [frameSize=256] number of audio samples in a frame
-   * @param {number} [maxTempo=208] fastest tempo allowed to be detected [bpm]
-   * @param {number} [minTempo=40] slowest tempo allowed to be detected [bpm]
-   * @param {number} [numberFrames=1024] number of feature frames to buffer on
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {any[]} [tempoHints=[]] optional list of initial beat locations, to favor the detection of pre-determined tempo period and beats alignment [s]
+   * @param {paramTypes.ParamsTempoTap} [params]
   */
-  constructor(frameHop: number=1024, frameSize: number=256, maxTempo: number=208, minTempo: number=40, numberFrames: number=1024, sampleRate: number=44100, tempoHints: any[]=[]) {
-    let vectempoHints = arrayToVector(tempoHints);
-    this.algoInstance = new wasmBackend.TempoTap(frameHop, frameSize, maxTempo, minTempo, numberFrames, sampleRate, vectempoHints);
+  constructor(params: paramTypes.ParamsTempoTap) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TempoTap(this.params.frameHop, this.params.frameSize, this.params.maxTempo, this.params.minTempo, this.params.numberFrames, this.params.sampleRate, this.params.tempoHints);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameHop=1024] number of feature frames separating two evaluations
-   * @param {number} [frameSize=256] number of audio samples in a frame
-   * @param {number} [maxTempo=208] fastest tempo allowed to be detected [bpm]
-   * @param {number} [minTempo=40] slowest tempo allowed to be detected [bpm]
-   * @param {number} [numberFrames=1024] number of feature frames to buffer on
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {any[]} [tempoHints=[]] optional list of initial beat locations, to favor the detection of pre-determined tempo period and beats alignment [s]
+   * @param {paramTypes.ParamsTempoTap} [params]
    * @memberof TempoTap
   */
-  configure(frameHop: number=1024, frameSize: number=256, maxTempo: number=208, minTempo: number=40, numberFrames: number=1024, sampleRate: number=44100, tempoHints: any[]=[]) {
-    let vectempoHints = arrayToVector(tempoHints);
-    this.algoInstance.configure(frameHop, frameSize, maxTempo, minTempo, numberFrames, sampleRate, vectempoHints);
+  configure(params: paramTypes.ParamsTempoTap) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameHop, this.params.frameSize, this.params.maxTempo, this.params.minTempo, this.params.numberFrames, this.params.sampleRate, this.params.tempoHints);
   }
   /**
    * Execute algorithm with given inputs
@@ -9073,6 +10182,12 @@ class TempoTap {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTempoTap) {
+    if (params.tempoHints) {
+      params.tempoHints = arrayToVector(params.tempoHints);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9081,28 +10196,31 @@ class TempoTap {
 */
 class TempoTapDegara {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTempoTapDegara = {
+    maxTempo: 208,
+    minTempo: 40,
+    resample: 'none',
+    sampleRateODF: 86.1328,
+  };
+  private params: paramTypes.ParamsTempoTapDegara = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxTempo=208] fastest tempo allowed to be detected [bpm]
-   * @param {number} [minTempo=40] slowest tempo allowed to be detected [bpm]
-   * @param {string} [resample=none] use upsampling of the onset detection function (may increase accuracy)
-   * @param {number} [sampleRateODF=86.1328] the sampling rate of the onset detection function [Hz]
+   * @param {paramTypes.ParamsTempoTapDegara} [params]
   */
-  constructor(maxTempo: number=208, minTempo: number=40, resample: string='none', sampleRateODF: number=86.1328) {
-    this.algoInstance = new wasmBackend.TempoTapDegara(maxTempo, minTempo, resample, sampleRateODF);
+  constructor(params: paramTypes.ParamsTempoTapDegara) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TempoTapDegara(this.params.maxTempo, this.params.minTempo, this.params.resample, this.params.sampleRateODF);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxTempo=208] fastest tempo allowed to be detected [bpm]
-   * @param {number} [minTempo=40] slowest tempo allowed to be detected [bpm]
-   * @param {string} [resample=none] use upsampling of the onset detection function (may increase accuracy)
-   * @param {number} [sampleRateODF=86.1328] the sampling rate of the onset detection function [Hz]
+   * @param {paramTypes.ParamsTempoTapDegara} [params]
    * @memberof TempoTapDegara
   */
-  configure(maxTempo: number=208, minTempo: number=40, resample: string='none', sampleRateODF: number=86.1328) {
-    this.algoInstance.configure(maxTempo, minTempo, resample, sampleRateODF);
+  configure(params: paramTypes.ParamsTempoTapDegara) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxTempo, this.params.minTempo, this.params.resample, this.params.sampleRateODF);
   }
   /**
    * Execute algorithm with given inputs
@@ -9122,6 +10240,9 @@ class TempoTapDegara {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTempoTapDegara) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9130,19 +10251,26 @@ class TempoTapDegara {
 */
 class TempoTapMaxAgreement {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTempoTapMaxAgreement = {
+  };
+  private params: paramTypes.ParamsTempoTapMaxAgreement = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTempoTapMaxAgreement} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTempoTapMaxAgreement) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.TempoTapMaxAgreement();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTempoTapMaxAgreement} [params]
    * @memberof TempoTapMaxAgreement
   */
-  configure() {
+  configure(params: paramTypes.ParamsTempoTapMaxAgreement) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9163,6 +10291,9 @@ class TempoTapMaxAgreement {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTempoTapMaxAgreement) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9171,26 +10302,30 @@ class TempoTapMaxAgreement {
 */
 class TempoTapTicks {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTempoTapTicks = {
+    frameHop: 512,
+    hopSize: 256,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsTempoTapTicks = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameHop=512] number of feature frames separating two evaluations
-   * @param {number} [hopSize=256] number of audio samples per features
-   * @param {number} [sampleRate=44100] sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsTempoTapTicks} [params]
   */
-  constructor(frameHop: number=512, hopSize: number=256, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.TempoTapTicks(frameHop, hopSize, sampleRate);
+  constructor(params: paramTypes.ParamsTempoTapTicks) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TempoTapTicks(this.params.frameHop, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameHop=512] number of feature frames separating two evaluations
-   * @param {number} [hopSize=256] number of audio samples per features
-   * @param {number} [sampleRate=44100] sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsTempoTapTicks} [params]
    * @memberof TempoTapTicks
   */
-  configure(frameHop: number=512, hopSize: number=256, sampleRate: number=44100) {
-    this.algoInstance.configure(frameHop, hopSize, sampleRate);
+  configure(params: paramTypes.ParamsTempoTapTicks) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameHop, this.params.hopSize, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -9211,6 +10346,9 @@ class TempoTapTicks {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTempoTapTicks) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9219,19 +10357,26 @@ class TempoTapTicks {
 */
 class TensorflowInputFSDSINet {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTensorflowInputFSDSINet = {
+  };
+  private params: paramTypes.ParamsTensorflowInputFSDSINet = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTensorflowInputFSDSINet} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTensorflowInputFSDSINet) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.TensorflowInputFSDSINet();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTensorflowInputFSDSINet} [params]
    * @memberof TensorflowInputFSDSINet
   */
-  configure() {
+  configure(params: paramTypes.ParamsTensorflowInputFSDSINet) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9252,6 +10397,9 @@ class TensorflowInputFSDSINet {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTensorflowInputFSDSINet) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9260,19 +10408,26 @@ class TensorflowInputFSDSINet {
 */
 class TensorflowInputMusiCNN {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTensorflowInputMusiCNN = {
+  };
+  private params: paramTypes.ParamsTensorflowInputMusiCNN = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTensorflowInputMusiCNN} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTensorflowInputMusiCNN) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.TensorflowInputMusiCNN();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTensorflowInputMusiCNN} [params]
    * @memberof TensorflowInputMusiCNN
   */
-  configure() {
+  configure(params: paramTypes.ParamsTensorflowInputMusiCNN) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9293,6 +10448,9 @@ class TensorflowInputMusiCNN {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTensorflowInputMusiCNN) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9301,19 +10459,26 @@ class TensorflowInputMusiCNN {
 */
 class TensorflowInputTempoCNN {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTensorflowInputTempoCNN = {
+  };
+  private params: paramTypes.ParamsTensorflowInputTempoCNN = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTensorflowInputTempoCNN} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTensorflowInputTempoCNN) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.TensorflowInputTempoCNN();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTensorflowInputTempoCNN} [params]
    * @memberof TensorflowInputTempoCNN
   */
-  configure() {
+  configure(params: paramTypes.ParamsTensorflowInputTempoCNN) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9334,6 +10499,9 @@ class TensorflowInputTempoCNN {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTensorflowInputTempoCNN) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9342,19 +10510,26 @@ class TensorflowInputTempoCNN {
 */
 class TensorflowInputVGGish {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTensorflowInputVGGish = {
+  };
+  private params: paramTypes.ParamsTensorflowInputVGGish = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTensorflowInputVGGish} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTensorflowInputVGGish) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.TensorflowInputVGGish();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTensorflowInputVGGish} [params]
    * @memberof TensorflowInputVGGish
   */
-  configure() {
+  configure(params: paramTypes.ParamsTensorflowInputVGGish) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9375,6 +10550,9 @@ class TensorflowInputVGGish {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTensorflowInputVGGish) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9383,26 +10561,30 @@ class TensorflowInputVGGish {
 */
 class TonalExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTonalExtractor = {
+    frameSize: 4096,
+    hopSize: 2048,
+    tuningFrequency: 440,
+  };
+  private params: paramTypes.ParamsTonalExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=4096] the framesize for computing tonal features
-   * @param {number} [hopSize=2048] the hopsize for computing tonal features
-   * @param {number} [tuningFrequency=440] the tuning frequency of the input signal
+   * @param {paramTypes.ParamsTonalExtractor} [params]
   */
-  constructor(frameSize: number=4096, hopSize: number=2048, tuningFrequency: number=440) {
-    this.algoInstance = new wasmBackend.TonalExtractor(frameSize, hopSize, tuningFrequency);
+  constructor(params: paramTypes.ParamsTonalExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TonalExtractor(this.params.frameSize, this.params.hopSize, this.params.tuningFrequency);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=4096] the framesize for computing tonal features
-   * @param {number} [hopSize=2048] the hopsize for computing tonal features
-   * @param {number} [tuningFrequency=440] the tuning frequency of the input signal
+   * @param {paramTypes.ParamsTonalExtractor} [params]
    * @memberof TonalExtractor
   */
-  configure(frameSize: number=4096, hopSize: number=2048, tuningFrequency: number=440) {
-    this.algoInstance.configure(frameSize, hopSize, tuningFrequency);
+  configure(params: paramTypes.ParamsTonalExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize, this.params.tuningFrequency);
   }
   /**
    * Execute algorithm with given inputs
@@ -9422,6 +10604,9 @@ class TonalExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTonalExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9430,44 +10615,39 @@ class TonalExtractor {
 */
 class TonicIndianArtMusic {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTonicIndianArtMusic = {
+    binResolution: 10,
+    frameSize: 2048,
+    harmonicWeight: 0.85,
+    hopSize: 512,
+    magnitudeCompression: 1,
+    magnitudeThreshold: 40,
+    maxTonicFrequency: 375,
+    minTonicFrequency: 100,
+    numberHarmonics: 20,
+    numberSaliencePeaks: 5,
+    referenceFrequency: 55,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsTonicIndianArtMusic = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {number} [harmonicWeight=0.85] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=512] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxTonicFrequency=375] the maximum allowed tonic frequency [Hz]
-   * @param {number} [minTonicFrequency=100] the minimum allowed tonic frequency [Hz]
-   * @param {number} [numberHarmonics=20] number of considered hamonics
-   * @param {number} [numberSaliencePeaks=5] number of top peaks of the salience function which should be considered for constructing histogram
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsTonicIndianArtMusic} [params]
   */
-  constructor(binResolution: number=10, frameSize: number=2048, harmonicWeight: number=0.85, hopSize: number=512, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxTonicFrequency: number=375, minTonicFrequency: number=100, numberHarmonics: number=20, numberSaliencePeaks: number=5, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.TonicIndianArtMusic(binResolution, frameSize, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxTonicFrequency, minTonicFrequency, numberHarmonics, numberSaliencePeaks, referenceFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsTonicIndianArtMusic) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TonicIndianArtMusic(this.params.binResolution, this.params.frameSize, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxTonicFrequency, this.params.minTonicFrequency, this.params.numberHarmonics, this.params.numberSaliencePeaks, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [binResolution=10] salience function bin resolution [cents]
-   * @param {number} [frameSize=2048] the frame size for computing pitch saliecnce
-   * @param {number} [harmonicWeight=0.85] harmonic weighting parameter (weight decay ratio between two consequent harmonics, =1 for no decay)
-   * @param {number} [hopSize=512] the hop size with which the pitch salience function was computed
-   * @param {number} [magnitudeCompression=1] magnitude compression parameter (=0 for maximum compression, =1 for no compression)
-   * @param {number} [magnitudeThreshold=40] peak magnitude threshold (maximum allowed difference from the highest peak in dBs)
-   * @param {number} [maxTonicFrequency=375] the maximum allowed tonic frequency [Hz]
-   * @param {number} [minTonicFrequency=100] the minimum allowed tonic frequency [Hz]
-   * @param {number} [numberHarmonics=20] number of considered hamonics
-   * @param {number} [numberSaliencePeaks=5] number of top peaks of the salience function which should be considered for constructing histogram
-   * @param {number} [referenceFrequency=55] the reference frequency for Hertz to cent convertion [Hz], corresponding to the 0th cent bin
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
+   * @param {paramTypes.ParamsTonicIndianArtMusic} [params]
    * @memberof TonicIndianArtMusic
   */
-  configure(binResolution: number=10, frameSize: number=2048, harmonicWeight: number=0.85, hopSize: number=512, magnitudeCompression: number=1, magnitudeThreshold: number=40, maxTonicFrequency: number=375, minTonicFrequency: number=100, numberHarmonics: number=20, numberSaliencePeaks: number=5, referenceFrequency: number=55, sampleRate: number=44100) {
-    this.algoInstance.configure(binResolution, frameSize, harmonicWeight, hopSize, magnitudeCompression, magnitudeThreshold, maxTonicFrequency, minTonicFrequency, numberHarmonics, numberSaliencePeaks, referenceFrequency, sampleRate);
+  configure(params: paramTypes.ParamsTonicIndianArtMusic) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.binResolution, this.params.frameSize, this.params.harmonicWeight, this.params.hopSize, this.params.magnitudeCompression, this.params.magnitudeThreshold, this.params.maxTonicFrequency, this.params.minTonicFrequency, this.params.numberHarmonics, this.params.numberSaliencePeaks, this.params.referenceFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -9487,6 +10667,9 @@ class TonicIndianArtMusic {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTonicIndianArtMusic) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9495,36 +10678,34 @@ class TonicIndianArtMusic {
 */
 class TriangularBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTriangularBands = {
+    frequencyBands: [21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594],
+    inputSize: 1025,
+    log: true,
+    normalize: 'unit_sum',
+    sampleRate: 44100,
+    type: 'power',
+    weighting: 'linear',
+  };
+  private params: paramTypes.ParamsTriangularBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {any[]} [frequencyBands=[21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594]] list of frequency ranges into which the spectrum is divided (these must be in ascending order and connot contain duplicates),each triangle is build as x(i-1)=0, x(i)=1, x(i+1)=0 over i, the resulting number of bands is size of input array - 2
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {boolean} [log=true] compute log-energies (log2 (1 + energy))
-   * @param {string} [normalize=unit_sum] spectrum bin weights to use for each triangular band: 'unit_max' to make each triangle vertex equal to 1, 'unit_sum' to make each triangle area equal to 1 summing the actual weights of spectrum bins, 'unit_area' to make each triangle area equal to 1 normalizing the weights of each triangle by its bandwidth
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {string} [weighting=linear] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsTriangularBands} [params]
   */
-  constructor(frequencyBands: any[]=[21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594], inputSize: number=1025, log: boolean=true, normalize: string='unit_sum', sampleRate: number=44100, type: string='power', weighting: string='linear') {
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance = new wasmBackend.TriangularBands(vecfrequencyBands, inputSize, log, normalize, sampleRate, type, weighting);
+  constructor(params: paramTypes.ParamsTriangularBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TriangularBands(this.params.frequencyBands, this.params.inputSize, this.params.log, this.params.normalize, this.params.sampleRate, this.params.type, this.params.weighting);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {any[]} [frequencyBands=[21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594]] list of frequency ranges into which the spectrum is divided (these must be in ascending order and connot contain duplicates),each triangle is build as x(i-1)=0, x(i)=1, x(i+1)=0 over i, the resulting number of bands is size of input array - 2
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {boolean} [log=true] compute log-energies (log2 (1 + energy))
-   * @param {string} [normalize=unit_sum] spectrum bin weights to use for each triangular band: 'unit_max' to make each triangle vertex equal to 1, 'unit_sum' to make each triangle area equal to 1 summing the actual weights of spectrum bins, 'unit_area' to make each triangle area equal to 1 normalizing the weights of each triangle by its bandwidth
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [type=power] use magnitude or power spectrum
-   * @param {string} [weighting=linear] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsTriangularBands} [params]
    * @memberof TriangularBands
   */
-  configure(frequencyBands: any[]=[21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594], inputSize: number=1025, log: boolean=true, normalize: string='unit_sum', sampleRate: number=44100, type: string='power', weighting: string='linear') {
-    let vecfrequencyBands = arrayToVector(frequencyBands);
-    this.algoInstance.configure(vecfrequencyBands, inputSize, log, normalize, sampleRate, type, weighting);
+  configure(params: paramTypes.ParamsTriangularBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frequencyBands, this.params.inputSize, this.params.log, this.params.normalize, this.params.sampleRate, this.params.type, this.params.weighting);
   }
   /**
    * Execute algorithm with given inputs
@@ -9544,6 +10725,12 @@ class TriangularBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTriangularBands) {
+    if (params.frequencyBands) {
+      params.frequencyBands = arrayToVector(params.frequencyBands);
+    }
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9554,38 +10741,36 @@ It is recommended that the input "spectrum" be calculated by the Spectrum algori
 */
 class TriangularBarkBands {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTriangularBarkBands = {
+    highFrequencyBound: 22050,
+    inputSize: 1025,
+    log: false,
+    lowFrequencyBound: 0,
+    normalize: 'unit_sum',
+    numberBands: 24,
+    sampleRate: 44100,
+    type: 'power',
+    weighting: 'warping',
+  };
+  private params: paramTypes.ParamsTriangularBarkBands = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [highFrequencyBound=22050] an upper-bound limit for the frequencies to be included in the bands
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {boolean} [log=false] compute log-energies (log2 (1 + energy))
-   * @param {number} [lowFrequencyBound=0] a lower-bound limit for the frequencies to be included in the bands
-   * @param {string} [normalize=unit_sum] 'unit_max' makes the vertex of all the triangles equal to 1, 'unit_sum' makes the area of all the triangles equal to 1
-   * @param {number} [numberBands=24] the number of output bands
-   * @param {number} [sampleRate=44100] the sample rate
-   * @param {string} [type=power] 'power' to output squared units, 'magnitude' to keep it as the input
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsTriangularBarkBands} [params]
   */
-  constructor(highFrequencyBound: number=22050, inputSize: number=1025, log: boolean=false, lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=24, sampleRate: number=44100, type: string='power', weighting: string='warping') {
-    this.algoInstance = new wasmBackend.TriangularBarkBands(highFrequencyBound, inputSize, log, lowFrequencyBound, normalize, numberBands, sampleRate, type, weighting);
+  constructor(params: paramTypes.ParamsTriangularBarkBands) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TriangularBarkBands(this.params.highFrequencyBound, this.params.inputSize, this.params.log, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.sampleRate, this.params.type, this.params.weighting);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [highFrequencyBound=22050] an upper-bound limit for the frequencies to be included in the bands
-   * @param {number} [inputSize=1025] the size of the spectrum
-   * @param {boolean} [log=false] compute log-energies (log2 (1 + energy))
-   * @param {number} [lowFrequencyBound=0] a lower-bound limit for the frequencies to be included in the bands
-   * @param {string} [normalize=unit_sum] 'unit_max' makes the vertex of all the triangles equal to 1, 'unit_sum' makes the area of all the triangles equal to 1
-   * @param {number} [numberBands=24] the number of output bands
-   * @param {number} [sampleRate=44100] the sample rate
-   * @param {string} [type=power] 'power' to output squared units, 'magnitude' to keep it as the input
-   * @param {string} [weighting=warping] type of weighting function for determining triangle area
+   * @param {paramTypes.ParamsTriangularBarkBands} [params]
    * @memberof TriangularBarkBands
   */
-  configure(highFrequencyBound: number=22050, inputSize: number=1025, log: boolean=false, lowFrequencyBound: number=0, normalize: string='unit_sum', numberBands: number=24, sampleRate: number=44100, type: string='power', weighting: string='warping') {
-    this.algoInstance.configure(highFrequencyBound, inputSize, log, lowFrequencyBound, normalize, numberBands, sampleRate, type, weighting);
+  configure(params: paramTypes.ParamsTriangularBarkBands) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.highFrequencyBound, this.params.inputSize, this.params.log, this.params.lowFrequencyBound, this.params.normalize, this.params.numberBands, this.params.sampleRate, this.params.type, this.params.weighting);
   }
   /**
    * Execute algorithm with given inputs
@@ -9605,6 +10790,9 @@ class TriangularBarkBands {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTriangularBarkBands) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9614,28 +10802,31 @@ Giving "startTime" greater than "endTime" will raise an exception. Check https:/
 */
 class Trimmer {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTrimmer = {
+    checkRange: false,
+    endTime: 1e+06,
+    sampleRate: 44100,
+    startTime: 0,
+  };
+  private params: paramTypes.ParamsTrimmer = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [checkRange=false] check whether the specified time range for a slice fits the size of input signal (throw exception if not)
-   * @param {number} [endTime=1e+06] the end time of the slice you want to extract [s]
-   * @param {number} [sampleRate=44100] the sampling rate of the input audio signal [Hz]
-   * @param {number} [startTime=0] the start time of the slice you want to extract [s]
+   * @param {paramTypes.ParamsTrimmer} [params]
   */
-  constructor(checkRange: boolean=false, endTime: number=1e+06, sampleRate: number=44100, startTime: number=0) {
-    this.algoInstance = new wasmBackend.Trimmer(checkRange, endTime, sampleRate, startTime);
+  constructor(params: paramTypes.ParamsTrimmer) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Trimmer(this.params.checkRange, this.params.endTime, this.params.sampleRate, this.params.startTime);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [checkRange=false] check whether the specified time range for a slice fits the size of input signal (throw exception if not)
-   * @param {number} [endTime=1e+06] the end time of the slice you want to extract [s]
-   * @param {number} [sampleRate=44100] the sampling rate of the input audio signal [Hz]
-   * @param {number} [startTime=0] the start time of the slice you want to extract [s]
+   * @param {paramTypes.ParamsTrimmer} [params]
    * @memberof Trimmer
   */
-  configure(checkRange: boolean=false, endTime: number=1e+06, sampleRate: number=44100, startTime: number=0) {
-    this.algoInstance.configure(checkRange, endTime, sampleRate, startTime);
+  configure(params: paramTypes.ParamsTrimmer) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.checkRange, this.params.endTime, this.params.sampleRate, this.params.startTime);
   }
   /**
    * Execute algorithm with given inputs
@@ -9655,6 +10846,9 @@ class Trimmer {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTrimmer) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9663,19 +10857,26 @@ class Trimmer {
 */
 class Tristimulus {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTristimulus = {
+  };
+  private params: paramTypes.ParamsTristimulus = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsTristimulus} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsTristimulus) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Tristimulus();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsTristimulus} [params]
    * @memberof Tristimulus
   */
-  configure() {
+  configure(params: paramTypes.ParamsTristimulus) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9697,6 +10898,9 @@ class Tristimulus {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTristimulus) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9714,34 +10918,34 @@ References:
 */
 class TruePeakDetector {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTruePeakDetector = {
+    blockDC: false,
+    emphasise: false,
+    oversamplingFactor: 4,
+    quality: 1,
+    sampleRate: 44100,
+    threshold: -0.0002,
+    version: 4,
+  };
+  private params: paramTypes.ParamsTruePeakDetector = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {boolean} [blockDC=false] flag to activate the optional DC blocker
-   * @param {boolean} [emphasise=false] flag to activate the optional emphasis filter
-   * @param {number} [oversamplingFactor=4] times the signal is oversapled
-   * @param {number} [quality=1] type of interpolation applied (see libresmple)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [threshold=-0.0002] threshold to detect peaks [dB]
-   * @param {number} [version=4] algorithm version
+   * @param {paramTypes.ParamsTruePeakDetector} [params]
   */
-  constructor(blockDC: boolean=false, emphasise: boolean=false, oversamplingFactor: number=4, quality: number=1, sampleRate: number=44100, threshold: number=-0.0002, version: number=4) {
-    this.algoInstance = new wasmBackend.TruePeakDetector(blockDC, emphasise, oversamplingFactor, quality, sampleRate, threshold, version);
+  constructor(params: paramTypes.ParamsTruePeakDetector) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TruePeakDetector(this.params.blockDC, this.params.emphasise, this.params.oversamplingFactor, this.params.quality, this.params.sampleRate, this.params.threshold, this.params.version);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {boolean} [blockDC=false] flag to activate the optional DC blocker
-   * @param {boolean} [emphasise=false] flag to activate the optional emphasis filter
-   * @param {number} [oversamplingFactor=4] times the signal is oversapled
-   * @param {number} [quality=1] type of interpolation applied (see libresmple)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {number} [threshold=-0.0002] threshold to detect peaks [dB]
-   * @param {number} [version=4] algorithm version
+   * @param {paramTypes.ParamsTruePeakDetector} [params]
    * @memberof TruePeakDetector
   */
-  configure(blockDC: boolean=false, emphasise: boolean=false, oversamplingFactor: number=4, quality: number=1, sampleRate: number=44100, threshold: number=-0.0002, version: number=4) {
-    this.algoInstance.configure(blockDC, emphasise, oversamplingFactor, quality, sampleRate, threshold, version);
+  configure(params: paramTypes.ParamsTruePeakDetector) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.blockDC, this.params.emphasise, this.params.oversamplingFactor, this.params.quality, this.params.sampleRate, this.params.threshold, this.params.version);
   }
   /**
    * Execute algorithm with given inputs
@@ -9761,6 +10965,9 @@ class TruePeakDetector {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTruePeakDetector) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9769,22 +10976,28 @@ class TruePeakDetector {
 */
 class TuningFrequency {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTuningFrequency = {
+    resolution: 1,
+  };
+  private params: paramTypes.ParamsTuningFrequency = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [resolution=1] resolution in cents (logarithmic scale, 100 cents = 1 semitone) for tuning frequency determination
+   * @param {paramTypes.ParamsTuningFrequency} [params]
   */
-  constructor(resolution: number=1) {
-    this.algoInstance = new wasmBackend.TuningFrequency(resolution);
+  constructor(params: paramTypes.ParamsTuningFrequency) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TuningFrequency(this.params.resolution);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [resolution=1] resolution in cents (logarithmic scale, 100 cents = 1 semitone) for tuning frequency determination
+   * @param {paramTypes.ParamsTuningFrequency} [params]
    * @memberof TuningFrequency
   */
-  configure(resolution: number=1) {
-    this.algoInstance.configure(resolution);
+  configure(params: paramTypes.ParamsTuningFrequency) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.resolution);
   }
   /**
    * Execute algorithm with given inputs
@@ -9805,6 +11018,9 @@ class TuningFrequency {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTuningFrequency) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9813,24 +11029,29 @@ class TuningFrequency {
 */
 class TuningFrequencyExtractor {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsTuningFrequencyExtractor = {
+    frameSize: 4096,
+    hopSize: 2048,
+  };
+  private params: paramTypes.ParamsTuningFrequencyExtractor = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [frameSize=4096] the frameSize for computing tuning frequency
-   * @param {number} [hopSize=2048] the hopsize for computing tuning frequency
+   * @param {paramTypes.ParamsTuningFrequencyExtractor} [params]
   */
-  constructor(frameSize: number=4096, hopSize: number=2048) {
-    this.algoInstance = new wasmBackend.TuningFrequencyExtractor(frameSize, hopSize);
+  constructor(params: paramTypes.ParamsTuningFrequencyExtractor) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.TuningFrequencyExtractor(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [frameSize=4096] the frameSize for computing tuning frequency
-   * @param {number} [hopSize=2048] the hopsize for computing tuning frequency
+   * @param {paramTypes.ParamsTuningFrequencyExtractor} [params]
    * @memberof TuningFrequencyExtractor
   */
-  configure(frameSize: number=4096, hopSize: number=2048) {
-    this.algoInstance.configure(frameSize, hopSize);
+  configure(params: paramTypes.ParamsTuningFrequencyExtractor) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.frameSize, this.params.hopSize);
   }
   /**
    * Execute algorithm with given inputs
@@ -9850,6 +11071,9 @@ class TuningFrequencyExtractor {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsTuningFrequencyExtractor) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9863,26 +11087,30 @@ Note:
 */
 class UnaryOperator {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsUnaryOperator = {
+    scale: 1,
+    shift: 0,
+    type: 'identity',
+  };
+  private params: paramTypes.ParamsUnaryOperator = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [scale=1] multiply result by factor
-   * @param {number} [shift=0] shift result by value (add value)
-   * @param {string} [type=identity] the type of the unary operator to apply to input array
+   * @param {paramTypes.ParamsUnaryOperator} [params]
   */
-  constructor(scale: number=1, shift: number=0, type: string='identity') {
-    this.algoInstance = new wasmBackend.UnaryOperator(scale, shift, type);
+  constructor(params: paramTypes.ParamsUnaryOperator) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.UnaryOperator(this.params.scale, this.params.shift, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [scale=1] multiply result by factor
-   * @param {number} [shift=0] shift result by value (add value)
-   * @param {string} [type=identity] the type of the unary operator to apply to input array
+   * @param {paramTypes.ParamsUnaryOperator} [params]
    * @memberof UnaryOperator
   */
-  configure(scale: number=1, shift: number=0, type: string='identity') {
-    this.algoInstance.configure(scale, shift, type);
+  configure(params: paramTypes.ParamsUnaryOperator) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.scale, this.params.shift, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -9901,6 +11129,9 @@ class UnaryOperator {
   */
   delete() {
     this.algoInstance.delete();
+  }
+  private updateParams(params: paramTypes.ParamsUnaryOperator) {
+    this.params = { ...this.defaultParams, ...params };
   }
 }
  
@@ -9915,26 +11146,30 @@ Note:
 */
 class UnaryOperatorStream {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsUnaryOperatorStream = {
+    scale: 1,
+    shift: 0,
+    type: 'identity',
+  };
+  private params: paramTypes.ParamsUnaryOperatorStream = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [scale=1] multiply result by factor
-   * @param {number} [shift=0] shift result by value (add value)
-   * @param {string} [type=identity] the type of the unary operator to apply to input array
+   * @param {paramTypes.ParamsUnaryOperatorStream} [params]
   */
-  constructor(scale: number=1, shift: number=0, type: string='identity') {
-    this.algoInstance = new wasmBackend.UnaryOperatorStream(scale, shift, type);
+  constructor(params: paramTypes.ParamsUnaryOperatorStream) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.UnaryOperatorStream(this.params.scale, this.params.shift, this.params.type);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [scale=1] multiply result by factor
-   * @param {number} [shift=0] shift result by value (add value)
-   * @param {string} [type=identity] the type of the unary operator to apply to input array
+   * @param {paramTypes.ParamsUnaryOperatorStream} [params]
    * @memberof UnaryOperatorStream
   */
-  configure(scale: number=1, shift: number=0, type: string='identity') {
-    this.algoInstance.configure(scale, shift, type);
+  configure(params: paramTypes.ParamsUnaryOperatorStream) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.scale, this.params.shift, this.params.type);
   }
   /**
    * Execute algorithm with given inputs
@@ -9954,6 +11189,9 @@ class UnaryOperatorStream {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsUnaryOperatorStream) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -9962,19 +11200,26 @@ class UnaryOperatorStream {
 */
 class Variance {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsVariance = {
+  };
+  private params: paramTypes.ParamsVariance = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
+   * @param {paramTypes.ParamsVariance} [params]
   */
-  constructor() {
+  constructor(params: paramTypes.ParamsVariance) {
+    this.updateParams(params);
     this.algoInstance = new wasmBackend.Variance();
   }
   /**
    * Configure algorithm with default or given params
    * @method
+   * @param {paramTypes.ParamsVariance} [params]
    * @memberof Variance
   */
-  configure() {
+  configure(params: paramTypes.ParamsVariance) {
+    this.updateParams(params);
     this.algoInstance.configure();
   }
   /**
@@ -9995,6 +11240,9 @@ class Variance {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsVariance) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -10003,30 +11251,32 @@ class Variance {
 */
 class Vibrato {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsVibrato = {
+    maxExtend: 250,
+    maxFrequency: 8,
+    minExtend: 50,
+    minFrequency: 4,
+    sampleRate: 344.531,
+  };
+  private params: paramTypes.ParamsVibrato = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxExtend=250] maximum considered vibrato extent [cents]
-   * @param {number} [maxFrequency=8] maximum considered vibrato frequency [Hz]
-   * @param {number} [minExtend=50] minimum considered vibrato extent [cents]
-   * @param {number} [minFrequency=4] minimum considered vibrato frequency [Hz]
-   * @param {number} [sampleRate=344.531] sample rate of the input pitch contour
+   * @param {paramTypes.ParamsVibrato} [params]
   */
-  constructor(maxExtend: number=250, maxFrequency: number=8, minExtend: number=50, minFrequency: number=4, sampleRate: number=344.531) {
-    this.algoInstance = new wasmBackend.Vibrato(maxExtend, maxFrequency, minExtend, minFrequency, sampleRate);
+  constructor(params: paramTypes.ParamsVibrato) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Vibrato(this.params.maxExtend, this.params.maxFrequency, this.params.minExtend, this.params.minFrequency, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxExtend=250] maximum considered vibrato extent [cents]
-   * @param {number} [maxFrequency=8] maximum considered vibrato frequency [Hz]
-   * @param {number} [minExtend=50] minimum considered vibrato extent [cents]
-   * @param {number} [minFrequency=4] minimum considered vibrato frequency [Hz]
-   * @param {number} [sampleRate=344.531] sample rate of the input pitch contour
+   * @param {paramTypes.ParamsVibrato} [params]
    * @memberof Vibrato
   */
-  configure(maxExtend: number=250, maxFrequency: number=8, minExtend: number=50, minFrequency: number=4, sampleRate: number=344.531) {
-    this.algoInstance.configure(maxExtend, maxFrequency, minExtend, minFrequency, sampleRate);
+  configure(params: paramTypes.ParamsVibrato) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxExtend, this.params.maxFrequency, this.params.minExtend, this.params.minFrequency, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -10046,6 +11296,9 @@ class Vibrato {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsVibrato) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -10056,24 +11309,29 @@ If maxLag is larger than the size of the input array, an exception is thrown. Ch
 */
 class WarpedAutoCorrelation {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsWarpedAutoCorrelation = {
+    maxLag: 1,
+    sampleRate: 44100,
+  };
+  private params: paramTypes.ParamsWarpedAutoCorrelation = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [maxLag=1] the maximum lag for which the auto-correlation is computed (inclusive) (must be smaller than signal size) 
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsWarpedAutoCorrelation} [params]
   */
-  constructor(maxLag: number=1, sampleRate: number=44100) {
-    this.algoInstance = new wasmBackend.WarpedAutoCorrelation(maxLag, sampleRate);
+  constructor(params: paramTypes.ParamsWarpedAutoCorrelation) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.WarpedAutoCorrelation(this.params.maxLag, this.params.sampleRate);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [maxLag=1] the maximum lag for which the auto-correlation is computed (inclusive) (must be smaller than signal size) 
-   * @param {number} [sampleRate=44100] the audio sampling rate [Hz]
+   * @param {paramTypes.ParamsWarpedAutoCorrelation} [params]
    * @memberof WarpedAutoCorrelation
   */
-  configure(maxLag: number=1, sampleRate: number=44100) {
-    this.algoInstance.configure(maxLag, sampleRate);
+  configure(params: paramTypes.ParamsWarpedAutoCorrelation) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.maxLag, this.params.sampleRate);
   }
   /**
    * Execute algorithm with given inputs
@@ -10093,6 +11351,9 @@ class WarpedAutoCorrelation {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsWarpedAutoCorrelation) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -10102,32 +11363,33 @@ class WarpedAutoCorrelation {
 */
 class Welch {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsWelch = {
+    averagingFrames: 10,
+    fftSize: 1024,
+    frameSize: 512,
+    sampleRate: 44100,
+    scaling: 'density',
+    windowType: 'hann',
+  };
+  private params: paramTypes.ParamsWelch = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [averagingFrames=10] amount of frames to average
-   * @param {number} [fftSize=1024] size of the FFT. Zero padding is added if this is larger the input frame size.
-   * @param {number} [frameSize=512] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [scaling=density] 'density' normalizes the result to the bandwidth while 'power' outputs the unnormalized power spectrum
-   * @param {string} [windowType=hann] the window type
+   * @param {paramTypes.ParamsWelch} [params]
   */
-  constructor(averagingFrames: number=10, fftSize: number=1024, frameSize: number=512, sampleRate: number=44100, scaling: string='density', windowType: string='hann') {
-    this.algoInstance = new wasmBackend.Welch(averagingFrames, fftSize, frameSize, sampleRate, scaling, windowType);
+  constructor(params: paramTypes.ParamsWelch) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Welch(this.params.averagingFrames, this.params.fftSize, this.params.frameSize, this.params.sampleRate, this.params.scaling, this.params.windowType);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [averagingFrames=10] amount of frames to average
-   * @param {number} [fftSize=1024] size of the FFT. Zero padding is added if this is larger the input frame size.
-   * @param {number} [frameSize=512] the expected size of the input audio signal (this is an optional parameter to optimize memory allocation)
-   * @param {number} [sampleRate=44100] the sampling rate of the audio signal [Hz]
-   * @param {string} [scaling=density] 'density' normalizes the result to the bandwidth while 'power' outputs the unnormalized power spectrum
-   * @param {string} [windowType=hann] the window type
+   * @param {paramTypes.ParamsWelch} [params]
    * @memberof Welch
   */
-  configure(averagingFrames: number=10, fftSize: number=1024, frameSize: number=512, sampleRate: number=44100, scaling: string='density', windowType: string='hann') {
-    this.algoInstance.configure(averagingFrames, fftSize, frameSize, sampleRate, scaling, windowType);
+  configure(params: paramTypes.ParamsWelch) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.averagingFrames, this.params.fftSize, this.params.frameSize, this.params.sampleRate, this.params.scaling, this.params.windowType);
   }
   /**
    * Execute algorithm with given inputs
@@ -10147,6 +11409,9 @@ class Welch {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsWelch) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -10155,36 +11420,35 @@ class Welch {
 */
 class Windowing {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsWindowing = {
+    constantsDecimals: 5,
+    normalized: true,
+    size: 1024,
+    splitPadding: false,
+    symmetric: true,
+    type: 'hann',
+    zeroPadding: 0,
+    zeroPhase: true,
+  };
+  private params: paramTypes.ParamsWindowing = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [constantsDecimals=5] number of decimals considered in the constants for the formulation of the hamming and blackmanharris* windows 
-   * @param {boolean} [normalized=true] a boolean value to specify whether to normalize windows (to have an area of 1) and then scale by a factor of 2
-   * @param {number} [size=1024] the window size
-   * @param {boolean} [splitPadding=false] whether to split the padding to the edges of the signal (_/\_) or to add it to the right (/\__). This option is ignored when zeroPhase (\__/) is true
-   * @param {boolean} [symmetric=true] whether to create a symmetric or asymmetric window as implemented in SciPy
-   * @param {string} [type=hann] the window type
-   * @param {number} [zeroPadding=0] the size of the zero-padding
-   * @param {boolean} [zeroPhase=true] a boolean value that enables zero-phase windowing
+   * @param {paramTypes.ParamsWindowing} [params]
   */
-  constructor(constantsDecimals: number=5, normalized: boolean=true, size: number=1024, splitPadding: boolean=false, symmetric: boolean=true, type: string='hann', zeroPadding: number=0, zeroPhase: boolean=true) {
-    this.algoInstance = new wasmBackend.Windowing(constantsDecimals, normalized, size, splitPadding, symmetric, type, zeroPadding, zeroPhase);
+  constructor(params: paramTypes.ParamsWindowing) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.Windowing(this.params.constantsDecimals, this.params.normalized, this.params.size, this.params.splitPadding, this.params.symmetric, this.params.type, this.params.zeroPadding, this.params.zeroPhase);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [constantsDecimals=5] number of decimals considered in the constants for the formulation of the hamming and blackmanharris* windows 
-   * @param {boolean} [normalized=true] a boolean value to specify whether to normalize windows (to have an area of 1) and then scale by a factor of 2
-   * @param {number} [size=1024] the window size
-   * @param {boolean} [splitPadding=false] whether to split the padding to the edges of the signal (_/\_) or to add it to the right (/\__). This option is ignored when zeroPhase (\__/) is true
-   * @param {boolean} [symmetric=true] whether to create a symmetric or asymmetric window as implemented in SciPy
-   * @param {string} [type=hann] the window type
-   * @param {number} [zeroPadding=0] the size of the zero-padding
-   * @param {boolean} [zeroPhase=true] a boolean value that enables zero-phase windowing
+   * @param {paramTypes.ParamsWindowing} [params]
    * @memberof Windowing
   */
-  configure(constantsDecimals: number=5, normalized: boolean=true, size: number=1024, splitPadding: boolean=false, symmetric: boolean=true, type: string='hann', zeroPadding: number=0, zeroPhase: boolean=true) {
-    this.algoInstance.configure(constantsDecimals, normalized, size, splitPadding, symmetric, type, zeroPadding, zeroPhase);
+  configure(params: paramTypes.ParamsWindowing) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.constantsDecimals, this.params.normalized, this.params.size, this.params.splitPadding, this.params.symmetric, this.params.type, this.params.zeroPadding, this.params.zeroPhase);
   }
   /**
    * Execute algorithm with given inputs
@@ -10204,6 +11468,9 @@ class Windowing {
   delete() {
     this.algoInstance.delete();
   }
+  private updateParams(params: paramTypes.ParamsWindowing) {
+    this.params = { ...this.defaultParams, ...params };
+  }
 }
  
 /**
@@ -10213,22 +11480,28 @@ In order to avoid small variations around zero caused by noise, a threshold arou
 */
 class ZeroCrossingRate {
   private algoInstance: any;
+  private readonly defaultParams: paramTypes.ParamsZeroCrossingRate = {
+    threshold: 0,
+  };
+  private params: paramTypes.ParamsZeroCrossingRate = { ...this.defaultParams };
   /**
    * Creates an instance of the algorithm and initializes it by configuring with default or given params
    * @constructor
-   * @param {number} [threshold=0] the threshold which will be taken as the zero axis in both positive and negative sign
+   * @param {paramTypes.ParamsZeroCrossingRate} [params]
   */
-  constructor(threshold: number=0) {
-    this.algoInstance = new wasmBackend.ZeroCrossingRate(threshold);
+  constructor(params: paramTypes.ParamsZeroCrossingRate) {
+    this.updateParams(params);
+    this.algoInstance = new wasmBackend.ZeroCrossingRate(this.params.threshold);
   }
   /**
    * Configure algorithm with default or given params
    * @method
-   * @param {number} [threshold=0] the threshold which will be taken as the zero axis in both positive and negative sign
+   * @param {paramTypes.ParamsZeroCrossingRate} [params]
    * @memberof ZeroCrossingRate
   */
-  configure(threshold: number=0) {
-    this.algoInstance.configure(threshold);
+  configure(params: paramTypes.ParamsZeroCrossingRate) {
+    this.updateParams(params);
+    this.algoInstance.configure(this.params.threshold);
   }
   /**
    * Execute algorithm with given inputs
@@ -10247,6 +11520,9 @@ class ZeroCrossingRate {
   */
   delete() {
     this.algoInstance.delete();
+  }
+  private updateParams(params: paramTypes.ParamsZeroCrossingRate) {
+    this.params = { ...this.defaultParams, ...params };
   }
 }
  
