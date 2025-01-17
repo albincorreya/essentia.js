@@ -360,6 +360,7 @@ def parse_to_typescript(algorithm_name):
 			converted_params_check_list.append(f"    if ({obj_arg_param_access}) {{")
 			converted_params_check_list.append(f"      {obj_arg_param_access} = arrayToVector({obj_arg_param_access});")
 			converted_params_check_list.append("    }")
+			param_default_val = f"arrayToVector({param_default_val})"
 
 		elif param['type'] == 'string':
 			param_default_val = f"'{param['default']}'"
@@ -461,6 +462,7 @@ def parse_to_typescript(algorithm_name):
 	# private params update method
 	if has_params:
 		algorithm_class_body.append(f"  private updateParams({constructor_configure_param_arg}) {{")
+		algorithm_class_body.append("    if (!params) return;")
 		if converted_params_check_list:
 			algorithm_class_body.extend(converted_params_check_list)
 		
@@ -561,4 +563,88 @@ def get_types_summary():
 	print(f'param types in INCLUDED_ALGOS: {param_types}')
 	print(f'input types in INCLUDED_ALGOS: {input_types}')
 	print(f'output types in INCLUDED_ALGOS: {output_types}')
+
+def parse_param_range(param_range):
+	pass
+
+def parse_to_test_suite(algorithm_name):
+	algo = getattr(estd, algorithm_name)()
+	doc_dict = algo.getStruct()
+
+	instance_variable = f"{algorithm_name[0].lower() + algorithm_name[1:]}Instance"
+
+	invalid_parameter_cases = list()
+	valid_parameters_obj = "{}"
+
+	suite_template = f"""
+	describe('{algorithm_name}:instantiation', () => {{
+		let {instance_variable};
+		it('should instantiate algorithm and initialize with default params', () => {{
+			{instance_variable} = new {algorithm_name}();
+			expect({instance_variable}).to.be.instanceOf({algorithm_name});
+		}});
+		it('should delete instance', function () {{
+			if (!{instance_variable}) this.skip();
+			{instance_variable}.delete();
+		}});
+	}});
+
+	describe('{algorithm_name}:functionality', () => {{
+		let {instance_variable};
+
+		before(() => {{
+			{instance_variable} = new {algorithm_name}();
+		}});
+		after(() => {{
+			{instance_variable}.delete();
+		}});
+
+		it('should configure with valid parameters', () => {{
+			expect(() => {{
+				{instance_variable}.configure({valid_parameters_obj});
+			}}).to.not.throw();
+		}});
+
+		// invalid param cases
+
+		/*
+		it('should compute with valid input', () => {{
+			const result = {instance_variable}.compute()
+		}}); */
+	}});
+	"""
+	return suite_template
+
+def generate_integration_tests(algorithms=TO_INCLUDE_ALGOS):
+	algorithm_test_suites = list()
+	logging.info("Generating integration tests...")
+	for algo_name in algorithms:
+		algorithm_test_suites.append(parse_to_test_suite(algo_name))
+		algorithm_test_suites.append("\n")
+	logging.info(f"Finished generating integration tests for {len(algorithms)} essentia algorithms")
+	return algorithm_test_suites
+
+
+def get_possible_input_output_params(algorithms=TO_INCLUDE_ALGOS):
+	input_types = list()
+	output_types = list()
+	param_types = list()
+	param_ranges = list()
+	for algo in algorithms:
+		a = getattr(estd, algo)()
+		doc = a.getStruct()
+
+		for input in doc['inputs']:
+			if input['type'] not in input_types: input_types.append(input['type'])
+		for output in doc['outputs']:
+			if output['type'] not in output_types: output_types.append(output['type'])
+		for param in doc['parameters']:
+			if param['type'] not in param_types: param_types.append(param['type'])
+			if param['range'] not in param_ranges: param_ranges.append(param['range'])
 		
+	return {
+		"input_types": input_types,
+		"output_types": output_types,
+		"param_types": param_types,
+		"param_ranges": param_ranges
+	}

@@ -346,6 +346,7 @@ class AllPass {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsAllPass) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -357,7 +358,7 @@ class AllPass {
 class AudioOnsetsMarker {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsAudioOnsetsMarker = {
-    onsets: [],
+    onsets: arrayToVector([]),
     sampleRate: 44100,
     type: 'beep',
   };
@@ -400,6 +401,7 @@ class AudioOnsetsMarker {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsAudioOnsetsMarker) {
+    if (!params) return;
     if (params.onsets) {
       params.onsets = arrayToVector(params.onsets);
     }
@@ -459,6 +461,7 @@ class AutoCorrelation {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsAutoCorrelation) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -523,6 +526,7 @@ class BFCC {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBFCC) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -534,8 +538,8 @@ class BFCC {
 class BPF {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsBPF = {
-    xPoints: [0, 1],
-    yPoints: [0, 1],
+    xPoints: arrayToVector([0, 1]),
+    yPoints: arrayToVector([0, 1]),
   };
   private params: paramTypes.ParamsBPF = { ...this.defaultParams };
   /**
@@ -576,6 +580,7 @@ class BPF {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBPF) {
+    if (!params) return;
     if (params.xPoints) {
       params.xPoints = arrayToVector(params.xPoints);
     }
@@ -636,6 +641,7 @@ class BandPass {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBandPass) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -690,6 +696,7 @@ class BandReject {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBandReject) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -743,6 +750,7 @@ class BarkBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBarkBands) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -796,6 +804,7 @@ class BeatTrackerDegara {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBeatTrackerDegara) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -854,6 +863,7 @@ class BeatTrackerMultiFeature {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBeatTrackerMultiFeature) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -908,6 +918,7 @@ class Beatogram {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBeatogram) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -921,8 +932,8 @@ class BeatsLoudness {
   private readonly defaultParams: paramTypes.ParamsBeatsLoudness = {
     beatDuration: 0.05,
     beatWindowDuration: 0.1,
-    beats: [],
-    frequencyBands: [20, 150, 400, 3200, 7000, 22000],
+    beats: arrayToVector([]),
+    frequencyBands: arrayToVector([20, 150, 400, 3200, 7000, 22000]),
     sampleRate: 44100,
   };
   private params: paramTypes.ParamsBeatsLoudness = { ...this.defaultParams };
@@ -964,6 +975,7 @@ class BeatsLoudness {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBeatsLoudness) {
+    if (!params) return;
     if (params.beats) {
       params.beats = arrayToVector(params.beats);
     }
@@ -1026,6 +1038,7 @@ class BinaryOperator {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBinaryOperator) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1082,6 +1095,7 @@ class BinaryOperatorStream {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBinaryOperatorStream) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1180,6 +1194,7 @@ class BpmRubato {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsBpmRubato) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1233,6 +1248,7 @@ class CentralMoments {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsCentralMoments) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1285,6 +1301,7 @@ class Centroid {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsCentroid) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1392,6 +1409,7 @@ class ChordsDetection {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsChordsDetection) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1449,6 +1467,7 @@ class ChordsDetectionBeats {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsChordsDetectionBeats) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1508,6 +1527,7 @@ class ChromaCrossSimilarity {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsChromaCrossSimilarity) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1570,6 +1590,7 @@ class Chromagram {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsChromagram) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1628,6 +1649,7 @@ class ClickDetector {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsClickDetector) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1681,6 +1703,7 @@ class Clipper {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsClipper) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1736,6 +1759,7 @@ class CoverSongSimilarity {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsCoverSongSimilarity) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1833,6 +1857,7 @@ class CrossCorrelation {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsCrossCorrelation) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1889,6 +1914,7 @@ class CrossSimilarityMatrix {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsCrossSimilarityMatrix) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -1912,8 +1938,8 @@ class CubicSpline {
     leftBoundaryValue: 0,
     rightBoundaryFlag: 0,
     rightBoundaryValue: 0,
-    xPoints: [0, 1],
-    yPoints: [0, 1],
+    xPoints: arrayToVector([0, 1]),
+    yPoints: arrayToVector([0, 1]),
   };
   private params: paramTypes.ParamsCubicSpline = { ...this.defaultParams };
   /**
@@ -1954,6 +1980,7 @@ class CubicSpline {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsCubicSpline) {
+    if (!params) return;
     if (params.xPoints) {
       params.xPoints = arrayToVector(params.xPoints);
     }
@@ -2013,6 +2040,7 @@ class DCRemoval {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDCRemoval) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2069,6 +2097,7 @@ class DCT {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDCT) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2124,6 +2153,7 @@ class Danceability {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDanceability) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2180,6 +2210,7 @@ class Decrease {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDecrease) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2325,6 +2356,7 @@ class DiscontinuityDetector {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDiscontinuityDetector) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2470,6 +2502,7 @@ class Duration {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDuration) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2523,6 +2556,7 @@ class DynamicComplexity {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsDynamicComplexity) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2581,6 +2615,7 @@ class ERBBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsERBBands) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2639,6 +2674,7 @@ class EffectiveDuration {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsEffectiveDuration) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2737,6 +2773,7 @@ class EnergyBand {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsEnergyBand) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2791,6 +2828,7 @@ class EnergyBandRatio {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsEnergyBandRatio) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2889,6 +2927,7 @@ class Envelope {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsEnvelope) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -2941,6 +2980,7 @@ class EqualLoudness {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsEqualLoudness) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3123,6 +3163,7 @@ class Flux {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsFlux) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3179,6 +3220,7 @@ class FrameCutter {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsFrameCutter) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3232,6 +3274,7 @@ class FrameToReal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsFrameToReal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3243,7 +3286,7 @@ class FrameToReal {
 class FrequencyBands {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsFrequencyBands = {
-    frequencyBands: [0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000],
+    frequencyBands: arrayToVector([0, 50, 100, 150, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000, 2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 20500, 27000]),
     sampleRate: 44100,
   };
   private params: paramTypes.ParamsFrequencyBands = { ...this.defaultParams };
@@ -3285,6 +3328,7 @@ class FrequencyBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsFrequencyBands) {
+    if (!params) return;
     if (params.frequencyBands) {
       params.frequencyBands = arrayToVector(params.frequencyBands);
     }
@@ -3349,6 +3393,7 @@ class GFCC {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsGFCC) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3413,6 +3458,7 @@ class GapsDetector {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsGapsDetector) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3512,6 +3558,7 @@ class HFC {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHFC) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3577,6 +3624,7 @@ class HPCP {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHPCP) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3633,6 +3681,7 @@ class HarmonicBpm {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHarmonicBpm) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3694,6 +3743,7 @@ class HarmonicPeaks {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHarmonicPeaks) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3747,6 +3797,7 @@ class HighPass {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHighPass) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3800,6 +3851,7 @@ class HighResolutionFeatures {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHighResolutionFeatures) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3855,6 +3907,7 @@ class Histogram {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHistogram) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3921,6 +3974,7 @@ class HprModelAnal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHprModelAnal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -3987,6 +4041,7 @@ class HpsModelAnal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsHpsModelAnal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4043,6 +4098,7 @@ class IDCT {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsIDCT) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4054,8 +4110,8 @@ class IDCT {
 class IIR {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsIIR = {
-    denominator: [1],
-    numerator: [1],
+    denominator: arrayToVector([1]),
+    numerator: arrayToVector([1]),
   };
   private params: paramTypes.ParamsIIR = { ...this.defaultParams };
   /**
@@ -4096,6 +4152,7 @@ class IIR {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsIIR) {
+    if (!params) return;
     if (params.denominator) {
       params.denominator = arrayToVector(params.denominator);
     }
@@ -4241,6 +4298,7 @@ class Intensity {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsIntensity) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4299,6 +4357,7 @@ class Key {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsKey) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4364,6 +4423,7 @@ class KeyExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsKeyExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4418,6 +4478,7 @@ class LPC {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLPC) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4473,6 +4534,7 @@ class Larm {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLarm) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4570,6 +4632,7 @@ class LevelExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLevelExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4624,6 +4687,7 @@ class LogAttackTime {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLogAttackTime) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4680,6 +4744,7 @@ class LogSpectrum {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLogSpectrum) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4733,6 +4798,7 @@ class LoopBpmConfidence {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLoopBpmConfidence) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4785,6 +4851,7 @@ class LoopBpmEstimator {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLoopBpmEstimator) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4880,6 +4947,7 @@ class LoudnessVickers {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLoudnessVickers) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4934,6 +5002,7 @@ class LowLevelSpectralEqloudExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLowLevelSpectralEqloudExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -4988,6 +5057,7 @@ class LowLevelSpectralExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLowLevelSpectralExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5044,6 +5114,7 @@ class LowPass {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsLowPass) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5113,6 +5184,7 @@ class MFCC {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMFCC) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5166,6 +5238,7 @@ class MaxFilter {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMaxFilter) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5219,6 +5292,7 @@ class MaxMagFreq {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMaxMagFreq) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5400,6 +5474,7 @@ class MedianFilter {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMedianFilter) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5461,6 +5536,7 @@ class MelBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMelBands) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5557,6 +5633,7 @@ class MinMax {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMinMax) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5652,6 +5729,7 @@ class MovingAverage {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMovingAverage) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5715,6 +5793,7 @@ class MultiPitchKlapuri {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMultiPitchKlapuri) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5784,6 +5863,7 @@ class MultiPitchMelodia {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMultiPitchMelodia) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5836,6 +5916,7 @@ class Multiplexer {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsMultiplexer) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5901,6 +5982,7 @@ class NNLSChroma {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsNNLSChroma) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -5954,6 +6036,7 @@ class NoiseAdder {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsNoiseAdder) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6008,6 +6091,7 @@ class NoiseBurstDetector {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsNoiseBurstDetector) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6021,7 +6105,7 @@ class NoveltyCurve {
   private readonly defaultParams: paramTypes.ParamsNoveltyCurve = {
     frameRate: 344.531,
     normalize: false,
-    weightCurve: [],
+    weightCurve: arrayToVector([]),
     weightCurveType: 'hybrid',
   };
   private params: paramTypes.ParamsNoveltyCurve = { ...this.defaultParams };
@@ -6063,6 +6147,7 @@ class NoveltyCurve {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsNoveltyCurve) {
+    if (!params) return;
     if (params.weightCurve) {
       params.weightCurve = arrayToVector(params.weightCurve);
     }
@@ -6122,6 +6207,7 @@ class NoveltyCurveFixedBpmEstimator {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsNoveltyCurveFixedBpmEstimator) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6229,6 +6315,7 @@ class OnsetDetection {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsOnsetDetection) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6291,6 +6378,7 @@ class OnsetDetectionGlobal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsOnsetDetectionGlobal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6390,6 +6478,7 @@ class OverlapAdd {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsOverlapAdd) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6451,6 +6540,7 @@ class PeakDetection {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPeakDetection) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6509,6 +6599,7 @@ class PercivalBpmEstimator {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPercivalBpmEstimator) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6655,6 +6746,7 @@ class PitchContourSegmentation {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchContourSegmentation) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6715,6 +6807,7 @@ class PitchContours {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchContours) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6780,6 +6873,7 @@ class PitchContoursMelody {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchContoursMelody) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6844,6 +6938,7 @@ class PitchContoursMonoMelody {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchContoursMonoMelody) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6907,6 +7002,7 @@ class PitchContoursMultiMelody {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchContoursMultiMelody) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -6962,6 +7058,7 @@ class PitchFilter {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchFilter) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7031,6 +7128,7 @@ class PitchMelodia {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchMelodia) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7085,6 +7183,7 @@ class PitchSalience {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchSalience) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7143,6 +7242,7 @@ class PitchSalienceFunction {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchSalienceFunction) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7198,6 +7298,7 @@ class PitchSalienceFunctionPeaks {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchSalienceFunctionPeaks) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7255,6 +7356,7 @@ class PitchYin {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchYin) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7312,6 +7414,7 @@ class PitchYinFFT {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchYinFFT) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7369,6 +7472,7 @@ class PitchYinProbabilistic {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchYinProbabilistic) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7424,6 +7528,7 @@ class PitchYinProbabilities {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchYinProbabilities) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7480,6 +7585,7 @@ class PitchYinProbabilitiesHMM {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPitchYinProbabilitiesHMM) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7532,6 +7638,7 @@ class PowerMean {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPowerMean) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7584,6 +7691,7 @@ class PowerSpectrum {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPowerSpectrum) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7655,6 +7763,7 @@ class PredominantPitchMelodia {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsPredominantPitchMelodia) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7755,6 +7864,7 @@ class RawMoments {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsRawMoments) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7807,6 +7917,7 @@ class ReplayGain {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsReplayGain) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7861,6 +7972,7 @@ class Resample {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsResample) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7914,6 +8026,7 @@ class ResampleFFT {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsResampleFFT) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -7979,7 +8092,7 @@ class RhythmExtractor {
     minTempo: 40,
     numberFrames: 1024,
     sampleRate: 44100,
-    tempoHints: [],
+    tempoHints: arrayToVector([]),
     tolerance: 0.24,
     useBands: true,
     useOnset: true,
@@ -8023,6 +8136,7 @@ class RhythmExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsRhythmExtractor) {
+    if (!params) return;
     if (params.tempoHints) {
       params.tempoHints = arrayToVector(params.tempoHints);
     }
@@ -8082,6 +8196,7 @@ class RhythmExtractor2013 {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsRhythmExtractor2013) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8135,6 +8250,7 @@ class RhythmTransform {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsRhythmTransform) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8188,6 +8304,7 @@ class RollOff {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsRollOff) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8246,6 +8363,7 @@ class SNR {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSNR) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8306,6 +8424,7 @@ class SaturationDetector {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSaturationDetector) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8360,6 +8479,7 @@ class Scale {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsScale) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8417,6 +8537,7 @@ class SineSubtraction {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSineSubtraction) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8430,7 +8551,7 @@ class SingleBeatLoudness {
   private readonly defaultParams: paramTypes.ParamsSingleBeatLoudness = {
     beatDuration: 0.05,
     beatWindowDuration: 0.1,
-    frequencyBands: [0, 200, 400, 800, 1600, 3200, 22000],
+    frequencyBands: arrayToVector([0, 200, 400, 800, 1600, 3200, 22000]),
     onsetStart: 'sumEnergy',
     sampleRate: 44100,
   };
@@ -8473,6 +8594,7 @@ class SingleBeatLoudness {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSingleBeatLoudness) {
+    if (!params) return;
     if (params.frequencyBands) {
       params.frequencyBands = arrayToVector(params.frequencyBands);
     }
@@ -8487,9 +8609,9 @@ class SingleBeatLoudness {
 class Slicer {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsSlicer = {
-    endTimes: [],
+    endTimes: arrayToVector([]),
     sampleRate: 44100,
-    startTimes: [],
+    startTimes: arrayToVector([]),
     timeUnits: 'seconds',
   };
   private params: paramTypes.ParamsSlicer = { ...this.defaultParams };
@@ -8531,6 +8653,7 @@ class Slicer {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSlicer) {
+    if (!params) return;
     if (params.endTimes) {
       params.endTimes = arrayToVector(params.endTimes);
     }
@@ -8592,6 +8715,7 @@ class SpectralCentroidTime {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectralCentroidTime) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8645,6 +8769,7 @@ class SpectralComplexity {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectralComplexity) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8703,6 +8828,7 @@ class SpectralContrast {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectralContrast) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8760,6 +8886,7 @@ class SpectralPeaks {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectralPeaks) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8815,6 +8942,7 @@ class SpectralWhitening {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectralWhitening) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8867,6 +8995,7 @@ class Spectrum {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectrum) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8928,6 +9057,7 @@ class SpectrumCQ {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectrumCQ) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -8987,6 +9117,7 @@ class SpectrumToCent {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpectrumToCent) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9006,8 +9137,8 @@ class Spline {
     beta1: 1,
     beta2: 0,
     type: 'b',
-    xPoints: [0, 1],
-    yPoints: [0, 1],
+    xPoints: arrayToVector([0, 1]),
+    yPoints: arrayToVector([0, 1]),
   };
   private params: paramTypes.ParamsSpline = { ...this.defaultParams };
   /**
@@ -9048,6 +9179,7 @@ class Spline {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpline) {
+    if (!params) return;
     if (params.xPoints) {
       params.xPoints = arrayToVector(params.xPoints);
     }
@@ -9116,6 +9248,7 @@ class SprModelAnal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSprModelAnal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9173,6 +9306,7 @@ class SprModelSynth {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSprModelSynth) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9236,6 +9370,7 @@ class SpsModelAnal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpsModelAnal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9294,6 +9429,7 @@ class SpsModelSynth {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSpsModelSynth) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9351,6 +9487,7 @@ class StartStopCut {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsStartStopCut) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9403,6 +9540,7 @@ class StartStopSilence {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsStartStopSilence) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9458,6 +9596,7 @@ class StochasticModelAnal {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsStochasticModelAnal) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9513,6 +9652,7 @@ class StochasticModelSynth {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsStochasticModelSynth) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9565,6 +9705,7 @@ class StrongDecay {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsStrongDecay) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9665,6 +9806,7 @@ class SuperFluxExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSuperFluxExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9718,6 +9860,7 @@ class SuperFluxNovelty {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSuperFluxNovelty) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9775,6 +9918,7 @@ class SuperFluxPeaks {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsSuperFluxPeaks) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -9829,7 +9973,7 @@ class TCToTotal {
 class TempoScaleBands {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsTempoScaleBands = {
-    bandsGain: [2, 3, 2, 1, 1.20000004768, 2, 3, 2.5],
+    bandsGain: arrayToVector([2, 3, 2, 1, 1.20000004768, 2, 3, 2.5]),
     frameTime: 512,
   };
   private params: paramTypes.ParamsTempoScaleBands = { ...this.defaultParams };
@@ -9871,6 +10015,7 @@ class TempoScaleBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTempoScaleBands) {
+    if (!params) return;
     if (params.bandsGain) {
       params.bandsGain = arrayToVector(params.bandsGain);
     }
@@ -9894,7 +10039,7 @@ class TempoTap {
     minTempo: 40,
     numberFrames: 1024,
     sampleRate: 44100,
-    tempoHints: [],
+    tempoHints: arrayToVector([]),
   };
   private params: paramTypes.ParamsTempoTap = { ...this.defaultParams };
   /**
@@ -9935,6 +10080,7 @@ class TempoTap {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTempoTap) {
+    if (!params) return;
     if (params.tempoHints) {
       params.tempoHints = arrayToVector(params.tempoHints);
     }
@@ -9993,6 +10139,7 @@ class TempoTapDegara {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTempoTapDegara) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10091,6 +10238,7 @@ class TempoTapTicks {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTempoTapTicks) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10317,6 +10465,7 @@ class TonalExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTonalExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10380,6 +10529,7 @@ class TonicIndianArtMusic {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTonicIndianArtMusic) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10391,7 +10541,7 @@ class TonicIndianArtMusic {
 class TriangularBands {
   private algoInstance: any;
   private readonly defaultParams: paramTypes.ParamsTriangularBands = {
-    frequencyBands: [21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594],
+    frequencyBands: arrayToVector([21.533203125, 43.06640625, 64.599609375, 86.1328125, 107.666015625, 129.19921875, 150.732421875, 172.265625, 193.798828125, 215.33203125, 236.865234375, 258.3984375, 279.931640625, 301.46484375, 322.998046875, 344.53125, 366.064453125, 387.59765625, 409.130859375, 430.6640625, 452.197265625, 473.73046875, 495.263671875, 516.796875, 538.330078125, 559.86328125, 581.396484375, 602.9296875, 624.462890625, 645.99609375, 667.529296875, 689.0625, 710.595703125, 732.12890625, 753.662109375, 775.1953125, 796.728515625, 839.794921875, 861.328125, 882.861328125, 904.39453125, 925.927734375, 968.994140625, 990.52734375, 1012.06054688, 1055.12695312, 1076.66015625, 1098.19335938, 1141.25976562, 1184.32617188, 1205.859375, 1248.92578125, 1270.45898438, 1313.52539062, 1356.59179688, 1399.65820312, 1442.72460938, 1485.79101562, 1528.85742188, 1571.92382812, 1614.99023438, 1658.05664062, 1701.12304688, 1765.72265625, 1808.7890625, 1873.38867188, 1916.45507812, 1981.0546875, 2024.12109375, 2088.72070312, 2153.3203125, 2217.91992188, 2282.51953125, 2347.11914062, 2411.71875, 2497.8515625, 2562.45117188, 2627.05078125, 2713.18359375, 2799.31640625, 2885.44921875, 2950.04882812, 3036.18164062, 3143.84765625, 3229.98046875, 3316.11328125, 3423.77929688, 3509.91210938, 3617.578125, 3725.24414062, 3832.91015625, 3940.57617188, 4069.77539062, 4177.44140625, 4306.640625, 4435.83984375, 4565.0390625, 4694.23828125, 4844.97070312, 4974.16992188, 5124.90234375, 5275.63476562, 5426.3671875, 5577.09960938, 5749.36523438, 5921.63085938, 6093.89648438, 6266.16210938, 6459.9609375, 6653.75976562, 6847.55859375, 7041.35742188, 7256.68945312, 7450.48828125, 7687.35351562, 7902.68554688, 8139.55078125, 8376.41601562, 8613.28125, 8871.6796875, 9130.078125, 9388.4765625, 9668.40820312, 9948.33984375, 10249.8046875, 10551.2695312, 10852.734375, 11175.7324219, 11498.7304688, 11843.2617188, 12187.7929688, 12553.8574219, 12919.921875, 13285.9863281, 13673.5839844, 14082.7148438, 14491.8457031, 14922.5097656, 15353.1738281, 15805.3710938, 16257.5683594]),
     inputSize: 1025,
     log: true,
     normalize: 'unit_sum',
@@ -10438,6 +10588,7 @@ class TriangularBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTriangularBands) {
+    if (!params) return;
     if (params.frequencyBands) {
       params.frequencyBands = arrayToVector(params.frequencyBands);
     }
@@ -10503,6 +10654,7 @@ class TriangularBarkBands {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTriangularBarkBands) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10559,6 +10711,7 @@ class Trimmer {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTrimmer) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10670,6 +10823,7 @@ class TruePeakDetector {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTruePeakDetector) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10723,6 +10877,7 @@ class TuningFrequency {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTuningFrequency) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10776,6 +10931,7 @@ class TuningFrequencyExtractor {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsTuningFrequencyExtractor) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10835,6 +10991,7 @@ class UnaryOperator {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsUnaryOperator) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10894,6 +11051,7 @@ class UnaryOperatorStream {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsUnaryOperatorStream) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -10993,6 +11151,7 @@ class Vibrato {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsVibrato) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -11048,6 +11207,7 @@ class WarpedAutoCorrelation {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsWarpedAutoCorrelation) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -11106,6 +11266,7 @@ class Welch {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsWelch) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -11165,6 +11326,7 @@ class Windowing {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsWindowing) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
@@ -11218,6 +11380,7 @@ class ZeroCrossingRate {
     this.algoInstance.delete();
   }
   private updateParams(params: paramTypes.ParamsZeroCrossingRate) {
+    if (!params) return;
     this.params = { ...this.defaultParams, ...params };
   }
 }
